@@ -15,42 +15,280 @@ generator typegraphql {
 }
 
 // Schema
-model Product {
-  id          String     @id @default(uuid())
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
-  name        String
-  sku         String     @unique
-  description String?
-  quantity    Int
-  categories  Category[]
-  orders      Order[]
+// Enum
+enum UserRole {
+  USER
+  JUDGE
+  MODERATOR
+  ADMINISTRATOR
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+// Model
+model Grade {
+  id     Int     @id @default(autoincrement())
+  name   String
+  routes Route[]
 }
 
 model Category {
-  id        Int       @id @default(autoincrement())
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  name      String
-  products  Product[]
+  id          Int          @id @default(autoincrement())
+  name        String
+  description String?
+  ageFrom     Int
+  ageTo       Int
+  competitors Competitor[]
+  routes      Route[]
 }
 
-model Order {
-  id        String    @id @default(uuid())
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  userId    Int?
-  customer  User?     @relation(fields: [userId], references: [id])
-  products  Product[]
+model CompetitionType {
+  id           Int           @id @default(autoincrement())
+  name         String
+  description  String?
+  competitions Competition[]
+}
+
+model Country {
+  id        Int        @id @default(autoincrement())
+  name      String
+  locations Location[]
+}
+
+model Region {
+  id        Int        @id @default(autoincrement())
+  name      String
+  locations Location[]
+}
+
+model Location {
+  id           Int           @id @default(autoincrement())
+  name         String?
+  country      Country       @relation(fields: [countryId], references: [id])
+  countryId    Int
+  region       Region        @relation(fields: [regionId], references: [id])
+  regionId     Int
+  users        User[]
+  clubs        Club[]
+  competitors  Competitor[]
+  competitions Competition[]
+}
+
+model Comment {
+  id            Int            @id @default(autoincrement())
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  content       String?
+  scoresBoulder ScoreBoulder[]
+  scoresLead    ScoreLead[]
+  scoresSpeed   ScoreSpeed[]
+}
+
+model Season {
+  id           Int           @id @default(autoincrement())
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  name         String
+  description  String?
+  year         Int?
+  stardDate    DateTime
+  endDate      DateTime
+  competitions Competition[]
 }
 
 model User {
+  id             Int            @id @default(autoincrement())
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  email          String         @unique
+  firstName      String
+  lastName       String
+  role           UserRole       @default(USER)
+  location       Location       @relation(fields: [locationId], references: [id])
+  locationId     Int
+  results        Result[]
+  registrations  Registration[]
+  judges         Judge[]
+  setters        Setter[]
+}
+
+model Judge {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  email     String   @unique
-  firstName String?
-  lastName  String?
-  address   String?
-  orders    Order[]
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  routes    Route[]
+}
+
+model Setter {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  routes    Route[]
+}
+
+model Club {
+  id           Int           @id @default(autoincrement())
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  name         String
+  description  String?
+  address      String?
+  location     Location      @relation(fields: [locationId], references: [id])
+  locationId   Int
+  competitors  Competitor[]
+  competitions Competition[]
+}
+
+model Competitor {
+  id            Int            @id @default(autoincrement())
+  publicId      String         @default(uuid())
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  firstName     String
+  lastName      String
+  birdthDate    DateTime
+  gender        Gender
+  category      Category       @relation(fields: [categoryId], references: [id])
+  categoryId    Int
+  club          Club           @relation(fields: [clubId], references: [id])
+  clubId        Int
+  address       String?
+  location      Location       @relation(fields: [locationId], references: [id])
+  locationId    Int
+  scoresBoulder ScoreBoulder[]
+  scoresLead    ScoreLead[]
+  scoresSpeed   ScoreSpeed[]
+  startLists    StartList[]
+  results       Result[]
+  registrations Registration[]
+}
+
+model Competition {
+  id            Int             @id @default(autoincrement())
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  name          String
+  description   String
+  startDate     DateTime
+  endDate       DateTime
+  address       String
+  location      Location        @relation(fields: [locationId], references: [id])
+  locationId    Int
+  club          Club            @relation(fields: [clubId], references: [id])
+  clubId        Int
+  compType      CompetitionType @relation(fields: [compTypeId], references: [id])
+  compTypeId    Int
+  season        Season          @relation(fields: [seasonId], references: [id])
+  seasonId      Int
+  startLists    StartList[]
+  results       Result[]
+  registrations Registration[]
+}
+
+model Route {
+  id           Int            @id @default(autoincrement())
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  number       Int
+  name         String
+  description  String?
+  setter       Setter         @relation(fields: [setterId], references: [id])
+  setterId     Int
+  judge        Judge          @relation(fields: [judgeId], references: [id])
+  judgeId      Int
+  category     Category       @relation(fields: [categoryId], references: [id])
+  categoryId   Int
+  grade        Grade          @relation(fields: [gradeId], references: [id])
+  gradeId      Int
+  scoreBoulder ScoreBoulder[]
+  scoreLead    ScoreLead[]
+  scoreSpeed   ScoreSpeed[]
+}
+
+model ScoreBoulder {
+  id           Int        @id @default(autoincrement())
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  top          Int
+  zone         Int
+  attempts     Int
+  time         Int?
+  competitor   Competitor @relation(fields: [competitorId], references: [id])
+  competitorId Int
+  route        Route      @relation(fields: [routeId], references: [id])
+  routeId      Int
+  comment      Comment    @relation(fields: [commentId], references: [id])
+  commentId    Int
+}
+
+model ScoreLead {
+  id           Int        @id @default(autoincrement())
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  height       Int
+  time         Int
+  competitor   Competitor @relation(fields: [competitorId], references: [id])
+  competitorId Int
+  route        Route      @relation(fields: [routeId], references: [id])
+  routeId      Int
+  comment      Comment    @relation(fields: [commentId], references: [id])
+  commentId    Int
+}
+
+model ScoreSpeed {
+  id           Int        @id @default(autoincrement())
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  time         Int
+  competitor   Competitor @relation(fields: [competitorId], references: [id])
+  competitorId Int
+  route        Route      @relation(fields: [routeId], references: [id])
+  routeId      Int
+  comment      Comment    @relation(fields: [commentId], references: [id])
+  commentId    Int
+}
+
+model StartList {
+  id            Int         @id @default(autoincrement())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  startNumber   Int
+  competition   Competition @relation(fields: [competitionId], references: [id])
+  competitionId Int
+  competitor    Competitor  @relation(fields: [competitorId], references: [id])
+  competitorId  Int
+}
+
+model Result {
+  id            Int         @id @default(autoincrement())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  score         Int
+  competition   Competition @relation(fields: [competitionId], references: [id])
+  competitionId Int
+  competitor    Competitor  @relation(fields: [competitorId], references: [id])
+  competitorId  Int
+  approvedBy    User        @relation(fields: [approvedById], references: [id])
+  approvedById  Int
+}
+
+model Registration {
+  id             Int         @id @default(autoincrement())
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  paid           Boolean     @default(false)
+  accepted       Boolean     @default(false)
+  competition    Competition @relation(fields: [competitionId], references: [id])
+  competitionId  Int
+  competitor     Competitor  @relation(fields: [competitorId], references: [id])
+  competitorId   Int
+  registeredBy   User        @relation(fields: [registeredById], references: [id])
+  registeredById Int
 }
