@@ -28,6 +28,13 @@ enum Gender {
   FEMALE
 }
 
+enum RouteType {
+  BOULDER
+  LEAD
+  SPEED
+  DUEL
+}
+
 // Model
 model Grade {
   id     Int     @id @default(autoincrement())
@@ -100,37 +107,20 @@ model Season {
 }
 
 model User {
-  id             Int            @id @default(autoincrement())
-  createdAt      DateTime       @default(now())
-  updatedAt      DateTime       @updatedAt
-  email          String         @unique
-  firstName      String
-  lastName       String
-  role           UserRole       @default(USER)
-  location       Location       @relation(fields: [locationId], references: [id])
-  locationId     Int
-  results        Result[]
-  registrations  Registration[]
-  judges         Judge[]
-  setters        Setter[]
-}
-
-model Judge {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  user      User     @relation(fields: [userId], references: [id])
-  userId    Int
-  routes    Route[]
-}
-
-model Setter {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  user      User     @relation(fields: [userId], references: [id])
-  userId    Int
-  routes    Route[]
+  id            Int            @id @default(autoincrement())
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  email         String         @unique
+  firstName     String
+  lastName      String
+  role          UserRole       @default(USER)
+  location      Location       @relation(fields: [locationId], references: [id])
+  locationId    Int
+  results       Result[]
+  registrations Registration[] @relation("registrant")
+  acceptances   Registration[] @relation("acceptor")
+  routesJudged  Route[]        @relation("judge")
+  routesSet     Route[]        @relation("setter")
 }
 
 model Club {
@@ -190,26 +180,30 @@ model Competition {
   startLists    StartList[]
   results       Result[]
   registrations Registration[]
+  routes        Route[]
 }
 
 model Route {
-  id           Int            @id @default(autoincrement())
-  createdAt    DateTime       @default(now())
-  updatedAt    DateTime       @updatedAt
-  number       Int
-  name         String
-  description  String?
-  setter       Setter         @relation(fields: [setterId], references: [id])
-  setterId     Int
-  judge        Judge          @relation(fields: [judgeId], references: [id])
-  judgeId      Int
-  category     Category       @relation(fields: [categoryId], references: [id])
-  categoryId   Int
-  grade        Grade          @relation(fields: [gradeId], references: [id])
-  gradeId      Int
-  scoreBoulder ScoreBoulder[]
-  scoreLead    ScoreLead[]
-  scoreSpeed   ScoreSpeed[]
+  id            Int            @id @default(autoincrement())
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  number        Int
+  name          String
+  description   String?
+  routeType     RouteType
+  competition   Competition    @relation(fields: [competitionId], references: [id])
+  competitionId Int
+  setter        User           @relation(name: "setter", fields: [setterId], references: [id])
+  setterId      Int
+  judge         User           @relation(name: "judge", fields: [judgeId], references: [id])
+  judgeId       Int
+  category      Category       @relation(fields: [categoryId], references: [id])
+  categoryId    Int
+  grade         Grade          @relation(fields: [gradeId], references: [id])
+  gradeId       Int
+  scoreBoulder  ScoreBoulder[]
+  scoreLead     ScoreLead[]
+  scoreSpeed    ScoreSpeed[]
 }
 
 model ScoreBoulder {
@@ -280,15 +274,17 @@ model Result {
 }
 
 model Registration {
-  id             Int         @id @default(autoincrement())
-  createdAt      DateTime    @default(now())
-  updatedAt      DateTime    @updatedAt
-  paid           Boolean     @default(false)
-  accepted       Boolean     @default(false)
-  competition    Competition @relation(fields: [competitionId], references: [id])
-  competitionId  Int
-  competitor     Competitor  @relation(fields: [competitorId], references: [id])
-  competitorId   Int
-  registeredBy   User        @relation(fields: [registeredById], references: [id])
-  registeredById Int
+  id            Int         @id @default(autoincrement())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  paid          Boolean     @default(false)
+  accepted      Boolean     @default(false)
+  competition   Competition @relation(fields: [competitionId], references: [id])
+  competitionId Int
+  competitor    Competitor  @relation(fields: [competitorId], references: [id])
+  competitorId  Int
+  registrant    User        @relation(name: "registrant", fields: [registrantId], references: [id])
+  registrantId  Int
+  acceptor      User        @relation(name: "acceptor", fields: [acceptorId], references: [id])
+  acceptorId    Int
 }
