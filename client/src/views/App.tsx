@@ -47,7 +47,6 @@ const Container = styled(Layout)`
 
 const Content = styled(Layout.Content)`
   flex-grow: 1;
-  padding: 24px 50px;
   background: #fff;
 `;
 
