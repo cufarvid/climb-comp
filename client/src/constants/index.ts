@@ -1,3 +1,4 @@
 import { ROUTE } from './Route';
+import { COLOR } from './Color';
 
-export { ROUTE };
+export { ROUTE, COLOR };
