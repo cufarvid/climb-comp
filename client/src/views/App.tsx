@@ -1,18 +1,17 @@
 import React, { FC } from 'react';
 import { Layout, Menu } from 'antd';
 import { Link, Route } from 'react-router-dom';
+import styled from '@emotion/styled';
 
 import { Competitions, Home, Results } from './index';
+
 import '../assets/styles/App.css';
-
 import { ROUTE } from '../constants';
-
-const { Header, Content, Footer } = Layout;
 
 const App: FC = () => {
   return (
-    <Layout>
-      <Header>
+    <Container>
+      <Layout.Header>
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
           <Menu.Item key={1}>
             <Link to={ROUTE.HOME}>Home</Link>
@@ -24,7 +23,7 @@ const App: FC = () => {
             <Link to={ROUTE.RESULTS}>Results</Link>
           </Menu.Item>
         </Menu>
-      </Header>
+      </Layout.Header>
       <Content>
         <Route exact path={ROUTE.HOME} component={Home} />
         <Route path={ROUTE.COMPETITIONS} component={Competitions} />
@@ -33,8 +32,25 @@ const App: FC = () => {
       <Footer>
         <div>Footer</div>
       </Footer>
-    </Layout>
+    </Container>
   );
 };
 
 export default App;
+
+/*
+ * Styled components
+ */
+const Container = styled(Layout)`
+  min-height: 100vh;
+`;
+
+const Content = styled(Layout.Content)`
+  flex-grow: 1;
+  padding: 24px 50px;
+  background: #fff;
+`;
+
+const Footer = styled(Layout.Footer)`
+  flex-shrink: 0;
+`;
