@@ -2,7 +2,9 @@ import React, { FC } from 'react';
 import { Carousel } from 'antd';
 import styled from '@emotion/styled';
 
-import { PageSection } from '../components';
+import { PageSection, CompetitionCard } from '../components';
+
+import { LIST_COMPETITIONS } from '../constants';
 
 const Home: FC = () => {
   return (
@@ -12,14 +14,24 @@ const Home: FC = () => {
         <CarouselPage>Page 2</CarouselPage>
         <CarouselPage>Page 3</CarouselPage>
       </Carousel>
-      <PageSection title="Upcoming competitions">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet culpa
-        dolorum earum eveniet exercitationem harum ipsum, iste libero mollitia
-        qui quia, reiciendis sequi velit. Assumenda culpa dolores iste itaque
-        laudantium libero mollitia natus nostrum. A debitis earum iure libero
-        nesciunt, omnis sit temporibus. Aperiam magni maxime molestiae quisquam
-        repudiandae. Neque.
-        <a href="competitions">More...</a>
+      <PageSection
+        title="Upcoming competitions"
+        extra={
+          <a href="competitions">
+            <b>Show all</b>
+          </a>
+        }
+      >
+        {LIST_COMPETITIONS.map((comp, index) => (
+          <CompetitionCard
+            key={index}
+            title={comp.title}
+            compType={comp.compType}
+            startDate={comp.startDate}
+            location={comp.location}
+            extra={{ path: `competitions/${index}` }}
+          />
+        ))}
       </PageSection>
       <PageSection title="Latest news" variant={'dark'}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consectetur
