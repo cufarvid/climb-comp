@@ -9,6 +9,7 @@ import { colorFromVariant } from '../utils';
 interface PageSectionProps {
   title?: string;
   children: ReactNode | React.ReactChildren | React.ReactChildren[];
+  extra?: ReactNode | React.ReactChildren;
   align?: RowProps['align'];
   justify?: RowProps['justify'];
   variant?: ColorVariant;
@@ -17,11 +18,12 @@ interface PageSectionProps {
 const PageSection: FC<PageSectionProps> = ({
   title,
   children,
+  extra,
   align = 'middle',
   justify = 'center',
   variant = 'light',
 }: PageSectionProps) => {
-  const [background, text, link] = colorFromVariant(variant);
+  const [background, text] = colorFromVariant(variant);
 
   const sectionStyle = css`
     padding: 24px 50px;
@@ -31,17 +33,24 @@ const PageSection: FC<PageSectionProps> = ({
     h1 {
       color: ${text};
     }
-
-    a {
-      color: ${link};
-    }
   `;
 
   return (
-    <Row align={align} justify={justify} css={sectionStyle}>
-      {title && <h1>{title}</h1>}
-      {children}
-    </Row>
+    <div css={sectionStyle}>
+      {title && (
+        <Row align={align} justify={justify}>
+          <h1>{title}</h1>
+        </Row>
+      )}
+      <Row align={align} justify={justify}>
+        {children}
+      </Row>
+      {extra && (
+        <Row align={align} justify={justify}>
+          {extra}
+        </Row>
+      )}
+    </div>
   );
 };
 

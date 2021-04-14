@@ -1,3 +1,4 @@
 import PageSection from './PageSection';
+import CompetitionCard from './CompetitionCard';
 
-export { PageSection };
+export { PageSection, CompetitionCard };
