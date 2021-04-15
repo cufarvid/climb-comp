@@ -12,9 +12,13 @@ generator client {
 
 generator typegraphql {
   provider = "typegraphql-prisma"
+  output   = "../prisma/generated/type-graphql"
 }
 
-// Schema
+//
+// Prisma schema
+//
+
 // Enum
 enum UserRole {
   USER
@@ -111,6 +115,7 @@ model User {
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
   email         String         @unique
+  password      String
   firstName     String
   lastName      String
   role          UserRole       @default(USER)
