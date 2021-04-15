@@ -14,8 +14,13 @@ const App: FC = () => {
 
   return (
     <Container>
-      <Layout.Header>
+      <Header>
         <Row justify="space-between">
+          <Col>
+            <Link to={ROUTE.HOME}>
+              <b>ClimbComp</b>
+            </Link>
+          </Col>
           <Col>
             <Menu
               onClick={(e) => setCurrentTab(e.key.toString())}
@@ -40,7 +45,7 @@ const App: FC = () => {
             </Link>
           </Col>
         </Row>
-      </Layout.Header>
+      </Header>
       <Content>
         <Route exact path={ROUTE.HOME} component={Home} />
         <Route path={ROUTE.COMPETITIONS} component={Competitions} />
@@ -69,6 +74,12 @@ const Content = styled(Layout.Content)`
 
 const Footer = styled(Layout.Footer)`
   flex-shrink: 0;
+`;
+
+const Header = styled(Layout.Header)`
+  position: fixed;
+  z-index: 1;
+  width: 100%;
 `;
 
 const UserAvatar = styled(Avatar)`
