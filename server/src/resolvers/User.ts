@@ -5,9 +5,6 @@ import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
 import { Context, LoginInput, LoginOutput, RegisterInput } from '../types';
 import { User } from '@generated/type-graphql';
 
-// TODO: Move to process env
-import { JWT_SECRET } from '../../jwt';
-
 @Resolver(() => User)
 export class UserResolver {
   @Mutation(() => LoginOutput)
@@ -26,7 +23,7 @@ export class UserResolver {
 
     if (!passwordValid) throw new Error('Invalid password');
 
-    const token = await jwt.sign({ email }, JWT_SECRET, {
+    const token = await jwt.sign({ email }, process.env.JWT_SECRET, {
       expiresIn: '8h',
     });
 
