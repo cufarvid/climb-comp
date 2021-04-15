@@ -1,14 +1,18 @@
 import 'reflect-metadata';
 import * as tq from 'type-graphql';
 import { ApolloServer } from 'apollo-server';
-import { Context } from 'vm';
 import { PrismaClient } from '@prisma/client';
 import { resolvers } from '@generated/type-graphql';
+
+import { Context } from './types';
+import { UserResolver } from './resolvers/User';
 
 const prisma = new PrismaClient();
 
 (async () => {
-  const schema = await tq.buildSchema({ resolvers });
+  const schema = await tq.buildSchema({
+    resolvers: [...resolvers, UserResolver],
+  });
 
   const sever = new ApolloServer({
     schema,
