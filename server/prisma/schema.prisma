@@ -91,7 +91,9 @@ model Comment {
   id            Int            @id @default(autoincrement())
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
-  content       String?
+  content       String
+  user          User?          @relation(fields: [userId], references: [id])
+  userId        Int?
   scoresBoulder ScoreBoulder[]
   scoresLead    ScoreLead[]
   scoresSpeed   ScoreSpeed[]
@@ -118,13 +120,14 @@ model User {
   firstName     String
   lastName      String
   role          UserRole       @default(USER)
-  location      Location       @relation(fields: [locationId], references: [id])
-  locationId    Int
+  location      Location?      @relation(fields: [locationId], references: [id])
+  locationId    Int?
   results       Result[]
   registrations Registration[] @relation("registrant")
   acceptances   Registration[] @relation("acceptor")
   routesJudged  Route[]        @relation("judge")
   routesSet     Route[]        @relation("setter")
+  comments      Comment[]
 }
 
 model Club {
@@ -222,8 +225,8 @@ model ScoreBoulder {
   competitorId Int
   route        Route      @relation(fields: [routeId], references: [id])
   routeId      Int
-  comment      Comment    @relation(fields: [commentId], references: [id])
-  commentId    Int
+  comment      Comment?   @relation(fields: [commentId], references: [id])
+  commentId    Int?
 }
 
 model ScoreLead {
@@ -236,8 +239,8 @@ model ScoreLead {
   competitorId Int
   route        Route      @relation(fields: [routeId], references: [id])
   routeId      Int
-  comment      Comment    @relation(fields: [commentId], references: [id])
-  commentId    Int
+  comment      Comment?   @relation(fields: [commentId], references: [id])
+  commentId    Int?
 }
 
 model ScoreSpeed {
@@ -249,8 +252,8 @@ model ScoreSpeed {
   competitorId Int
   route        Route      @relation(fields: [routeId], references: [id])
   routeId      Int
-  comment      Comment    @relation(fields: [commentId], references: [id])
-  commentId    Int
+  comment      Comment?   @relation(fields: [commentId], references: [id])
+  commentId    Int?
 }
 
 model StartList {
