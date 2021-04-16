@@ -1,5 +1,6 @@
 import { ROUTE } from './Route';
 import { COLOR } from './Color';
+import { HEADER_HEIGHT, FOOTER_HEIGHT } from './Layout';
 
 // Temporary mock data
 export const LIST_COMPETITIONS = [
@@ -29,4 +30,4 @@ export const LIST_COMPETITIONS = [
   },
 ];
 
-export { ROUTE, COLOR };
+export { ROUTE, COLOR, FOOTER_HEIGHT, HEADER_HEIGHT };

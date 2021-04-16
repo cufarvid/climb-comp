@@ -1,16 +1,20 @@
 import React, { FC, useState } from 'react';
-import { Avatar, Col, Layout, Menu, Row } from 'antd';
+import { Avatar, Button, Col, Layout, Menu, Row } from 'antd';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { Link, Route } from 'react-router-dom';
 import styled from '@emotion/styled';
 
-import { Competitions, Home, Results } from './index';
+import { useReactiveVar } from '@apollo/client';
+import { isLoggedInVar } from '../apollo/cache';
 
-import '../assets/styles/App.css';
-import { COLOR, ROUTE } from '../constants';
+import { Competitions, Home, LoginDrawer, Results } from './index';
+import { COLOR, ROUTE, FOOTER_HEIGHT, HEADER_HEIGHT } from '../constants';
 
 const App: FC = () => {
   const [currentTab, setCurrentTab] = useState('home');
+  const [showDrawer, setShowDrawer] = useState(false);
+
+  const isLoggedIn = useReactiveVar(isLoggedInVar);
 
   return (
     <Container>
@@ -40,17 +44,28 @@ const App: FC = () => {
             </Menu>
           </Col>
           <Col>
-            <Link to={ROUTE.LOGIN}>
-              <UserAvatar icon={<UserOutlined />} />
-            </Link>
+            {isLoggedIn ? (
+              <Link to={ROUTE.USER}>
+                <UserAvatar icon={<UserOutlined />} />
+              </Link>
+            ) : (
+              <Button type="primary" onClick={() => setShowDrawer(true)}>
+                Login
+              </Button>
+            )}
           </Col>
         </Row>
       </Header>
+
       <Content>
+        <LoginDrawer visible={showDrawer} setVisible={setShowDrawer} />
+        {/* Routes */}
         <Route exact path={ROUTE.HOME} component={Home} />
         <Route path={ROUTE.COMPETITIONS} component={Competitions} />
         <Route path={ROUTE.RESULTS} component={Results} />
+        <Route path={ROUTE.USER} component={Home} />
       </Content>
+
       <Footer>
         <div>Footer</div>
       </Footer>
@@ -68,18 +83,18 @@ const Container = styled(Layout)`
 `;
 
 const Content = styled(Layout.Content)`
+  min-height: calc(100vh - ${HEADER_HEIGHT + FOOTER_HEIGHT}px);
   flex-grow: 1;
   background: #fff;
 `;
 
 const Footer = styled(Layout.Footer)`
+  height: ${FOOTER_HEIGHT}px;
   flex-shrink: 0;
 `;
 
 const Header = styled(Layout.Header)`
-  position: fixed;
-  z-index: 1;
-  width: 100%;
+  height: ${FOOTER_HEIGHT}px;
 `;
 
 const UserAvatar = styled(Avatar)`

@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './apollo/client';
 
-import './assets/styles/index.css';
+import './assets/styles/App.css';
 import App from './views/App';
 
 ReactDOM.render(
