@@ -1,0 +1,1 @@
+INSERT INTO public."Location" (id, name, "countryId", "regionId") VALUES (1, null, 1, 1);

@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import { ApolloError } from 'apollo-server-errors';
 import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
 
 import { Context, LoginInput, LoginOutput, RegisterInput } from '../types';
@@ -17,11 +18,11 @@ export class UserResolver {
       where: { email },
     });
 
-    if (!user) throw new Error('Invalid email address');
+    if (!user) throw new ApolloError('Invalid email address');
 
     const passwordValid = bcrypt.compareSync(password, user.password);
 
-    if (!passwordValid) throw new Error('Invalid password');
+    if (!passwordValid) throw new ApolloError('Invalid password');
 
     const token = await jwt.sign({ email }, process.env.JWT_SECRET, {
       expiresIn: '8h',
@@ -42,12 +43,13 @@ export class UserResolver {
           lastName: registerInput.lastName,
           email: registerInput.email,
           password: await bcrypt.hash(registerInput.password, 10),
-          location: { connect: { id: registerInput.locationId } },
+          location: registerInput.locationId
+            ? { connect: { id: registerInput.locationId } }
+            : undefined,
         },
       });
     } catch (e) {
-      console.error(e);
-      throw new Error('Error creating user');
+      throw new ApolloError('Error creating user');
     }
   }
 }

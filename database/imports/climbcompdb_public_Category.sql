@@ -1,0 +1,1 @@
+INSERT INTO public."Category" (id, name, description, "ageFrom", "ageTo") VALUES (1, 'U20', null, 20, 30);

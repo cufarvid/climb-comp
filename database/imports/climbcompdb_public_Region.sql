@@ -1,0 +1,1 @@
+INSERT INTO public."Region" (id, name) VALUES (1, 'Gorenjska');

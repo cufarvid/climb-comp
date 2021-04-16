@@ -14,7 +14,7 @@ const typeDefs = gql`
 `;
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:2332',
+  uri: 'http://localhost:4000',
 });
 
 const authLink = setContext((_, { headers }) => {
