@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import path from 'path';
 import * as tq from 'type-graphql';
 import { ApolloServer } from 'apollo-server';
 import { PrismaClient } from '@prisma/client';
@@ -12,6 +13,7 @@ const prisma = new PrismaClient();
 (async () => {
   const schema = await tq.buildSchema({
     resolvers: [...resolvers, UserResolver],
+    emitSchemaFile: path.resolve(__dirname, 'schema.gql'),
   });
 
   const sever = new ApolloServer({
