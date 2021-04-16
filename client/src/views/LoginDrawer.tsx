@@ -1,5 +1,12 @@
 import React, { FC } from 'react';
-import { Button, Checkbox, Drawer, Form, Input } from 'antd';
+import { useHistory } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { Button, Checkbox, Drawer, Form, Input, message } from 'antd';
+
+import { isLoggedInVar } from '../apollo/cache';
+import { USER_LOGIN } from '../apollo/mutations/';
+
+import { MESSAGE, ROUTE } from '../constants';
 
 const layout = {
   labelCol: { span: 8 },
@@ -16,12 +23,27 @@ interface LoginProps {
 }
 
 const LoginDrawer: FC<LoginProps> = ({ visible, setVisible }: LoginProps) => {
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
-  };
+  const history = useHistory();
+  const [login, { loading }] = useMutation(USER_LOGIN, {
+    onCompleted: ({ login }) => {
+      if (login) {
+        localStorage.setItem('token', login.token);
+        isLoggedInVar(true);
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+        message.success(MESSAGE.LOGIN_SUCCESS).then();
+
+        // Close drawer
+        setVisible(false);
+
+        // Redirect to user page
+        history.push(ROUTE.USER);
+      }
+    },
+    onError: () => message.error(MESSAGE.ERROR_BASIC),
+  });
+
+  const onFinish = async ({ email, password }: never) => {
+    await login({ variables: { credentials: { email, password } } });
   };
 
   return (
@@ -36,7 +58,6 @@ const LoginDrawer: FC<LoginProps> = ({ visible, setVisible }: LoginProps) => {
         name="basic"
         initialValues={{ remember: true }}
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
       >
         <Form.Item
           label="Email"
@@ -62,7 +83,7 @@ const LoginDrawer: FC<LoginProps> = ({ visible, setVisible }: LoginProps) => {
           <Checkbox>Remember me</Checkbox>
         </Form.Item>
         <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button loading={loading} type="primary" htmlType="submit">
             Submit
           </Button>
         </Form.Item>
