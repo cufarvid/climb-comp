@@ -1,20 +1,28 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Avatar, Button, Col, Layout, Menu, Row } from 'antd';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 import { useReactiveVar } from '@apollo/client';
 import { isLoggedInVar } from '../apollo/cache';
 
-import { Competitions, Home, LoginDrawer, Results } from './index';
+import { Competitions, Home, UserDrawer, Results, Dashboard } from './index';
 import { COLOR, ROUTE, FOOTER_HEIGHT, HEADER_HEIGHT } from '../constants';
 
 const App: FC = () => {
-  const [currentTab, setCurrentTab] = useState('home');
-  const [showDrawer, setShowDrawer] = useState(false);
+  const [currentTab, setCurrentTab] = useState(ROUTE.HOME);
+  const [drawerVisible, setDrawerVisible] = useState(false);
 
   const isLoggedIn = useReactiveVar(isLoggedInVar);
+  const location = useLocation();
+
+  const showDrawer = (): void => setDrawerVisible(true);
+  const isDashboard: boolean = location.pathname.includes(ROUTE.DASHBOARD);
+
+  useEffect(() => {
+    setCurrentTab(location.pathname);
+  }, [location]);
 
   return (
     <Container>
@@ -26,30 +34,30 @@ const App: FC = () => {
             </Link>
           </Col>
           <Col>
-            <Menu
-              onClick={(e) => setCurrentTab(e.key.toString())}
-              selectedKeys={[currentTab]}
-              theme="dark"
-              mode="horizontal"
-            >
-              <Menu.Item key="home" icon={<HomeOutlined />}>
+            <Menu selectedKeys={[currentTab]} theme="dark" mode="horizontal">
+              <Menu.Item key={ROUTE.HOME} icon={<HomeOutlined />}>
                 <Link to={ROUTE.HOME}>Home</Link>
               </Menu.Item>
-              <Menu.Item key="competitions">
+              <Menu.Item key={ROUTE.COMPETITIONS}>
                 <Link to={ROUTE.COMPETITIONS}>Competitions</Link>
               </Menu.Item>
-              <Menu.Item key="results">
+              <Menu.Item key={ROUTE.RESULTS}>
                 <Link to={ROUTE.RESULTS}>Results</Link>
               </Menu.Item>
+              {isLoggedIn && (
+                <Menu.Item key={ROUTE.DASHBOARD}>
+                  <Link to={ROUTE.DASHBOARD}>Dashboard</Link>
+                </Menu.Item>
+              )}
             </Menu>
           </Col>
           <Col>
             {isLoggedIn ? (
-              <Link to={ROUTE.USER}>
+              <a onClick={showDrawer}>
                 <UserAvatar icon={<UserOutlined />} />
-              </Link>
+              </a>
             ) : (
-              <Button type="primary" onClick={() => setShowDrawer(true)}>
+              <Button type="primary" onClick={showDrawer}>
                 Login
               </Button>
             )}
@@ -58,17 +66,19 @@ const App: FC = () => {
       </Header>
 
       <Content>
-        <LoginDrawer visible={showDrawer} setVisible={setShowDrawer} />
+        <UserDrawer visible={drawerVisible} setVisible={setDrawerVisible} />
         {/* Routes */}
         <Route exact path={ROUTE.HOME} component={Home} />
         <Route path={ROUTE.COMPETITIONS} component={Competitions} />
         <Route path={ROUTE.RESULTS} component={Results} />
-        <Route path={ROUTE.USER} component={Home} />
+        <Route path={ROUTE.DASHBOARD} component={Dashboard} />
       </Content>
 
-      <Footer>
-        <div>Footer</div>
-      </Footer>
+      {!isDashboard && (
+        <Footer>
+          <div>Footer</div>
+        </Footer>
+      )}
     </Container>
   );
 };

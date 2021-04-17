@@ -28,7 +28,7 @@ export class UserResolver {
       expiresIn: '8h',
     });
 
-    return { email, token };
+    return { publicId: user.publicId, token };
   }
 
   @Mutation(() => User)
