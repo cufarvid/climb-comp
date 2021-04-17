@@ -18,6 +18,7 @@ const App: FC = () => {
   const location = useLocation();
 
   const showDrawer = (): void => setDrawerVisible(true);
+  const isDashboard: boolean = location.pathname === ROUTE.DASHBOARD;
 
   useEffect(() => {
     setCurrentTab(location.pathname);
@@ -73,9 +74,11 @@ const App: FC = () => {
         <Route path={ROUTE.DASHBOARD} component={Dashboard} />
       </Content>
 
-      <Footer>
-        <div>Footer</div>
-      </Footer>
+      {!isDashboard && (
+        <Footer>
+          <div>Footer</div>
+        </Footer>
+      )}
     </Container>
   );
 };

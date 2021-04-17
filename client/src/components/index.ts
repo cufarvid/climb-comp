@@ -4,6 +4,7 @@ import LoginForm from './LoginForm';
 import LogoutButton from './LogoutButton';
 import UserInfo from './user/UserInfo';
 import UserDescription from './user/UserDescription';
+import Sidebar from './Sidebar';
 
 export {
   PageSection,
@@ -12,4 +13,5 @@ export {
   LogoutButton,
   UserInfo,
   UserDescription,
+  Sidebar,
 };
