@@ -5,6 +5,7 @@ import LogoutButton from './LogoutButton';
 import UserInfo from './user/UserInfo';
 import UserDescription from './user/UserDescription';
 import Sidebar from './Sidebar';
+import BreadCrumbs from './BreadCrumbs';
 
 export {
   PageSection,
@@ -14,4 +15,5 @@ export {
   UserInfo,
   UserDescription,
   Sidebar,
+  BreadCrumbs,
 };

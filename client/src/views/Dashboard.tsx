@@ -3,9 +3,8 @@ import { useLocation } from 'react-router-dom';
 import { Breadcrumb, Layout } from 'antd';
 import styled from '@emotion/styled';
 
-import { Sidebar } from '../components';
+import { BreadCrumbs, Sidebar } from '../components';
 import { COLOR, HEADER_HEIGHT } from '../constants';
-import { urlPathToArray } from '../utils';
 
 const Dashboard: FC = () => {
   const location = useLocation();
@@ -16,9 +15,7 @@ const Dashboard: FC = () => {
       <StyledLayout>
         <Content>
           <BreadCrumb>
-            {urlPathToArray(location.pathname).map((item, index) => (
-              <BreadCrumbItem key={index}>{item}</BreadCrumbItem>
-            ))}
+            <BreadCrumbs pathName={location.pathname} />
           </BreadCrumb>
           <Container>Score athlete 1001</Container>
         </Content>
@@ -42,10 +39,6 @@ const Content = styled(Layout.Content)`
 
 const BreadCrumb = styled(Breadcrumb)`
   margin: 16px 0;
-`;
-
-const BreadCrumbItem = styled(Breadcrumb.Item)`
-  text-transform: capitalize;
 `;
 
 const Container = styled('div')`
