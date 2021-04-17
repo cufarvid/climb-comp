@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useApolloClient } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
 import { Button } from 'antd';
-import { isLoggedInVar } from '../apollo/cache';
+import { isLoggedInVar, loggedUserId } from '../apollo/cache';
 
 interface LogoutButtonProps {
   callback?: () => void;
@@ -24,10 +24,12 @@ const LogoutButton: FC<LogoutButtonProps> = ({
 
         // Remove user details from localStorage.
         localStorage.removeItem('token');
+        localStorage.removeItem('publicId');
 
         // Let other parts of the application that are relying on logged in
         // state know we're now logged out.
         isLoggedInVar(false);
+        loggedUserId(null);
 
         // Redirect back to home page
         history.push('/');

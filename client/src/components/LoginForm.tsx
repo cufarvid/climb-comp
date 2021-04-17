@@ -3,7 +3,7 @@ import { Button, Checkbox, Form, Input, message } from 'antd';
 import { useMutation } from '@apollo/client';
 
 import { USER_LOGIN } from '../apollo/mutations';
-import { isLoggedInVar } from '../apollo/cache';
+import { isLoggedInVar, loggedUserId } from '../apollo/cache';
 import { MESSAGE } from '../constants';
 
 const layout = {
@@ -24,6 +24,9 @@ const LoginForm: FC<LoginFormProps> = ({ callback }: LoginFormProps) => {
     onCompleted: ({ login }) => {
       if (login) {
         localStorage.setItem('token', login.token);
+        localStorage.setItem('publicId', login.publicId);
+
+        loggedUserId(login.publicId);
         isLoggedInVar(true);
 
         message.success(MESSAGE.LOGIN_SUCCESS).then();
