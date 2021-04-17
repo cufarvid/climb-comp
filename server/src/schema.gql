@@ -3086,6 +3086,7 @@ input CompetitorWhereInput {
 
 input CompetitorWhereUniqueInput {
   id: Int
+  publicId: String
 }
 
 type Country {
@@ -3979,7 +3980,7 @@ input LoginInput {
 }
 
 type LoginOutput {
-  email: String!
+  publicId: String!
   token: String!
 }
 
@@ -8329,6 +8330,7 @@ type User {
   location: Location
   locationId: Int
   password: String!
+  publicId: String!
   registrations(cursor: RegistrationWhereUniqueInput, distinct: [RegistrationScalarFieldEnum!], orderBy: [RegistrationOrderByInput!], skip: Int, take: Int, where: RegistrationWhereInput): [Registration!]!
   results(cursor: ResultWhereUniqueInput, distinct: [ResultScalarFieldEnum!], orderBy: [ResultOrderByInput!], skip: Int, take: Int, where: ResultWhereInput): [Result!]!
   role: UserRole!
@@ -8351,6 +8353,7 @@ type UserCountAggregate {
   lastName: Int
   locationId: Int
   password: Int
+  publicId: Int
   role: Int
   updatedAt: Int
 }
@@ -8364,6 +8367,7 @@ input UserCreateInput {
   lastName: String!
   location: LocationCreateNestedOneWithoutUsersInput
   password: String!
+  publicId: String
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   results: ResultCreateNestedManyWithoutApprovedByInput
   role: UserRole
@@ -8380,6 +8384,7 @@ input UserCreateManyInput {
   lastName: String!
   locationId: Int
   password: String!
+  publicId: String
   role: UserRole
   updatedAt: DateTime
 }
@@ -8391,6 +8396,7 @@ input UserCreateManyLocationInput {
   id: Int
   lastName: String!
   password: String!
+  publicId: String
   role: UserRole
   updatedAt: DateTime
 }
@@ -8486,6 +8492,7 @@ input UserCreateWithoutAcceptancesInput {
   lastName: String!
   location: LocationCreateNestedOneWithoutUsersInput
   password: String!
+  publicId: String
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   results: ResultCreateNestedManyWithoutApprovedByInput
   role: UserRole
@@ -8502,6 +8509,7 @@ input UserCreateWithoutCommentsInput {
   lastName: String!
   location: LocationCreateNestedOneWithoutUsersInput
   password: String!
+  publicId: String
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   results: ResultCreateNestedManyWithoutApprovedByInput
   role: UserRole
@@ -8518,6 +8526,7 @@ input UserCreateWithoutLocationInput {
   firstName: String!
   lastName: String!
   password: String!
+  publicId: String
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   results: ResultCreateNestedManyWithoutApprovedByInput
   role: UserRole
@@ -8535,6 +8544,7 @@ input UserCreateWithoutRegistrationsInput {
   lastName: String!
   location: LocationCreateNestedOneWithoutUsersInput
   password: String!
+  publicId: String
   results: ResultCreateNestedManyWithoutApprovedByInput
   role: UserRole
   routesJudged: RouteCreateNestedManyWithoutJudgeInput
@@ -8551,6 +8561,7 @@ input UserCreateWithoutResultsInput {
   lastName: String!
   location: LocationCreateNestedOneWithoutUsersInput
   password: String!
+  publicId: String
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   role: UserRole
   routesJudged: RouteCreateNestedManyWithoutJudgeInput
@@ -8567,6 +8578,7 @@ input UserCreateWithoutRoutesJudgedInput {
   lastName: String!
   location: LocationCreateNestedOneWithoutUsersInput
   password: String!
+  publicId: String
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   results: ResultCreateNestedManyWithoutApprovedByInput
   role: UserRole
@@ -8583,6 +8595,7 @@ input UserCreateWithoutRoutesSetInput {
   lastName: String!
   location: LocationCreateNestedOneWithoutUsersInput
   password: String!
+  publicId: String
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   results: ResultCreateNestedManyWithoutApprovedByInput
   role: UserRole
@@ -8602,6 +8615,7 @@ type UserGroupBy {
   max: UserMaxAggregate
   min: UserMinAggregate
   password: String!
+  publicId: String!
   role: UserRole!
   sum: UserSumAggregate
   updatedAt: DateTime!
@@ -8621,6 +8635,7 @@ type UserMaxAggregate {
   lastName: String
   locationId: Int
   password: String
+  publicId: String
   role: UserRole
   updatedAt: DateTime
 }
@@ -8633,6 +8648,7 @@ type UserMinAggregate {
   lastName: String
   locationId: Int
   password: String
+  publicId: String
   role: UserRole
   updatedAt: DateTime
 }
@@ -8645,6 +8661,7 @@ input UserOrderByInput {
   lastName: SortOrder
   locationId: SortOrder
   password: SortOrder
+  publicId: SortOrder
   role: SortOrder
   updatedAt: SortOrder
 }
@@ -8669,6 +8686,7 @@ enum UserScalarFieldEnum {
   lastName
   locationId
   password
+  publicId
   role
   updatedAt
 }
@@ -8684,6 +8702,7 @@ input UserScalarWhereInput {
   lastName: StringFilter
   locationId: IntNullableFilter
   password: StringFilter
+  publicId: StringFilter
   role: EnumUserRoleFilter
   updatedAt: DateTimeFilter
 }
@@ -8699,6 +8718,7 @@ input UserScalarWhereWithAggregatesInput {
   lastName: StringWithAggregatesFilter
   locationId: IntNullableWithAggregatesFilter
   password: StringWithAggregatesFilter
+  publicId: StringWithAggregatesFilter
   role: EnumUserRoleWithAggregatesFilter
   updatedAt: DateTimeWithAggregatesFilter
 }
@@ -8717,6 +8737,7 @@ input UserUpdateInput {
   lastName: StringFieldUpdateOperationsInput
   location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
+  publicId: StringFieldUpdateOperationsInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   results: ResultUpdateManyWithoutApprovedByInput
   role: EnumUserRoleFieldUpdateOperationsInput
@@ -8731,6 +8752,7 @@ input UserUpdateManyMutationInput {
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  publicId: StringFieldUpdateOperationsInput
   role: EnumUserRoleFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -8817,6 +8839,7 @@ input UserUpdateWithoutAcceptancesInput {
   lastName: StringFieldUpdateOperationsInput
   location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
+  publicId: StringFieldUpdateOperationsInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   results: ResultUpdateManyWithoutApprovedByInput
   role: EnumUserRoleFieldUpdateOperationsInput
@@ -8833,6 +8856,7 @@ input UserUpdateWithoutCommentsInput {
   lastName: StringFieldUpdateOperationsInput
   location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
+  publicId: StringFieldUpdateOperationsInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   results: ResultUpdateManyWithoutApprovedByInput
   role: EnumUserRoleFieldUpdateOperationsInput
@@ -8849,6 +8873,7 @@ input UserUpdateWithoutLocationInput {
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  publicId: StringFieldUpdateOperationsInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   results: ResultUpdateManyWithoutApprovedByInput
   role: EnumUserRoleFieldUpdateOperationsInput
@@ -8866,6 +8891,7 @@ input UserUpdateWithoutRegistrationsInput {
   lastName: StringFieldUpdateOperationsInput
   location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
+  publicId: StringFieldUpdateOperationsInput
   results: ResultUpdateManyWithoutApprovedByInput
   role: EnumUserRoleFieldUpdateOperationsInput
   routesJudged: RouteUpdateManyWithoutJudgeInput
@@ -8882,6 +8908,7 @@ input UserUpdateWithoutResultsInput {
   lastName: StringFieldUpdateOperationsInput
   location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
+  publicId: StringFieldUpdateOperationsInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   role: EnumUserRoleFieldUpdateOperationsInput
   routesJudged: RouteUpdateManyWithoutJudgeInput
@@ -8898,6 +8925,7 @@ input UserUpdateWithoutRoutesJudgedInput {
   lastName: StringFieldUpdateOperationsInput
   location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
+  publicId: StringFieldUpdateOperationsInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   results: ResultUpdateManyWithoutApprovedByInput
   role: EnumUserRoleFieldUpdateOperationsInput
@@ -8914,6 +8942,7 @@ input UserUpdateWithoutRoutesSetInput {
   lastName: StringFieldUpdateOperationsInput
   location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
+  publicId: StringFieldUpdateOperationsInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   results: ResultUpdateManyWithoutApprovedByInput
   role: EnumUserRoleFieldUpdateOperationsInput
@@ -8971,6 +9000,7 @@ input UserWhereInput {
   location: LocationRelationFilter
   locationId: IntNullableFilter
   password: StringFilter
+  publicId: StringFilter
   registrations: RegistrationListRelationFilter
   results: ResultListRelationFilter
   role: EnumUserRoleFilter
@@ -8982,4 +9012,5 @@ input UserWhereInput {
 input UserWhereUniqueInput {
   email: String
   id: Int
+  publicId: String
 }

@@ -1,17 +1,10 @@
 import {
   ApolloClient,
   createHttpLink,
-  gql,
   NormalizedCacheObject,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { cache } from './cache';
-
-const typeDefs = gql`
-  type LoggedUser {
-    isLoggedIn: Boolean!
-  }
-`;
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000',
@@ -32,5 +25,4 @@ const authLink = setContext((_, { headers }) => {
 export const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
   link: authLink.concat(httpLink),
   cache,
-  typeDefs,
 });
