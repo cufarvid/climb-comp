@@ -3086,6 +3086,7 @@ input CompetitorWhereInput {
 
 input CompetitorWhereUniqueInput {
   id: Int
+  publicId: String
 }
 
 type Country {
@@ -9011,4 +9012,5 @@ input UserWhereInput {
 input UserWhereUniqueInput {
   email: String
   id: Int
+  publicId: String
 }
