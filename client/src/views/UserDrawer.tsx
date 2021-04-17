@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { useReactiveVar } from '@apollo/client';
-import { Drawer } from 'antd';
+import { Button, Drawer, Row } from 'antd';
 
 import { isLoggedInVar } from '../apollo/cache';
-import { LoginForm, LogoutButton } from '../components';
+import { LoginForm, LogoutButton, UserInfo } from '../components';
 
 interface LoginProps {
   visible: boolean;
@@ -15,16 +15,24 @@ const UserDrawer: FC<LoginProps> = ({ visible, setVisible }: LoginProps) => {
 
   const closeDrawer = (): void => setVisible(false);
 
-  const drawerTitle: string = isLoggedIn ? 'User information' : 'User login';
+  const title: string = isLoggedIn ? 'User information' : 'User login';
+
+  const footer = isLoggedIn ? (
+    <Row justify="space-between">
+      <LogoutButton callback={closeDrawer} />
+      <Button disabled>Change password</Button> {/*TODO*/}
+    </Row>
+  ) : null;
 
   return (
     <Drawer
-      title={drawerTitle}
+      title={title}
       width={420}
       visible={visible}
       onClose={closeDrawer}
+      footer={footer}
     >
-      {isLoggedIn ? <LogoutButton callback={closeDrawer} /> : <LoginForm />}
+      {isLoggedIn ? <UserInfo /> : <LoginForm />}
     </Drawer>
   );
 };
