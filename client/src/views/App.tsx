@@ -18,7 +18,7 @@ const App: FC = () => {
   const location = useLocation();
 
   const showDrawer = (): void => setDrawerVisible(true);
-  const isDashboard: boolean = location.pathname === ROUTE.DASHBOARD;
+  const isDashboard: boolean = location.pathname.includes(ROUTE.DASHBOARD);
 
   useEffect(() => {
     setCurrentTab(location.pathname);

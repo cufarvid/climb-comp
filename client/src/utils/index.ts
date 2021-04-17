@@ -18,3 +18,7 @@ export const colorFromVariant = (
       return [COLOR.WHITE, COLOR.BASE, COLOR.DARK];
   }
 };
+
+export const urlPathToArray = (path: string): string[] => {
+  return path.split('/');
+};

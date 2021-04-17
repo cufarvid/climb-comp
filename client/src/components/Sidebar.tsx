@@ -18,7 +18,7 @@ const Sidebar: FC = () => {
       width={200}
       theme="light"
     >
-      <Menu mode="inline" selectedKeys={[ROUTE.SCORE]}>
+      <Menu mode="inline" defaultSelectedKeys={[ROUTE.SCORE]}>
         <Menu.Item key={ROUTE.SCORE}>
           <FundViewOutlined />
           <span>Score</span>
