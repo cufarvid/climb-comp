@@ -4,7 +4,7 @@ import { User } from '@generated/type-graphql/models';
 @ObjectType()
 export default class LoginOutput implements Partial<User> {
   @Field()
-  email: string;
+  publicId: string;
 
   @Field()
   token: string;
