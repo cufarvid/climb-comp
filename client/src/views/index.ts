@@ -1,6 +1,6 @@
 import Home from './Home';
 import Competitions from './Competitions';
 import Results from './Results';
-import LoginDrawer from './LoginDrawer';
+import UserDrawer from './UserDrawer';
 
-export { Home, Competitions, Results, LoginDrawer };
+export { Home, Competitions, Results, UserDrawer };

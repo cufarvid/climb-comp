@@ -7,14 +7,16 @@ import styled from '@emotion/styled';
 import { useReactiveVar } from '@apollo/client';
 import { isLoggedInVar } from '../apollo/cache';
 
-import { Competitions, Home, LoginDrawer, Results } from './index';
+import { Competitions, Home, UserDrawer, Results } from './index';
 import { COLOR, ROUTE, FOOTER_HEIGHT, HEADER_HEIGHT } from '../constants';
 
 const App: FC = () => {
   const [currentTab, setCurrentTab] = useState('home');
-  const [showDrawer, setShowDrawer] = useState(false);
+  const [drawerVisible, setDrawerVisible] = useState(false);
 
   const isLoggedIn = useReactiveVar(isLoggedInVar);
+
+  const showDrawer = (): void => setDrawerVisible(true);
 
   return (
     <Container>
@@ -45,11 +47,11 @@ const App: FC = () => {
           </Col>
           <Col>
             {isLoggedIn ? (
-              <Link to={ROUTE.USER}>
+              <a onClick={showDrawer}>
                 <UserAvatar icon={<UserOutlined />} />
-              </Link>
+              </a>
             ) : (
-              <Button type="primary" onClick={() => setShowDrawer(true)}>
+              <Button type="primary" onClick={showDrawer}>
                 Login
               </Button>
             )}
@@ -58,12 +60,11 @@ const App: FC = () => {
       </Header>
 
       <Content>
-        <LoginDrawer visible={showDrawer} setVisible={setShowDrawer} />
+        <UserDrawer visible={drawerVisible} setVisible={setDrawerVisible} />
         {/* Routes */}
         <Route exact path={ROUTE.HOME} component={Home} />
         <Route path={ROUTE.COMPETITIONS} component={Competitions} />
         <Route path={ROUTE.RESULTS} component={Results} />
-        <Route path={ROUTE.USER} component={Home} />
       </Content>
 
       <Footer>
