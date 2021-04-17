@@ -4,7 +4,8 @@ import { useMutation } from '@apollo/client';
 
 import { USER_LOGIN } from '../apollo/mutations';
 import { isLoggedInVar, loggedUserId } from '../apollo/cache';
-import { MESSAGE } from '../constants';
+import { MESSAGE, ROUTE } from '../constants';
+import { useHistory } from 'react-router-dom';
 
 const layout = {
   labelCol: { span: 8 },
@@ -20,6 +21,7 @@ interface LoginFormProps {
 }
 
 const LoginForm: FC<LoginFormProps> = ({ callback }: LoginFormProps) => {
+  const history = useHistory();
   const [login, { loading }] = useMutation(USER_LOGIN, {
     onCompleted: ({ login }) => {
       if (login) {
@@ -30,6 +32,9 @@ const LoginForm: FC<LoginFormProps> = ({ callback }: LoginFormProps) => {
         isLoggedInVar(true);
 
         message.success(MESSAGE.LOGIN_SUCCESS).then();
+
+        // Redirect to dashboard
+        history.push(ROUTE.DASHBOARD);
 
         // Execute callback
         callback?.();

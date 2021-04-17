@@ -24,7 +24,6 @@ const DescriptionItem = ({
 const UserDescription: FC<UserDescriptionProps> = ({
   user,
 }: UserDescriptionProps) => {
-  console.log(user);
   return (
     <div>
       <Row>

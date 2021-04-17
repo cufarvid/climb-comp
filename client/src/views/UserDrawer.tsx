@@ -32,7 +32,7 @@ const UserDrawer: FC<LoginProps> = ({ visible, setVisible }: LoginProps) => {
       onClose={closeDrawer}
       footer={footer}
     >
-      {isLoggedIn ? <UserInfo /> : <LoginForm />}
+      {isLoggedIn ? <UserInfo /> : <LoginForm callback={closeDrawer} />}
     </Drawer>
   );
 };
