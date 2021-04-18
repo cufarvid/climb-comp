@@ -3,21 +3,25 @@ import { useLocation } from 'react-router-dom';
 import { Breadcrumb, Layout } from 'antd';
 import styled from '@emotion/styled';
 
-import { BreadCrumbs, Sidebar } from '../components';
+import { AuthGuard, BreadCrumbs, Sidebar } from '../components';
 import { COLOR, HEADER_HEIGHT } from '../constants';
+import { DashboardRoutes } from '../routes';
 
 const Dashboard: FC = () => {
   const location = useLocation();
 
   return (
     <Layout>
+      <AuthGuard />
       <Sidebar />
       <StyledLayout>
         <Content>
           <BreadCrumb>
             <BreadCrumbs pathName={location.pathname} />
           </BreadCrumb>
-          <Container>Score athlete 1001</Container>
+          <Container>
+            <DashboardRoutes />
+          </Container>
         </Content>
       </StyledLayout>
     </Layout>

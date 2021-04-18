@@ -1,14 +1,15 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Avatar, Button, Col, Layout, Menu, Row } from 'antd';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
-import { Link, Route, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 import { useReactiveVar } from '@apollo/client';
 import { isLoggedInVar } from '../apollo/cache';
 
-import { Competitions, Home, UserDrawer, Results, Dashboard } from './index';
 import { COLOR, ROUTE, FOOTER_HEIGHT, HEADER_HEIGHT } from '../constants';
+import { UserDrawer } from './index';
+import { AppRoutes } from '../routes';
 
 const App: FC = () => {
   const [currentTab, setCurrentTab] = useState(ROUTE.HOME);
@@ -68,10 +69,7 @@ const App: FC = () => {
       <Content>
         <UserDrawer visible={drawerVisible} setVisible={setDrawerVisible} />
         {/* Routes */}
-        <Route exact path={ROUTE.HOME} component={Home} />
-        <Route path={ROUTE.COMPETITIONS} component={Competitions} />
-        <Route path={ROUTE.RESULTS} component={Results} />
-        <Route path={ROUTE.DASHBOARD} component={Dashboard} />
+        <AppRoutes />
       </Content>
 
       {!isDashboard && (

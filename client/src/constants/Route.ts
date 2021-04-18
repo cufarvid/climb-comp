@@ -11,5 +11,6 @@ export const ROUTE = {
   ATHLETES:     '/athletes',
   DASHBOARD:    '/dashboard',
   SCORE:        '/dashboard/score',
+  SCORE_ID:     '/dashboard/score/:id',
   ROUTES:       '/dashboard/routes',
 };
