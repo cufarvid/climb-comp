@@ -65,8 +65,9 @@ export class UserResolver {
 
     try {
       // Get last active route for user
+
       const route = await prisma.route.findFirst({
-        where: { active: true },
+        where: { active: true, judgeId: user.id },
         orderBy: { id: 'desc' },
       });
 
