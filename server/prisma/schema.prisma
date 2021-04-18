@@ -172,6 +172,7 @@ model Competition {
   id            Int             @id @default(autoincrement())
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
+  active        Boolean         @default(false)
   name          String
   description   String
   startDate     DateTime
@@ -195,6 +196,7 @@ model Route {
   id            Int            @id @default(autoincrement())
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
+  active        Boolean        @default(false)
   number        Int
   name          String
   description   String?

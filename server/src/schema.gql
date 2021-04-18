@@ -1115,6 +1115,7 @@ input CommentWhereUniqueInput {
 }
 
 type Competition {
+  active: Boolean!
   address: String!
   club: Club!
   clubId: Int!
@@ -1147,6 +1148,7 @@ type CompetitionAvgAggregate {
 
 type CompetitionCountAggregate {
   _all: Int!
+  active: Int
   address: Int
   clubId: Int!
   compTypeId: Int!
@@ -1162,6 +1164,7 @@ type CompetitionCountAggregate {
 }
 
 input CompetitionCreateInput {
+  active: Boolean
   address: String!
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
@@ -1180,6 +1183,7 @@ input CompetitionCreateInput {
 }
 
 input CompetitionCreateManyClubInput {
+  active: Boolean
   address: String!
   compTypeId: Int!
   createdAt: DateTime
@@ -1199,6 +1203,7 @@ input CompetitionCreateManyClubInputEnvelope {
 }
 
 input CompetitionCreateManyCompTypeInput {
+  active: Boolean
   address: String!
   clubId: Int!
   createdAt: DateTime
@@ -1218,6 +1223,7 @@ input CompetitionCreateManyCompTypeInputEnvelope {
 }
 
 input CompetitionCreateManyInput {
+  active: Boolean
   address: String!
   clubId: Int!
   compTypeId: Int!
@@ -1233,6 +1239,7 @@ input CompetitionCreateManyInput {
 }
 
 input CompetitionCreateManyLocationInput {
+  active: Boolean
   address: String!
   clubId: Int!
   compTypeId: Int!
@@ -1252,6 +1259,7 @@ input CompetitionCreateManyLocationInputEnvelope {
 }
 
 input CompetitionCreateManySeasonInput {
+  active: Boolean
   address: String!
   clubId: Int!
   compTypeId: Int!
@@ -1363,6 +1371,7 @@ input CompetitionCreateOrConnectWithoutStartListsInput {
 }
 
 input CompetitionCreateWithoutClubInput {
+  active: Boolean
   address: String!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
   createdAt: DateTime
@@ -1380,6 +1389,7 @@ input CompetitionCreateWithoutClubInput {
 }
 
 input CompetitionCreateWithoutCompTypeInput {
+  active: Boolean
   address: String!
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   createdAt: DateTime
@@ -1397,6 +1407,7 @@ input CompetitionCreateWithoutCompTypeInput {
 }
 
 input CompetitionCreateWithoutLocationInput {
+  active: Boolean
   address: String!
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
@@ -1414,6 +1425,7 @@ input CompetitionCreateWithoutLocationInput {
 }
 
 input CompetitionCreateWithoutRegistrationsInput {
+  active: Boolean
   address: String!
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
@@ -1431,6 +1443,7 @@ input CompetitionCreateWithoutRegistrationsInput {
 }
 
 input CompetitionCreateWithoutResultsInput {
+  active: Boolean
   address: String!
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
@@ -1448,6 +1461,7 @@ input CompetitionCreateWithoutResultsInput {
 }
 
 input CompetitionCreateWithoutRoutesInput {
+  active: Boolean
   address: String!
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
@@ -1465,6 +1479,7 @@ input CompetitionCreateWithoutRoutesInput {
 }
 
 input CompetitionCreateWithoutSeasonInput {
+  active: Boolean
   address: String!
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
@@ -1482,6 +1497,7 @@ input CompetitionCreateWithoutSeasonInput {
 }
 
 input CompetitionCreateWithoutStartListsInput {
+  active: Boolean
   address: String!
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
@@ -1499,6 +1515,7 @@ input CompetitionCreateWithoutStartListsInput {
 }
 
 type CompetitionGroupBy {
+  active: Boolean!
   address: String!
   avg: CompetitionAvgAggregate
   clubId: Int!
@@ -1525,6 +1542,7 @@ input CompetitionListRelationFilter {
 }
 
 type CompetitionMaxAggregate {
+  active: Boolean
   address: String
   clubId: Int!
   compTypeId: Int!
@@ -1540,6 +1558,7 @@ type CompetitionMaxAggregate {
 }
 
 type CompetitionMinAggregate {
+  active: Boolean
   address: String
   clubId: Int!
   compTypeId: Int!
@@ -1555,6 +1574,7 @@ type CompetitionMinAggregate {
 }
 
 input CompetitionOrderByInput {
+  active: SortOrder
   address: SortOrder
   clubId: SortOrder
   compTypeId: SortOrder
@@ -1575,6 +1595,7 @@ input CompetitionRelationFilter {
 }
 
 enum CompetitionScalarFieldEnum {
+  active
   address
   clubId
   compTypeId
@@ -1593,6 +1614,7 @@ input CompetitionScalarWhereInput {
   AND: [CompetitionScalarWhereInput!]
   NOT: [CompetitionScalarWhereInput!]
   OR: [CompetitionScalarWhereInput!]
+  active: BoolFilter
   address: StringFilter
   clubId: IntFilter
   compTypeId: IntFilter
@@ -1611,6 +1633,7 @@ input CompetitionScalarWhereWithAggregatesInput {
   AND: [CompetitionScalarWhereWithAggregatesInput!]
   NOT: [CompetitionScalarWhereWithAggregatesInput!]
   OR: [CompetitionScalarWhereWithAggregatesInput!]
+  active: BoolWithAggregatesFilter
   address: StringWithAggregatesFilter
   clubId: IntWithAggregatesFilter
   compTypeId: IntWithAggregatesFilter
@@ -1776,6 +1799,7 @@ input CompetitionTypeWhereUniqueInput {
 }
 
 input CompetitionUpdateInput {
+  active: BoolFieldUpdateOperationsInput
   address: StringFieldUpdateOperationsInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
@@ -1794,6 +1818,7 @@ input CompetitionUpdateInput {
 }
 
 input CompetitionUpdateManyMutationInput {
+  active: BoolFieldUpdateOperationsInput
   address: StringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
@@ -1932,6 +1957,7 @@ input CompetitionUpdateWithWhereUniqueWithoutSeasonInput {
 }
 
 input CompetitionUpdateWithoutClubInput {
+  active: BoolFieldUpdateOperationsInput
   address: StringFieldUpdateOperationsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -1949,6 +1975,7 @@ input CompetitionUpdateWithoutClubInput {
 }
 
 input CompetitionUpdateWithoutCompTypeInput {
+  active: BoolFieldUpdateOperationsInput
   address: StringFieldUpdateOperationsInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -1966,6 +1993,7 @@ input CompetitionUpdateWithoutCompTypeInput {
 }
 
 input CompetitionUpdateWithoutLocationInput {
+  active: BoolFieldUpdateOperationsInput
   address: StringFieldUpdateOperationsInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
@@ -1983,6 +2011,7 @@ input CompetitionUpdateWithoutLocationInput {
 }
 
 input CompetitionUpdateWithoutRegistrationsInput {
+  active: BoolFieldUpdateOperationsInput
   address: StringFieldUpdateOperationsInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
@@ -2000,6 +2029,7 @@ input CompetitionUpdateWithoutRegistrationsInput {
 }
 
 input CompetitionUpdateWithoutResultsInput {
+  active: BoolFieldUpdateOperationsInput
   address: StringFieldUpdateOperationsInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
@@ -2017,6 +2047,7 @@ input CompetitionUpdateWithoutResultsInput {
 }
 
 input CompetitionUpdateWithoutRoutesInput {
+  active: BoolFieldUpdateOperationsInput
   address: StringFieldUpdateOperationsInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
@@ -2034,6 +2065,7 @@ input CompetitionUpdateWithoutRoutesInput {
 }
 
 input CompetitionUpdateWithoutSeasonInput {
+  active: BoolFieldUpdateOperationsInput
   address: StringFieldUpdateOperationsInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
@@ -2051,6 +2083,7 @@ input CompetitionUpdateWithoutSeasonInput {
 }
 
 input CompetitionUpdateWithoutStartListsInput {
+  active: BoolFieldUpdateOperationsInput
   address: StringFieldUpdateOperationsInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
@@ -2115,6 +2148,7 @@ input CompetitionWhereInput {
   AND: [CompetitionWhereInput!]
   NOT: [CompetitionWhereInput!]
   OR: [CompetitionWhereInput!]
+  active: BoolFilter
   address: StringFilter
   club: ClubRelationFilter
   clubId: IntFilter
@@ -3313,6 +3347,11 @@ input EnumUserRoleWithAggregatesFilter {
   notIn: [UserRole!]
 }
 
+input FindStartListInput {
+  competitionId: Float!
+  startNumber: Float!
+}
+
 enum Gender {
   FEMALE
   MALE
@@ -4393,6 +4432,7 @@ type Query {
   competitions(cursor: CompetitionWhereUniqueInput, distinct: [CompetitionScalarFieldEnum!], orderBy: [CompetitionOrderByInput!], skip: Int, take: Int, where: CompetitionWhereInput): [Competition!]!
   competitor(where: CompetitorWhereUniqueInput!): Competitor
   competitors(cursor: CompetitorWhereUniqueInput, distinct: [CompetitorScalarFieldEnum!], orderBy: [CompetitorOrderByInput!], skip: Int, take: Int, where: CompetitorWhereInput): [Competitor!]!
+  contextUserInfo: UserInfo!
   countries(cursor: CountryWhereUniqueInput, distinct: [CountryScalarFieldEnum!], orderBy: [CountryOrderByInput!], skip: Int, take: Int, where: CountryWhereInput): [Country!]!
   country(where: CountryWhereUniqueInput!): Country
   findFirstCategory(cursor: CategoryWhereUniqueInput, distinct: [CategoryScalarFieldEnum!], orderBy: [CategoryOrderByInput!], skip: Int, take: Int, where: CategoryWhereInput): Category
@@ -4414,6 +4454,7 @@ type Query {
   findFirstSeason(cursor: SeasonWhereUniqueInput, distinct: [SeasonScalarFieldEnum!], orderBy: [SeasonOrderByInput!], skip: Int, take: Int, where: SeasonWhereInput): Season
   findFirstStartList(cursor: StartListWhereUniqueInput, distinct: [StartListScalarFieldEnum!], orderBy: [StartListOrderByInput!], skip: Int, take: Int, where: StartListWhereInput): StartList
   findFirstUser(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): User
+  getCompetitorForScoring(data: FindStartListInput!): Competitor!
   grade(where: GradeWhereUniqueInput!): Grade
   grades(cursor: GradeWhereUniqueInput, distinct: [GradeScalarFieldEnum!], orderBy: [GradeOrderByInput!], skip: Int, take: Int, where: GradeWhereInput): [Grade!]!
   groupByCategory(by: [CategoryScalarFieldEnum!]!, having: CategoryScalarWhereWithAggregatesInput, orderBy: [CategoryOrderByInput!], skip: Int, take: Int, where: CategoryWhereInput): [CategoryGroupBy!]!
@@ -5519,6 +5560,7 @@ input ResultWhereUniqueInput {
 }
 
 type Route {
+  active: Boolean!
   category: Category!
   categoryId: Int!
   competition: Competition!
@@ -5553,6 +5595,7 @@ type RouteAvgAggregate {
 
 type RouteCountAggregate {
   _all: Int!
+  active: Int
   categoryId: Int!
   competitionId: Int!
   createdAt: Int
@@ -5568,6 +5611,7 @@ type RouteCountAggregate {
 }
 
 input RouteCreateInput {
+  active: Boolean
   category: CategoryCreateNestedOneWithoutRoutesInput!
   competition: CompetitionCreateNestedOneWithoutRoutesInput!
   createdAt: DateTime
@@ -5585,6 +5629,7 @@ input RouteCreateInput {
 }
 
 input RouteCreateManyCategoryInput {
+  active: Boolean
   competitionId: Int!
   createdAt: DateTime
   description: String
@@ -5604,6 +5649,7 @@ input RouteCreateManyCategoryInputEnvelope {
 }
 
 input RouteCreateManyCompetitionInput {
+  active: Boolean
   categoryId: Int!
   createdAt: DateTime
   description: String
@@ -5623,6 +5669,7 @@ input RouteCreateManyCompetitionInputEnvelope {
 }
 
 input RouteCreateManyGradeInput {
+  active: Boolean
   categoryId: Int!
   competitionId: Int!
   createdAt: DateTime
@@ -5642,6 +5689,7 @@ input RouteCreateManyGradeInputEnvelope {
 }
 
 input RouteCreateManyInput {
+  active: Boolean
   categoryId: Int!
   competitionId: Int!
   createdAt: DateTime
@@ -5657,6 +5705,7 @@ input RouteCreateManyInput {
 }
 
 input RouteCreateManyJudgeInput {
+  active: Boolean
   categoryId: Int!
   competitionId: Int!
   createdAt: DateTime
@@ -5676,6 +5725,7 @@ input RouteCreateManyJudgeInputEnvelope {
 }
 
 input RouteCreateManySetterInput {
+  active: Boolean
   categoryId: Int!
   competitionId: Int!
   createdAt: DateTime
@@ -5788,6 +5838,7 @@ input RouteCreateOrConnectWithoutSetterInput {
 }
 
 input RouteCreateWithoutCategoryInput {
+  active: Boolean
   competition: CompetitionCreateNestedOneWithoutRoutesInput!
   createdAt: DateTime
   description: String
@@ -5804,6 +5855,7 @@ input RouteCreateWithoutCategoryInput {
 }
 
 input RouteCreateWithoutCompetitionInput {
+  active: Boolean
   category: CategoryCreateNestedOneWithoutRoutesInput!
   createdAt: DateTime
   description: String
@@ -5820,6 +5872,7 @@ input RouteCreateWithoutCompetitionInput {
 }
 
 input RouteCreateWithoutGradeInput {
+  active: Boolean
   category: CategoryCreateNestedOneWithoutRoutesInput!
   competition: CompetitionCreateNestedOneWithoutRoutesInput!
   createdAt: DateTime
@@ -5836,6 +5889,7 @@ input RouteCreateWithoutGradeInput {
 }
 
 input RouteCreateWithoutJudgeInput {
+  active: Boolean
   category: CategoryCreateNestedOneWithoutRoutesInput!
   competition: CompetitionCreateNestedOneWithoutRoutesInput!
   createdAt: DateTime
@@ -5852,6 +5906,7 @@ input RouteCreateWithoutJudgeInput {
 }
 
 input RouteCreateWithoutScoreBoulderInput {
+  active: Boolean
   category: CategoryCreateNestedOneWithoutRoutesInput!
   competition: CompetitionCreateNestedOneWithoutRoutesInput!
   createdAt: DateTime
@@ -5868,6 +5923,7 @@ input RouteCreateWithoutScoreBoulderInput {
 }
 
 input RouteCreateWithoutScoreLeadInput {
+  active: Boolean
   category: CategoryCreateNestedOneWithoutRoutesInput!
   competition: CompetitionCreateNestedOneWithoutRoutesInput!
   createdAt: DateTime
@@ -5884,6 +5940,7 @@ input RouteCreateWithoutScoreLeadInput {
 }
 
 input RouteCreateWithoutScoreSpeedInput {
+  active: Boolean
   category: CategoryCreateNestedOneWithoutRoutesInput!
   competition: CompetitionCreateNestedOneWithoutRoutesInput!
   createdAt: DateTime
@@ -5900,6 +5957,7 @@ input RouteCreateWithoutScoreSpeedInput {
 }
 
 input RouteCreateWithoutSetterInput {
+  active: Boolean
   category: CategoryCreateNestedOneWithoutRoutesInput!
   competition: CompetitionCreateNestedOneWithoutRoutesInput!
   createdAt: DateTime
@@ -5916,6 +5974,7 @@ input RouteCreateWithoutSetterInput {
 }
 
 type RouteGroupBy {
+  active: Boolean!
   avg: RouteAvgAggregate
   categoryId: Int!
   competitionId: Int!
@@ -5942,6 +6001,7 @@ input RouteListRelationFilter {
 }
 
 type RouteMaxAggregate {
+  active: Boolean
   categoryId: Int!
   competitionId: Int!
   createdAt: DateTime
@@ -5957,6 +6017,7 @@ type RouteMaxAggregate {
 }
 
 type RouteMinAggregate {
+  active: Boolean
   categoryId: Int!
   competitionId: Int!
   createdAt: DateTime
@@ -5972,6 +6033,7 @@ type RouteMinAggregate {
 }
 
 input RouteOrderByInput {
+  active: SortOrder
   categoryId: SortOrder
   competitionId: SortOrder
   createdAt: SortOrder
@@ -5992,6 +6054,7 @@ input RouteRelationFilter {
 }
 
 enum RouteScalarFieldEnum {
+  active
   categoryId
   competitionId
   createdAt
@@ -6010,6 +6073,7 @@ input RouteScalarWhereInput {
   AND: [RouteScalarWhereInput!]
   NOT: [RouteScalarWhereInput!]
   OR: [RouteScalarWhereInput!]
+  active: BoolFilter
   categoryId: IntFilter
   competitionId: IntFilter
   createdAt: DateTimeFilter
@@ -6028,6 +6092,7 @@ input RouteScalarWhereWithAggregatesInput {
   AND: [RouteScalarWhereWithAggregatesInput!]
   NOT: [RouteScalarWhereWithAggregatesInput!]
   OR: [RouteScalarWhereWithAggregatesInput!]
+  active: BoolWithAggregatesFilter
   categoryId: IntWithAggregatesFilter
   competitionId: IntWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
@@ -6060,6 +6125,7 @@ enum RouteType {
 }
 
 input RouteUpdateInput {
+  active: BoolFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutRoutesInput
   competition: CompetitionUpdateOneRequiredWithoutRoutesInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6077,6 +6143,7 @@ input RouteUpdateInput {
 }
 
 input RouteUpdateManyMutationInput {
+  active: BoolFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
@@ -6230,6 +6297,7 @@ input RouteUpdateWithWhereUniqueWithoutSetterInput {
 }
 
 input RouteUpdateWithoutCategoryInput {
+  active: BoolFieldUpdateOperationsInput
   competition: CompetitionUpdateOneRequiredWithoutRoutesInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
@@ -6246,6 +6314,7 @@ input RouteUpdateWithoutCategoryInput {
 }
 
 input RouteUpdateWithoutCompetitionInput {
+  active: BoolFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutRoutesInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
@@ -6262,6 +6331,7 @@ input RouteUpdateWithoutCompetitionInput {
 }
 
 input RouteUpdateWithoutGradeInput {
+  active: BoolFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutRoutesInput
   competition: CompetitionUpdateOneRequiredWithoutRoutesInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6278,6 +6348,7 @@ input RouteUpdateWithoutGradeInput {
 }
 
 input RouteUpdateWithoutJudgeInput {
+  active: BoolFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutRoutesInput
   competition: CompetitionUpdateOneRequiredWithoutRoutesInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6294,6 +6365,7 @@ input RouteUpdateWithoutJudgeInput {
 }
 
 input RouteUpdateWithoutScoreBoulderInput {
+  active: BoolFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutRoutesInput
   competition: CompetitionUpdateOneRequiredWithoutRoutesInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6310,6 +6382,7 @@ input RouteUpdateWithoutScoreBoulderInput {
 }
 
 input RouteUpdateWithoutScoreLeadInput {
+  active: BoolFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutRoutesInput
   competition: CompetitionUpdateOneRequiredWithoutRoutesInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6326,6 +6399,7 @@ input RouteUpdateWithoutScoreLeadInput {
 }
 
 input RouteUpdateWithoutScoreSpeedInput {
+  active: BoolFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutRoutesInput
   competition: CompetitionUpdateOneRequiredWithoutRoutesInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6342,6 +6416,7 @@ input RouteUpdateWithoutScoreSpeedInput {
 }
 
 input RouteUpdateWithoutSetterInput {
+  active: BoolFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutRoutesInput
   competition: CompetitionUpdateOneRequiredWithoutRoutesInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6406,6 +6481,7 @@ input RouteWhereInput {
   AND: [RouteWhereInput!]
   NOT: [RouteWhereInput!]
   OR: [RouteWhereInput!]
+  active: BoolFilter
   category: CategoryRelationFilter
   categoryId: IntFilter
   competition: CompetitionRelationFilter
@@ -8619,6 +8695,11 @@ type UserGroupBy {
   role: UserRole!
   sum: UserSumAggregate
   updatedAt: DateTime!
+}
+
+type UserInfo {
+  route: Route
+  user: User!
 }
 
 input UserListRelationFilter {
