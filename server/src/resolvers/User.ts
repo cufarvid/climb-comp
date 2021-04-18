@@ -1,9 +1,15 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { ApolloError } from 'apollo-server-errors';
-import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
+import { Arg, Ctx, Mutation, Query, Resolver } from 'type-graphql';
 
-import { Context, LoginInput, LoginOutput, RegisterInput } from '../types';
+import {
+  Context,
+  LoginInput,
+  LoginOutput,
+  RegisterInput,
+  UserInfo,
+} from '../types';
 import { User } from '@generated/type-graphql';
 
 @Resolver(() => User)
@@ -50,6 +56,23 @@ export class UserResolver {
       });
     } catch (e) {
       throw new ApolloError('Error creating user');
+    }
+  }
+
+  @Query(() => UserInfo)
+  async contextUserInfo(@Ctx() { prisma, user }: Context): Promise<UserInfo> {
+    if (!user) throw new ApolloError('User not authorized');
+
+    try {
+      // Get last active route for user
+      const route = await prisma.route.findFirst({
+        where: { active: true },
+        orderBy: { id: 'desc' },
+      });
+
+      return { user, route };
+    } catch (e) {
+      new ApolloError('Error fetching user information');
     }
   }
 }

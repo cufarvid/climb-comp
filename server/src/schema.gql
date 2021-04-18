@@ -4432,6 +4432,7 @@ type Query {
   competitions(cursor: CompetitionWhereUniqueInput, distinct: [CompetitionScalarFieldEnum!], orderBy: [CompetitionOrderByInput!], skip: Int, take: Int, where: CompetitionWhereInput): [Competition!]!
   competitor(where: CompetitorWhereUniqueInput!): Competitor
   competitors(cursor: CompetitorWhereUniqueInput, distinct: [CompetitorScalarFieldEnum!], orderBy: [CompetitorOrderByInput!], skip: Int, take: Int, where: CompetitorWhereInput): [Competitor!]!
+  contextUserInfo: UserInfo!
   countries(cursor: CountryWhereUniqueInput, distinct: [CountryScalarFieldEnum!], orderBy: [CountryOrderByInput!], skip: Int, take: Int, where: CountryWhereInput): [Country!]!
   country(where: CountryWhereUniqueInput!): Country
   findFirstCategory(cursor: CategoryWhereUniqueInput, distinct: [CategoryScalarFieldEnum!], orderBy: [CategoryOrderByInput!], skip: Int, take: Int, where: CategoryWhereInput): Category
@@ -8694,6 +8695,11 @@ type UserGroupBy {
   role: UserRole!
   sum: UserSumAggregate
   updatedAt: DateTime!
+}
+
+type UserInfo {
+  route: Route
+  user: User!
 }
 
 input UserListRelationFilter {
