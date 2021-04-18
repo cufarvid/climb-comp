@@ -6,20 +6,20 @@ import { PrismaClient } from '@prisma/client';
 import { resolvers } from '@generated/type-graphql';
 
 import { Context } from './types';
-import { UserResolver } from './resolvers/User';
+import { UserResolver, CompetitorResolver } from './resolvers';
 
 const prisma = new PrismaClient();
 
 (async () => {
   const schema = await tq.buildSchema({
-    resolvers: [...resolvers, UserResolver],
+    resolvers: [...resolvers, UserResolver, CompetitorResolver],
     emitSchemaFile: path.resolve(__dirname, 'schema.gql'),
   });
 
   const sever = new ApolloServer({
     schema,
     playground: true,
-    context: (): Context => ({ prisma }),
+    context: (): Context => ({ prisma, user: null }),
   });
   const { url } = await sever.listen({ port: 4000 });
 
