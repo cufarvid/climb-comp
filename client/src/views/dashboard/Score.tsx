@@ -1,7 +1,12 @@
 import React, { FC, memo } from 'react';
+import { Card, Input } from 'antd';
 
 const Score: FC = () => {
-  return <div>Score</div>;
+  return (
+    <Card title="Enter a starting number">
+      <Input.Search placeholder="Starting number" type="number" allowClear />
+    </Card>
+  );
 };
 
 export default memo(Score);
