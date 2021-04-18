@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 
 import { BreadCrumbs, Sidebar } from '../components';
 import { COLOR, HEADER_HEIGHT } from '../constants';
+import { DashboardRoutes } from '../routes';
 
 const Dashboard: FC = () => {
   const location = useLocation();
@@ -17,7 +18,9 @@ const Dashboard: FC = () => {
           <BreadCrumb>
             <BreadCrumbs pathName={location.pathname} />
           </BreadCrumb>
-          <Container>Score athlete 1001</Container>
+          <Container>
+            <DashboardRoutes />
+          </Container>
         </Content>
       </StyledLayout>
     </Layout>
