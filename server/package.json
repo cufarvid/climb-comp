@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "dev": "ts-node-dev --no-notify --respawn --transpile-only src/index.ts",
-    "typegen": "graphql-codegen --config codegen.yml"
+    "typegen": "graphql-codegen --config codegen.yml && npx prisma generate"
   },
   "keywords": [],
   "author": "Vid Čufar",
