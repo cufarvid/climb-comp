@@ -61,11 +61,10 @@ export class UserResolver {
 
   @Query(() => UserInfo)
   async contextUserInfo(@Ctx() { prisma, user }: Context): Promise<UserInfo> {
-    if (!user) throw new ApolloError('User not authorized');
+    if (!user) throw new ApolloError('Unauthorized', '401');
 
     try {
       // Get last active route for user
-
       const route = await prisma.route.findFirst({
         where: { active: true, judgeId: user.id },
         orderBy: { id: 'desc' },
