@@ -33,7 +33,7 @@ export const urlPathToArray = (path: string): string[] => {
  * @param callback
  */
 export const userLogout = (
-  client: ApolloClient<any>,
+  client: ApolloClient<unknown>,
   history: History,
   callback?: () => void,
 ): void => {
@@ -56,4 +56,12 @@ export const userLogout = (
 
   // Execute callback
   callback?.();
+};
+
+/**
+ * Capitalizes first letter of input string
+ * @param string Input string
+ */
+export const capitalize = (string: string): string => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 };

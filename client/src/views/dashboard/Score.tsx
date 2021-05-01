@@ -16,6 +16,7 @@ import {
 const COMPETITOR_SCORING = gql`
   query GetCompetitorForScoring($data: FindStartListInput!) {
     getCompetitorForScoring(data: $data) {
+      id
       firstName
       lastName
       category {
@@ -90,7 +91,9 @@ const Score: FC = () => {
       <Divider />
       <Route
         path={ROUTE.SCORE_ID}
-        render={() => <ScoreBoulder competitor={competitor} />}
+        render={() => (
+          <ScoreBoulder competitor={competitor} route={userInfo?.route} />
+        )}
       />
     </>
   );

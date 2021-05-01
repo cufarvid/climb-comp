@@ -3,3 +3,8 @@ export type DictionaryOf<T> = {
 };
 
 export type ColorVariant = 'dark' | 'light';
+
+/*
+  Score
+*/
+export type ScoreType = 'top' | 'zone' | 'attempt';
