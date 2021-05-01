@@ -1,3 +1,2 @@
-import { USER_LOGIN } from './User';
-
-export { USER_LOGIN };
+export { USER_LOGIN } from './User';
+export { SCORE_BOULDER } from './Score';
