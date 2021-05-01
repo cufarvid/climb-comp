@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Breadcrumb, Layout } from 'antd';
+import { Layout } from 'antd';
 import styled from '@emotion/styled';
 
 import { AuthGuard, BreadCrumbs, Sidebar } from '../components';
@@ -16,9 +16,7 @@ const Dashboard: FC = () => {
       <Sidebar />
       <StyledLayout>
         <Content>
-          <BreadCrumb>
-            <BreadCrumbs pathName={location.pathname} />
-          </BreadCrumb>
+          <BreadCrumbs pathName={location.pathname} />
           <Container>
             <DashboardRoutes />
           </Container>
@@ -39,10 +37,6 @@ const StyledLayout = styled(Layout)`
 
 const Content = styled(Layout.Content)`
   margin: 0 16px;
-`;
-
-const BreadCrumb = styled(Breadcrumb)`
-  margin: 16px 0;
 `;
 
 const Container = styled('div')`
