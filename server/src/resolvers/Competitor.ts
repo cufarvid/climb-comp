@@ -20,7 +20,7 @@ export class CompetitorResolver {
 
     if (!competitor)
       throw new ApolloError(
-        `No competitor found for starting number ${startNumber}`,
+        `No competitor found for starting number ${startNumber}.`,
       );
 
     return competitor;

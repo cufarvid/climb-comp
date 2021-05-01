@@ -4102,6 +4102,7 @@ type Mutation {
   deleteUser(where: UserWhereUniqueInput!): User
   login(credentials: LoginInput!): LoginOutput!
   register(credentials: RegisterInput!): User!
+  scoreBoulder(data: ScoreInput!): ScoreOutput!
   updateCategory(data: CategoryUpdateInput!, where: CategoryWhereUniqueInput!): Category
   updateClub(data: ClubUpdateInput!, where: ClubWhereUniqueInput!): Club
   updateComment(data: CommentUpdateInput!, where: CommentWhereUniqueInput!): Comment
@@ -6980,6 +6981,13 @@ input ScoreBoulderWhereUniqueInput {
   id: Int
 }
 
+input ScoreInput {
+  comment: String
+  competitorId: Float!
+  routeId: Float!
+  score: String!
+}
+
 type ScoreLead {
   comment: Comment
   commentId: Int
@@ -7400,6 +7408,11 @@ input ScoreLeadWhereInput {
 
 input ScoreLeadWhereUniqueInput {
   id: Int
+}
+
+type ScoreOutput {
+  message: String!
+  warning: String
 }
 
 type ScoreSpeed {
