@@ -1,4 +1,4 @@
-import { Field, InputType, ObjectType } from 'type-graphql';
+import { Field, ObjectType, InputType } from 'type-graphql';
 
 @InputType()
 export class ScoreInput {
@@ -10,6 +10,9 @@ export class ScoreInput {
 
   @Field()
   score: string;
+
+  @Field({ nullable: true })
+  time: number;
 
   @Field({ nullable: true })
   comment?: string;
@@ -28,4 +31,9 @@ export class ScoreBoulderData {
   top = 0;
   zone = 0;
   attempts = 0;
+}
+
+export interface ScoreLeadData {
+  height: number;
+  time: number;
 }
