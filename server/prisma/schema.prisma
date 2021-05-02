@@ -236,7 +236,7 @@ model ScoreLead {
   id           Int        @id @default(autoincrement())
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
-  height       Int
+  height       String
   time         Int
   competitor   Competitor @relation(fields: [competitorId], references: [id])
   competitorId Int
