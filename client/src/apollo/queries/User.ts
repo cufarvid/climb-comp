@@ -21,6 +21,7 @@ export const USER_INFO = gql`
         id
         name
         description
+        routeType
         competition {
           id
           name

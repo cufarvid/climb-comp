@@ -12,6 +12,7 @@ import {
   Query,
   QueryGetCompetitorForScoringArgs,
 } from '../../types/__generated__';
+import ScoreLead from './ScoreLead';
 
 const COMPETITOR_SCORING = gql`
   query GetCompetitorForScoring($data: FindStartListInput!) {
@@ -70,6 +71,17 @@ const Score: FC = () => {
     }
   };
 
+  const scoringForm = (): JSX.Element | undefined => {
+    if (!userInfo?.route) return;
+
+    switch (userInfo?.route.routeType) {
+      case 'BOULDER':
+        return <ScoreBoulder competitor={competitor} route={userInfo?.route} />;
+      case 'LEAD':
+        return <ScoreLead competitor={competitor} route={userInfo?.route} />;
+    }
+  };
+
   useEffect(() => {
     openScoringForm();
   }, [competitor]);
@@ -93,12 +105,7 @@ const Score: FC = () => {
         </Form>
       </Card>
       <Divider />
-      <Route
-        path={ROUTE.SCORE_ID}
-        render={() => (
-          <ScoreBoulder competitor={competitor} route={userInfo?.route} />
-        )}
-      />
+      <Route path={ROUTE.SCORE_ID} render={scoringForm} />
     </>
   );
 };
