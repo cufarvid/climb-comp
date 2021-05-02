@@ -79,7 +79,11 @@ const Score: FC = () => {
       <Card title="Find competitor">
         <Form layout="inline" onFinish={onFinish}>
           <Form.Item label="Starting number" name="startNumber">
-            <InputNumber min={1} max={100000} />
+            <InputNumber
+              min={1}
+              max={100000}
+              formatter={(value) => Math.trunc(value || 0).toString()}
+            />
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit" loading={loading}>
