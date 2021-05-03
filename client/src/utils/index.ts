@@ -78,3 +78,17 @@ export const parseTimeString = (time: string): number => {
 
   return +minute * 60 * 1000 + +second * 1000 + +millisecond;
 };
+
+/**
+ * Pads provided number with specified length and fill string
+ * @param number
+ * @param maxLength
+ * @param fillString
+ */
+export const padNumberStart = (
+  number: number,
+  maxLength: number,
+  fillString = '0',
+): string => {
+  return String(number).padStart(maxLength, fillString);
+};
