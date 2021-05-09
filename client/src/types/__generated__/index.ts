@@ -4422,6 +4422,7 @@ export type Mutation = {
   register: User;
   scoreBoulder: ScoreOutput;
   scoreLead: ScoreOutput;
+  scoreSpeed: ScoreOutput;
   updateCategory?: Maybe<Category>;
   updateClub?: Maybe<Club>;
   updateComment?: Maybe<Comment>;
@@ -4817,6 +4818,10 @@ export type MutationScoreBoulderArgs = {
 };
 
 export type MutationScoreLeadArgs = {
+  data: ScoreInput;
+};
+
+export type MutationScoreSpeedArgs = {
   data: ScoreInput;
 };
 
@@ -8814,7 +8819,7 @@ export type ScoreInput = {
   comment?: Maybe<Scalars['String']>;
   competitorId: Scalars['Float'];
   routeId: Scalars['Float'];
-  score: Scalars['String'];
+  score?: Maybe<Scalars['String']>;
   time?: Maybe<Scalars['Float']>;
 };
 
@@ -8825,7 +8830,7 @@ export type ScoreLead = {
   competitor: Competitor;
   competitorId: Scalars['Int'];
   createdAt: Scalars['DateTime'];
-  height: Scalars['Int'];
+  height: Scalars['String'];
   id: Scalars['Int'];
   route: Route;
   routeId: Scalars['Int'];
@@ -8837,7 +8842,6 @@ export type ScoreLeadAvgAggregate = {
   __typename?: 'ScoreLeadAvgAggregate';
   commentId?: Maybe<Scalars['Float']>;
   competitorId: Scalars['Float'];
-  height: Scalars['Float'];
   id: Scalars['Float'];
   routeId: Scalars['Float'];
   time: Scalars['Float'];
@@ -8849,7 +8853,7 @@ export type ScoreLeadCountAggregate = {
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
   createdAt?: Maybe<Scalars['Int']>;
-  height: Scalars['Int'];
+  height?: Maybe<Scalars['Int']>;
   id: Scalars['Int'];
   routeId: Scalars['Int'];
   time: Scalars['Int'];
@@ -8860,7 +8864,7 @@ export type ScoreLeadCreateInput = {
   comment?: Maybe<CommentCreateNestedOneWithoutScoresLeadInput>;
   competitor: CompetitorCreateNestedOneWithoutScoresLeadInput;
   createdAt?: Maybe<Scalars['DateTime']>;
-  height: Scalars['Int'];
+  height: Scalars['String'];
   route: RouteCreateNestedOneWithoutScoreLeadInput;
   time: Scalars['Int'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -8869,7 +8873,7 @@ export type ScoreLeadCreateInput = {
 export type ScoreLeadCreateManyCommentInput = {
   competitorId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
-  height: Scalars['Int'];
+  height: Scalars['String'];
   id?: Maybe<Scalars['Int']>;
   routeId: Scalars['Int'];
   time: Scalars['Int'];
@@ -8884,7 +8888,7 @@ export type ScoreLeadCreateManyCommentInputEnvelope = {
 export type ScoreLeadCreateManyCompetitorInput = {
   commentId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  height: Scalars['Int'];
+  height: Scalars['String'];
   id?: Maybe<Scalars['Int']>;
   routeId: Scalars['Int'];
   time: Scalars['Int'];
@@ -8900,7 +8904,7 @@ export type ScoreLeadCreateManyInput = {
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
-  height: Scalars['Int'];
+  height: Scalars['String'];
   id?: Maybe<Scalars['Int']>;
   routeId: Scalars['Int'];
   time: Scalars['Int'];
@@ -8911,7 +8915,7 @@ export type ScoreLeadCreateManyRouteInput = {
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
-  height: Scalars['Int'];
+  height: Scalars['String'];
   id?: Maybe<Scalars['Int']>;
   time: Scalars['Int'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -8963,7 +8967,7 @@ export type ScoreLeadCreateOrConnectWithoutRouteInput = {
 export type ScoreLeadCreateWithoutCommentInput = {
   competitor: CompetitorCreateNestedOneWithoutScoresLeadInput;
   createdAt?: Maybe<Scalars['DateTime']>;
-  height: Scalars['Int'];
+  height: Scalars['String'];
   route: RouteCreateNestedOneWithoutScoreLeadInput;
   time: Scalars['Int'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -8972,7 +8976,7 @@ export type ScoreLeadCreateWithoutCommentInput = {
 export type ScoreLeadCreateWithoutCompetitorInput = {
   comment?: Maybe<CommentCreateNestedOneWithoutScoresLeadInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  height: Scalars['Int'];
+  height: Scalars['String'];
   route: RouteCreateNestedOneWithoutScoreLeadInput;
   time: Scalars['Int'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -8982,7 +8986,7 @@ export type ScoreLeadCreateWithoutRouteInput = {
   comment?: Maybe<CommentCreateNestedOneWithoutScoresLeadInput>;
   competitor: CompetitorCreateNestedOneWithoutScoresLeadInput;
   createdAt?: Maybe<Scalars['DateTime']>;
-  height: Scalars['Int'];
+  height: Scalars['String'];
   time: Scalars['Int'];
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
@@ -8994,7 +8998,7 @@ export type ScoreLeadGroupBy = {
   competitorId: Scalars['Int'];
   count?: Maybe<ScoreLeadCountAggregate>;
   createdAt: Scalars['DateTime'];
-  height: Scalars['Int'];
+  height: Scalars['String'];
   id: Scalars['Int'];
   max?: Maybe<ScoreLeadMaxAggregate>;
   min?: Maybe<ScoreLeadMinAggregate>;
@@ -9015,7 +9019,7 @@ export type ScoreLeadMaxAggregate = {
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
-  height: Scalars['Int'];
+  height?: Maybe<Scalars['String']>;
   id: Scalars['Int'];
   routeId: Scalars['Int'];
   time: Scalars['Int'];
@@ -9027,7 +9031,7 @@ export type ScoreLeadMinAggregate = {
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
-  height: Scalars['Int'];
+  height?: Maybe<Scalars['String']>;
   id: Scalars['Int'];
   routeId: Scalars['Int'];
   time: Scalars['Int'];
@@ -9063,7 +9067,7 @@ export type ScoreLeadScalarWhereInput = {
   commentId?: Maybe<IntNullableFilter>;
   competitorId?: Maybe<IntFilter>;
   createdAt?: Maybe<DateTimeFilter>;
-  height?: Maybe<IntFilter>;
+  height?: Maybe<StringFilter>;
   id?: Maybe<IntFilter>;
   routeId?: Maybe<IntFilter>;
   time?: Maybe<IntFilter>;
@@ -9077,7 +9081,7 @@ export type ScoreLeadScalarWhereWithAggregatesInput = {
   commentId?: Maybe<IntNullableWithAggregatesFilter>;
   competitorId?: Maybe<IntWithAggregatesFilter>;
   createdAt?: Maybe<DateTimeWithAggregatesFilter>;
-  height?: Maybe<IntWithAggregatesFilter>;
+  height?: Maybe<StringWithAggregatesFilter>;
   id?: Maybe<IntWithAggregatesFilter>;
   routeId?: Maybe<IntWithAggregatesFilter>;
   time?: Maybe<IntWithAggregatesFilter>;
@@ -9088,7 +9092,6 @@ export type ScoreLeadSumAggregate = {
   __typename?: 'ScoreLeadSumAggregate';
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
-  height: Scalars['Int'];
   id: Scalars['Int'];
   routeId: Scalars['Int'];
   time: Scalars['Int'];
@@ -9098,7 +9101,7 @@ export type ScoreLeadUpdateInput = {
   comment?: Maybe<CommentUpdateOneWithoutScoresLeadInput>;
   competitor?: Maybe<CompetitorUpdateOneRequiredWithoutScoresLeadInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  height?: Maybe<IntFieldUpdateOperationsInput>;
+  height?: Maybe<StringFieldUpdateOperationsInput>;
   route?: Maybe<RouteUpdateOneRequiredWithoutScoreLeadInput>;
   time?: Maybe<IntFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -9106,7 +9109,7 @@ export type ScoreLeadUpdateInput = {
 
 export type ScoreLeadUpdateManyMutationInput = {
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  height?: Maybe<IntFieldUpdateOperationsInput>;
+  height?: Maybe<StringFieldUpdateOperationsInput>;
   time?: Maybe<IntFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
@@ -9188,7 +9191,7 @@ export type ScoreLeadUpdateWithWhereUniqueWithoutRouteInput = {
 export type ScoreLeadUpdateWithoutCommentInput = {
   competitor?: Maybe<CompetitorUpdateOneRequiredWithoutScoresLeadInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  height?: Maybe<IntFieldUpdateOperationsInput>;
+  height?: Maybe<StringFieldUpdateOperationsInput>;
   route?: Maybe<RouteUpdateOneRequiredWithoutScoreLeadInput>;
   time?: Maybe<IntFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -9197,7 +9200,7 @@ export type ScoreLeadUpdateWithoutCommentInput = {
 export type ScoreLeadUpdateWithoutCompetitorInput = {
   comment?: Maybe<CommentUpdateOneWithoutScoresLeadInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  height?: Maybe<IntFieldUpdateOperationsInput>;
+  height?: Maybe<StringFieldUpdateOperationsInput>;
   route?: Maybe<RouteUpdateOneRequiredWithoutScoreLeadInput>;
   time?: Maybe<IntFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -9207,7 +9210,7 @@ export type ScoreLeadUpdateWithoutRouteInput = {
   comment?: Maybe<CommentUpdateOneWithoutScoresLeadInput>;
   competitor?: Maybe<CompetitorUpdateOneRequiredWithoutScoresLeadInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  height?: Maybe<IntFieldUpdateOperationsInput>;
+  height?: Maybe<StringFieldUpdateOperationsInput>;
   time?: Maybe<IntFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
@@ -9239,7 +9242,7 @@ export type ScoreLeadWhereInput = {
   competitor?: Maybe<CompetitorRelationFilter>;
   competitorId?: Maybe<IntFilter>;
   createdAt?: Maybe<DateTimeFilter>;
-  height?: Maybe<IntFilter>;
+  height?: Maybe<StringFilter>;
   id?: Maybe<IntFilter>;
   route?: Maybe<RouteRelationFilter>;
   routeId?: Maybe<IntFilter>;
