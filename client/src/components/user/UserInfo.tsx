@@ -1,34 +1,13 @@
 import React, { FC } from 'react';
-import { gql } from '@apollo/client/core';
-import { UserDescription } from '../index';
-import { useQuery, useReactiveVar } from '@apollo/client';
-import { loggedUserId } from '../../apollo/cache';
+import { useQuery } from '@apollo/client';
 import { Alert, Button, Row, Spin } from 'antd';
 
-const USER_INFO = gql`
-  query UserInfo($publicId: String!) {
-    user(where: { publicId: $publicId }) {
-      email
-      firstName
-      lastName
-      role
-      location {
-        region {
-          name
-        }
-        country {
-          name
-        }
-      }
-    }
-  }
-`;
+import { UserDescription } from '../index';
+import { USER_INFO } from '../../apollo/queries';
+import { Query } from '../../types/__generated__';
 
 const UserInfo: FC = () => {
-  const userId = useReactiveVar(loggedUserId);
-  const { data, loading, error } = useQuery(USER_INFO, {
-    variables: { publicId: userId },
-  });
+  const { data, loading, error } = useQuery<Query>(USER_INFO);
 
   if (loading)
     return (
@@ -37,7 +16,7 @@ const UserInfo: FC = () => {
       </Row>
     );
 
-  if (error || !data?.user)
+  if (error || !data?.contextUserInfo.user)
     return (
       <Alert
         message="Error"
@@ -48,7 +27,7 @@ const UserInfo: FC = () => {
 
   return (
     <>
-      <UserDescription user={data.user} />
+      <UserDescription user={data.contextUserInfo.user} />
       <br />
       <Row justify="space-around">
         <Button type="primary" disabled>
