@@ -20,7 +20,7 @@ const UserDrawer: FC<LoginProps> = ({ visible, setVisible }: LoginProps) => {
   const footer = isLoggedIn ? (
     <Row justify="space-between">
       <LogoutButton callback={closeDrawer} />
-      <Button disabled>Change password</Button> {/*TODO*/}
+      <Button disabled>Edit settings</Button> {/*TODO*/}
     </Row>
   ) : null;
 

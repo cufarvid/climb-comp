@@ -3,23 +3,11 @@ import { Col, Row } from 'antd';
 
 import { User } from '../../types/generated';
 import { MESSAGE } from '../../constants';
+import { DescriptionItem } from '../index';
 
 interface UserDescriptionProps {
   user: User;
 }
-
-const DescriptionItem = ({
-  title,
-  content,
-}: {
-  title: string;
-  content: string;
-}) => (
-  <div>
-    <b>{title}: </b>
-    {content}
-  </div>
-);
 
 const UserDescription: FC<UserDescriptionProps> = ({
   user,
