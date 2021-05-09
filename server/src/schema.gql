@@ -4103,6 +4103,7 @@ type Mutation {
   login(credentials: LoginInput!): LoginOutput!
   register(credentials: RegisterInput!): User!
   scoreBoulder(data: ScoreInput!): ScoreOutput!
+  scoreLead(data: ScoreInput!): ScoreOutput!
   updateCategory(data: CategoryUpdateInput!, where: CategoryWhereUniqueInput!): Category
   updateClub(data: ClubUpdateInput!, where: ClubWhereUniqueInput!): Club
   updateComment(data: CommentUpdateInput!, where: CommentWhereUniqueInput!): Comment
@@ -6986,6 +6987,7 @@ input ScoreInput {
   competitorId: Float!
   routeId: Float!
   score: String!
+  time: Float
 }
 
 type ScoreLead {
@@ -6994,7 +6996,7 @@ type ScoreLead {
   competitor: Competitor!
   competitorId: Int!
   createdAt: DateTime!
-  height: Int!
+  height: String!
   id: Int!
   route: Route!
   routeId: Int!
@@ -7005,7 +7007,6 @@ type ScoreLead {
 type ScoreLeadAvgAggregate {
   commentId: Float
   competitorId: Float!
-  height: Float!
   id: Float!
   routeId: Float!
   time: Float!
@@ -7016,7 +7017,7 @@ type ScoreLeadCountAggregate {
   commentId: Int
   competitorId: Int!
   createdAt: Int
-  height: Int!
+  height: Int
   id: Int!
   routeId: Int!
   time: Int!
@@ -7027,7 +7028,7 @@ input ScoreLeadCreateInput {
   comment: CommentCreateNestedOneWithoutScoresLeadInput
   competitor: CompetitorCreateNestedOneWithoutScoresLeadInput!
   createdAt: DateTime
-  height: Int!
+  height: String!
   route: RouteCreateNestedOneWithoutScoreLeadInput!
   time: Int!
   updatedAt: DateTime
@@ -7036,7 +7037,7 @@ input ScoreLeadCreateInput {
 input ScoreLeadCreateManyCommentInput {
   competitorId: Int!
   createdAt: DateTime
-  height: Int!
+  height: String!
   id: Int
   routeId: Int!
   time: Int!
@@ -7051,7 +7052,7 @@ input ScoreLeadCreateManyCommentInputEnvelope {
 input ScoreLeadCreateManyCompetitorInput {
   commentId: Int
   createdAt: DateTime
-  height: Int!
+  height: String!
   id: Int
   routeId: Int!
   time: Int!
@@ -7067,7 +7068,7 @@ input ScoreLeadCreateManyInput {
   commentId: Int
   competitorId: Int!
   createdAt: DateTime
-  height: Int!
+  height: String!
   id: Int
   routeId: Int!
   time: Int!
@@ -7078,7 +7079,7 @@ input ScoreLeadCreateManyRouteInput {
   commentId: Int
   competitorId: Int!
   createdAt: DateTime
-  height: Int!
+  height: String!
   id: Int
   time: Int!
   updatedAt: DateTime
@@ -7128,7 +7129,7 @@ input ScoreLeadCreateOrConnectWithoutRouteInput {
 input ScoreLeadCreateWithoutCommentInput {
   competitor: CompetitorCreateNestedOneWithoutScoresLeadInput!
   createdAt: DateTime
-  height: Int!
+  height: String!
   route: RouteCreateNestedOneWithoutScoreLeadInput!
   time: Int!
   updatedAt: DateTime
@@ -7137,7 +7138,7 @@ input ScoreLeadCreateWithoutCommentInput {
 input ScoreLeadCreateWithoutCompetitorInput {
   comment: CommentCreateNestedOneWithoutScoresLeadInput
   createdAt: DateTime
-  height: Int!
+  height: String!
   route: RouteCreateNestedOneWithoutScoreLeadInput!
   time: Int!
   updatedAt: DateTime
@@ -7147,7 +7148,7 @@ input ScoreLeadCreateWithoutRouteInput {
   comment: CommentCreateNestedOneWithoutScoresLeadInput
   competitor: CompetitorCreateNestedOneWithoutScoresLeadInput!
   createdAt: DateTime
-  height: Int!
+  height: String!
   time: Int!
   updatedAt: DateTime
 }
@@ -7158,7 +7159,7 @@ type ScoreLeadGroupBy {
   competitorId: Int!
   count: ScoreLeadCountAggregate
   createdAt: DateTime!
-  height: Int!
+  height: String!
   id: Int!
   max: ScoreLeadMaxAggregate
   min: ScoreLeadMinAggregate
@@ -7178,7 +7179,7 @@ type ScoreLeadMaxAggregate {
   commentId: Int
   competitorId: Int!
   createdAt: DateTime
-  height: Int!
+  height: String
   id: Int!
   routeId: Int!
   time: Int!
@@ -7189,7 +7190,7 @@ type ScoreLeadMinAggregate {
   commentId: Int
   competitorId: Int!
   createdAt: DateTime
-  height: Int!
+  height: String
   id: Int!
   routeId: Int!
   time: Int!
@@ -7225,7 +7226,7 @@ input ScoreLeadScalarWhereInput {
   commentId: IntNullableFilter
   competitorId: IntFilter
   createdAt: DateTimeFilter
-  height: IntFilter
+  height: StringFilter
   id: IntFilter
   routeId: IntFilter
   time: IntFilter
@@ -7239,7 +7240,7 @@ input ScoreLeadScalarWhereWithAggregatesInput {
   commentId: IntNullableWithAggregatesFilter
   competitorId: IntWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
-  height: IntWithAggregatesFilter
+  height: StringWithAggregatesFilter
   id: IntWithAggregatesFilter
   routeId: IntWithAggregatesFilter
   time: IntWithAggregatesFilter
@@ -7249,7 +7250,6 @@ input ScoreLeadScalarWhereWithAggregatesInput {
 type ScoreLeadSumAggregate {
   commentId: Int
   competitorId: Int!
-  height: Int!
   id: Int!
   routeId: Int!
   time: Int!
@@ -7259,7 +7259,7 @@ input ScoreLeadUpdateInput {
   comment: CommentUpdateOneWithoutScoresLeadInput
   competitor: CompetitorUpdateOneRequiredWithoutScoresLeadInput
   createdAt: DateTimeFieldUpdateOperationsInput
-  height: IntFieldUpdateOperationsInput
+  height: StringFieldUpdateOperationsInput
   route: RouteUpdateOneRequiredWithoutScoreLeadInput
   time: IntFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -7267,7 +7267,7 @@ input ScoreLeadUpdateInput {
 
 input ScoreLeadUpdateManyMutationInput {
   createdAt: DateTimeFieldUpdateOperationsInput
-  height: IntFieldUpdateOperationsInput
+  height: StringFieldUpdateOperationsInput
   time: IntFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -7347,7 +7347,7 @@ input ScoreLeadUpdateWithWhereUniqueWithoutRouteInput {
 input ScoreLeadUpdateWithoutCommentInput {
   competitor: CompetitorUpdateOneRequiredWithoutScoresLeadInput
   createdAt: DateTimeFieldUpdateOperationsInput
-  height: IntFieldUpdateOperationsInput
+  height: StringFieldUpdateOperationsInput
   route: RouteUpdateOneRequiredWithoutScoreLeadInput
   time: IntFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -7356,7 +7356,7 @@ input ScoreLeadUpdateWithoutCommentInput {
 input ScoreLeadUpdateWithoutCompetitorInput {
   comment: CommentUpdateOneWithoutScoresLeadInput
   createdAt: DateTimeFieldUpdateOperationsInput
-  height: IntFieldUpdateOperationsInput
+  height: StringFieldUpdateOperationsInput
   route: RouteUpdateOneRequiredWithoutScoreLeadInput
   time: IntFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -7366,7 +7366,7 @@ input ScoreLeadUpdateWithoutRouteInput {
   comment: CommentUpdateOneWithoutScoresLeadInput
   competitor: CompetitorUpdateOneRequiredWithoutScoresLeadInput
   createdAt: DateTimeFieldUpdateOperationsInput
-  height: IntFieldUpdateOperationsInput
+  height: StringFieldUpdateOperationsInput
   time: IntFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -7398,7 +7398,7 @@ input ScoreLeadWhereInput {
   competitor: CompetitorRelationFilter
   competitorId: IntFilter
   createdAt: DateTimeFilter
-  height: IntFilter
+  height: StringFilter
   id: IntFilter
   route: RouteRelationFilter
   routeId: IntFilter

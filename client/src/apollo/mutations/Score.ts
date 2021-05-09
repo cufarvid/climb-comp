@@ -8,3 +8,12 @@ export const SCORE_BOULDER = gql`
     }
   }
 `;
+
+export const SCORE_LEAD = gql`
+  mutation ScoreLead($data: ScoreInput!) {
+    scoreLead(data: $data) {
+      message
+      warning
+    }
+  }
+`;

@@ -1,5 +1,5 @@
 import { History } from 'history';
-import { COLOR } from '../constants';
+import { COLOR, REGEXP } from '../constants';
 import { ColorVariant } from '../types';
 import { ApolloClient } from '@apollo/client';
 import { isLoggedInVar, loggedUserId, loggedUserInfo } from '../apollo/cache';
@@ -64,4 +64,31 @@ export const userLogout = (
  */
 export const capitalize = (string: string): string => {
   return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+/*
+ * Parses 'mm:ss:SSS: time string to milliseconds
+ * @param time
+ */
+export const parseTimeString = (time: string): number => {
+  if (!REGEXP.TIME.test(time))
+    throw new Error('Time string does not match specified format.');
+
+  const [minute, second, millisecond] = time.split(':');
+
+  return +minute * 60 * 1000 + +second * 1000 + +millisecond;
+};
+
+/**
+ * Pads provided number with specified length and fill string
+ * @param number
+ * @param maxLength
+ * @param fillString
+ */
+export const padNumberStart = (
+  number: number,
+  maxLength: number,
+  fillString = '0',
+): string => {
+  return String(number).padStart(maxLength, fillString);
 };

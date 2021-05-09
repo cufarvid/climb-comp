@@ -1,7 +1,8 @@
-import { ROUTE } from './Route';
-import { COLOR } from './Color';
-import { HEADER_HEIGHT, FOOTER_HEIGHT } from './Layout';
-import { MESSAGE } from './Message';
+export { ROUTE } from './Route';
+export { COLOR } from './Color';
+export { HEADER_HEIGHT, FOOTER_HEIGHT } from './Layout';
+export { MESSAGE } from './Message';
+export { REGEXP } from './RegExp';
 
 // Temporary mock data
 export const LIST_COMPETITIONS = [
@@ -30,5 +31,3 @@ export const LIST_COMPETITIONS = [
     location: 'Cesta svobode 1, Kranj',
   },
 ];
-
-export { ROUTE, COLOR, FOOTER_HEIGHT, HEADER_HEIGHT, MESSAGE };
