@@ -7,6 +7,7 @@ import UserDescription from './user/UserDescription';
 import Sidebar from './Sidebar';
 import BreadCrumbs from './BreadCrumbs';
 import AuthGuard from './AuthGuard';
+import DescriptionItem from './DescriptionItem';
 
 export {
   PageSection,
@@ -18,4 +19,5 @@ export {
   Sidebar,
   BreadCrumbs,
   AuthGuard,
+  DescriptionItem,
 };
