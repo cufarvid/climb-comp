@@ -1,5 +1,7 @@
 import { ScoreBoulderData } from '../types';
 
+export const ScoreLeadRegex = /^\d{1,2}\+?$/;
+
 /**
  * Computes and returns boulder score based on score type
  * @param scoreType

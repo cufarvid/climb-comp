@@ -4421,6 +4421,7 @@ export type Mutation = {
   login: LoginOutput;
   register: User;
   scoreBoulder: ScoreOutput;
+  scoreLead: ScoreOutput;
   updateCategory?: Maybe<Category>;
   updateClub?: Maybe<Club>;
   updateComment?: Maybe<Comment>;
@@ -4812,6 +4813,10 @@ export type MutationRegisterArgs = {
 };
 
 export type MutationScoreBoulderArgs = {
+  data: ScoreInput;
+};
+
+export type MutationScoreLeadArgs = {
   data: ScoreInput;
 };
 
@@ -8810,6 +8815,7 @@ export type ScoreInput = {
   competitorId: Scalars['Float'];
   routeId: Scalars['Float'];
   score: Scalars['String'];
+  time?: Maybe<Scalars['Float']>;
 };
 
 export type ScoreLead = {
