@@ -20,12 +20,16 @@ export const USER_INFO = gql`
       route {
         id
         name
+        number
         description
         routeType
         competition {
           id
           name
           description
+        }
+        category {
+          name
         }
       }
     }

@@ -113,4 +113,53 @@ export class ScoreResolver {
       throw new ApolloError(`Error submitting score '${score}'.`);
     }
   }
+
+  @Mutation(() => ScoreOutput)
+  async scoreSpeed(
+    @Ctx() { prisma, user }: Context,
+    @Arg('data') { competitorId, routeId, time }: ScoreInput,
+  ): Promise<ScoreOutput> {
+    if (!user) throw new ApolloError('Unauthorized', '401');
+
+    try {
+      // Check if score already exists
+      const prevScore = await prisma.scoreSpeed.findFirst({
+        where: {
+          routeId: routeId,
+          competitorId: competitorId,
+        },
+      });
+
+      if (!prevScore) {
+        // Not scored yet, create new score
+        await prisma.scoreSpeed.create({
+          data: {
+            time,
+            competitor: { connect: { id: competitorId } },
+            route: { connect: { id: routeId } },
+          },
+        });
+
+        return {
+          message: `Score submitted successfully.`,
+        };
+      } else {
+        // In case of repeating the same route, update existing record
+        await prisma.scoreLead.update({
+          where: { id: prevScore.id },
+          data: {
+            time,
+          },
+        });
+
+        return {
+          message: `Score submitted successfully.`,
+          warning: `You updated existing value.`,
+        };
+      }
+    } catch (e) {
+      console.error(e);
+      throw new ApolloError(`Error submitting score.`);
+    }
+  }
 }

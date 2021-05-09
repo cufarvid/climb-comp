@@ -8,7 +8,7 @@ export class ScoreInput {
   @Field()
   routeId: number;
 
-  @Field()
+  @Field({ nullable: true })
   score: string;
 
   @Field({ nullable: true })

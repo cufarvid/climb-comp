@@ -17,3 +17,12 @@ export const SCORE_LEAD = gql`
     }
   }
 `;
+
+export const SCORE_SPEED = gql`
+  mutation ScoreSpeed($data: ScoreInput!) {
+    scoreSpeed(data: $data) {
+      message
+      warning
+    }
+  }
+`;

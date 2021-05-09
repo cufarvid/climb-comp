@@ -13,6 +13,7 @@ import {
   QueryGetCompetitorForScoringArgs,
 } from '../../types/__generated__';
 import ScoreLead from './ScoreLead';
+import ScoreSpeed from './ScoreSpeed';
 
 const COMPETITOR_SCORING = gql`
   query GetCompetitorForScoring($data: FindStartListInput!) {
@@ -76,9 +77,11 @@ const Score: FC = () => {
 
     switch (userInfo?.route.routeType) {
       case 'BOULDER':
-        return <ScoreBoulder competitor={competitor} route={userInfo?.route} />;
+        return <ScoreBoulder competitor={competitor} route={userInfo.route} />;
       case 'LEAD':
-        return <ScoreLead competitor={competitor} route={userInfo?.route} />;
+        return <ScoreLead competitor={competitor} route={userInfo.route} />;
+      case 'SPEED':
+        return <ScoreSpeed competitor={competitor} route={userInfo.route} />;
     }
   };
 

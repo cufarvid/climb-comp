@@ -4104,6 +4104,7 @@ type Mutation {
   register(credentials: RegisterInput!): User!
   scoreBoulder(data: ScoreInput!): ScoreOutput!
   scoreLead(data: ScoreInput!): ScoreOutput!
+  scoreSpeed(data: ScoreInput!): ScoreOutput!
   updateCategory(data: CategoryUpdateInput!, where: CategoryWhereUniqueInput!): Category
   updateClub(data: ClubUpdateInput!, where: ClubWhereUniqueInput!): Club
   updateComment(data: CommentUpdateInput!, where: CommentWhereUniqueInput!): Comment
@@ -6986,7 +6987,7 @@ input ScoreInput {
   comment: String
   competitorId: Float!
   routeId: Float!
-  score: String!
+  score: String
   time: Float
 }
 
