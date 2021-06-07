@@ -3305,6 +3305,27 @@ input EnumGenderWithAggregatesFilter {
   notIn: [Gender!]
 }
 
+input EnumRoundFieldUpdateOperationsInput {
+  set: Round
+}
+
+input EnumRoundFilter {
+  equals: Round
+  in: [Round!]
+  not: NestedEnumRoundFilter
+  notIn: [Round!]
+}
+
+input EnumRoundWithAggregatesFilter {
+  count: NestedIntFilter
+  equals: Round
+  in: [Round!]
+  max: NestedEnumRoundFilter
+  min: NestedEnumRoundFilter
+  not: NestedEnumRoundWithAggregatesFilter
+  notIn: [Round!]
+}
+
 input EnumRouteTypeFieldUpdateOperationsInput {
   set: RouteType
 }
@@ -4217,6 +4238,23 @@ input NestedEnumGenderWithAggregatesFilter {
   min: NestedEnumGenderFilter
   not: NestedEnumGenderWithAggregatesFilter
   notIn: [Gender!]
+}
+
+input NestedEnumRoundFilter {
+  equals: Round
+  in: [Round!]
+  not: NestedEnumRoundFilter
+  notIn: [Round!]
+}
+
+input NestedEnumRoundWithAggregatesFilter {
+  count: NestedIntFilter
+  equals: Round
+  in: [Round!]
+  max: NestedEnumRoundFilter
+  min: NestedEnumRoundFilter
+  not: NestedEnumRoundWithAggregatesFilter
+  notIn: [Round!]
 }
 
 input NestedEnumRouteTypeFilter {
@@ -5562,6 +5600,12 @@ input ResultWhereUniqueInput {
   id: Int
 }
 
+enum Round {
+  FINAL
+  QUALIFICATION
+  SEMI_FINAL
+}
+
 type Route {
   active: Boolean!
   category: Category!
@@ -5577,6 +5621,7 @@ type Route {
   judgeId: Int!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   scoreBoulder(cursor: ScoreBoulderWhereUniqueInput, distinct: [ScoreBoulderScalarFieldEnum!], orderBy: [ScoreBoulderOrderByInput!], skip: Int, take: Int, where: ScoreBoulderWhereInput): [ScoreBoulder!]!
   scoreLead(cursor: ScoreLeadWhereUniqueInput, distinct: [ScoreLeadScalarFieldEnum!], orderBy: [ScoreLeadOrderByInput!], skip: Int, take: Int, where: ScoreLeadWhereInput): [ScoreLead!]!
@@ -5608,6 +5653,7 @@ type RouteCountAggregate {
   judgeId: Int!
   name: Int
   number: Int!
+  round: Int
   routeType: Int
   setterId: Int!
   updatedAt: Int
@@ -5623,6 +5669,7 @@ input RouteCreateInput {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   scoreBoulder: ScoreBoulderCreateNestedManyWithoutRouteInput
   scoreLead: ScoreLeadCreateNestedManyWithoutRouteInput
@@ -5641,6 +5688,7 @@ input RouteCreateManyCategoryInput {
   judgeId: Int!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   setterId: Int!
   updatedAt: DateTime
@@ -5661,6 +5709,7 @@ input RouteCreateManyCompetitionInput {
   judgeId: Int!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   setterId: Int!
   updatedAt: DateTime
@@ -5681,6 +5730,7 @@ input RouteCreateManyGradeInput {
   judgeId: Int!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   setterId: Int!
   updatedAt: DateTime
@@ -5702,6 +5752,7 @@ input RouteCreateManyInput {
   judgeId: Int!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   setterId: Int!
   updatedAt: DateTime
@@ -5717,6 +5768,7 @@ input RouteCreateManyJudgeInput {
   id: Int
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   setterId: Int!
   updatedAt: DateTime
@@ -5738,6 +5790,7 @@ input RouteCreateManySetterInput {
   judgeId: Int!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   updatedAt: DateTime
 }
@@ -5849,6 +5902,7 @@ input RouteCreateWithoutCategoryInput {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   scoreBoulder: ScoreBoulderCreateNestedManyWithoutRouteInput
   scoreLead: ScoreLeadCreateNestedManyWithoutRouteInput
@@ -5866,6 +5920,7 @@ input RouteCreateWithoutCompetitionInput {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   scoreBoulder: ScoreBoulderCreateNestedManyWithoutRouteInput
   scoreLead: ScoreLeadCreateNestedManyWithoutRouteInput
@@ -5883,6 +5938,7 @@ input RouteCreateWithoutGradeInput {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   scoreBoulder: ScoreBoulderCreateNestedManyWithoutRouteInput
   scoreLead: ScoreLeadCreateNestedManyWithoutRouteInput
@@ -5900,6 +5956,7 @@ input RouteCreateWithoutJudgeInput {
   grade: GradeCreateNestedOneWithoutRoutesInput!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   scoreBoulder: ScoreBoulderCreateNestedManyWithoutRouteInput
   scoreLead: ScoreLeadCreateNestedManyWithoutRouteInput
@@ -5918,6 +5975,7 @@ input RouteCreateWithoutScoreBoulderInput {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   scoreLead: ScoreLeadCreateNestedManyWithoutRouteInput
   scoreSpeed: ScoreSpeedCreateNestedManyWithoutRouteInput
@@ -5935,6 +5993,7 @@ input RouteCreateWithoutScoreLeadInput {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   scoreBoulder: ScoreBoulderCreateNestedManyWithoutRouteInput
   scoreSpeed: ScoreSpeedCreateNestedManyWithoutRouteInput
@@ -5952,6 +6011,7 @@ input RouteCreateWithoutScoreSpeedInput {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   scoreBoulder: ScoreBoulderCreateNestedManyWithoutRouteInput
   scoreLead: ScoreLeadCreateNestedManyWithoutRouteInput
@@ -5969,6 +6029,7 @@ input RouteCreateWithoutSetterInput {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput!
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   scoreBoulder: ScoreBoulderCreateNestedManyWithoutRouteInput
   scoreLead: ScoreLeadCreateNestedManyWithoutRouteInput
@@ -5991,6 +6052,7 @@ type RouteGroupBy {
   min: RouteMinAggregate
   name: String!
   number: Int!
+  round: Round!
   routeType: RouteType!
   setterId: Int!
   sum: RouteSumAggregate
@@ -6014,6 +6076,7 @@ type RouteMaxAggregate {
   judgeId: Int!
   name: String
   number: Int!
+  round: Round
   routeType: RouteType
   setterId: Int!
   updatedAt: DateTime
@@ -6030,6 +6093,7 @@ type RouteMinAggregate {
   judgeId: Int!
   name: String
   number: Int!
+  round: Round
   routeType: RouteType
   setterId: Int!
   updatedAt: DateTime
@@ -6046,6 +6110,7 @@ input RouteOrderByInput {
   judgeId: SortOrder
   name: SortOrder
   number: SortOrder
+  round: SortOrder
   routeType: SortOrder
   setterId: SortOrder
   updatedAt: SortOrder
@@ -6067,6 +6132,7 @@ enum RouteScalarFieldEnum {
   judgeId
   name
   number
+  round
   routeType
   setterId
   updatedAt
@@ -6086,6 +6152,7 @@ input RouteScalarWhereInput {
   judgeId: IntFilter
   name: StringFilter
   number: IntFilter
+  round: EnumRoundFilter
   routeType: EnumRouteTypeFilter
   setterId: IntFilter
   updatedAt: DateTimeFilter
@@ -6105,6 +6172,7 @@ input RouteScalarWhereWithAggregatesInput {
   judgeId: IntWithAggregatesFilter
   name: StringWithAggregatesFilter
   number: IntWithAggregatesFilter
+  round: EnumRoundWithAggregatesFilter
   routeType: EnumRouteTypeWithAggregatesFilter
   setterId: IntWithAggregatesFilter
   updatedAt: DateTimeWithAggregatesFilter
@@ -6137,6 +6205,7 @@ input RouteUpdateInput {
   judge: UserUpdateOneRequiredWithoutRoutesJudgedInput
   name: StringFieldUpdateOperationsInput
   number: IntFieldUpdateOperationsInput
+  round: EnumRoundFieldUpdateOperationsInput
   routeType: EnumRouteTypeFieldUpdateOperationsInput
   scoreBoulder: ScoreBoulderUpdateManyWithoutRouteInput
   scoreLead: ScoreLeadUpdateManyWithoutRouteInput
@@ -6151,6 +6220,7 @@ input RouteUpdateManyMutationInput {
   description: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   number: IntFieldUpdateOperationsInput
+  round: EnumRoundFieldUpdateOperationsInput
   routeType: EnumRouteTypeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -6308,6 +6378,7 @@ input RouteUpdateWithoutCategoryInput {
   judge: UserUpdateOneRequiredWithoutRoutesJudgedInput
   name: StringFieldUpdateOperationsInput
   number: IntFieldUpdateOperationsInput
+  round: EnumRoundFieldUpdateOperationsInput
   routeType: EnumRouteTypeFieldUpdateOperationsInput
   scoreBoulder: ScoreBoulderUpdateManyWithoutRouteInput
   scoreLead: ScoreLeadUpdateManyWithoutRouteInput
@@ -6325,6 +6396,7 @@ input RouteUpdateWithoutCompetitionInput {
   judge: UserUpdateOneRequiredWithoutRoutesJudgedInput
   name: StringFieldUpdateOperationsInput
   number: IntFieldUpdateOperationsInput
+  round: EnumRoundFieldUpdateOperationsInput
   routeType: EnumRouteTypeFieldUpdateOperationsInput
   scoreBoulder: ScoreBoulderUpdateManyWithoutRouteInput
   scoreLead: ScoreLeadUpdateManyWithoutRouteInput
@@ -6342,6 +6414,7 @@ input RouteUpdateWithoutGradeInput {
   judge: UserUpdateOneRequiredWithoutRoutesJudgedInput
   name: StringFieldUpdateOperationsInput
   number: IntFieldUpdateOperationsInput
+  round: EnumRoundFieldUpdateOperationsInput
   routeType: EnumRouteTypeFieldUpdateOperationsInput
   scoreBoulder: ScoreBoulderUpdateManyWithoutRouteInput
   scoreLead: ScoreLeadUpdateManyWithoutRouteInput
@@ -6359,6 +6432,7 @@ input RouteUpdateWithoutJudgeInput {
   grade: GradeUpdateOneRequiredWithoutRoutesInput
   name: StringFieldUpdateOperationsInput
   number: IntFieldUpdateOperationsInput
+  round: EnumRoundFieldUpdateOperationsInput
   routeType: EnumRouteTypeFieldUpdateOperationsInput
   scoreBoulder: ScoreBoulderUpdateManyWithoutRouteInput
   scoreLead: ScoreLeadUpdateManyWithoutRouteInput
@@ -6377,6 +6451,7 @@ input RouteUpdateWithoutScoreBoulderInput {
   judge: UserUpdateOneRequiredWithoutRoutesJudgedInput
   name: StringFieldUpdateOperationsInput
   number: IntFieldUpdateOperationsInput
+  round: EnumRoundFieldUpdateOperationsInput
   routeType: EnumRouteTypeFieldUpdateOperationsInput
   scoreLead: ScoreLeadUpdateManyWithoutRouteInput
   scoreSpeed: ScoreSpeedUpdateManyWithoutRouteInput
@@ -6394,6 +6469,7 @@ input RouteUpdateWithoutScoreLeadInput {
   judge: UserUpdateOneRequiredWithoutRoutesJudgedInput
   name: StringFieldUpdateOperationsInput
   number: IntFieldUpdateOperationsInput
+  round: EnumRoundFieldUpdateOperationsInput
   routeType: EnumRouteTypeFieldUpdateOperationsInput
   scoreBoulder: ScoreBoulderUpdateManyWithoutRouteInput
   scoreSpeed: ScoreSpeedUpdateManyWithoutRouteInput
@@ -6411,6 +6487,7 @@ input RouteUpdateWithoutScoreSpeedInput {
   judge: UserUpdateOneRequiredWithoutRoutesJudgedInput
   name: StringFieldUpdateOperationsInput
   number: IntFieldUpdateOperationsInput
+  round: EnumRoundFieldUpdateOperationsInput
   routeType: EnumRouteTypeFieldUpdateOperationsInput
   scoreBoulder: ScoreBoulderUpdateManyWithoutRouteInput
   scoreLead: ScoreLeadUpdateManyWithoutRouteInput
@@ -6428,6 +6505,7 @@ input RouteUpdateWithoutSetterInput {
   judge: UserUpdateOneRequiredWithoutRoutesJudgedInput
   name: StringFieldUpdateOperationsInput
   number: IntFieldUpdateOperationsInput
+  round: EnumRoundFieldUpdateOperationsInput
   routeType: EnumRouteTypeFieldUpdateOperationsInput
   scoreBoulder: ScoreBoulderUpdateManyWithoutRouteInput
   scoreLead: ScoreLeadUpdateManyWithoutRouteInput
@@ -6498,6 +6576,7 @@ input RouteWhereInput {
   judgeId: IntFilter
   name: StringFilter
   number: IntFilter
+  round: EnumRoundFilter
   routeType: EnumRouteTypeFilter
   scoreBoulder: ScoreBoulderListRelationFilter
   scoreLead: ScoreLeadListRelationFilter

@@ -3562,6 +3562,27 @@ export type EnumGenderWithAggregatesFilter = {
   notIn?: Maybe<Array<Gender>>;
 };
 
+export type EnumRoundFieldUpdateOperationsInput = {
+  set?: Maybe<Round>;
+};
+
+export type EnumRoundFilter = {
+  equals?: Maybe<Round>;
+  in?: Maybe<Array<Round>>;
+  not?: Maybe<NestedEnumRoundFilter>;
+  notIn?: Maybe<Array<Round>>;
+};
+
+export type EnumRoundWithAggregatesFilter = {
+  count?: Maybe<NestedIntFilter>;
+  equals?: Maybe<Round>;
+  in?: Maybe<Array<Round>>;
+  max?: Maybe<NestedEnumRoundFilter>;
+  min?: Maybe<NestedEnumRoundFilter>;
+  not?: Maybe<NestedEnumRoundWithAggregatesFilter>;
+  notIn?: Maybe<Array<Round>>;
+};
+
 export type EnumRouteTypeFieldUpdateOperationsInput = {
   set?: Maybe<RouteType>;
 };
@@ -5182,6 +5203,23 @@ export type NestedEnumGenderWithAggregatesFilter = {
   min?: Maybe<NestedEnumGenderFilter>;
   not?: Maybe<NestedEnumGenderWithAggregatesFilter>;
   notIn?: Maybe<Array<Gender>>;
+};
+
+export type NestedEnumRoundFilter = {
+  equals?: Maybe<Round>;
+  in?: Maybe<Array<Round>>;
+  not?: Maybe<NestedEnumRoundFilter>;
+  notIn?: Maybe<Array<Round>>;
+};
+
+export type NestedEnumRoundWithAggregatesFilter = {
+  count?: Maybe<NestedIntFilter>;
+  equals?: Maybe<Round>;
+  in?: Maybe<Array<Round>>;
+  max?: Maybe<NestedEnumRoundFilter>;
+  min?: Maybe<NestedEnumRoundFilter>;
+  not?: Maybe<NestedEnumRoundWithAggregatesFilter>;
+  notIn?: Maybe<Array<Round>>;
 };
 
 export type NestedEnumRouteTypeFilter = {
@@ -7339,6 +7377,12 @@ export type ResultWhereUniqueInput = {
   id?: Maybe<Scalars['Int']>;
 };
 
+export enum Round {
+  Final = 'FINAL',
+  Qualification = 'QUALIFICATION',
+  SemiFinal = 'SEMI_FINAL',
+}
+
 export type Route = {
   __typename?: 'Route';
   active: Scalars['Boolean'];
@@ -7355,6 +7399,7 @@ export type Route = {
   judgeId: Scalars['Int'];
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   scoreBoulder: Array<ScoreBoulder>;
   scoreLead: Array<ScoreLead>;
@@ -7415,6 +7460,7 @@ export type RouteCountAggregate = {
   judgeId: Scalars['Int'];
   name?: Maybe<Scalars['Int']>;
   number: Scalars['Int'];
+  round?: Maybe<Scalars['Int']>;
   routeType?: Maybe<Scalars['Int']>;
   setterId: Scalars['Int'];
   updatedAt?: Maybe<Scalars['Int']>;
@@ -7430,6 +7476,7 @@ export type RouteCreateInput = {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput;
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   scoreBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutRouteInput>;
   scoreLead?: Maybe<ScoreLeadCreateNestedManyWithoutRouteInput>;
@@ -7448,6 +7495,7 @@ export type RouteCreateManyCategoryInput = {
   judgeId: Scalars['Int'];
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   setterId: Scalars['Int'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -7468,6 +7516,7 @@ export type RouteCreateManyCompetitionInput = {
   judgeId: Scalars['Int'];
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   setterId: Scalars['Int'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -7488,6 +7537,7 @@ export type RouteCreateManyGradeInput = {
   judgeId: Scalars['Int'];
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   setterId: Scalars['Int'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -7509,6 +7559,7 @@ export type RouteCreateManyInput = {
   judgeId: Scalars['Int'];
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   setterId: Scalars['Int'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -7524,6 +7575,7 @@ export type RouteCreateManyJudgeInput = {
   id?: Maybe<Scalars['Int']>;
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   setterId: Scalars['Int'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -7545,6 +7597,7 @@ export type RouteCreateManySetterInput = {
   judgeId: Scalars['Int'];
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
@@ -7656,6 +7709,7 @@ export type RouteCreateWithoutCategoryInput = {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput;
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   scoreBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutRouteInput>;
   scoreLead?: Maybe<ScoreLeadCreateNestedManyWithoutRouteInput>;
@@ -7673,6 +7727,7 @@ export type RouteCreateWithoutCompetitionInput = {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput;
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   scoreBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutRouteInput>;
   scoreLead?: Maybe<ScoreLeadCreateNestedManyWithoutRouteInput>;
@@ -7690,6 +7745,7 @@ export type RouteCreateWithoutGradeInput = {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput;
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   scoreBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutRouteInput>;
   scoreLead?: Maybe<ScoreLeadCreateNestedManyWithoutRouteInput>;
@@ -7707,6 +7763,7 @@ export type RouteCreateWithoutJudgeInput = {
   grade: GradeCreateNestedOneWithoutRoutesInput;
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   scoreBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutRouteInput>;
   scoreLead?: Maybe<ScoreLeadCreateNestedManyWithoutRouteInput>;
@@ -7725,6 +7782,7 @@ export type RouteCreateWithoutScoreBoulderInput = {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput;
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   scoreLead?: Maybe<ScoreLeadCreateNestedManyWithoutRouteInput>;
   scoreSpeed?: Maybe<ScoreSpeedCreateNestedManyWithoutRouteInput>;
@@ -7742,6 +7800,7 @@ export type RouteCreateWithoutScoreLeadInput = {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput;
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   scoreBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutRouteInput>;
   scoreSpeed?: Maybe<ScoreSpeedCreateNestedManyWithoutRouteInput>;
@@ -7759,6 +7818,7 @@ export type RouteCreateWithoutScoreSpeedInput = {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput;
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   scoreBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutRouteInput>;
   scoreLead?: Maybe<ScoreLeadCreateNestedManyWithoutRouteInput>;
@@ -7776,6 +7836,7 @@ export type RouteCreateWithoutSetterInput = {
   judge: UserCreateNestedOneWithoutRoutesJudgedInput;
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   scoreBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutRouteInput>;
   scoreLead?: Maybe<ScoreLeadCreateNestedManyWithoutRouteInput>;
@@ -7799,6 +7860,7 @@ export type RouteGroupBy = {
   min?: Maybe<RouteMinAggregate>;
   name: Scalars['String'];
   number: Scalars['Int'];
+  round: Round;
   routeType: RouteType;
   setterId: Scalars['Int'];
   sum?: Maybe<RouteSumAggregate>;
@@ -7823,6 +7885,7 @@ export type RouteMaxAggregate = {
   judgeId: Scalars['Int'];
   name?: Maybe<Scalars['String']>;
   number: Scalars['Int'];
+  round?: Maybe<Round>;
   routeType?: Maybe<RouteType>;
   setterId: Scalars['Int'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -7840,6 +7903,7 @@ export type RouteMinAggregate = {
   judgeId: Scalars['Int'];
   name?: Maybe<Scalars['String']>;
   number: Scalars['Int'];
+  round?: Maybe<Round>;
   routeType?: Maybe<RouteType>;
   setterId: Scalars['Int'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -7856,6 +7920,7 @@ export type RouteOrderByInput = {
   judgeId?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
   number?: Maybe<SortOrder>;
+  round?: Maybe<SortOrder>;
   routeType?: Maybe<SortOrder>;
   setterId?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
@@ -7877,6 +7942,7 @@ export enum RouteScalarFieldEnum {
   JudgeId = 'judgeId',
   Name = 'name',
   Number = 'number',
+  Round = 'round',
   RouteType = 'routeType',
   SetterId = 'setterId',
   UpdatedAt = 'updatedAt',
@@ -7896,6 +7962,7 @@ export type RouteScalarWhereInput = {
   judgeId?: Maybe<IntFilter>;
   name?: Maybe<StringFilter>;
   number?: Maybe<IntFilter>;
+  round?: Maybe<EnumRoundFilter>;
   routeType?: Maybe<EnumRouteTypeFilter>;
   setterId?: Maybe<IntFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
@@ -7915,6 +7982,7 @@ export type RouteScalarWhereWithAggregatesInput = {
   judgeId?: Maybe<IntWithAggregatesFilter>;
   name?: Maybe<StringWithAggregatesFilter>;
   number?: Maybe<IntWithAggregatesFilter>;
+  round?: Maybe<EnumRoundWithAggregatesFilter>;
   routeType?: Maybe<EnumRouteTypeWithAggregatesFilter>;
   setterId?: Maybe<IntWithAggregatesFilter>;
   updatedAt?: Maybe<DateTimeWithAggregatesFilter>;
@@ -7948,6 +8016,7 @@ export type RouteUpdateInput = {
   judge?: Maybe<UserUpdateOneRequiredWithoutRoutesJudgedInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   number?: Maybe<IntFieldUpdateOperationsInput>;
+  round?: Maybe<EnumRoundFieldUpdateOperationsInput>;
   routeType?: Maybe<EnumRouteTypeFieldUpdateOperationsInput>;
   scoreBoulder?: Maybe<ScoreBoulderUpdateManyWithoutRouteInput>;
   scoreLead?: Maybe<ScoreLeadUpdateManyWithoutRouteInput>;
@@ -7962,6 +8031,7 @@ export type RouteUpdateManyMutationInput = {
   description?: Maybe<NullableStringFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   number?: Maybe<IntFieldUpdateOperationsInput>;
+  round?: Maybe<EnumRoundFieldUpdateOperationsInput>;
   routeType?: Maybe<EnumRouteTypeFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
@@ -8119,6 +8189,7 @@ export type RouteUpdateWithoutCategoryInput = {
   judge?: Maybe<UserUpdateOneRequiredWithoutRoutesJudgedInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   number?: Maybe<IntFieldUpdateOperationsInput>;
+  round?: Maybe<EnumRoundFieldUpdateOperationsInput>;
   routeType?: Maybe<EnumRouteTypeFieldUpdateOperationsInput>;
   scoreBoulder?: Maybe<ScoreBoulderUpdateManyWithoutRouteInput>;
   scoreLead?: Maybe<ScoreLeadUpdateManyWithoutRouteInput>;
@@ -8136,6 +8207,7 @@ export type RouteUpdateWithoutCompetitionInput = {
   judge?: Maybe<UserUpdateOneRequiredWithoutRoutesJudgedInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   number?: Maybe<IntFieldUpdateOperationsInput>;
+  round?: Maybe<EnumRoundFieldUpdateOperationsInput>;
   routeType?: Maybe<EnumRouteTypeFieldUpdateOperationsInput>;
   scoreBoulder?: Maybe<ScoreBoulderUpdateManyWithoutRouteInput>;
   scoreLead?: Maybe<ScoreLeadUpdateManyWithoutRouteInput>;
@@ -8153,6 +8225,7 @@ export type RouteUpdateWithoutGradeInput = {
   judge?: Maybe<UserUpdateOneRequiredWithoutRoutesJudgedInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   number?: Maybe<IntFieldUpdateOperationsInput>;
+  round?: Maybe<EnumRoundFieldUpdateOperationsInput>;
   routeType?: Maybe<EnumRouteTypeFieldUpdateOperationsInput>;
   scoreBoulder?: Maybe<ScoreBoulderUpdateManyWithoutRouteInput>;
   scoreLead?: Maybe<ScoreLeadUpdateManyWithoutRouteInput>;
@@ -8170,6 +8243,7 @@ export type RouteUpdateWithoutJudgeInput = {
   grade?: Maybe<GradeUpdateOneRequiredWithoutRoutesInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   number?: Maybe<IntFieldUpdateOperationsInput>;
+  round?: Maybe<EnumRoundFieldUpdateOperationsInput>;
   routeType?: Maybe<EnumRouteTypeFieldUpdateOperationsInput>;
   scoreBoulder?: Maybe<ScoreBoulderUpdateManyWithoutRouteInput>;
   scoreLead?: Maybe<ScoreLeadUpdateManyWithoutRouteInput>;
@@ -8188,6 +8262,7 @@ export type RouteUpdateWithoutScoreBoulderInput = {
   judge?: Maybe<UserUpdateOneRequiredWithoutRoutesJudgedInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   number?: Maybe<IntFieldUpdateOperationsInput>;
+  round?: Maybe<EnumRoundFieldUpdateOperationsInput>;
   routeType?: Maybe<EnumRouteTypeFieldUpdateOperationsInput>;
   scoreLead?: Maybe<ScoreLeadUpdateManyWithoutRouteInput>;
   scoreSpeed?: Maybe<ScoreSpeedUpdateManyWithoutRouteInput>;
@@ -8205,6 +8280,7 @@ export type RouteUpdateWithoutScoreLeadInput = {
   judge?: Maybe<UserUpdateOneRequiredWithoutRoutesJudgedInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   number?: Maybe<IntFieldUpdateOperationsInput>;
+  round?: Maybe<EnumRoundFieldUpdateOperationsInput>;
   routeType?: Maybe<EnumRouteTypeFieldUpdateOperationsInput>;
   scoreBoulder?: Maybe<ScoreBoulderUpdateManyWithoutRouteInput>;
   scoreSpeed?: Maybe<ScoreSpeedUpdateManyWithoutRouteInput>;
@@ -8222,6 +8298,7 @@ export type RouteUpdateWithoutScoreSpeedInput = {
   judge?: Maybe<UserUpdateOneRequiredWithoutRoutesJudgedInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   number?: Maybe<IntFieldUpdateOperationsInput>;
+  round?: Maybe<EnumRoundFieldUpdateOperationsInput>;
   routeType?: Maybe<EnumRouteTypeFieldUpdateOperationsInput>;
   scoreBoulder?: Maybe<ScoreBoulderUpdateManyWithoutRouteInput>;
   scoreLead?: Maybe<ScoreLeadUpdateManyWithoutRouteInput>;
@@ -8239,6 +8316,7 @@ export type RouteUpdateWithoutSetterInput = {
   judge?: Maybe<UserUpdateOneRequiredWithoutRoutesJudgedInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   number?: Maybe<IntFieldUpdateOperationsInput>;
+  round?: Maybe<EnumRoundFieldUpdateOperationsInput>;
   routeType?: Maybe<EnumRouteTypeFieldUpdateOperationsInput>;
   scoreBoulder?: Maybe<ScoreBoulderUpdateManyWithoutRouteInput>;
   scoreLead?: Maybe<ScoreLeadUpdateManyWithoutRouteInput>;
@@ -8309,6 +8387,7 @@ export type RouteWhereInput = {
   judgeId?: Maybe<IntFilter>;
   name?: Maybe<StringFilter>;
   number?: Maybe<IntFilter>;
+  round?: Maybe<EnumRoundFilter>;
   routeType?: Maybe<EnumRouteTypeFilter>;
   scoreBoulder?: Maybe<ScoreBoulderListRelationFilter>;
   scoreLead?: Maybe<ScoreLeadListRelationFilter>;
