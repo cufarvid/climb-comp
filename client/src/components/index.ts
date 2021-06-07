@@ -8,6 +8,7 @@ import Sidebar from './Sidebar';
 import BreadCrumbs from './BreadCrumbs';
 import AuthGuard from './AuthGuard';
 import DescriptionItem from './DescriptionItem';
+import LiveResult from './result/LiveResult';
 
 export {
   PageSection,
@@ -20,4 +21,5 @@ export {
   BreadCrumbs,
   AuthGuard,
   DescriptionItem,
+  LiveResult,
 };

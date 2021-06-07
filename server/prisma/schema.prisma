@@ -38,6 +38,12 @@ enum RouteType {
   DUEL
 }
 
+enum Round {
+  QUALIFICATION
+  SEMI_FINAL
+  FINAL
+}
+
 // Model
 model Grade {
   id     Int     @id @default(autoincrement())
@@ -200,6 +206,7 @@ model Route {
   number        Int
   name          String
   description   String?
+  round         Round
   routeType     RouteType
   competition   Competition    @relation(fields: [competitionId], references: [id])
   competitionId Int
