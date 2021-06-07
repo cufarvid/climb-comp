@@ -4496,6 +4496,7 @@ type Query {
   findFirstStartList(cursor: StartListWhereUniqueInput, distinct: [StartListScalarFieldEnum!], orderBy: [StartListOrderByInput!], skip: Int, take: Int, where: StartListWhereInput): StartList
   findFirstUser(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): User
   getCompetitorForScoring(data: FindStartListInput!): Competitor!
+  getEventResults(data: ResultInput!): ResultOutput!
   grade(where: GradeWhereUniqueInput!): Grade
   grades(cursor: GradeWhereUniqueInput, distinct: [GradeScalarFieldEnum!], orderBy: [GradeOrderByInput!], skip: Int, take: Int, where: GradeWhereInput): [Grade!]!
   groupByCategory(by: [CategoryScalarFieldEnum!]!, having: CategoryScalarWhereWithAggregatesInput, orderBy: [CategoryOrderByInput!], skip: Int, take: Int, where: CategoryWhereInput): [CategoryGroupBy!]!
@@ -5356,6 +5357,11 @@ input ResultCreateWithoutCompetitorInput {
   updatedAt: DateTime
 }
 
+type ResultField {
+  competitor: Competitor!
+  rounds: [ResultRound!]!
+}
+
 type ResultGroupBy {
   approvedById: Int!
   avg: ResultAvgAggregate
@@ -5369,6 +5375,11 @@ type ResultGroupBy {
   score: Int!
   sum: ResultSumAggregate
   updatedAt: DateTime!
+}
+
+input ResultInput {
+  categoryId: Float!
+  competitionId: Float!
 }
 
 input ResultListRelationFilter {
@@ -5405,6 +5416,15 @@ input ResultOrderByInput {
   id: SortOrder
   score: SortOrder
   updatedAt: SortOrder
+}
+
+type ResultOutput {
+  results: [ResultField!]!
+}
+
+type ResultRound {
+  name: String!
+  rank: Float!
 }
 
 enum ResultScalarFieldEnum {
