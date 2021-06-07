@@ -1,0 +1,5 @@
+-- CreateEnum
+CREATE TYPE "Round" AS ENUM ('QUALIFICATION', 'SEMI_FINAL', 'FINAL');
+
+-- AlterTable
+ALTER TABLE "Route" ADD COLUMN     "round" "Round" NOT NULL DEFAULT E'QUALIFICATION';
