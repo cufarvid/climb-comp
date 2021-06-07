@@ -30,3 +30,17 @@ export const getBoulderScoreData = (
 
   return { top, zone, attempts };
 };
+
+/**
+ * Rank sorting function
+ */
+export const sortByRank = (a, b): number => {
+  // Return rank or a very large number if ranking doesn't exist
+  // (this prevents entries with fewer rounds to get a higher rank)
+  const rank = (x, i) => (x.rounds[i] ? x.rounds[i].rank : Number.MAX_VALUE);
+
+  const aRank = rank(a, 0) + rank(a, 1) + rank(a, 2);
+  const bRank = rank(b, 0) + rank(b, 1) + rank(b, 2);
+
+  return aRank - bRank;
+};

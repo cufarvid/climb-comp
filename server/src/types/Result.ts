@@ -22,6 +22,9 @@ export class ResultRound {
 @ObjectType()
 export class ResultField {
   @Field()
+  rank: number;
+
+  @Field()
   competitor: Competitor;
 
   @Field(() => [ResultRound])

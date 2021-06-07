@@ -3,6 +3,7 @@ import { Context } from '../types';
 import { ResultInput, ResultOutput } from '../types/Result';
 import { ApolloError } from 'apollo-server-errors';
 import { Competition } from '@generated/type-graphql/models';
+import { sortByRank } from '../utils';
 
 @Resolver()
 export class ResultResolver {
@@ -10,7 +11,7 @@ export class ResultResolver {
   async getEventResults(
     @Ctx() { prisma, user }: Context,
     @Arg('data') { competitionId, categoryId }: ResultInput,
-  ) {
+  ): Promise<ResultOutput> {
     if (!user) throw new ApolloError('Unauthorized', '401');
 
     const competition: Competition = await prisma.competition.findFirst({
@@ -66,29 +67,10 @@ export class ResultResolver {
           rank: index + 1,
         });
     });
-    console.log('Sorting');
-    results.sort((a, b) => {
-      const ss = (a, b, i) => {
-        if (a.rounds[i] && b.rounds[i])
-          return a.rounds[i].rank > b.rounds[i].rank ? 1 : -1;
-        else if (a.rounds[i] && !b.rounds[i]) return -1;
-        else if (!a.rounds[i] && b.rounds[i]) return 1;
-      };
-      const q = ss(a, b, 0);
-      const sf = ss(a, b, 1);
-      const f = ss(a, b, 2);
-      console.log(a.rounds);
-      console.log(b.rounds);
-      console.log(q);
-      console.log(sf);
-      console.log(f);
-      console.log('Ret');
-      const ret = q || sf || f;
-      console.log(ret);
-      console.log('--------');
-      return ret;
-    });
 
-    return { results };
+    // Sort results
+    results.sort(sortByRank);
+
+    return { results: results.map((r, i) => ({ rank: i + 1, ...r })) };
   }
 }

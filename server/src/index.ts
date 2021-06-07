@@ -9,12 +9,19 @@ import { resolvers } from '@generated/type-graphql';
 import { User } from '@generated/type-graphql';
 import { Context } from './types';
 import { UserResolver, CompetitorResolver, ScoreResolver } from './resolvers';
+import { ResultResolver } from './resolvers/Result';
 
 const prisma = new PrismaClient();
 
 (async () => {
   const schema = await tq.buildSchema({
-    resolvers: [...resolvers, UserResolver, CompetitorResolver, ScoreResolver],
+    resolvers: [
+      ...resolvers,
+      UserResolver,
+      CompetitorResolver,
+      ScoreResolver,
+      ResultResolver,
+    ],
     emitSchemaFile: path.resolve(__dirname, 'schema.gql'),
   });
 
