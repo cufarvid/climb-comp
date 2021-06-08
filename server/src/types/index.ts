@@ -1,3 +1,9 @@
+import {
+  ScoreLead,
+  ScoreSpeed,
+  ScoreBoulder,
+} from '@generated/type-graphql/models';
+
 import Context from './Context';
 import LoginInput from './LoginInput';
 import LoginOutput from './LoginOutput';
@@ -7,9 +13,14 @@ import UserInfo from './User';
 import { ScoreInput, ScoreOutput, ScoreBoulderData } from './Score';
 import { ResultInput, ResultOutput, ResultField } from './Result';
 
-export type ScoreType = 'scoreLead' | 'scoreBoulder' | 'scoreSpeed';
 export type CompetitionRound = 'Qualification' | 'Semi-Final' | 'Final';
-export type Score = { height: string; time: number };
+export type Score = ScoreLead | ScoreBoulder | ScoreSpeed;
+
+export type RoundScores = {
+  qualification: Score[];
+  semiFinal: Score[];
+  final: Score[];
+};
 
 export enum CompetitionType {
   LEAD = 'Lead',

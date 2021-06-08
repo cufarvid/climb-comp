@@ -1,5 +1,5 @@
-import { Route, ScoreLead, ScoreSpeed } from '@generated/type-graphql/models';
-import { CompetitionRound, ResultField } from '../../types';
+import { ScoreLead, ScoreSpeed } from '@generated/type-graphql/models';
+import { CompetitionRound, ResultField, RoundScores, Score } from '../../types';
 
 /**
  * Rank sorting function
@@ -14,22 +14,6 @@ export const sortByRank = (a: ResultField, b: ResultField): number => {
   const bRank = rank(b, 0) + rank(b, 1) + rank(b, 2);
 
   return aRank - bRank;
-};
-
-/**
- * Returns a route for every round of a competition
- * @param routes Competition routes
- */
-export const getCompRounds = (
-  routes: Route[],
-): { qualifications: Route; semiFinal: Route; final: Route } => {
-  const qualifications = routes.find(
-    (route) => route.round === 'QUALIFICATION',
-  );
-  const semiFinal = routes.find((route) => route.round === 'SEMI_FINAL');
-  const final = routes.find((route) => route.round === 'FINAL');
-
-  return { qualifications, semiFinal, final };
 };
 
 /**
@@ -53,7 +37,7 @@ export const resultRankMapper = (
  */
 export const addRoundResults = (
   results: ResultField[],
-  scores: (ScoreLead | ScoreSpeed)[],
+  scores: Score[],
   compRound: CompetitionRound,
 ): void => {
   if (!scores) return;
@@ -72,6 +56,18 @@ export const addRoundResults = (
       .find((r) => r.competitor.id === record.competitor.id)
       .rounds.push(result);
   });
+};
+
+/**
+ * Returns a scores for every round of a competition
+ * @param scores Scores array
+ */
+export const getCompRounds = (scores: Score[]): RoundScores => {
+  const qualification = scores.filter((s) => s.route.round === 'QUALIFICATION');
+  const semiFinal = scores.filter((s) => s.route.round === 'SEMI_FINAL');
+  const final = scores.filter((s) => s.route.round === 'FINAL');
+
+  return { qualification, semiFinal, final };
 };
 
 /*

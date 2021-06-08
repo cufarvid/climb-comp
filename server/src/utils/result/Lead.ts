@@ -1,10 +1,7 @@
 import { ScoreLead } from '@generated/type-graphql/models';
 import { ResultField } from '../../types';
-import { addRoundResults, sortByRank } from './index';
+import { addRoundResults, getCompRounds, sortByRank } from './index';
 
-/*
-Lead
- */
 /**
  * Returns lead competition results
  * @param scores Scores array
@@ -14,23 +11,25 @@ export const getLeadResults = (
   scores: ScoreLead[],
   sort = true,
 ): ResultField[] => {
-  // Filter scores based on competition round
-  const qualifications = scores.filter(
-    (s) => s.route.round === 'QUALIFICATION',
-  );
-  const semiFinal = scores.filter((s) => s.route.round === 'SEMI_FINAL');
-  const final = scores.filter((s) => s.route.round === 'FINAL');
+  // Get scores based on competition round
+  const { qualification, semiFinal, final } = getCompRounds(scores);
 
-  // Add qualification results
-  const results = qualifications.map((score, index) => ({
+  // Add qualification round results
+  const results = qualification.map((score, index) => ({
     competitor: score.competitor,
-    rounds: [{ name: 'Qualifications', rank: index + 1, score: score.height }],
+    rounds: [
+      {
+        name: 'Qualifications',
+        rank: index + 1,
+        score: score instanceof ScoreLead && score.height,
+      },
+    ],
   }));
 
-  // Add semi-final results
+  // Add semi-final round results
   addRoundResults(results, semiFinal, 'Semi-Final');
 
-  // Add final results
+  // Add final round results
   addRoundResults(results, final, 'Final');
 
   // Sort results
