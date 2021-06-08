@@ -3,6 +3,7 @@ import { ApolloError } from 'apollo-server-errors';
 
 import { Context, ResultInput, ResultOutput } from '../types';
 import { getLeadResults, resultRankMapper } from '../utils';
+import { getSpeedResults } from '../utils/result/Lead';
 
 @Resolver()
 export class ResultResolver {
@@ -26,6 +27,30 @@ export class ResultResolver {
 
     // Get results
     const results = getLeadResults(scores);
+
+    return { results: results.map(resultRankMapper) };
+  }
+
+  @Query(() => ResultOutput)
+  async getSpeedCompResults(
+    @Ctx() { prisma, user }: Context,
+    @Arg('data') { competitionId, categoryId }: ResultInput,
+  ): Promise<ResultOutput> {
+    if (!user) throw new ApolloError('Unauthorized', '401');
+
+    // Fetch scores & do initial ordering by time
+    const scores = await prisma.scoreSpeed.findMany({
+      where: {
+        route: { competitionId: competitionId, categoryId: categoryId },
+      },
+      include: { route: true, competitor: true },
+      orderBy: [{ time: 'asc' }],
+    });
+
+    if (!scores) throw new ApolloError('No competitions found');
+
+    // Get results
+    const results = getSpeedResults(scores);
 
     return { results: results.map(resultRankMapper) };
   }

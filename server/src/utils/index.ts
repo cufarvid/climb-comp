@@ -38,6 +38,7 @@ export {
   resultRankMapper,
   sortByRank,
   getCompRounds,
-  addLeadResults,
+  addRoundResults,
   getLeadResults,
+  getSpeedResults,
 } from './result';

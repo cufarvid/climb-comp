@@ -1,5 +1,5 @@
-import { Route } from '@generated/type-graphql/models';
-import { ResultField } from '../../types';
+import { Route, ScoreLead, ScoreSpeed } from '@generated/type-graphql/models';
+import { CompetitionRound, ResultField } from '../../types';
 
 /**
  * Rank sorting function
@@ -45,7 +45,37 @@ export const resultRankMapper = (
   ...row,
 });
 
+/**
+ * Adds round scores to results array
+ * @param results Results array
+ * @param scores Scores array
+ * @param compRound Competition round
+ */
+export const addRoundResults = (
+  results: ResultField[],
+  scores: (ScoreLead | ScoreSpeed)[],
+  compRound: CompetitionRound,
+): void => {
+  if (!scores) return;
+
+  // Loop over all scores and add them appropriate competitors
+  scores.forEach((record, index) => {
+    const result = { name: compRound, rank: index + 1, score: '' };
+
+    // Set result score based on competition type
+    if (record instanceof ScoreLead) result.score = record.height;
+    else if (record instanceof ScoreSpeed)
+      result.score = record.time.toString();
+
+    // Find competitor and append round ranking
+    results
+      .find((r) => r.competitor.id === record.competitor.id)
+      .rounds.push(result);
+  });
+};
+
 /*
 Exports
  */
-export { addLeadResults, getLeadResults } from './Lead';
+export { getLeadResults } from './Lead';
+export { getSpeedResults } from './Speed';

@@ -1,17 +1,14 @@
-import { ScoreLead } from '@generated/type-graphql/models';
+import { ScoreSpeed } from '@generated/type-graphql/models';
 import { ResultField } from '../../types';
 import { addRoundResults, sortByRank } from './index';
 
-/*
-Lead
- */
 /**
  * Returns lead competition results
  * @param scores Scores array
  * @param sort Sort results?
  */
-export const getLeadResults = (
-  scores: ScoreLead[],
+export const getSpeedResults = (
+  scores: ScoreSpeed[],
   sort = true,
 ): ResultField[] => {
   // Filter scores based on competition round
@@ -24,7 +21,9 @@ export const getLeadResults = (
   // Add qualification results
   const results = qualifications.map((score, index) => ({
     competitor: score.competitor,
-    rounds: [{ name: 'Qualifications', rank: index + 1, score: score.height }],
+    rounds: [
+      { name: 'Qualifications', rank: index + 1, score: score.time.toString() },
+    ],
   }));
 
   // Add semi-final results
