@@ -1,5 +1,12 @@
 import { Route } from '@generated/type-graphql/models';
-import { ResultField, ScoreBoulderData } from '../types';
+import {
+  ScoreType,
+  CompetitionType,
+  ResultField,
+  ScoreBoulderData,
+  CompetitionRound,
+  Score,
+} from '../types';
 
 export const ScoreLeadRegex = /^\d{1,2}\+?$/;
 
@@ -74,3 +81,67 @@ export const resultRankMapper = (
   rank: index + 1,
   ...row,
 });
+
+/**
+ * Returns score type based on competition type
+ * @param compType Competition type
+ */
+const getScoreType = (compType: CompetitionType): ScoreType => {
+  switch (compType) {
+    case CompetitionType.LEAD:
+      return 'scoreLead';
+    case CompetitionType.BOULDER:
+      return 'scoreBoulder';
+    case CompetitionType.SPEED:
+      return 'scoreSpeed';
+  }
+};
+
+/**
+ * Returns a score based on competition type
+ * @param record Score record
+ * @param compType Competition type
+ */
+const getScore = (record: Score, compType: CompetitionType): string => {
+  switch (compType) {
+    case CompetitionType.LEAD:
+      return record.height;
+    case CompetitionType.BOULDER:
+      return 'scoreBoulder';
+    case CompetitionType.SPEED:
+      return record.time.toString();
+  }
+};
+
+/**
+ * Adds round results to results array
+ * @param results Results array
+ * @param route Route
+ * @param compRound Competition round
+ * @param compType Competition type
+ */
+export const addRoundResults = (
+  results: ResultField[],
+  route: Route,
+  compRound: CompetitionRound,
+  compType: CompetitionType,
+): void => {
+  if (!route) return;
+
+  // Set score type based on competition type
+  const scoreType: ScoreType = getScoreType(compType);
+
+  // Loop over all scores and add them appropriate competitors
+  route[scoreType].forEach((record, index) => {
+    const score = getScore(record, compType);
+
+    // Find competitor and append round ranking
+    results
+      .find((r) => r.competitor.id === record.competitor.id)
+      .rounds.push({
+        name: compRound,
+        rank: index + 1,
+        score: score,
+      });
+  });
+};

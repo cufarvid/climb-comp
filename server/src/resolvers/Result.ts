@@ -2,8 +2,13 @@ import { Arg, Ctx, Query, Resolver } from 'type-graphql';
 import { ApolloError } from 'apollo-server-errors';
 
 import { Competition } from '@generated/type-graphql/models';
-import { Context, ResultInput, ResultOutput } from '../types';
-import { getCompRounds, resultRankMapper, sortByRank } from '../utils';
+import { CompetitionType, Context, ResultInput, ResultOutput } from '../types';
+import {
+  addRoundResults,
+  getCompRounds,
+  resultRankMapper,
+  sortByRank,
+} from '../utils';
 
 @Resolver()
 export class ResultResolver {
@@ -46,28 +51,10 @@ export class ResultResolver {
     }));
 
     // Add semi-final results
-    semiFinal?.scoreLead.forEach((score, index) => {
-      // Find competitor and append round ranking
-      results
-        .find((r) => r.competitor.id === score.competitor.id)
-        .rounds.push({
-          name: 'Semi-Final',
-          rank: index + 1,
-          score: score.height,
-        });
-    });
+    addRoundResults(results, semiFinal, 'Semi-Final', CompetitionType.LEAD);
 
     // Add final results
-    final?.scoreLead.forEach((score, index) => {
-      // Find competitor and append round ranking
-      results
-        .find((r) => r.competitor.id === score.competitor.id)
-        .rounds.push({
-          name: 'Final',
-          rank: index + 1,
-          score: score.height,
-        });
-    });
+    addRoundResults(results, final, 'Final', CompetitionType.LEAD);
 
     // Sort results
     results.sort(sortByRank);
