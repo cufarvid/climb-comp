@@ -46,7 +46,7 @@ export class ResultResolver {
       orderBy: [{ time: 'asc' }],
     });
 
-    if (!scores) throw new ApolloError('No competitions found');
+    if (!scores) throw new ApolloError('No scores found');
 
     // Get results
     const results = getSpeedResults(scores);
