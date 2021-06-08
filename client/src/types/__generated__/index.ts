@@ -2363,7 +2363,7 @@ export type CompetitionWhereUniqueInput = {
 export type Competitor = {
   __typename?: 'Competitor';
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   category: Category;
   categoryId: Scalars['Int'];
   club: Club;
@@ -2451,7 +2451,7 @@ export type CompetitorCountAggregate = {
   __typename?: 'CompetitorCountAggregate';
   _all: Scalars['Int'];
   address?: Maybe<Scalars['Int']>;
-  birdthDate?: Maybe<Scalars['Int']>;
+  birthDate?: Maybe<Scalars['Int']>;
   categoryId: Scalars['Int'];
   clubId: Scalars['Int'];
   createdAt?: Maybe<Scalars['Int']>;
@@ -2466,7 +2466,7 @@ export type CompetitorCountAggregate = {
 
 export type CompetitorCreateInput = {
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -2486,7 +2486,7 @@ export type CompetitorCreateInput = {
 
 export type CompetitorCreateManyCategoryInput = {
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   clubId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
@@ -2505,7 +2505,7 @@ export type CompetitorCreateManyCategoryInputEnvelope = {
 
 export type CompetitorCreateManyClubInput = {
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   categoryId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
@@ -2524,7 +2524,7 @@ export type CompetitorCreateManyClubInputEnvelope = {
 
 export type CompetitorCreateManyInput = {
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   categoryId: Scalars['Int'];
   clubId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -2539,7 +2539,7 @@ export type CompetitorCreateManyInput = {
 
 export type CompetitorCreateManyLocationInput = {
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   categoryId: Scalars['Int'];
   clubId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -2660,7 +2660,7 @@ export type CompetitorCreateOrConnectWithoutStartListsInput = {
 
 export type CompetitorCreateWithoutCategoryInput = {
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
@@ -2679,7 +2679,7 @@ export type CompetitorCreateWithoutCategoryInput = {
 
 export type CompetitorCreateWithoutClubInput = {
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
@@ -2698,7 +2698,7 @@ export type CompetitorCreateWithoutClubInput = {
 
 export type CompetitorCreateWithoutLocationInput = {
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -2717,7 +2717,7 @@ export type CompetitorCreateWithoutLocationInput = {
 
 export type CompetitorCreateWithoutRegistrationsInput = {
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -2736,7 +2736,7 @@ export type CompetitorCreateWithoutRegistrationsInput = {
 
 export type CompetitorCreateWithoutResultsInput = {
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -2755,7 +2755,7 @@ export type CompetitorCreateWithoutResultsInput = {
 
 export type CompetitorCreateWithoutScoresBoulderInput = {
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -2774,7 +2774,7 @@ export type CompetitorCreateWithoutScoresBoulderInput = {
 
 export type CompetitorCreateWithoutScoresLeadInput = {
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -2793,7 +2793,7 @@ export type CompetitorCreateWithoutScoresLeadInput = {
 
 export type CompetitorCreateWithoutScoresSpeedInput = {
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -2812,7 +2812,7 @@ export type CompetitorCreateWithoutScoresSpeedInput = {
 
 export type CompetitorCreateWithoutStartListsInput = {
   address?: Maybe<Scalars['String']>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -2833,7 +2833,7 @@ export type CompetitorGroupBy = {
   __typename?: 'CompetitorGroupBy';
   address?: Maybe<Scalars['String']>;
   avg?: Maybe<CompetitorAvgAggregate>;
-  birdthDate: Scalars['DateTime'];
+  birthDate?: Maybe<Scalars['DateTime']>;
   categoryId: Scalars['Int'];
   clubId: Scalars['Int'];
   count?: Maybe<CompetitorCountAggregate>;
@@ -2859,7 +2859,7 @@ export type CompetitorListRelationFilter = {
 export type CompetitorMaxAggregate = {
   __typename?: 'CompetitorMaxAggregate';
   address?: Maybe<Scalars['String']>;
-  birdthDate?: Maybe<Scalars['DateTime']>;
+  birthDate?: Maybe<Scalars['DateTime']>;
   categoryId: Scalars['Int'];
   clubId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -2875,7 +2875,7 @@ export type CompetitorMaxAggregate = {
 export type CompetitorMinAggregate = {
   __typename?: 'CompetitorMinAggregate';
   address?: Maybe<Scalars['String']>;
-  birdthDate?: Maybe<Scalars['DateTime']>;
+  birthDate?: Maybe<Scalars['DateTime']>;
   categoryId: Scalars['Int'];
   clubId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -2890,7 +2890,7 @@ export type CompetitorMinAggregate = {
 
 export type CompetitorOrderByInput = {
   address?: Maybe<SortOrder>;
-  birdthDate?: Maybe<SortOrder>;
+  birthDate?: Maybe<SortOrder>;
   categoryId?: Maybe<SortOrder>;
   clubId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
@@ -2910,7 +2910,7 @@ export type CompetitorRelationFilter = {
 
 export enum CompetitorScalarFieldEnum {
   Address = 'address',
-  BirdthDate = 'birdthDate',
+  BirthDate = 'birthDate',
   CategoryId = 'categoryId',
   ClubId = 'clubId',
   CreatedAt = 'createdAt',
@@ -2928,7 +2928,7 @@ export type CompetitorScalarWhereInput = {
   NOT?: Maybe<Array<CompetitorScalarWhereInput>>;
   OR?: Maybe<Array<CompetitorScalarWhereInput>>;
   address?: Maybe<StringNullableFilter>;
-  birdthDate?: Maybe<DateTimeFilter>;
+  birthDate?: Maybe<DateTimeNullableFilter>;
   categoryId?: Maybe<IntFilter>;
   clubId?: Maybe<IntFilter>;
   createdAt?: Maybe<DateTimeFilter>;
@@ -2946,7 +2946,7 @@ export type CompetitorScalarWhereWithAggregatesInput = {
   NOT?: Maybe<Array<CompetitorScalarWhereWithAggregatesInput>>;
   OR?: Maybe<Array<CompetitorScalarWhereWithAggregatesInput>>;
   address?: Maybe<StringNullableWithAggregatesFilter>;
-  birdthDate?: Maybe<DateTimeWithAggregatesFilter>;
+  birthDate?: Maybe<DateTimeNullableWithAggregatesFilter>;
   categoryId?: Maybe<IntWithAggregatesFilter>;
   clubId?: Maybe<IntWithAggregatesFilter>;
   createdAt?: Maybe<DateTimeWithAggregatesFilter>;
@@ -2969,7 +2969,7 @@ export type CompetitorSumAggregate = {
 
 export type CompetitorUpdateInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  birdthDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -2989,7 +2989,7 @@ export type CompetitorUpdateInput = {
 
 export type CompetitorUpdateManyMutationInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  birdthDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   gender?: Maybe<EnumGenderFieldUpdateOperationsInput>;
@@ -3120,7 +3120,7 @@ export type CompetitorUpdateWithWhereUniqueWithoutLocationInput = {
 
 export type CompetitorUpdateWithoutCategoryInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  birdthDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
@@ -3139,7 +3139,7 @@ export type CompetitorUpdateWithoutCategoryInput = {
 
 export type CompetitorUpdateWithoutClubInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  birdthDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
@@ -3158,7 +3158,7 @@ export type CompetitorUpdateWithoutClubInput = {
 
 export type CompetitorUpdateWithoutLocationInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  birdthDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -3177,7 +3177,7 @@ export type CompetitorUpdateWithoutLocationInput = {
 
 export type CompetitorUpdateWithoutRegistrationsInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  birdthDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -3196,7 +3196,7 @@ export type CompetitorUpdateWithoutRegistrationsInput = {
 
 export type CompetitorUpdateWithoutResultsInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  birdthDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -3215,7 +3215,7 @@ export type CompetitorUpdateWithoutResultsInput = {
 
 export type CompetitorUpdateWithoutScoresBoulderInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  birdthDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -3234,7 +3234,7 @@ export type CompetitorUpdateWithoutScoresBoulderInput = {
 
 export type CompetitorUpdateWithoutScoresLeadInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  birdthDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -3253,7 +3253,7 @@ export type CompetitorUpdateWithoutScoresLeadInput = {
 
 export type CompetitorUpdateWithoutScoresSpeedInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  birdthDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -3272,7 +3272,7 @@ export type CompetitorUpdateWithoutScoresSpeedInput = {
 
 export type CompetitorUpdateWithoutStartListsInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  birdthDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -3342,7 +3342,7 @@ export type CompetitorWhereInput = {
   NOT?: Maybe<Array<CompetitorWhereInput>>;
   OR?: Maybe<Array<CompetitorWhereInput>>;
   address?: Maybe<StringNullableFilter>;
-  birdthDate?: Maybe<DateTimeFilter>;
+  birthDate?: Maybe<DateTimeNullableFilter>;
   category?: Maybe<CategoryRelationFilter>;
   categoryId?: Maybe<IntFilter>;
   club?: Maybe<ClubRelationFilter>;
@@ -3524,6 +3524,31 @@ export type DateTimeFilter = {
   lt?: Maybe<Scalars['DateTime']>;
   lte?: Maybe<Scalars['DateTime']>;
   not?: Maybe<NestedDateTimeFilter>;
+  notIn?: Maybe<Array<Scalars['DateTime']>>;
+};
+
+export type DateTimeNullableFilter = {
+  equals?: Maybe<Scalars['DateTime']>;
+  gt?: Maybe<Scalars['DateTime']>;
+  gte?: Maybe<Scalars['DateTime']>;
+  in?: Maybe<Array<Scalars['DateTime']>>;
+  lt?: Maybe<Scalars['DateTime']>;
+  lte?: Maybe<Scalars['DateTime']>;
+  not?: Maybe<NestedDateTimeNullableFilter>;
+  notIn?: Maybe<Array<Scalars['DateTime']>>;
+};
+
+export type DateTimeNullableWithAggregatesFilter = {
+  count?: Maybe<NestedIntNullableFilter>;
+  equals?: Maybe<Scalars['DateTime']>;
+  gt?: Maybe<Scalars['DateTime']>;
+  gte?: Maybe<Scalars['DateTime']>;
+  in?: Maybe<Array<Scalars['DateTime']>>;
+  lt?: Maybe<Scalars['DateTime']>;
+  lte?: Maybe<Scalars['DateTime']>;
+  max?: Maybe<NestedDateTimeNullableFilter>;
+  min?: Maybe<NestedDateTimeNullableFilter>;
+  not?: Maybe<NestedDateTimeNullableWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
 
@@ -5174,6 +5199,31 @@ export type NestedDateTimeFilter = {
   notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
 
+export type NestedDateTimeNullableFilter = {
+  equals?: Maybe<Scalars['DateTime']>;
+  gt?: Maybe<Scalars['DateTime']>;
+  gte?: Maybe<Scalars['DateTime']>;
+  in?: Maybe<Array<Scalars['DateTime']>>;
+  lt?: Maybe<Scalars['DateTime']>;
+  lte?: Maybe<Scalars['DateTime']>;
+  not?: Maybe<NestedDateTimeNullableFilter>;
+  notIn?: Maybe<Array<Scalars['DateTime']>>;
+};
+
+export type NestedDateTimeNullableWithAggregatesFilter = {
+  count?: Maybe<NestedIntNullableFilter>;
+  equals?: Maybe<Scalars['DateTime']>;
+  gt?: Maybe<Scalars['DateTime']>;
+  gte?: Maybe<Scalars['DateTime']>;
+  in?: Maybe<Array<Scalars['DateTime']>>;
+  lt?: Maybe<Scalars['DateTime']>;
+  lte?: Maybe<Scalars['DateTime']>;
+  max?: Maybe<NestedDateTimeNullableFilter>;
+  min?: Maybe<NestedDateTimeNullableFilter>;
+  not?: Maybe<NestedDateTimeNullableWithAggregatesFilter>;
+  notIn?: Maybe<Array<Scalars['DateTime']>>;
+};
+
 export type NestedDateTimeWithAggregatesFilter = {
   count?: Maybe<NestedIntFilter>;
   equals?: Maybe<Scalars['DateTime']>;
@@ -5394,6 +5444,10 @@ export type NestedStringWithAggregatesFilter = {
   startsWith?: Maybe<Scalars['String']>;
 };
 
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Maybe<Scalars['DateTime']>;
+};
+
 export type NullableIntFieldUpdateOperationsInput = {
   decrement?: Maybe<Scalars['Int']>;
   divide?: Maybe<Scalars['Int']>;
@@ -5462,6 +5516,8 @@ export type Query = {
   findFirstStartList?: Maybe<StartList>;
   findFirstUser?: Maybe<User>;
   getCompetitorForScoring: Competitor;
+  getLeadCompResults: ResultOutput;
+  getSpeedCompResults: ResultOutput;
   grade?: Maybe<Grade>;
   grades: Array<Grade>;
   groupByCategory: Array<CategoryGroupBy>;
@@ -5923,6 +5979,14 @@ export type QueryFindFirstUserArgs = {
 
 export type QueryGetCompetitorForScoringArgs = {
   data: FindStartListInput;
+};
+
+export type QueryGetLeadCompResultsArgs = {
+  data: ResultInput;
+};
+
+export type QueryGetSpeedCompResultsArgs = {
+  data: ResultInput;
 };
 
 export type QueryGradeArgs = {
@@ -7129,6 +7193,13 @@ export type ResultCreateWithoutCompetitorInput = {
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
+export type ResultField = {
+  __typename?: 'ResultField';
+  competitor: Competitor;
+  rank: Scalars['Float'];
+  rounds: Array<ResultRound>;
+};
+
 export type ResultGroupBy = {
   __typename?: 'ResultGroupBy';
   approvedById: Scalars['Int'];
@@ -7143,6 +7214,11 @@ export type ResultGroupBy = {
   score: Scalars['Int'];
   sum?: Maybe<ResultSumAggregate>;
   updatedAt: Scalars['DateTime'];
+};
+
+export type ResultInput = {
+  categoryId: Scalars['Float'];
+  competitionId: Scalars['Float'];
 };
 
 export type ResultListRelationFilter = {
@@ -7181,6 +7257,18 @@ export type ResultOrderByInput = {
   id?: Maybe<SortOrder>;
   score?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
+};
+
+export type ResultOutput = {
+  __typename?: 'ResultOutput';
+  results: Array<ResultField>;
+};
+
+export type ResultRound = {
+  __typename?: 'ResultRound';
+  name: Scalars['String'];
+  rank: Scalars['Float'];
+  score: Scalars['String'];
 };
 
 export enum ResultScalarFieldEnum {
