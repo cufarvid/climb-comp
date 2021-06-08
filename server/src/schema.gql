@@ -2177,7 +2177,7 @@ input CompetitionWhereUniqueInput {
 
 type Competitor {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   category: Category!
   categoryId: Int!
   club: Club!
@@ -2209,7 +2209,7 @@ type CompetitorAvgAggregate {
 type CompetitorCountAggregate {
   _all: Int!
   address: Int
-  birdthDate: Int
+  birthDate: Int
   categoryId: Int!
   clubId: Int!
   createdAt: Int
@@ -2224,7 +2224,7 @@ type CompetitorCountAggregate {
 
 input CompetitorCreateInput {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
   createdAt: DateTime
@@ -2244,7 +2244,7 @@ input CompetitorCreateInput {
 
 input CompetitorCreateManyCategoryInput {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   clubId: Int!
   createdAt: DateTime
   firstName: String!
@@ -2263,7 +2263,7 @@ input CompetitorCreateManyCategoryInputEnvelope {
 
 input CompetitorCreateManyClubInput {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   categoryId: Int!
   createdAt: DateTime
   firstName: String!
@@ -2282,7 +2282,7 @@ input CompetitorCreateManyClubInputEnvelope {
 
 input CompetitorCreateManyInput {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   categoryId: Int!
   clubId: Int!
   createdAt: DateTime
@@ -2297,7 +2297,7 @@ input CompetitorCreateManyInput {
 
 input CompetitorCreateManyLocationInput {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   categoryId: Int!
   clubId: Int!
   createdAt: DateTime
@@ -2418,7 +2418,7 @@ input CompetitorCreateOrConnectWithoutStartListsInput {
 
 input CompetitorCreateWithoutCategoryInput {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   club: ClubCreateNestedOneWithoutCompetitorsInput!
   createdAt: DateTime
   firstName: String!
@@ -2437,7 +2437,7 @@ input CompetitorCreateWithoutCategoryInput {
 
 input CompetitorCreateWithoutClubInput {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   createdAt: DateTime
   firstName: String!
@@ -2456,7 +2456,7 @@ input CompetitorCreateWithoutClubInput {
 
 input CompetitorCreateWithoutLocationInput {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
   createdAt: DateTime
@@ -2475,7 +2475,7 @@ input CompetitorCreateWithoutLocationInput {
 
 input CompetitorCreateWithoutRegistrationsInput {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
   createdAt: DateTime
@@ -2494,7 +2494,7 @@ input CompetitorCreateWithoutRegistrationsInput {
 
 input CompetitorCreateWithoutResultsInput {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
   createdAt: DateTime
@@ -2513,7 +2513,7 @@ input CompetitorCreateWithoutResultsInput {
 
 input CompetitorCreateWithoutScoresBoulderInput {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
   createdAt: DateTime
@@ -2532,7 +2532,7 @@ input CompetitorCreateWithoutScoresBoulderInput {
 
 input CompetitorCreateWithoutScoresLeadInput {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
   createdAt: DateTime
@@ -2551,7 +2551,7 @@ input CompetitorCreateWithoutScoresLeadInput {
 
 input CompetitorCreateWithoutScoresSpeedInput {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
   createdAt: DateTime
@@ -2570,7 +2570,7 @@ input CompetitorCreateWithoutScoresSpeedInput {
 
 input CompetitorCreateWithoutStartListsInput {
   address: String
-  birdthDate: DateTime!
+  birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
   createdAt: DateTime
@@ -2590,7 +2590,7 @@ input CompetitorCreateWithoutStartListsInput {
 type CompetitorGroupBy {
   address: String
   avg: CompetitorAvgAggregate
-  birdthDate: DateTime!
+  birthDate: DateTime
   categoryId: Int!
   clubId: Int!
   count: CompetitorCountAggregate
@@ -2615,7 +2615,7 @@ input CompetitorListRelationFilter {
 
 type CompetitorMaxAggregate {
   address: String
-  birdthDate: DateTime
+  birthDate: DateTime
   categoryId: Int!
   clubId: Int!
   createdAt: DateTime
@@ -2630,7 +2630,7 @@ type CompetitorMaxAggregate {
 
 type CompetitorMinAggregate {
   address: String
-  birdthDate: DateTime
+  birthDate: DateTime
   categoryId: Int!
   clubId: Int!
   createdAt: DateTime
@@ -2645,7 +2645,7 @@ type CompetitorMinAggregate {
 
 input CompetitorOrderByInput {
   address: SortOrder
-  birdthDate: SortOrder
+  birthDate: SortOrder
   categoryId: SortOrder
   clubId: SortOrder
   createdAt: SortOrder
@@ -2665,7 +2665,7 @@ input CompetitorRelationFilter {
 
 enum CompetitorScalarFieldEnum {
   address
-  birdthDate
+  birthDate
   categoryId
   clubId
   createdAt
@@ -2683,7 +2683,7 @@ input CompetitorScalarWhereInput {
   NOT: [CompetitorScalarWhereInput!]
   OR: [CompetitorScalarWhereInput!]
   address: StringNullableFilter
-  birdthDate: DateTimeFilter
+  birthDate: DateTimeNullableFilter
   categoryId: IntFilter
   clubId: IntFilter
   createdAt: DateTimeFilter
@@ -2701,7 +2701,7 @@ input CompetitorScalarWhereWithAggregatesInput {
   NOT: [CompetitorScalarWhereWithAggregatesInput!]
   OR: [CompetitorScalarWhereWithAggregatesInput!]
   address: StringNullableWithAggregatesFilter
-  birdthDate: DateTimeWithAggregatesFilter
+  birthDate: DateTimeNullableWithAggregatesFilter
   categoryId: IntWithAggregatesFilter
   clubId: IntWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
@@ -2723,7 +2723,7 @@ type CompetitorSumAggregate {
 
 input CompetitorUpdateInput {
   address: NullableStringFieldUpdateOperationsInput
-  birdthDate: DateTimeFieldUpdateOperationsInput
+  birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -2743,7 +2743,7 @@ input CompetitorUpdateInput {
 
 input CompetitorUpdateManyMutationInput {
   address: NullableStringFieldUpdateOperationsInput
-  birdthDate: DateTimeFieldUpdateOperationsInput
+  birthDate: NullableDateTimeFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   gender: EnumGenderFieldUpdateOperationsInput
@@ -2874,7 +2874,7 @@ input CompetitorUpdateWithWhereUniqueWithoutLocationInput {
 
 input CompetitorUpdateWithoutCategoryInput {
   address: NullableStringFieldUpdateOperationsInput
-  birdthDate: DateTimeFieldUpdateOperationsInput
+  birthDate: NullableDateTimeFieldUpdateOperationsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
@@ -2893,7 +2893,7 @@ input CompetitorUpdateWithoutCategoryInput {
 
 input CompetitorUpdateWithoutClubInput {
   address: NullableStringFieldUpdateOperationsInput
-  birdthDate: DateTimeFieldUpdateOperationsInput
+  birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
@@ -2912,7 +2912,7 @@ input CompetitorUpdateWithoutClubInput {
 
 input CompetitorUpdateWithoutLocationInput {
   address: NullableStringFieldUpdateOperationsInput
-  birdthDate: DateTimeFieldUpdateOperationsInput
+  birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -2931,7 +2931,7 @@ input CompetitorUpdateWithoutLocationInput {
 
 input CompetitorUpdateWithoutRegistrationsInput {
   address: NullableStringFieldUpdateOperationsInput
-  birdthDate: DateTimeFieldUpdateOperationsInput
+  birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -2950,7 +2950,7 @@ input CompetitorUpdateWithoutRegistrationsInput {
 
 input CompetitorUpdateWithoutResultsInput {
   address: NullableStringFieldUpdateOperationsInput
-  birdthDate: DateTimeFieldUpdateOperationsInput
+  birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -2969,7 +2969,7 @@ input CompetitorUpdateWithoutResultsInput {
 
 input CompetitorUpdateWithoutScoresBoulderInput {
   address: NullableStringFieldUpdateOperationsInput
-  birdthDate: DateTimeFieldUpdateOperationsInput
+  birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -2988,7 +2988,7 @@ input CompetitorUpdateWithoutScoresBoulderInput {
 
 input CompetitorUpdateWithoutScoresLeadInput {
   address: NullableStringFieldUpdateOperationsInput
-  birdthDate: DateTimeFieldUpdateOperationsInput
+  birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -3007,7 +3007,7 @@ input CompetitorUpdateWithoutScoresLeadInput {
 
 input CompetitorUpdateWithoutScoresSpeedInput {
   address: NullableStringFieldUpdateOperationsInput
-  birdthDate: DateTimeFieldUpdateOperationsInput
+  birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -3026,7 +3026,7 @@ input CompetitorUpdateWithoutScoresSpeedInput {
 
 input CompetitorUpdateWithoutStartListsInput {
   address: NullableStringFieldUpdateOperationsInput
-  birdthDate: DateTimeFieldUpdateOperationsInput
+  birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -3096,7 +3096,7 @@ input CompetitorWhereInput {
   NOT: [CompetitorWhereInput!]
   OR: [CompetitorWhereInput!]
   address: StringNullableFilter
-  birdthDate: DateTimeFilter
+  birthDate: DateTimeNullableFilter
   category: CategoryRelationFilter
   categoryId: IntFilter
   club: ClubRelationFilter
@@ -3267,6 +3267,31 @@ input DateTimeFilter {
   lt: DateTime
   lte: DateTime
   not: NestedDateTimeFilter
+  notIn: [DateTime!]
+}
+
+input DateTimeNullableFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeNullableFilter
+  notIn: [DateTime!]
+}
+
+input DateTimeNullableWithAggregatesFilter {
+  count: NestedIntNullableFilter
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  max: NestedDateTimeNullableFilter
+  min: NestedDateTimeNullableFilter
+  not: NestedDateTimeNullableWithAggregatesFilter
   notIn: [DateTime!]
 }
 
@@ -4209,6 +4234,31 @@ input NestedDateTimeFilter {
   notIn: [DateTime!]
 }
 
+input NestedDateTimeNullableFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeNullableFilter
+  notIn: [DateTime!]
+}
+
+input NestedDateTimeNullableWithAggregatesFilter {
+  count: NestedIntNullableFilter
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  max: NestedDateTimeNullableFilter
+  min: NestedDateTimeNullableFilter
+  not: NestedDateTimeNullableWithAggregatesFilter
+  notIn: [DateTime!]
+}
+
 input NestedDateTimeWithAggregatesFilter {
   count: NestedIntFilter
   equals: DateTime
@@ -4427,6 +4477,10 @@ input NestedStringWithAggregatesFilter {
   not: NestedStringWithAggregatesFilter
   notIn: [String!]
   startsWith: String
+}
+
+input NullableDateTimeFieldUpdateOperationsInput {
+  set: DateTime
 }
 
 input NullableIntFieldUpdateOperationsInput {
