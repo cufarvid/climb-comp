@@ -5,6 +5,7 @@ import RegisterInput from './RegisterInput';
 import FindStartListInput from './Competitor';
 import UserInfo from './User';
 import { ScoreInput, ScoreOutput, ScoreBoulderData } from './Score';
+import { ResultInput, ResultOutput, ResultField } from './Result';
 
 export {
   Context,
@@ -16,4 +17,7 @@ export {
   ScoreInput,
   ScoreOutput,
   ScoreBoulderData,
+  ResultInput,
+  ResultOutput,
+  ResultField,
 };

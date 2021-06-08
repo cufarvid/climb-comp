@@ -1,4 +1,5 @@
-import { ScoreBoulderData } from '../types';
+import { Route } from '@generated/type-graphql/models';
+import { ResultField, ScoreBoulderData } from '../types';
 
 export const ScoreLeadRegex = /^\d{1,2}\+?$/;
 
@@ -44,3 +45,32 @@ export const sortByRank = (a, b): number => {
 
   return aRank - bRank;
 };
+
+/**
+ * Returns a route for every round of a competition
+ * @param routes Competition routes
+ */
+export const getCompRounds = (
+  routes: Route[],
+): { qualifications: Route; semiFinal: Route; final: Route } => {
+  const qualifications = routes.find(
+    (route) => route.round === 'QUALIFICATION',
+  );
+  const semiFinal = routes.find((route) => route.round === 'SEMI_FINAL');
+  const final = routes.find((route) => route.round === 'FINAL');
+
+  return { qualifications, semiFinal, final };
+};
+
+/**
+ * Final rankings array mapper
+ * @param row Result row
+ * @param index Result index
+ */
+export const resultRankMapper = (
+  row: ResultField,
+  index: number,
+): ResultField => ({
+  rank: index + 1,
+  ...row,
+});

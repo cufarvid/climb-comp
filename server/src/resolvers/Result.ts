@@ -1,9 +1,9 @@
 import { Arg, Ctx, Query, Resolver } from 'type-graphql';
-import { Context } from '../types';
-import { ResultInput, ResultOutput } from '../types/Result';
 import { ApolloError } from 'apollo-server-errors';
+
 import { Competition } from '@generated/type-graphql/models';
-import { sortByRank } from '../utils';
+import { Context, ResultInput, ResultOutput } from '../types';
+import { getCompRounds, resultRankMapper, sortByRank } from '../utils';
 
 @Resolver()
 export class ResultResolver {
@@ -33,17 +33,16 @@ export class ResultResolver {
 
     if (!competition) throw new ApolloError('No competitions found');
 
-    const { routes } = competition;
-    const qualifications = routes.find(
-      (route) => route.round === 'QUALIFICATION',
+    const { qualifications, semiFinal, final } = getCompRounds(
+      competition.routes,
     );
-    const semiFinal = routes.find((route) => route.round === 'SEMI_FINAL');
-    const final = routes.find((route) => route.round === 'FINAL');
 
     // Add qualification results
-    const results = qualifications.scoreLead.map((score, index) => ({
+    const results = qualifications?.scoreLead.map((score, index) => ({
       competitor: score.competitor,
-      rounds: [{ name: 'Qualifications', rank: index + 1 }],
+      rounds: [
+        { name: 'Qualifications', rank: index + 1, score: score.height },
+      ],
     }));
 
     // Add semi-final results
@@ -54,6 +53,7 @@ export class ResultResolver {
         .rounds.push({
           name: 'Semi-Final',
           rank: index + 1,
+          score: score.height,
         });
     });
 
@@ -65,12 +65,13 @@ export class ResultResolver {
         .rounds.push({
           name: 'Final',
           rank: index + 1,
+          score: score.height,
         });
     });
 
     // Sort results
     results.sort(sortByRank);
 
-    return { results: results.map((r, i) => ({ rank: i + 1, ...r })) };
+    return { results: results.map(resultRankMapper) };
   }
 }
