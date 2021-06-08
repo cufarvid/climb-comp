@@ -2,8 +2,7 @@ import { Arg, Ctx, Query, Resolver } from 'type-graphql';
 import { ApolloError } from 'apollo-server-errors';
 
 import { Context, ResultInput, ResultOutput } from '../types';
-import { getLeadResults, resultRankMapper } from '../utils';
-import { getSpeedResults } from '../utils/result/Lead';
+import { getLeadResults, getSpeedResults, resultRankMapper } from '../utils';
 
 @Resolver()
 export class ResultResolver {
