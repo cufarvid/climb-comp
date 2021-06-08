@@ -17,12 +17,15 @@ export class ResultRound {
 
   @Field()
   rank: number;
+
+  @Field()
+  score: string;
 }
 
 @ObjectType()
 export class ResultField {
   @Field()
-  rank: number;
+  rank?: number;
 
   @Field()
   competitor: Competitor;

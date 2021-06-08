@@ -157,7 +157,7 @@ model Competitor {
   updatedAt     DateTime       @updatedAt
   firstName     String
   lastName      String
-  birdthDate    DateTime
+  birthDate     DateTime?
   gender        Gender
   category      Category       @relation(fields: [categoryId], references: [id])
   categoryId    Int
