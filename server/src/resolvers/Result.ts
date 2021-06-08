@@ -1,76 +1,57 @@
 import { Arg, Ctx, Query, Resolver } from 'type-graphql';
-import { Context } from '../types';
-import { ResultInput, ResultOutput } from '../types/Result';
 import { ApolloError } from 'apollo-server-errors';
-import { Competition } from '@generated/type-graphql/models';
-import { sortByRank } from '../utils';
+
+import { Context, ResultInput, ResultOutput } from '../types';
+import { getLeadResults, resultRankMapper } from '../utils';
+import { getSpeedResults } from '../utils/result/Lead';
 
 @Resolver()
 export class ResultResolver {
   @Query(() => ResultOutput)
-  async getEventResults(
+  async getLeadCompResults(
     @Ctx() { prisma, user }: Context,
     @Arg('data') { competitionId, categoryId }: ResultInput,
   ): Promise<ResultOutput> {
     if (!user) throw new ApolloError('Unauthorized', '401');
 
-    const competition: Competition = await prisma.competition.findFirst({
-      where: { id: competitionId },
-      include: {
-        routes: {
-          where: { categoryId: categoryId },
-          include: {
-            scoreLead: {
-              include: {
-                competitor: true,
-              },
-              orderBy: [{ height: 'desc' }, { time: 'asc' }],
-            },
-          },
-        },
+    // Fetch scores & do initial ordering by height and time
+    const scores = await prisma.scoreLead.findMany({
+      where: {
+        route: { competitionId: competitionId, categoryId: categoryId },
       },
+      include: { route: true, competitor: true },
+      orderBy: [{ height: 'desc' }, { time: 'asc' }],
     });
 
-    if (!competition) throw new ApolloError('No competitions found');
+    if (!scores) throw new ApolloError('No competitions found');
 
-    const { routes } = competition;
-    const qualifications = routes.find(
-      (route) => route.round === 'QUALIFICATION',
-    );
-    const semiFinal = routes.find((route) => route.round === 'SEMI_FINAL');
-    const final = routes.find((route) => route.round === 'FINAL');
+    // Get results
+    const results = getLeadResults(scores);
 
-    // Add qualification results
-    const results = qualifications.scoreLead.map((score, index) => ({
-      competitor: score.competitor,
-      rounds: [{ name: 'Qualifications', rank: index + 1 }],
-    }));
+    return { results: results.map(resultRankMapper) };
+  }
 
-    // Add semi-final results
-    semiFinal?.scoreLead.forEach((score, index) => {
-      // Find competitor and append round ranking
-      results
-        .find((r) => r.competitor.id === score.competitor.id)
-        .rounds.push({
-          name: 'Semi-Final',
-          rank: index + 1,
-        });
+  @Query(() => ResultOutput)
+  async getSpeedCompResults(
+    @Ctx() { prisma, user }: Context,
+    @Arg('data') { competitionId, categoryId }: ResultInput,
+  ): Promise<ResultOutput> {
+    if (!user) throw new ApolloError('Unauthorized', '401');
+
+    // Fetch scores & do initial ordering by time
+    const scores = await prisma.scoreSpeed.findMany({
+      where: {
+        route: { competitionId: competitionId, categoryId: categoryId },
+      },
+      include: { route: true, competitor: true },
+      orderBy: [{ time: 'asc' }],
     });
 
-    // Add final results
-    final?.scoreLead.forEach((score, index) => {
-      // Find competitor and append round ranking
-      results
-        .find((r) => r.competitor.id === score.competitor.id)
-        .rounds.push({
-          name: 'Final',
-          rank: index + 1,
-        });
-    });
+    if (!scores) throw new ApolloError('No competitions found');
 
-    // Sort results
-    results.sort(sortByRank);
+    // Get results
+    const results = getSpeedResults(scores);
 
-    return { results: results.map((r, i) => ({ rank: i + 1, ...r })) };
+    return { results: results.map(resultRankMapper) };
   }
 }
