@@ -4496,7 +4496,7 @@ type Query {
   findFirstStartList(cursor: StartListWhereUniqueInput, distinct: [StartListScalarFieldEnum!], orderBy: [StartListOrderByInput!], skip: Int, take: Int, where: StartListWhereInput): StartList
   findFirstUser(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): User
   getCompetitorForScoring(data: FindStartListInput!): Competitor!
-  getEventResults(data: ResultInput!): ResultOutput!
+  getLeadCompResults(data: ResultInput!): ResultOutput!
   grade(where: GradeWhereUniqueInput!): Grade
   grades(cursor: GradeWhereUniqueInput, distinct: [GradeScalarFieldEnum!], orderBy: [GradeOrderByInput!], skip: Int, take: Int, where: GradeWhereInput): [Grade!]!
   groupByCategory(by: [CategoryScalarFieldEnum!]!, having: CategoryScalarWhereWithAggregatesInput, orderBy: [CategoryOrderByInput!], skip: Int, take: Int, where: CategoryWhereInput): [CategoryGroupBy!]!
