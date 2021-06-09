@@ -2,18 +2,15 @@ import { Arg, Ctx, Query, Resolver } from 'type-graphql';
 import { ApolloError } from 'apollo-server-errors';
 
 import { Context, ResultInput, ResultOutput } from '../types';
-import { getLeadResults, resultRankMapper } from '../utils';
-import { getSpeedResults } from '../utils/result/Lead';
+import { getLeadResults, getSpeedResults, resultRankMapper } from '../utils';
 
 @Resolver()
 export class ResultResolver {
   @Query(() => ResultOutput)
   async getLeadCompResults(
-    @Ctx() { prisma, user }: Context,
+    @Ctx() { prisma }: Context,
     @Arg('data') { competitionId, categoryId }: ResultInput,
   ): Promise<ResultOutput> {
-    if (!user) throw new ApolloError('Unauthorized', '401');
-
     // Fetch scores & do initial ordering by height and time
     const scores = await prisma.scoreLead.findMany({
       where: {
@@ -33,11 +30,9 @@ export class ResultResolver {
 
   @Query(() => ResultOutput)
   async getSpeedCompResults(
-    @Ctx() { prisma, user }: Context,
+    @Ctx() { prisma }: Context,
     @Arg('data') { competitionId, categoryId }: ResultInput,
   ): Promise<ResultOutput> {
-    if (!user) throw new ApolloError('Unauthorized', '401');
-
     // Fetch scores & do initial ordering by time
     const scores = await prisma.scoreSpeed.findMany({
       where: {
@@ -47,11 +42,30 @@ export class ResultResolver {
       orderBy: [{ time: 'asc' }],
     });
 
-    if (!scores) throw new ApolloError('No competitions found');
+    if (!scores) throw new ApolloError('No scores found');
 
     // Get results
     const results = getSpeedResults(scores);
 
     return { results: results.map(resultRankMapper) };
+  }
+
+  @Query(() => ResultOutput)
+  async getCompResults(
+    @Ctx() { prisma, user }: Context,
+    @Arg('data') { competitionId, categoryId, competitionType }: ResultInput,
+  ): Promise<ResultOutput> {
+    const context = { prisma, user };
+    const data = { competitionId, categoryId };
+
+    switch (competitionType) {
+      case 'Lead':
+        return this.getLeadCompResults(context, data);
+      case 'Speed':
+        return this.getSpeedCompResults(context, data);
+      case 'Boulder':
+      default:
+        throw new ApolloError('Invalid competition type');
+    }
   }
 }

@@ -1,4 +1,3 @@
-import { ScoreLead, ScoreSpeed } from '@generated/type-graphql/models';
 import { CompetitionRound, ResultField, RoundScores, Score } from '../../types';
 
 /**
@@ -35,21 +34,21 @@ export const resultRankMapper = (
  * @param scores Scores array
  * @param compRound Competition round
  */
-export const addRoundResults = (
+export const addRoundResults = <T extends Score>(
   results: ResultField[],
-  scores: Score[],
+  scores: T[],
   compRound: CompetitionRound,
 ): void => {
   if (!scores) return;
 
   // Loop over all scores and add them appropriate competitors
   scores.forEach((record, index) => {
-    const result = { name: compRound, rank: index + 1, score: '' };
+    const result = { name: compRound, rank: index + 1, score: '500' };
 
     // Set result score based on competition type
-    if (record instanceof ScoreLead) result.score = record.height;
-    else if (record instanceof ScoreSpeed)
-      result.score = record.time.toString();
+    if (record['height']) {
+      result.score = record['height'];
+    } else if (record['time']) result.score = record['time'].toString();
 
     // Find competitor and append round ranking
     results
@@ -62,7 +61,7 @@ export const addRoundResults = (
  * Returns a scores for every round of a competition
  * @param scores Scores array
  */
-export const getCompRounds = (scores: Score[]): RoundScores => {
+export const getCompRounds = <T extends Score>(scores: T[]): RoundScores<T> => {
   const qualification = scores.filter((s) => s.route.round === 'QUALIFICATION');
   const semiFinal = scores.filter((s) => s.route.round === 'SEMI_FINAL');
   const final = scores.filter((s) => s.route.round === 'FINAL');

@@ -5515,6 +5515,7 @@ export type Query = {
   findFirstSeason?: Maybe<Season>;
   findFirstStartList?: Maybe<StartList>;
   findFirstUser?: Maybe<User>;
+  getCompResults: ResultOutput;
   getCompetitorForScoring: Competitor;
   getLeadCompResults: ResultOutput;
   getSpeedCompResults: ResultOutput;
@@ -5975,6 +5976,10 @@ export type QueryFindFirstUserArgs = {
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<UserWhereInput>;
+};
+
+export type QueryGetCompResultsArgs = {
+  data: ResultInput;
 };
 
 export type QueryGetCompetitorForScoringArgs = {
@@ -7219,6 +7224,7 @@ export type ResultGroupBy = {
 export type ResultInput = {
   categoryId: Scalars['Float'];
   competitionId: Scalars['Float'];
+  competitionType?: Maybe<Scalars['String']>;
 };
 
 export type ResultListRelationFilter = {

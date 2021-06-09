@@ -1,5 +1,4 @@
-import { CompetitorResolver } from './Competitor';
-import { UserResolver } from './User';
-import { ScoreResolver } from './Score';
-
-export { CompetitorResolver, UserResolver, ScoreResolver };
+export { CompetitorResolver } from './Competitor';
+export { UserResolver } from './User';
+export { ScoreResolver } from './Score';
+export { ResultResolver } from './Result';

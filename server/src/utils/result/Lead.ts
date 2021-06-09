@@ -12,16 +12,16 @@ export const getLeadResults = (
   sort = true,
 ): ResultField[] => {
   // Get scores based on competition round
-  const { qualification, semiFinal, final } = getCompRounds(scores);
+  const { qualification, semiFinal, final } = getCompRounds<ScoreLead>(scores);
 
   // Add qualification round results
   const results = qualification.map((score, index) => ({
     competitor: score.competitor,
     rounds: [
       {
-        name: 'Qualifications',
+        name: 'Qualification',
         rank: index + 1,
-        score: score instanceof ScoreLead && score.height,
+        score: score.height,
       },
     ],
   }));
