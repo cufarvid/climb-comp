@@ -1,7 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useLazyQuery } from '@apollo/client';
-import { message, Select } from 'antd';
-import styled from '@emotion/styled';
+import { Form, message, Select } from 'antd';
 
 import {
   Competition,
@@ -76,41 +75,50 @@ const Results: FC = () => {
     <div>
       {/* Year, competition & category selection */}
       <PageSection title={title}>
-        <StyledDiv>
-          <Select
-            defaultValue={year}
-            onChange={handleYearChange}
-            placeholder="Year"
+        <Form layout="inline">
+          <Form.Item label="Year">
+            <Select
+              defaultValue={year}
+              onChange={handleYearChange}
+              placeholder="Year"
+            >
+              {YEAR_DATA.map((year) => (
+                <Select.Option key={year} value={year}>
+                  {year}
+                </Select.Option>
+              ))}
+            </Select>
+          </Form.Item>
+          <Form.Item
+            label="Competition"
+            validateStatus={competition ? '' : 'error'}
           >
-            {YEAR_DATA.map((year) => (
-              <Select.Option key={year} value={year}>
-                {year}
-              </Select.Option>
-            ))}
-          </Select>
-          <Select
-            value={competition?.name}
-            onChange={(value) => handleCompChange(+value)}
-            placeholder="Competition"
-          >
-            {compsYearly[year]?.map((comp, index) => (
-              <Select.Option key={comp.id} value={index}>
-                {comp.name}
-              </Select.Option>
-            ))}
-          </Select>
-          <Select
-            value={category?.name}
-            onChange={(value) => setCategory(categories[+value])}
-            placeholder="Category"
-          >
-            {categories?.map((cat, index) => (
-              <Select.Option key={cat.id} value={index}>
-                {cat.name} - {cat.description}
-              </Select.Option>
-            ))}
-          </Select>
-        </StyledDiv>
+            <Select
+              value={competition?.name}
+              onChange={(value) => handleCompChange(+value)}
+              placeholder="Competition"
+            >
+              {compsYearly[year]?.map((comp, index) => (
+                <Select.Option key={comp.id} value={index}>
+                  {comp.name}
+                </Select.Option>
+              ))}
+            </Select>
+          </Form.Item>
+          <Form.Item label="Category" validateStatus={category ? '' : 'error'}>
+            <Select
+              value={category?.name}
+              onChange={(value) => setCategory(categories[+value])}
+              placeholder="Category"
+            >
+              {categories?.map((cat, index) => (
+                <Select.Option key={cat.id} value={index}>
+                  {cat.name} - {cat.description}
+                </Select.Option>
+              ))}
+            </Select>
+          </Form.Item>
+        </Form>
       </PageSection>
 
       {/* Results */}
@@ -120,14 +128,3 @@ const Results: FC = () => {
 };
 
 export default Results;
-
-/*
- * Styled components
- */
-const StyledDiv = styled('div')`
-  width: 100%;
-
-  .ant-select {
-    margin-right: 20px;
-  }
-`;
