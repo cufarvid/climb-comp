@@ -3,6 +3,7 @@ export { COLOR } from './Color';
 export { HEADER_HEIGHT, FOOTER_HEIGHT } from './Layout';
 export { MESSAGE } from './Message';
 export { REGEXP } from './RegExp';
+export { RESULT_COLUMNS } from './Result';
 
 // Temporary mock data
 export const LIST_COMPETITIONS = [

@@ -14,7 +14,7 @@ import { LiveResult, PageSection } from '../components';
 import { useCategories, useCompsYearly } from '../hooks';
 import { COMP_RESULTS } from '../apollo/queries';
 
-const YEAR_DATA = [2020, 2021];
+const YEAR_DATA = [2021, 2020];
 
 const Results: FC = () => {
   const [competition, setCompetition] = useState<Competition>();
@@ -76,6 +76,7 @@ const Results: FC = () => {
 
   return (
     <div>
+      {/* Year, competition & category selection */}
       <PageSection title={title}>
         <StyledDiv>
           <Select
@@ -113,8 +114,13 @@ const Results: FC = () => {
           </Select>
         </StyledDiv>
       </PageSection>
-      <LiveResult />
-      <LiveResult />
+
+      {/* Results */}
+      <LiveResult
+        category={category?.name}
+        results={results}
+        loading={loading}
+      />
     </div>
   );
 };
