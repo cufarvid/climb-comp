@@ -4549,6 +4549,7 @@ type Query {
   findFirstSeason(cursor: SeasonWhereUniqueInput, distinct: [SeasonScalarFieldEnum!], orderBy: [SeasonOrderByInput!], skip: Int, take: Int, where: SeasonWhereInput): Season
   findFirstStartList(cursor: StartListWhereUniqueInput, distinct: [StartListScalarFieldEnum!], orderBy: [StartListOrderByInput!], skip: Int, take: Int, where: StartListWhereInput): StartList
   findFirstUser(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): User
+  getCompResults(data: ResultInput!): ResultOutput!
   getCompetitorForScoring(data: FindStartListInput!): Competitor!
   getLeadCompResults(data: ResultInput!): ResultOutput!
   getSpeedCompResults(data: ResultInput!): ResultOutput!
@@ -5436,6 +5437,7 @@ type ResultGroupBy {
 input ResultInput {
   categoryId: Float!
   competitionId: Float!
+  competitionType: String
 }
 
 input ResultListRelationFilter {

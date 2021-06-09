@@ -8,11 +8,9 @@ import { getLeadResults, getSpeedResults, resultRankMapper } from '../utils';
 export class ResultResolver {
   @Query(() => ResultOutput)
   async getLeadCompResults(
-    @Ctx() { prisma, user }: Context,
+    @Ctx() { prisma }: Context,
     @Arg('data') { competitionId, categoryId }: ResultInput,
   ): Promise<ResultOutput> {
-    if (!user) throw new ApolloError('Unauthorized', '401');
-
     // Fetch scores & do initial ordering by height and time
     const scores = await prisma.scoreLead.findMany({
       where: {
@@ -32,11 +30,9 @@ export class ResultResolver {
 
   @Query(() => ResultOutput)
   async getSpeedCompResults(
-    @Ctx() { prisma, user }: Context,
+    @Ctx() { prisma }: Context,
     @Arg('data') { competitionId, categoryId }: ResultInput,
   ): Promise<ResultOutput> {
-    if (!user) throw new ApolloError('Unauthorized', '401');
-
     // Fetch scores & do initial ordering by time
     const scores = await prisma.scoreSpeed.findMany({
       where: {
@@ -52,5 +48,23 @@ export class ResultResolver {
     const results = getSpeedResults(scores);
 
     return { results: results.map(resultRankMapper) };
+  }
+
+  @Query(() => ResultOutput)
+  async getCompResults(
+    @Ctx() { prisma, user }: Context,
+    @Arg('data') { competitionId, categoryId, competitionType }: ResultInput,
+  ): Promise<ResultOutput> {
+    const context = { prisma, user };
+    const data = { competitionId, categoryId };
+
+    switch (competitionType) {
+      case 'LEAD':
+        return this.getLeadCompResults(context, data);
+      case 'SPEED':
+        return this.getSpeedCompResults(context, data);
+      default:
+        throw new ApolloError('Invalid competition type');
+    }
   }
 }
