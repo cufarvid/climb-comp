@@ -43,7 +43,7 @@ export const addRoundResults = <T extends Score>(
 
   // Loop over all scores and add them appropriate competitors
   scores.forEach((record, index) => {
-    const result = { name: compRound, rank: index + 1, score: '500' };
+    const result = { name: compRound, rank: index + 1, score: '' };
 
     // Set result score based on competition type
     if (record['height']) {
