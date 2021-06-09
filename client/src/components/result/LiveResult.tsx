@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Table } from 'antd';
+import { Empty, Table } from 'antd';
 
 import { RESULT_COLUMNS } from '../../constants';
 import { ResultRecord } from '../../types';
@@ -30,7 +30,7 @@ const LiveResult: FC<Props> = ({ category, results, loading }: Props) => {
   const resultsParser = (results: ResultField[]): ResultRecord[] =>
     results.map(resultsMapper);
 
-  if (!(category && results.length)) return null;
+  if (!(category && results.length)) return <Empty />;
 
   const title = `${category.name} - (${category.description}, ${category.ageFrom} - ${category.ageTo})`;
 

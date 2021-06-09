@@ -63,8 +63,6 @@ const Results: FC = () => {
         },
       },
     });
-
-    setTimeout(() => console.log(results), 5000);
   };
 
   useEffect(() => {
