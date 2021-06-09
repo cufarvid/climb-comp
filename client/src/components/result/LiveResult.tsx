@@ -3,11 +3,11 @@ import { Table } from 'antd';
 
 import { RESULT_COLUMNS } from '../../constants';
 import { ResultRecord } from '../../types';
-import { ResultField } from '../../types/__generated__';
+import { Category, ResultField } from '../../types/__generated__';
 import { PageSection } from '../index';
 
 interface Props {
-  category: string | undefined;
+  category: Category | undefined;
   results: ResultField[];
   loading: boolean;
 }
@@ -27,14 +27,15 @@ const resultsMapper = (field: ResultField): ResultRecord => {
 };
 
 const LiveResult: FC<Props> = ({ category, results, loading }: Props) => {
-  console.log(results);
   const resultsParser = (results: ResultField[]): ResultRecord[] =>
     results.map(resultsMapper);
 
-  if (!results.length) return null;
+  if (!(category && results.length)) return null;
+
+  const title = `${category.name} - (${category.description}, ${category.ageFrom} - ${category.ageTo})`;
 
   return (
-    <PageSection title={category}>
+    <PageSection title={title}>
       <Table
         columns={RESULT_COLUMNS}
         dataSource={resultsParser(results)}

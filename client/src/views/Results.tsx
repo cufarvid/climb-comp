@@ -108,7 +108,7 @@ const Results: FC = () => {
           >
             {categories?.map((cat, index) => (
               <Select.Option key={cat.id} value={index}>
-                {cat.name}
+                {cat.name} - {cat.description}
               </Select.Option>
             ))}
           </Select>
@@ -116,11 +116,7 @@ const Results: FC = () => {
       </PageSection>
 
       {/* Results */}
-      <LiveResult
-        category={category?.name}
-        results={results}
-        loading={loading}
-      />
+      <LiveResult category={category} results={results} loading={loading} />
     </div>
   );
 };

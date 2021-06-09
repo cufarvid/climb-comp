@@ -14,6 +14,8 @@ const LIST_CATEGORIES = gql`
       id
       name
       description
+      ageFrom
+      ageTo
     }
   }
 `;
