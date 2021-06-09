@@ -1,10 +1,18 @@
-import React, { FC, useState } from 'react';
-import { Select } from 'antd';
+import React, { FC, useEffect, useState } from 'react';
+import { useLazyQuery } from '@apollo/client';
+import { message, Select } from 'antd';
 import styled from '@emotion/styled';
 
-import { Competition, Category } from '../types/__generated__';
+import {
+  Competition,
+  Category,
+  Query,
+  QueryGetCompResultsArgs,
+  ResultField,
+} from '../types/__generated__';
 import { LiveResult, PageSection } from '../components';
 import { useCategories, useCompsYearly } from '../hooks';
+import { COMP_RESULTS } from '../apollo/queries';
 
 const YEAR_DATA = [2020, 2021];
 
@@ -12,10 +20,21 @@ const Results: FC = () => {
   const [competition, setCompetition] = useState<Competition>();
   const [year, setYear] = useState(YEAR_DATA[0]);
   const [category, setCategory] = useState<Category>();
+  const [results, setResults] = useState<ResultField[]>([]);
 
   // Get competition & category data from custom hooks
   const { categories } = useCategories();
   const { compsYearly } = useCompsYearly();
+
+  const [getResults, { loading }] = useLazyQuery<
+    Query,
+    QueryGetCompResultsArgs
+  >(COMP_RESULTS, {
+    onCompleted: ({ getCompResults }) => {
+      if (getCompResults) setResults(getCompResults.results);
+    },
+    onError: () => message.error('Error fetching results'),
+  });
 
   const handleYearChange = (value: number): void => {
     setYear(value);
@@ -27,6 +46,31 @@ const Results: FC = () => {
   const handleCompChange = (value: number): void => {
     if (compsYearly[year]) setCompetition(compsYearly[year][value]);
   };
+
+  /**
+   * Fetches results
+   */
+  const fetchResults = (): void => {
+    // If competition and category are not set we can't fetch the data
+    if (!(competition?.id && category?.id)) return;
+
+    getResults({
+      variables: {
+        data: {
+          competitionId: competition.id,
+          competitionType: competition.compType.name,
+          categoryId: category.id,
+        },
+      },
+    });
+
+    setTimeout(() => console.log(results), 5000);
+  };
+
+  useEffect(() => {
+    // Fetch results if competition or category was changed
+    fetchResults();
+  }, [competition, category]);
 
   const title = `Results - (${year}) ${competition?.name ?? ''}`.trim();
 
