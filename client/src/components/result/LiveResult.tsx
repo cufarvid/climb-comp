@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Table } from 'antd';
 import { ResultRecord } from '../../types';
 import { RESULT_COLUMNS } from '../../constants/Result';
+import { PageSection } from '../index';
 
 const DATA: ResultRecord[] = [
   {
@@ -34,7 +35,16 @@ const DATA: ResultRecord[] = [
 ];
 
 const LiveResult: FC = () => {
-  return <Table columns={RESULT_COLUMNS} dataSource={DATA} rowKey="rank" />;
+  return (
+    <PageSection title="Category">
+      <Table
+        columns={RESULT_COLUMNS}
+        dataSource={DATA}
+        rowKey="rank"
+        className="w-100"
+      />
+    </PageSection>
+  );
 };
 
 export default LiveResult;
