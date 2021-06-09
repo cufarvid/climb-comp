@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { ApolloError, useLazyQuery } from '@apollo/client';
+import { useState } from 'react';
+import { ApolloError, useQuery } from '@apollo/client';
 import { gql } from '@apollo/client/core';
 import { message } from 'antd';
 import dayjs from 'dayjs';
@@ -47,19 +47,13 @@ export const useCompsYearly = (): UseCompsYearly => {
   const [compsYearly, setCompsYearly] = useState<DictionaryOf<Competition[]>>(
     {},
   );
-  const [getCompetitions, { error, loading }] = useLazyQuery<
-    Query,
-    Competition
-  >(LIST_COMPETITIONS, {
+
+  const { error, loading } = useQuery<Query, Competition>(LIST_COMPETITIONS, {
     onCompleted: ({ competitions }) => {
       if (competitions) setCompsYearly(getCompsYearly(competitions));
     },
     onError: () => message.error('Error fetching competition info'),
   });
-
-  useEffect(() => {
-    getCompetitions();
-  }, []);
 
   return { compsYearly, error, loading };
 };
