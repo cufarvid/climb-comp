@@ -5,7 +5,7 @@ import { message, Select } from 'antd';
 import dayjs from 'dayjs';
 import styled from '@emotion/styled';
 
-import { Competition, Query } from '../types/__generated__';
+import { Competition, Category, Query } from '../types/__generated__';
 import { LiveResult, PageSection } from '../components';
 import { DictionaryOf } from '../types';
 
@@ -17,6 +17,16 @@ const LIST_COMPETITIONS = gql`
       id
       name
       startDate
+    }
+  }
+`;
+
+const LIST_CATEGORIES = gql`
+  query {
+    categories {
+      id
+      name
+      description
     }
   }
 `;
@@ -42,37 +52,44 @@ const Results: FC = () => {
   const [compsYearly, setCompsYearly] = useState<DictionaryOf<Competition[]>>(
     {},
   );
-  const [compSelected, setCompSelected] = useState<Competition>();
-  const [yearSelected, setYearSelected] = useState(YEAR_DATA[0]);
+  const [competition, setCompetition] = useState<Competition>();
+  const [year, setYear] = useState(YEAR_DATA[0]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [category, setCategory] = useState<Category>();
 
-  const [getCompetitions, { loading }] = useLazyQuery<Query, Competition>(
-    LIST_COMPETITIONS,
-    {
-      onCompleted: ({ competitions }) => {
-        if (competitions) setCompsYearly(getCompsYearly(competitions));
-      },
-      onError: () => message.error('Error fetching competition info'),
+  const [getCompetitions, { loading: loadingComp }] = useLazyQuery<
+    Query,
+    Competition
+  >(LIST_COMPETITIONS, {
+    onCompleted: ({ competitions }) => {
+      if (competitions) setCompsYearly(getCompsYearly(competitions));
     },
-  );
+    onError: () => message.error('Error fetching competition info'),
+  });
+
+  const [getCategories] = useLazyQuery<Query, Category>(LIST_CATEGORIES, {
+    onCompleted: ({ categories }) => {
+      if (categories) setCategories(categories);
+    },
+    onError: () => message.error('Error fetching competition info'),
+  });
 
   const handleYearChange = (value: number): void => {
-    setYearSelected(value);
-    setCompSelected(
+    setYear(value);
+    setCompetition(
       compsYearly[value]?.length ? compsYearly[value][0] : undefined,
     );
   };
 
   const handleCompChange = (value: number): void => {
-    if (compsYearly[yearSelected])
-      setCompSelected(compsYearly[yearSelected][value]);
+    if (compsYearly[year]) setCompetition(compsYearly[year][value]);
   };
 
-  const title = `Results - (${yearSelected}) ${
-    compSelected?.name ?? ''
-  }`.trim();
+  const title = `Results - (${year}) ${competition?.name ?? ''}`.trim();
 
   useEffect(() => {
     getCompetitions();
+    getCategories();
   }, []);
 
   return (
@@ -80,7 +97,7 @@ const Results: FC = () => {
       <PageSection title={title}>
         <StyledDiv>
           <Select
-            defaultValue={yearSelected}
+            defaultValue={year}
             onChange={handleYearChange}
             placeholder="Year"
           >
@@ -91,14 +108,25 @@ const Results: FC = () => {
             ))}
           </Select>
           <Select
-            value={compSelected?.name}
+            value={competition?.name}
             onChange={(value) => handleCompChange(+value)}
-            loading={loading}
+            loading={loadingComp}
             placeholder="Competition"
           >
-            {compsYearly[yearSelected]?.map((comp, index) => (
+            {compsYearly[year]?.map((comp, index) => (
               <Select.Option key={comp.id} value={index}>
                 {comp.name}
+              </Select.Option>
+            ))}
+          </Select>
+          <Select
+            value={category?.name}
+            onChange={(value) => setCategory(categories[+value])}
+            placeholder="Category"
+          >
+            {categories?.map((cat, index) => (
+              <Select.Option key={cat.id} value={index}>
+                {cat.name}
               </Select.Option>
             ))}
           </Select>
