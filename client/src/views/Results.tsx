@@ -3,9 +3,10 @@ import { gql } from '@apollo/client/core';
 import { useLazyQuery } from '@apollo/client';
 import { message, Select } from 'antd';
 import dayjs from 'dayjs';
+import styled from '@emotion/styled';
 
 import { Competition, Query } from '../types/__generated__';
-import { LiveResult } from '../components';
+import { LiveResult, PageSection } from '../components';
 import { DictionaryOf } from '../types';
 
 const YEAR_DATA = [2020, 2021];
@@ -54,12 +55,21 @@ const Results: FC = () => {
     },
   );
 
-  const handleYearChange = (value: number) => {
+  const handleYearChange = (value: number): void => {
     setYearSelected(value);
     setCompSelected(
       compsYearly[value]?.length ? compsYearly[value][0] : undefined,
     );
   };
+
+  const handleCompChange = (value: number): void => {
+    if (compsYearly[yearSelected])
+      setCompSelected(compsYearly[yearSelected][value]);
+  };
+
+  const title = `Results - (${yearSelected}) ${
+    compSelected?.name ?? ''
+  }`.trim();
 
   useEffect(() => {
     getCompetitions();
@@ -67,32 +77,48 @@ const Results: FC = () => {
 
   return (
     <div>
-      <div>Results</div>
-      <Select
-        defaultValue={yearSelected}
-        onChange={handleYearChange}
-        placeholder="Year"
-      >
-        {YEAR_DATA.map((year) => (
-          <Select.Option key={year} value={year}>
-            {year}
-          </Select.Option>
-        ))}
-      </Select>
-      <Select
-        value={compSelected?.name}
-        loading={loading}
-        placeholder="Competition"
-      >
-        {compsYearly[yearSelected]?.map((comp) => (
-          <Select.Option key={comp.id} value={comp.id}>
-            {comp.name}
-          </Select.Option>
-        ))}
-      </Select>
+      <PageSection title={title}>
+        <StyledDiv>
+          <Select
+            defaultValue={yearSelected}
+            onChange={handleYearChange}
+            placeholder="Year"
+          >
+            {YEAR_DATA.map((year) => (
+              <Select.Option key={year} value={year}>
+                {year}
+              </Select.Option>
+            ))}
+          </Select>
+          <Select
+            value={compSelected?.name}
+            onChange={(value) => handleCompChange(+value)}
+            loading={loading}
+            placeholder="Competition"
+          >
+            {compsYearly[yearSelected]?.map((comp, index) => (
+              <Select.Option key={comp.id} value={index}>
+                {comp.name}
+              </Select.Option>
+            ))}
+          </Select>
+        </StyledDiv>
+      </PageSection>
+      <LiveResult />
       <LiveResult />
     </div>
   );
 };
 
 export default Results;
+
+/*
+ * Styled components
+ */
+const StyledDiv = styled('div')`
+  width: 100%;
+
+  .ant-select {
+    margin-right: 20px;
+  }
+`;
