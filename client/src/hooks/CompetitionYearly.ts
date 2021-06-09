@@ -16,6 +16,9 @@ const LIST_COMPETITIONS = gql`
       id
       name
       startDate
+      compType {
+        name
+      }
     }
   }
 `;
@@ -51,7 +54,7 @@ export const useCompsYearly = (): UseCompsYearly => {
     {},
   );
 
-  const { error, loading } = useQuery<Query, Competition>(LIST_COMPETITIONS, {
+  const { error, loading } = useQuery<Query>(LIST_COMPETITIONS, {
     onCompleted: ({ competitions }) => {
       if (competitions) setCompsYearly(getCompsYearly(competitions));
     },
