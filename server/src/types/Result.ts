@@ -10,7 +10,7 @@ export class ResultInput {
   categoryId: number;
 
   @Field({ nullable: true })
-  competitionType?: 'LEAD' | 'BOULDER' | 'SPEED';
+  competitionType?: 'Lead' | 'Boulder' | 'Speed';
 }
 
 @ObjectType()

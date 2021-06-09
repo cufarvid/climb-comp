@@ -59,10 +59,11 @@ export class ResultResolver {
     const data = { competitionId, categoryId };
 
     switch (competitionType) {
-      case 'LEAD':
+      case 'Lead':
         return this.getLeadCompResults(context, data);
-      case 'SPEED':
+      case 'Speed':
         return this.getSpeedCompResults(context, data);
+      case 'Boulder':
       default:
         throw new ApolloError('Invalid competition type');
     }
