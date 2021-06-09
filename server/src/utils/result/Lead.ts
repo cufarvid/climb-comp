@@ -19,7 +19,7 @@ export const getLeadResults = (
     competitor: score.competitor,
     rounds: [
       {
-        name: 'Qualifications',
+        name: 'Qualification',
         rank: index + 1,
         score: score instanceof ScoreLead && score.height,
       },

@@ -18,7 +18,7 @@ export const getSpeedResults = (
   const results = qualification.map((score, index) => ({
     competitor: score.competitor,
     rounds: [
-      { name: 'Qualifications', rank: index + 1, score: score.time.toString() },
+      { name: 'Qualification', rank: index + 1, score: score.time.toString() },
     ],
   }));
 
