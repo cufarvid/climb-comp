@@ -8,8 +8,12 @@ import { resolvers } from '@generated/type-graphql';
 
 import { User } from '@generated/type-graphql';
 import { Context } from './types';
-import { UserResolver, CompetitorResolver, ScoreResolver } from './resolvers';
-import { ResultResolver } from './resolvers/Result';
+import {
+  UserResolver,
+  CompetitorResolver,
+  ScoreResolver,
+  ResultResolver,
+} from './resolvers';
 
 const prisma = new PrismaClient();
 

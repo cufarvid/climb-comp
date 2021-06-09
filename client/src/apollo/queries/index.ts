@@ -1,3 +1,2 @@
-import { USER_INFO } from './User';
-
-export { USER_INFO };
+export { USER_INFO } from './User';
+export { COMP_RESULTS } from './Result';

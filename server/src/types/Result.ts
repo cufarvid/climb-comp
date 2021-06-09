@@ -8,6 +8,9 @@ export class ResultInput {
 
   @Field()
   categoryId: number;
+
+  @Field({ nullable: true })
+  competitionType?: 'Lead' | 'Boulder' | 'Speed';
 }
 
 @ObjectType()
