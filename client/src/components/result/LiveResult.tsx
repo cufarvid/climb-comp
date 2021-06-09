@@ -34,13 +34,7 @@ const DATA: ResultRecord[] = [
 ];
 
 const LiveResult: FC = () => {
-  return (
-    <Table
-      columns={RESULT_COLUMNS}
-      dataSource={DATA}
-      onChange={(x) => console.log(x)}
-    />
-  );
+  return <Table columns={RESULT_COLUMNS} dataSource={DATA} rowKey="rank" />;
 };
 
 export default LiveResult;
