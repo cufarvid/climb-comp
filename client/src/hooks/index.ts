@@ -1,1 +1,1 @@
-export {};
+export { useCompsYearly } from './CompetitionYearly';
