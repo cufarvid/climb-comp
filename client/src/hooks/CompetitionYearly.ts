@@ -43,6 +43,9 @@ type UseCompsYearly = {
   loading: boolean;
 };
 
+/**
+ * Returns an object containing an object of years and respective competitions, error & loading status
+ */
 export const useCompsYearly = (): UseCompsYearly => {
   const [compsYearly, setCompsYearly] = useState<DictionaryOf<Competition[]>>(
     {},

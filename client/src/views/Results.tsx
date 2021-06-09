@@ -1,78 +1,21 @@
-import React, { FC, useEffect, useState } from 'react';
-import { gql } from '@apollo/client/core';
-import { useLazyQuery } from '@apollo/client';
-import { message, Select } from 'antd';
-import dayjs from 'dayjs';
+import React, { FC, useState } from 'react';
+import { Select } from 'antd';
 import styled from '@emotion/styled';
 
-import { Competition, Category, Query } from '../types/__generated__';
+import { Competition, Category } from '../types/__generated__';
 import { LiveResult, PageSection } from '../components';
-import { DictionaryOf } from '../types';
+import { useCategories, useCompsYearly } from '../hooks';
 
 const YEAR_DATA = [2020, 2021];
 
-const LIST_COMPETITIONS = gql`
-  query {
-    competitions(orderBy: { startDate: asc }) {
-      id
-      name
-      startDate
-    }
-  }
-`;
-
-const LIST_CATEGORIES = gql`
-  query {
-    categories {
-      id
-      name
-      description
-    }
-  }
-`;
-
-/**
- * Returns competitions grouped by year
- * @param comps Competitions array
- */
-const getCompsYearly = (comps: Competition[]): DictionaryOf<Competition[]> => {
-  const yearly: DictionaryOf<Competition[]> = {};
-
-  comps.forEach((comp) => {
-    const year = dayjs(comp.startDate).year();
-
-    if (!yearly[year]) yearly[year] = [comp];
-    else yearly[year].push(comp);
-  });
-
-  return yearly;
-};
-
 const Results: FC = () => {
-  const [compsYearly, setCompsYearly] = useState<DictionaryOf<Competition[]>>(
-    {},
-  );
   const [competition, setCompetition] = useState<Competition>();
   const [year, setYear] = useState(YEAR_DATA[0]);
-  const [categories, setCategories] = useState<Category[]>([]);
   const [category, setCategory] = useState<Category>();
 
-  const [getCompetitions, { loading: loadingComp }] = useLazyQuery<
-    Query,
-    Competition
-  >(LIST_COMPETITIONS, {
-    onCompleted: ({ competitions }) => {
-      if (competitions) setCompsYearly(getCompsYearly(competitions));
-    },
-    onError: () => message.error('Error fetching competition info'),
-  });
-
-  const [getCategories] = useLazyQuery<Query, Category>(LIST_CATEGORIES, {
-    onCompleted: ({ categories }) => {
-      if (categories) setCategories(categories);
-    },
-    onError: () => message.error('Error fetching competition info'),
-  });
+  // Get competition & category data from custom hooks
+  const { categories } = useCategories();
+  const { compsYearly } = useCompsYearly();
 
   const handleYearChange = (value: number): void => {
     setYear(value);
@@ -86,11 +29,6 @@ const Results: FC = () => {
   };
 
   const title = `Results - (${year}) ${competition?.name ?? ''}`.trim();
-
-  useEffect(() => {
-    getCompetitions();
-    getCategories();
-  }, []);
 
   return (
     <div>
@@ -110,7 +48,6 @@ const Results: FC = () => {
           <Select
             value={competition?.name}
             onChange={(value) => handleCompChange(+value)}
-            loading={loadingComp}
             placeholder="Competition"
           >
             {compsYearly[year]?.map((comp, index) => (

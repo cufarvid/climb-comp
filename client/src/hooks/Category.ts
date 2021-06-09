@@ -5,6 +5,9 @@ import { gql } from '@apollo/client/core';
 
 import { Category, Query } from '../types/__generated__';
 
+/**
+ * Apollo query
+ */
 const LIST_CATEGORIES = gql`
   query {
     categories {
