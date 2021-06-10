@@ -8,155 +8,155 @@ type AffectedRowsOutput {
 }
 
 type AggregateCategory {
-  avg: CategoryAvgAggregate
-  count: CategoryCountAggregate
-  max: CategoryMaxAggregate
-  min: CategoryMinAggregate
-  sum: CategorySumAggregate
+  _avg: CategoryAvgAggregate
+  _count: CategoryCountAggregate
+  _max: CategoryMaxAggregate
+  _min: CategoryMinAggregate
+  _sum: CategorySumAggregate
 }
 
 type AggregateClub {
-  avg: ClubAvgAggregate
-  count: ClubCountAggregate
-  max: ClubMaxAggregate
-  min: ClubMinAggregate
-  sum: ClubSumAggregate
+  _avg: ClubAvgAggregate
+  _count: ClubCountAggregate
+  _max: ClubMaxAggregate
+  _min: ClubMinAggregate
+  _sum: ClubSumAggregate
 }
 
 type AggregateComment {
-  avg: CommentAvgAggregate
-  count: CommentCountAggregate
-  max: CommentMaxAggregate
-  min: CommentMinAggregate
-  sum: CommentSumAggregate
+  _avg: CommentAvgAggregate
+  _count: CommentCountAggregate
+  _max: CommentMaxAggregate
+  _min: CommentMinAggregate
+  _sum: CommentSumAggregate
 }
 
 type AggregateCompetition {
-  avg: CompetitionAvgAggregate
-  count: CompetitionCountAggregate
-  max: CompetitionMaxAggregate
-  min: CompetitionMinAggregate
-  sum: CompetitionSumAggregate
+  _avg: CompetitionAvgAggregate
+  _count: CompetitionCountAggregate
+  _max: CompetitionMaxAggregate
+  _min: CompetitionMinAggregate
+  _sum: CompetitionSumAggregate
 }
 
 type AggregateCompetitionType {
-  avg: CompetitionTypeAvgAggregate
-  count: CompetitionTypeCountAggregate
-  max: CompetitionTypeMaxAggregate
-  min: CompetitionTypeMinAggregate
-  sum: CompetitionTypeSumAggregate
+  _avg: CompetitionTypeAvgAggregate
+  _count: CompetitionTypeCountAggregate
+  _max: CompetitionTypeMaxAggregate
+  _min: CompetitionTypeMinAggregate
+  _sum: CompetitionTypeSumAggregate
 }
 
 type AggregateCompetitor {
-  avg: CompetitorAvgAggregate
-  count: CompetitorCountAggregate
-  max: CompetitorMaxAggregate
-  min: CompetitorMinAggregate
-  sum: CompetitorSumAggregate
+  _avg: CompetitorAvgAggregate
+  _count: CompetitorCountAggregate
+  _max: CompetitorMaxAggregate
+  _min: CompetitorMinAggregate
+  _sum: CompetitorSumAggregate
 }
 
 type AggregateCountry {
-  avg: CountryAvgAggregate
-  count: CountryCountAggregate
-  max: CountryMaxAggregate
-  min: CountryMinAggregate
-  sum: CountrySumAggregate
+  _avg: CountryAvgAggregate
+  _count: CountryCountAggregate
+  _max: CountryMaxAggregate
+  _min: CountryMinAggregate
+  _sum: CountrySumAggregate
 }
 
 type AggregateGrade {
-  avg: GradeAvgAggregate
-  count: GradeCountAggregate
-  max: GradeMaxAggregate
-  min: GradeMinAggregate
-  sum: GradeSumAggregate
+  _avg: GradeAvgAggregate
+  _count: GradeCountAggregate
+  _max: GradeMaxAggregate
+  _min: GradeMinAggregate
+  _sum: GradeSumAggregate
 }
 
 type AggregateLocation {
-  avg: LocationAvgAggregate
-  count: LocationCountAggregate
-  max: LocationMaxAggregate
-  min: LocationMinAggregate
-  sum: LocationSumAggregate
+  _avg: LocationAvgAggregate
+  _count: LocationCountAggregate
+  _max: LocationMaxAggregate
+  _min: LocationMinAggregate
+  _sum: LocationSumAggregate
 }
 
 type AggregateRegion {
-  avg: RegionAvgAggregate
-  count: RegionCountAggregate
-  max: RegionMaxAggregate
-  min: RegionMinAggregate
-  sum: RegionSumAggregate
+  _avg: RegionAvgAggregate
+  _count: RegionCountAggregate
+  _max: RegionMaxAggregate
+  _min: RegionMinAggregate
+  _sum: RegionSumAggregate
 }
 
 type AggregateRegistration {
-  avg: RegistrationAvgAggregate
-  count: RegistrationCountAggregate
-  max: RegistrationMaxAggregate
-  min: RegistrationMinAggregate
-  sum: RegistrationSumAggregate
+  _avg: RegistrationAvgAggregate
+  _count: RegistrationCountAggregate
+  _max: RegistrationMaxAggregate
+  _min: RegistrationMinAggregate
+  _sum: RegistrationSumAggregate
 }
 
 type AggregateResult {
-  avg: ResultAvgAggregate
-  count: ResultCountAggregate
-  max: ResultMaxAggregate
-  min: ResultMinAggregate
-  sum: ResultSumAggregate
+  _avg: ResultAvgAggregate
+  _count: ResultCountAggregate
+  _max: ResultMaxAggregate
+  _min: ResultMinAggregate
+  _sum: ResultSumAggregate
 }
 
 type AggregateRoute {
-  avg: RouteAvgAggregate
-  count: RouteCountAggregate
-  max: RouteMaxAggregate
-  min: RouteMinAggregate
-  sum: RouteSumAggregate
+  _avg: RouteAvgAggregate
+  _count: RouteCountAggregate
+  _max: RouteMaxAggregate
+  _min: RouteMinAggregate
+  _sum: RouteSumAggregate
 }
 
 type AggregateScoreBoulder {
-  avg: ScoreBoulderAvgAggregate
-  count: ScoreBoulderCountAggregate
-  max: ScoreBoulderMaxAggregate
-  min: ScoreBoulderMinAggregate
-  sum: ScoreBoulderSumAggregate
+  _avg: ScoreBoulderAvgAggregate
+  _count: ScoreBoulderCountAggregate
+  _max: ScoreBoulderMaxAggregate
+  _min: ScoreBoulderMinAggregate
+  _sum: ScoreBoulderSumAggregate
 }
 
 type AggregateScoreLead {
-  avg: ScoreLeadAvgAggregate
-  count: ScoreLeadCountAggregate
-  max: ScoreLeadMaxAggregate
-  min: ScoreLeadMinAggregate
-  sum: ScoreLeadSumAggregate
+  _avg: ScoreLeadAvgAggregate
+  _count: ScoreLeadCountAggregate
+  _max: ScoreLeadMaxAggregate
+  _min: ScoreLeadMinAggregate
+  _sum: ScoreLeadSumAggregate
 }
 
 type AggregateScoreSpeed {
-  avg: ScoreSpeedAvgAggregate
-  count: ScoreSpeedCountAggregate
-  max: ScoreSpeedMaxAggregate
-  min: ScoreSpeedMinAggregate
-  sum: ScoreSpeedSumAggregate
+  _avg: ScoreSpeedAvgAggregate
+  _count: ScoreSpeedCountAggregate
+  _max: ScoreSpeedMaxAggregate
+  _min: ScoreSpeedMinAggregate
+  _sum: ScoreSpeedSumAggregate
 }
 
 type AggregateSeason {
-  avg: SeasonAvgAggregate
-  count: SeasonCountAggregate
-  max: SeasonMaxAggregate
-  min: SeasonMinAggregate
-  sum: SeasonSumAggregate
+  _avg: SeasonAvgAggregate
+  _count: SeasonCountAggregate
+  _max: SeasonMaxAggregate
+  _min: SeasonMinAggregate
+  _sum: SeasonSumAggregate
 }
 
 type AggregateStartList {
-  avg: StartListAvgAggregate
-  count: StartListCountAggregate
-  max: StartListMaxAggregate
-  min: StartListMinAggregate
-  sum: StartListSumAggregate
+  _avg: StartListAvgAggregate
+  _count: StartListCountAggregate
+  _max: StartListMaxAggregate
+  _min: StartListMinAggregate
+  _sum: StartListSumAggregate
 }
 
 type AggregateUser {
-  avg: UserAvgAggregate
-  count: UserCountAggregate
-  max: UserMaxAggregate
-  min: UserMinAggregate
-  sum: UserSumAggregate
+  _avg: UserAvgAggregate
+  _count: UserCountAggregate
+  _max: UserMaxAggregate
+  _min: UserMinAggregate
+  _sum: UserSumAggregate
 }
 
 input BoolFieldUpdateOperationsInput {
@@ -169,10 +169,10 @@ input BoolFilter {
 }
 
 input BoolWithAggregatesFilter {
-  count: NestedIntFilter
+  _count: NestedIntFilter
+  _max: NestedBoolFilter
+  _min: NestedBoolFilter
   equals: Boolean
-  max: NestedBoolFilter
-  min: NestedBoolFilter
   not: NestedBoolWithAggregatesFilter
 }
 
@@ -187,18 +187,32 @@ type Category {
 }
 
 type CategoryAvgAggregate {
-  ageFrom: Float!
-  ageTo: Float!
-  id: Float!
+  ageFrom: Float
+  ageTo: Float
+  id: Float
+}
+
+input CategoryAvgOrderByAggregateInput {
+  ageFrom: SortOrder
+  ageTo: SortOrder
+  id: SortOrder
 }
 
 type CategoryCountAggregate {
   _all: Int!
   ageFrom: Int!
   ageTo: Int!
-  description: Int
+  description: Int!
   id: Int!
-  name: Int
+  name: Int!
+}
+
+input CategoryCountOrderByAggregateInput {
+  ageFrom: SortOrder
+  ageTo: SortOrder
+  description: SortOrder
+  id: SortOrder
+  name: SortOrder
 }
 
 input CategoryCreateInput {
@@ -257,35 +271,64 @@ input CategoryCreateWithoutRoutesInput {
 }
 
 type CategoryGroupBy {
+  _avg: CategoryAvgAggregate
+  _count: CategoryCountAggregate
+  _max: CategoryMaxAggregate
+  _min: CategoryMinAggregate
+  _sum: CategorySumAggregate
   ageFrom: Int!
   ageTo: Int!
-  avg: CategoryAvgAggregate
-  count: CategoryCountAggregate
   description: String
   id: Int!
-  max: CategoryMaxAggregate
-  min: CategoryMinAggregate
   name: String!
-  sum: CategorySumAggregate
 }
 
 type CategoryMaxAggregate {
-  ageFrom: Int!
-  ageTo: Int!
+  ageFrom: Int
+  ageTo: Int
   description: String
-  id: Int!
+  id: Int
   name: String
+}
+
+input CategoryMaxOrderByAggregateInput {
+  ageFrom: SortOrder
+  ageTo: SortOrder
+  description: SortOrder
+  id: SortOrder
+  name: SortOrder
 }
 
 type CategoryMinAggregate {
-  ageFrom: Int!
-  ageTo: Int!
+  ageFrom: Int
+  ageTo: Int
   description: String
-  id: Int!
+  id: Int
   name: String
 }
 
+input CategoryMinOrderByAggregateInput {
+  ageFrom: SortOrder
+  ageTo: SortOrder
+  description: SortOrder
+  id: SortOrder
+  name: SortOrder
+}
+
 input CategoryOrderByInput {
+  ageFrom: SortOrder
+  ageTo: SortOrder
+  description: SortOrder
+  id: SortOrder
+  name: SortOrder
+}
+
+input CategoryOrderByWithAggregationInput {
+  _avg: CategoryAvgOrderByAggregateInput
+  _count: CategoryCountOrderByAggregateInput
+  _max: CategoryMaxOrderByAggregateInput
+  _min: CategoryMinOrderByAggregateInput
+  _sum: CategorySumOrderByAggregateInput
   ageFrom: SortOrder
   ageTo: SortOrder
   description: SortOrder
@@ -318,9 +361,15 @@ input CategoryScalarWhereWithAggregatesInput {
 }
 
 type CategorySumAggregate {
-  ageFrom: Int!
-  ageTo: Int!
-  id: Int!
+  ageFrom: Int
+  ageTo: Int
+  id: Int
+}
+
+input CategorySumOrderByAggregateInput {
+  ageFrom: SortOrder
+  ageTo: SortOrder
+  id: SortOrder
 }
 
 input CategoryUpdateInput {
@@ -412,19 +461,34 @@ type Club {
 }
 
 type ClubAvgAggregate {
-  id: Float!
-  locationId: Float!
+  id: Float
+  locationId: Float
+}
+
+input ClubAvgOrderByAggregateInput {
+  id: SortOrder
+  locationId: SortOrder
 }
 
 type ClubCountAggregate {
   _all: Int!
-  address: Int
-  createdAt: Int
-  description: Int
+  address: Int!
+  createdAt: Int!
+  description: Int!
   id: Int!
   locationId: Int!
-  name: Int
-  updatedAt: Int
+  name: Int!
+  updatedAt: Int!
+}
+
+input ClubCountOrderByAggregateInput {
+  address: SortOrder
+  createdAt: SortOrder
+  description: SortOrder
+  id: SortOrder
+  locationId: SortOrder
+  name: SortOrder
+  updatedAt: SortOrder
 }
 
 input ClubCreateInput {
@@ -527,17 +591,17 @@ input ClubCreateWithoutLocationInput {
 }
 
 type ClubGroupBy {
+  _avg: ClubAvgAggregate
+  _count: ClubCountAggregate
+  _max: ClubMaxAggregate
+  _min: ClubMinAggregate
+  _sum: ClubSumAggregate
   address: String
-  avg: ClubAvgAggregate
-  count: ClubCountAggregate
   createdAt: DateTime!
   description: String
   id: Int!
   locationId: Int!
-  max: ClubMaxAggregate
-  min: ClubMinAggregate
   name: String!
-  sum: ClubSumAggregate
   updatedAt: DateTime!
 }
 
@@ -551,23 +615,58 @@ type ClubMaxAggregate {
   address: String
   createdAt: DateTime
   description: String
-  id: Int!
-  locationId: Int!
+  id: Int
+  locationId: Int
   name: String
   updatedAt: DateTime
+}
+
+input ClubMaxOrderByAggregateInput {
+  address: SortOrder
+  createdAt: SortOrder
+  description: SortOrder
+  id: SortOrder
+  locationId: SortOrder
+  name: SortOrder
+  updatedAt: SortOrder
 }
 
 type ClubMinAggregate {
   address: String
   createdAt: DateTime
   description: String
-  id: Int!
-  locationId: Int!
+  id: Int
+  locationId: Int
   name: String
   updatedAt: DateTime
 }
 
+input ClubMinOrderByAggregateInput {
+  address: SortOrder
+  createdAt: SortOrder
+  description: SortOrder
+  id: SortOrder
+  locationId: SortOrder
+  name: SortOrder
+  updatedAt: SortOrder
+}
+
 input ClubOrderByInput {
+  address: SortOrder
+  createdAt: SortOrder
+  description: SortOrder
+  id: SortOrder
+  locationId: SortOrder
+  name: SortOrder
+  updatedAt: SortOrder
+}
+
+input ClubOrderByWithAggregationInput {
+  _avg: ClubAvgOrderByAggregateInput
+  _count: ClubCountOrderByAggregateInput
+  _max: ClubMaxOrderByAggregateInput
+  _min: ClubMinOrderByAggregateInput
+  _sum: ClubSumOrderByAggregateInput
   address: SortOrder
   createdAt: SortOrder
   description: SortOrder
@@ -619,8 +718,13 @@ input ClubScalarWhereWithAggregatesInput {
 }
 
 type ClubSumAggregate {
-  id: Int!
-  locationId: Int!
+  id: Int
+  locationId: Int
+}
+
+input ClubSumOrderByAggregateInput {
+  id: SortOrder
+  locationId: SortOrder
 }
 
 input ClubUpdateInput {
@@ -761,17 +865,30 @@ type Comment {
 }
 
 type CommentAvgAggregate {
-  id: Float!
+  id: Float
   userId: Float
+}
+
+input CommentAvgOrderByAggregateInput {
+  id: SortOrder
+  userId: SortOrder
 }
 
 type CommentCountAggregate {
   _all: Int!
-  content: Int
-  createdAt: Int
+  content: Int!
+  createdAt: Int!
   id: Int!
-  updatedAt: Int
-  userId: Int
+  updatedAt: Int!
+  userId: Int!
+}
+
+input CommentCountOrderByAggregateInput {
+  content: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
 }
 
 input CommentCreateInput {
@@ -886,14 +1003,14 @@ input CommentCreateWithoutUserInput {
 }
 
 type CommentGroupBy {
-  avg: CommentAvgAggregate
+  _avg: CommentAvgAggregate
+  _count: CommentCountAggregate
+  _max: CommentMaxAggregate
+  _min: CommentMinAggregate
+  _sum: CommentSumAggregate
   content: String!
-  count: CommentCountAggregate
   createdAt: DateTime!
   id: Int!
-  max: CommentMaxAggregate
-  min: CommentMinAggregate
-  sum: CommentSumAggregate
   updatedAt: DateTime!
   userId: Int
 }
@@ -907,20 +1024,49 @@ input CommentListRelationFilter {
 type CommentMaxAggregate {
   content: String
   createdAt: DateTime
-  id: Int!
+  id: Int
   updatedAt: DateTime
   userId: Int
+}
+
+input CommentMaxOrderByAggregateInput {
+  content: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
 }
 
 type CommentMinAggregate {
   content: String
   createdAt: DateTime
-  id: Int!
+  id: Int
   updatedAt: DateTime
   userId: Int
 }
 
+input CommentMinOrderByAggregateInput {
+  content: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
 input CommentOrderByInput {
+  content: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input CommentOrderByWithAggregationInput {
+  _avg: CommentAvgOrderByAggregateInput
+  _count: CommentCountOrderByAggregateInput
+  _max: CommentMaxOrderByAggregateInput
+  _min: CommentMinOrderByAggregateInput
+  _sum: CommentSumOrderByAggregateInput
   content: SortOrder
   createdAt: SortOrder
   id: SortOrder
@@ -964,8 +1110,13 @@ input CommentScalarWhereWithAggregatesInput {
 }
 
 type CommentSumAggregate {
-  id: Int!
+  id: Int
   userId: Int
+}
+
+input CommentSumOrderByAggregateInput {
+  id: SortOrder
+  userId: SortOrder
 }
 
 input CommentUpdateInput {
@@ -1139,28 +1290,52 @@ type Competition {
 }
 
 type CompetitionAvgAggregate {
-  clubId: Float!
-  compTypeId: Float!
-  id: Float!
-  locationId: Float!
-  seasonId: Float!
+  clubId: Float
+  compTypeId: Float
+  id: Float
+  locationId: Float
+  seasonId: Float
+}
+
+input CompetitionAvgOrderByAggregateInput {
+  clubId: SortOrder
+  compTypeId: SortOrder
+  id: SortOrder
+  locationId: SortOrder
+  seasonId: SortOrder
 }
 
 type CompetitionCountAggregate {
   _all: Int!
-  active: Int
-  address: Int
+  active: Int!
+  address: Int!
   clubId: Int!
   compTypeId: Int!
-  createdAt: Int
-  description: Int
-  endDate: Int
+  createdAt: Int!
+  description: Int!
+  endDate: Int!
   id: Int!
   locationId: Int!
-  name: Int
+  name: Int!
   seasonId: Int!
-  startDate: Int
-  updatedAt: Int
+  startDate: Int!
+  updatedAt: Int!
+}
+
+input CompetitionCountOrderByAggregateInput {
+  active: SortOrder
+  address: SortOrder
+  clubId: SortOrder
+  compTypeId: SortOrder
+  createdAt: SortOrder
+  description: SortOrder
+  endDate: SortOrder
+  id: SortOrder
+  locationId: SortOrder
+  name: SortOrder
+  seasonId: SortOrder
+  startDate: SortOrder
+  updatedAt: SortOrder
 }
 
 input CompetitionCreateInput {
@@ -1515,23 +1690,23 @@ input CompetitionCreateWithoutStartListsInput {
 }
 
 type CompetitionGroupBy {
+  _avg: CompetitionAvgAggregate
+  _count: CompetitionCountAggregate
+  _max: CompetitionMaxAggregate
+  _min: CompetitionMinAggregate
+  _sum: CompetitionSumAggregate
   active: Boolean!
   address: String!
-  avg: CompetitionAvgAggregate
   clubId: Int!
   compTypeId: Int!
-  count: CompetitionCountAggregate
   createdAt: DateTime!
   description: String!
   endDate: DateTime!
   id: Int!
   locationId: Int!
-  max: CompetitionMaxAggregate
-  min: CompetitionMinAggregate
   name: String!
   seasonId: Int!
   startDate: DateTime!
-  sum: CompetitionSumAggregate
   updatedAt: DateTime!
 }
 
@@ -1544,36 +1719,89 @@ input CompetitionListRelationFilter {
 type CompetitionMaxAggregate {
   active: Boolean
   address: String
-  clubId: Int!
-  compTypeId: Int!
+  clubId: Int
+  compTypeId: Int
   createdAt: DateTime
   description: String
   endDate: DateTime
-  id: Int!
-  locationId: Int!
+  id: Int
+  locationId: Int
   name: String
-  seasonId: Int!
+  seasonId: Int
   startDate: DateTime
   updatedAt: DateTime
+}
+
+input CompetitionMaxOrderByAggregateInput {
+  active: SortOrder
+  address: SortOrder
+  clubId: SortOrder
+  compTypeId: SortOrder
+  createdAt: SortOrder
+  description: SortOrder
+  endDate: SortOrder
+  id: SortOrder
+  locationId: SortOrder
+  name: SortOrder
+  seasonId: SortOrder
+  startDate: SortOrder
+  updatedAt: SortOrder
 }
 
 type CompetitionMinAggregate {
   active: Boolean
   address: String
-  clubId: Int!
-  compTypeId: Int!
+  clubId: Int
+  compTypeId: Int
   createdAt: DateTime
   description: String
   endDate: DateTime
-  id: Int!
-  locationId: Int!
+  id: Int
+  locationId: Int
   name: String
-  seasonId: Int!
+  seasonId: Int
   startDate: DateTime
   updatedAt: DateTime
 }
 
+input CompetitionMinOrderByAggregateInput {
+  active: SortOrder
+  address: SortOrder
+  clubId: SortOrder
+  compTypeId: SortOrder
+  createdAt: SortOrder
+  description: SortOrder
+  endDate: SortOrder
+  id: SortOrder
+  locationId: SortOrder
+  name: SortOrder
+  seasonId: SortOrder
+  startDate: SortOrder
+  updatedAt: SortOrder
+}
+
 input CompetitionOrderByInput {
+  active: SortOrder
+  address: SortOrder
+  clubId: SortOrder
+  compTypeId: SortOrder
+  createdAt: SortOrder
+  description: SortOrder
+  endDate: SortOrder
+  id: SortOrder
+  locationId: SortOrder
+  name: SortOrder
+  seasonId: SortOrder
+  startDate: SortOrder
+  updatedAt: SortOrder
+}
+
+input CompetitionOrderByWithAggregationInput {
+  _avg: CompetitionAvgOrderByAggregateInput
+  _count: CompetitionCountOrderByAggregateInput
+  _max: CompetitionMaxOrderByAggregateInput
+  _min: CompetitionMinOrderByAggregateInput
+  _sum: CompetitionSumOrderByAggregateInput
   active: SortOrder
   address: SortOrder
   clubId: SortOrder
@@ -1649,11 +1877,19 @@ input CompetitionScalarWhereWithAggregatesInput {
 }
 
 type CompetitionSumAggregate {
-  clubId: Int!
-  compTypeId: Int!
-  id: Int!
-  locationId: Int!
-  seasonId: Int!
+  clubId: Int
+  compTypeId: Int
+  id: Int
+  locationId: Int
+  seasonId: Int
+}
+
+input CompetitionSumOrderByAggregateInput {
+  clubId: SortOrder
+  compTypeId: SortOrder
+  id: SortOrder
+  locationId: SortOrder
+  seasonId: SortOrder
 }
 
 type CompetitionType {
@@ -1664,14 +1900,24 @@ type CompetitionType {
 }
 
 type CompetitionTypeAvgAggregate {
-  id: Float!
+  id: Float
+}
+
+input CompetitionTypeAvgOrderByAggregateInput {
+  id: SortOrder
 }
 
 type CompetitionTypeCountAggregate {
   _all: Int!
-  description: Int
+  description: Int!
   id: Int!
-  name: Int
+  name: Int!
+}
+
+input CompetitionTypeCountOrderByAggregateInput {
+  description: SortOrder
+  id: SortOrder
+  name: SortOrder
 }
 
 input CompetitionTypeCreateInput {
@@ -1703,29 +1949,52 @@ input CompetitionTypeCreateWithoutCompetitionsInput {
 }
 
 type CompetitionTypeGroupBy {
-  avg: CompetitionTypeAvgAggregate
-  count: CompetitionTypeCountAggregate
+  _avg: CompetitionTypeAvgAggregate
+  _count: CompetitionTypeCountAggregate
+  _max: CompetitionTypeMaxAggregate
+  _min: CompetitionTypeMinAggregate
+  _sum: CompetitionTypeSumAggregate
   description: String
   id: Int!
-  max: CompetitionTypeMaxAggregate
-  min: CompetitionTypeMinAggregate
   name: String!
-  sum: CompetitionTypeSumAggregate
 }
 
 type CompetitionTypeMaxAggregate {
   description: String
-  id: Int!
+  id: Int
   name: String
+}
+
+input CompetitionTypeMaxOrderByAggregateInput {
+  description: SortOrder
+  id: SortOrder
+  name: SortOrder
 }
 
 type CompetitionTypeMinAggregate {
   description: String
-  id: Int!
+  id: Int
   name: String
 }
 
+input CompetitionTypeMinOrderByAggregateInput {
+  description: SortOrder
+  id: SortOrder
+  name: SortOrder
+}
+
 input CompetitionTypeOrderByInput {
+  description: SortOrder
+  id: SortOrder
+  name: SortOrder
+}
+
+input CompetitionTypeOrderByWithAggregationInput {
+  _avg: CompetitionTypeAvgOrderByAggregateInput
+  _count: CompetitionTypeCountOrderByAggregateInput
+  _max: CompetitionTypeMaxOrderByAggregateInput
+  _min: CompetitionTypeMinOrderByAggregateInput
+  _sum: CompetitionTypeSumOrderByAggregateInput
   description: SortOrder
   id: SortOrder
   name: SortOrder
@@ -1752,7 +2021,11 @@ input CompetitionTypeScalarWhereWithAggregatesInput {
 }
 
 type CompetitionTypeSumAggregate {
-  id: Int!
+  id: Int
+}
+
+input CompetitionTypeSumOrderByAggregateInput {
+  id: SortOrder
 }
 
 input CompetitionTypeUpdateInput {
@@ -2200,26 +2473,48 @@ type Competitor {
 }
 
 type CompetitorAvgAggregate {
-  categoryId: Float!
-  clubId: Float!
-  id: Float!
-  locationId: Float!
+  categoryId: Float
+  clubId: Float
+  id: Float
+  locationId: Float
+}
+
+input CompetitorAvgOrderByAggregateInput {
+  categoryId: SortOrder
+  clubId: SortOrder
+  id: SortOrder
+  locationId: SortOrder
 }
 
 type CompetitorCountAggregate {
   _all: Int!
-  address: Int
-  birthDate: Int
+  address: Int!
+  birthDate: Int!
   categoryId: Int!
   clubId: Int!
-  createdAt: Int
-  firstName: Int
-  gender: Int
+  createdAt: Int!
+  firstName: Int!
+  gender: Int!
   id: Int!
-  lastName: Int
+  lastName: Int!
   locationId: Int!
-  publicId: Int
-  updatedAt: Int
+  publicId: Int!
+  updatedAt: Int!
+}
+
+input CompetitorCountOrderByAggregateInput {
+  address: SortOrder
+  birthDate: SortOrder
+  categoryId: SortOrder
+  clubId: SortOrder
+  createdAt: SortOrder
+  firstName: SortOrder
+  gender: SortOrder
+  id: SortOrder
+  lastName: SortOrder
+  locationId: SortOrder
+  publicId: SortOrder
+  updatedAt: SortOrder
 }
 
 input CompetitorCreateInput {
@@ -2588,22 +2883,22 @@ input CompetitorCreateWithoutStartListsInput {
 }
 
 type CompetitorGroupBy {
+  _avg: CompetitorAvgAggregate
+  _count: CompetitorCountAggregate
+  _max: CompetitorMaxAggregate
+  _min: CompetitorMinAggregate
+  _sum: CompetitorSumAggregate
   address: String
-  avg: CompetitorAvgAggregate
   birthDate: DateTime
   categoryId: Int!
   clubId: Int!
-  count: CompetitorCountAggregate
   createdAt: DateTime!
   firstName: String!
   gender: Gender!
   id: Int!
   lastName: String!
   locationId: Int!
-  max: CompetitorMaxAggregate
-  min: CompetitorMinAggregate
   publicId: String!
-  sum: CompetitorSumAggregate
   updatedAt: DateTime!
 }
 
@@ -2616,34 +2911,84 @@ input CompetitorListRelationFilter {
 type CompetitorMaxAggregate {
   address: String
   birthDate: DateTime
-  categoryId: Int!
-  clubId: Int!
+  categoryId: Int
+  clubId: Int
   createdAt: DateTime
   firstName: String
   gender: Gender
-  id: Int!
+  id: Int
   lastName: String
-  locationId: Int!
+  locationId: Int
   publicId: String
   updatedAt: DateTime
+}
+
+input CompetitorMaxOrderByAggregateInput {
+  address: SortOrder
+  birthDate: SortOrder
+  categoryId: SortOrder
+  clubId: SortOrder
+  createdAt: SortOrder
+  firstName: SortOrder
+  gender: SortOrder
+  id: SortOrder
+  lastName: SortOrder
+  locationId: SortOrder
+  publicId: SortOrder
+  updatedAt: SortOrder
 }
 
 type CompetitorMinAggregate {
   address: String
   birthDate: DateTime
-  categoryId: Int!
-  clubId: Int!
+  categoryId: Int
+  clubId: Int
   createdAt: DateTime
   firstName: String
   gender: Gender
-  id: Int!
+  id: Int
   lastName: String
-  locationId: Int!
+  locationId: Int
   publicId: String
   updatedAt: DateTime
 }
 
+input CompetitorMinOrderByAggregateInput {
+  address: SortOrder
+  birthDate: SortOrder
+  categoryId: SortOrder
+  clubId: SortOrder
+  createdAt: SortOrder
+  firstName: SortOrder
+  gender: SortOrder
+  id: SortOrder
+  lastName: SortOrder
+  locationId: SortOrder
+  publicId: SortOrder
+  updatedAt: SortOrder
+}
+
 input CompetitorOrderByInput {
+  address: SortOrder
+  birthDate: SortOrder
+  categoryId: SortOrder
+  clubId: SortOrder
+  createdAt: SortOrder
+  firstName: SortOrder
+  gender: SortOrder
+  id: SortOrder
+  lastName: SortOrder
+  locationId: SortOrder
+  publicId: SortOrder
+  updatedAt: SortOrder
+}
+
+input CompetitorOrderByWithAggregationInput {
+  _avg: CompetitorAvgOrderByAggregateInput
+  _count: CompetitorCountOrderByAggregateInput
+  _max: CompetitorMaxOrderByAggregateInput
+  _min: CompetitorMinOrderByAggregateInput
+  _sum: CompetitorSumOrderByAggregateInput
   address: SortOrder
   birthDate: SortOrder
   categoryId: SortOrder
@@ -2715,10 +3060,17 @@ input CompetitorScalarWhereWithAggregatesInput {
 }
 
 type CompetitorSumAggregate {
-  categoryId: Int!
-  clubId: Int!
-  id: Int!
-  locationId: Int!
+  categoryId: Int
+  clubId: Int
+  id: Int
+  locationId: Int
+}
+
+input CompetitorSumOrderByAggregateInput {
+  categoryId: SortOrder
+  clubId: SortOrder
+  id: SortOrder
+  locationId: SortOrder
 }
 
 input CompetitorUpdateInput {
@@ -3130,13 +3482,22 @@ type Country {
 }
 
 type CountryAvgAggregate {
-  id: Float!
+  id: Float
+}
+
+input CountryAvgOrderByAggregateInput {
+  id: SortOrder
 }
 
 type CountryCountAggregate {
   _all: Int!
   id: Int!
-  name: Int
+  name: Int!
+}
+
+input CountryCountOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
 }
 
 input CountryCreateInput {
@@ -3165,26 +3526,46 @@ input CountryCreateWithoutLocationsInput {
 }
 
 type CountryGroupBy {
-  avg: CountryAvgAggregate
-  count: CountryCountAggregate
+  _avg: CountryAvgAggregate
+  _count: CountryCountAggregate
+  _max: CountryMaxAggregate
+  _min: CountryMinAggregate
+  _sum: CountrySumAggregate
   id: Int!
-  max: CountryMaxAggregate
-  min: CountryMinAggregate
   name: String!
-  sum: CountrySumAggregate
 }
 
 type CountryMaxAggregate {
-  id: Int!
+  id: Int
   name: String
+}
+
+input CountryMaxOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
 }
 
 type CountryMinAggregate {
-  id: Int!
+  id: Int
   name: String
 }
 
+input CountryMinOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+}
+
 input CountryOrderByInput {
+  id: SortOrder
+  name: SortOrder
+}
+
+input CountryOrderByWithAggregationInput {
+  _avg: CountryAvgOrderByAggregateInput
+  _count: CountryCountOrderByAggregateInput
+  _max: CountryMaxOrderByAggregateInput
+  _min: CountryMinOrderByAggregateInput
+  _sum: CountrySumOrderByAggregateInput
   id: SortOrder
   name: SortOrder
 }
@@ -3208,7 +3589,11 @@ input CountryScalarWhereWithAggregatesInput {
 }
 
 type CountrySumAggregate {
-  id: Int!
+  id: Int
+}
+
+input CountrySumOrderByAggregateInput {
+  id: SortOrder
 }
 
 input CountryUpdateInput {
@@ -3282,29 +3667,29 @@ input DateTimeNullableFilter {
 }
 
 input DateTimeNullableWithAggregatesFilter {
-  count: NestedIntNullableFilter
+  _count: NestedIntNullableFilter
+  _max: NestedDateTimeNullableFilter
+  _min: NestedDateTimeNullableFilter
   equals: DateTime
   gt: DateTime
   gte: DateTime
   in: [DateTime!]
   lt: DateTime
   lte: DateTime
-  max: NestedDateTimeNullableFilter
-  min: NestedDateTimeNullableFilter
   not: NestedDateTimeNullableWithAggregatesFilter
   notIn: [DateTime!]
 }
 
 input DateTimeWithAggregatesFilter {
-  count: NestedIntFilter
+  _count: NestedIntFilter
+  _max: NestedDateTimeFilter
+  _min: NestedDateTimeFilter
   equals: DateTime
   gt: DateTime
   gte: DateTime
   in: [DateTime!]
   lt: DateTime
   lte: DateTime
-  max: NestedDateTimeFilter
-  min: NestedDateTimeFilter
   not: NestedDateTimeWithAggregatesFilter
   notIn: [DateTime!]
 }
@@ -3321,11 +3706,11 @@ input EnumGenderFilter {
 }
 
 input EnumGenderWithAggregatesFilter {
-  count: NestedIntFilter
+  _count: NestedIntFilter
+  _max: NestedEnumGenderFilter
+  _min: NestedEnumGenderFilter
   equals: Gender
   in: [Gender!]
-  max: NestedEnumGenderFilter
-  min: NestedEnumGenderFilter
   not: NestedEnumGenderWithAggregatesFilter
   notIn: [Gender!]
 }
@@ -3342,11 +3727,11 @@ input EnumRoundFilter {
 }
 
 input EnumRoundWithAggregatesFilter {
-  count: NestedIntFilter
+  _count: NestedIntFilter
+  _max: NestedEnumRoundFilter
+  _min: NestedEnumRoundFilter
   equals: Round
   in: [Round!]
-  max: NestedEnumRoundFilter
-  min: NestedEnumRoundFilter
   not: NestedEnumRoundWithAggregatesFilter
   notIn: [Round!]
 }
@@ -3363,11 +3748,11 @@ input EnumRouteTypeFilter {
 }
 
 input EnumRouteTypeWithAggregatesFilter {
-  count: NestedIntFilter
+  _count: NestedIntFilter
+  _max: NestedEnumRouteTypeFilter
+  _min: NestedEnumRouteTypeFilter
   equals: RouteType
   in: [RouteType!]
-  max: NestedEnumRouteTypeFilter
-  min: NestedEnumRouteTypeFilter
   not: NestedEnumRouteTypeWithAggregatesFilter
   notIn: [RouteType!]
 }
@@ -3384,11 +3769,11 @@ input EnumUserRoleFilter {
 }
 
 input EnumUserRoleWithAggregatesFilter {
-  count: NestedIntFilter
+  _count: NestedIntFilter
+  _max: NestedEnumUserRoleFilter
+  _min: NestedEnumUserRoleFilter
   equals: UserRole
   in: [UserRole!]
-  max: NestedEnumUserRoleFilter
-  min: NestedEnumUserRoleFilter
   not: NestedEnumUserRoleWithAggregatesFilter
   notIn: [UserRole!]
 }
@@ -3410,13 +3795,22 @@ type Grade {
 }
 
 type GradeAvgAggregate {
-  id: Float!
+  id: Float
+}
+
+input GradeAvgOrderByAggregateInput {
+  id: SortOrder
 }
 
 type GradeCountAggregate {
   _all: Int!
   id: Int!
-  name: Int
+  name: Int!
+}
+
+input GradeCountOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
 }
 
 input GradeCreateInput {
@@ -3445,26 +3839,46 @@ input GradeCreateWithoutRoutesInput {
 }
 
 type GradeGroupBy {
-  avg: GradeAvgAggregate
-  count: GradeCountAggregate
+  _avg: GradeAvgAggregate
+  _count: GradeCountAggregate
+  _max: GradeMaxAggregate
+  _min: GradeMinAggregate
+  _sum: GradeSumAggregate
   id: Int!
-  max: GradeMaxAggregate
-  min: GradeMinAggregate
   name: String!
-  sum: GradeSumAggregate
 }
 
 type GradeMaxAggregate {
-  id: Int!
+  id: Int
   name: String
+}
+
+input GradeMaxOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
 }
 
 type GradeMinAggregate {
-  id: Int!
+  id: Int
   name: String
 }
 
+input GradeMinOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+}
+
 input GradeOrderByInput {
+  id: SortOrder
+  name: SortOrder
+}
+
+input GradeOrderByWithAggregationInput {
+  _avg: GradeAvgOrderByAggregateInput
+  _count: GradeCountOrderByAggregateInput
+  _max: GradeMaxOrderByAggregateInput
+  _min: GradeMinOrderByAggregateInput
+  _sum: GradeSumOrderByAggregateInput
   id: SortOrder
   name: SortOrder
 }
@@ -3488,7 +3902,11 @@ input GradeScalarWhereWithAggregatesInput {
 }
 
 type GradeSumAggregate {
-  id: Int!
+  id: Int
+}
+
+input GradeSumOrderByAggregateInput {
+  id: SortOrder
 }
 
 input GradeUpdateInput {
@@ -3561,35 +3979,35 @@ input IntNullableFilter {
 }
 
 input IntNullableWithAggregatesFilter {
-  avg: NestedFloatNullableFilter
-  count: NestedIntNullableFilter
+  _avg: NestedFloatNullableFilter
+  _count: NestedIntNullableFilter
+  _max: NestedIntNullableFilter
+  _min: NestedIntNullableFilter
+  _sum: NestedIntNullableFilter
   equals: Int
   gt: Int
   gte: Int
   in: [Int!]
   lt: Int
   lte: Int
-  max: NestedIntNullableFilter
-  min: NestedIntNullableFilter
   not: NestedIntNullableWithAggregatesFilter
   notIn: [Int!]
-  sum: NestedIntNullableFilter
 }
 
 input IntWithAggregatesFilter {
-  avg: NestedFloatFilter
-  count: NestedIntFilter
+  _avg: NestedFloatFilter
+  _count: NestedIntFilter
+  _max: NestedIntFilter
+  _min: NestedIntFilter
+  _sum: NestedIntFilter
   equals: Int
   gt: Int
   gte: Int
   in: [Int!]
   lt: Int
   lte: Int
-  max: NestedIntFilter
-  min: NestedIntFilter
   not: NestedIntWithAggregatesFilter
   notIn: [Int!]
-  sum: NestedIntFilter
 }
 
 type Location {
@@ -3606,17 +4024,30 @@ type Location {
 }
 
 type LocationAvgAggregate {
-  countryId: Float!
-  id: Float!
-  regionId: Float!
+  countryId: Float
+  id: Float
+  regionId: Float
+}
+
+input LocationAvgOrderByAggregateInput {
+  countryId: SortOrder
+  id: SortOrder
+  regionId: SortOrder
 }
 
 type LocationCountAggregate {
   _all: Int!
   countryId: Int!
   id: Int!
-  name: Int
+  name: Int!
   regionId: Int!
+}
+
+input LocationCountOrderByAggregateInput {
+  countryId: SortOrder
+  id: SortOrder
+  name: SortOrder
+  regionId: SortOrder
 }
 
 input LocationCreateInput {
@@ -3781,15 +4212,15 @@ input LocationCreateWithoutUsersInput {
 }
 
 type LocationGroupBy {
-  avg: LocationAvgAggregate
-  count: LocationCountAggregate
+  _avg: LocationAvgAggregate
+  _count: LocationCountAggregate
+  _max: LocationMaxAggregate
+  _min: LocationMinAggregate
+  _sum: LocationSumAggregate
   countryId: Int!
   id: Int!
-  max: LocationMaxAggregate
-  min: LocationMinAggregate
   name: String
   regionId: Int!
-  sum: LocationSumAggregate
 }
 
 input LocationListRelationFilter {
@@ -3799,20 +4230,46 @@ input LocationListRelationFilter {
 }
 
 type LocationMaxAggregate {
-  countryId: Int!
-  id: Int!
+  countryId: Int
+  id: Int
   name: String
-  regionId: Int!
+  regionId: Int
+}
+
+input LocationMaxOrderByAggregateInput {
+  countryId: SortOrder
+  id: SortOrder
+  name: SortOrder
+  regionId: SortOrder
 }
 
 type LocationMinAggregate {
-  countryId: Int!
-  id: Int!
+  countryId: Int
+  id: Int
   name: String
-  regionId: Int!
+  regionId: Int
+}
+
+input LocationMinOrderByAggregateInput {
+  countryId: SortOrder
+  id: SortOrder
+  name: SortOrder
+  regionId: SortOrder
 }
 
 input LocationOrderByInput {
+  countryId: SortOrder
+  id: SortOrder
+  name: SortOrder
+  regionId: SortOrder
+}
+
+input LocationOrderByWithAggregationInput {
+  _avg: LocationAvgOrderByAggregateInput
+  _count: LocationCountOrderByAggregateInput
+  _max: LocationMaxOrderByAggregateInput
+  _min: LocationMinOrderByAggregateInput
+  _sum: LocationSumOrderByAggregateInput
   countryId: SortOrder
   id: SortOrder
   name: SortOrder
@@ -3852,9 +4309,15 @@ input LocationScalarWhereWithAggregatesInput {
 }
 
 type LocationSumAggregate {
-  countryId: Int!
-  id: Int!
-  regionId: Int!
+  countryId: Int
+  id: Int
+  regionId: Int
+}
+
+input LocationSumOrderByAggregateInput {
+  countryId: SortOrder
+  id: SortOrder
+  regionId: SortOrder
 }
 
 input LocationUpdateInput {
@@ -4216,10 +4679,10 @@ input NestedBoolFilter {
 }
 
 input NestedBoolWithAggregatesFilter {
-  count: NestedIntFilter
+  _count: NestedIntFilter
+  _max: NestedBoolFilter
+  _min: NestedBoolFilter
   equals: Boolean
-  max: NestedBoolFilter
-  min: NestedBoolFilter
   not: NestedBoolWithAggregatesFilter
 }
 
@@ -4246,29 +4709,29 @@ input NestedDateTimeNullableFilter {
 }
 
 input NestedDateTimeNullableWithAggregatesFilter {
-  count: NestedIntNullableFilter
+  _count: NestedIntNullableFilter
+  _max: NestedDateTimeNullableFilter
+  _min: NestedDateTimeNullableFilter
   equals: DateTime
   gt: DateTime
   gte: DateTime
   in: [DateTime!]
   lt: DateTime
   lte: DateTime
-  max: NestedDateTimeNullableFilter
-  min: NestedDateTimeNullableFilter
   not: NestedDateTimeNullableWithAggregatesFilter
   notIn: [DateTime!]
 }
 
 input NestedDateTimeWithAggregatesFilter {
-  count: NestedIntFilter
+  _count: NestedIntFilter
+  _max: NestedDateTimeFilter
+  _min: NestedDateTimeFilter
   equals: DateTime
   gt: DateTime
   gte: DateTime
   in: [DateTime!]
   lt: DateTime
   lte: DateTime
-  max: NestedDateTimeFilter
-  min: NestedDateTimeFilter
   not: NestedDateTimeWithAggregatesFilter
   notIn: [DateTime!]
 }
@@ -4281,11 +4744,11 @@ input NestedEnumGenderFilter {
 }
 
 input NestedEnumGenderWithAggregatesFilter {
-  count: NestedIntFilter
+  _count: NestedIntFilter
+  _max: NestedEnumGenderFilter
+  _min: NestedEnumGenderFilter
   equals: Gender
   in: [Gender!]
-  max: NestedEnumGenderFilter
-  min: NestedEnumGenderFilter
   not: NestedEnumGenderWithAggregatesFilter
   notIn: [Gender!]
 }
@@ -4298,11 +4761,11 @@ input NestedEnumRoundFilter {
 }
 
 input NestedEnumRoundWithAggregatesFilter {
-  count: NestedIntFilter
+  _count: NestedIntFilter
+  _max: NestedEnumRoundFilter
+  _min: NestedEnumRoundFilter
   equals: Round
   in: [Round!]
-  max: NestedEnumRoundFilter
-  min: NestedEnumRoundFilter
   not: NestedEnumRoundWithAggregatesFilter
   notIn: [Round!]
 }
@@ -4315,11 +4778,11 @@ input NestedEnumRouteTypeFilter {
 }
 
 input NestedEnumRouteTypeWithAggregatesFilter {
-  count: NestedIntFilter
+  _count: NestedIntFilter
+  _max: NestedEnumRouteTypeFilter
+  _min: NestedEnumRouteTypeFilter
   equals: RouteType
   in: [RouteType!]
-  max: NestedEnumRouteTypeFilter
-  min: NestedEnumRouteTypeFilter
   not: NestedEnumRouteTypeWithAggregatesFilter
   notIn: [RouteType!]
 }
@@ -4332,11 +4795,11 @@ input NestedEnumUserRoleFilter {
 }
 
 input NestedEnumUserRoleWithAggregatesFilter {
-  count: NestedIntFilter
+  _count: NestedIntFilter
+  _max: NestedEnumUserRoleFilter
+  _min: NestedEnumUserRoleFilter
   equals: UserRole
   in: [UserRole!]
-  max: NestedEnumUserRoleFilter
-  min: NestedEnumUserRoleFilter
   not: NestedEnumUserRoleWithAggregatesFilter
   notIn: [UserRole!]
 }
@@ -4386,35 +4849,35 @@ input NestedIntNullableFilter {
 }
 
 input NestedIntNullableWithAggregatesFilter {
-  avg: NestedFloatNullableFilter
-  count: NestedIntNullableFilter
+  _avg: NestedFloatNullableFilter
+  _count: NestedIntNullableFilter
+  _max: NestedIntNullableFilter
+  _min: NestedIntNullableFilter
+  _sum: NestedIntNullableFilter
   equals: Int
   gt: Int
   gte: Int
   in: [Int!]
   lt: Int
   lte: Int
-  max: NestedIntNullableFilter
-  min: NestedIntNullableFilter
   not: NestedIntNullableWithAggregatesFilter
   notIn: [Int!]
-  sum: NestedIntNullableFilter
 }
 
 input NestedIntWithAggregatesFilter {
-  avg: NestedFloatFilter
-  count: NestedIntFilter
+  _avg: NestedFloatFilter
+  _count: NestedIntFilter
+  _max: NestedIntFilter
+  _min: NestedIntFilter
+  _sum: NestedIntFilter
   equals: Int
   gt: Int
   gte: Int
   in: [Int!]
   lt: Int
   lte: Int
-  max: NestedIntFilter
-  min: NestedIntFilter
   not: NestedIntWithAggregatesFilter
   notIn: [Int!]
-  sum: NestedIntFilter
 }
 
 input NestedStringFilter {
@@ -4446,8 +4909,10 @@ input NestedStringNullableFilter {
 }
 
 input NestedStringNullableWithAggregatesFilter {
+  _count: NestedIntNullableFilter
+  _max: NestedStringNullableFilter
+  _min: NestedStringNullableFilter
   contains: String
-  count: NestedIntNullableFilter
   endsWith: String
   equals: String
   gt: String
@@ -4455,16 +4920,16 @@ input NestedStringNullableWithAggregatesFilter {
   in: [String!]
   lt: String
   lte: String
-  max: NestedStringNullableFilter
-  min: NestedStringNullableFilter
   not: NestedStringNullableWithAggregatesFilter
   notIn: [String!]
   startsWith: String
 }
 
 input NestedStringWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedStringFilter
+  _min: NestedStringFilter
   contains: String
-  count: NestedIntFilter
   endsWith: String
   equals: String
   gt: String
@@ -4472,8 +4937,6 @@ input NestedStringWithAggregatesFilter {
   in: [String!]
   lt: String
   lte: String
-  max: NestedStringFilter
-  min: NestedStringFilter
   not: NestedStringWithAggregatesFilter
   notIn: [String!]
   startsWith: String
@@ -4556,25 +5019,25 @@ type Query {
   getSpeedCompResults(data: ResultInput!): ResultOutput!
   grade(where: GradeWhereUniqueInput!): Grade
   grades(cursor: GradeWhereUniqueInput, distinct: [GradeScalarFieldEnum!], orderBy: [GradeOrderByInput!], skip: Int, take: Int, where: GradeWhereInput): [Grade!]!
-  groupByCategory(by: [CategoryScalarFieldEnum!]!, having: CategoryScalarWhereWithAggregatesInput, orderBy: [CategoryOrderByInput!], skip: Int, take: Int, where: CategoryWhereInput): [CategoryGroupBy!]!
-  groupByClub(by: [ClubScalarFieldEnum!]!, having: ClubScalarWhereWithAggregatesInput, orderBy: [ClubOrderByInput!], skip: Int, take: Int, where: ClubWhereInput): [ClubGroupBy!]!
-  groupByComment(by: [CommentScalarFieldEnum!]!, having: CommentScalarWhereWithAggregatesInput, orderBy: [CommentOrderByInput!], skip: Int, take: Int, where: CommentWhereInput): [CommentGroupBy!]!
-  groupByCompetition(by: [CompetitionScalarFieldEnum!]!, having: CompetitionScalarWhereWithAggregatesInput, orderBy: [CompetitionOrderByInput!], skip: Int, take: Int, where: CompetitionWhereInput): [CompetitionGroupBy!]!
-  groupByCompetitionType(by: [CompetitionTypeScalarFieldEnum!]!, having: CompetitionTypeScalarWhereWithAggregatesInput, orderBy: [CompetitionTypeOrderByInput!], skip: Int, take: Int, where: CompetitionTypeWhereInput): [CompetitionTypeGroupBy!]!
-  groupByCompetitor(by: [CompetitorScalarFieldEnum!]!, having: CompetitorScalarWhereWithAggregatesInput, orderBy: [CompetitorOrderByInput!], skip: Int, take: Int, where: CompetitorWhereInput): [CompetitorGroupBy!]!
-  groupByCountry(by: [CountryScalarFieldEnum!]!, having: CountryScalarWhereWithAggregatesInput, orderBy: [CountryOrderByInput!], skip: Int, take: Int, where: CountryWhereInput): [CountryGroupBy!]!
-  groupByGrade(by: [GradeScalarFieldEnum!]!, having: GradeScalarWhereWithAggregatesInput, orderBy: [GradeOrderByInput!], skip: Int, take: Int, where: GradeWhereInput): [GradeGroupBy!]!
-  groupByLocation(by: [LocationScalarFieldEnum!]!, having: LocationScalarWhereWithAggregatesInput, orderBy: [LocationOrderByInput!], skip: Int, take: Int, where: LocationWhereInput): [LocationGroupBy!]!
-  groupByRegion(by: [RegionScalarFieldEnum!]!, having: RegionScalarWhereWithAggregatesInput, orderBy: [RegionOrderByInput!], skip: Int, take: Int, where: RegionWhereInput): [RegionGroupBy!]!
-  groupByRegistration(by: [RegistrationScalarFieldEnum!]!, having: RegistrationScalarWhereWithAggregatesInput, orderBy: [RegistrationOrderByInput!], skip: Int, take: Int, where: RegistrationWhereInput): [RegistrationGroupBy!]!
-  groupByResult(by: [ResultScalarFieldEnum!]!, having: ResultScalarWhereWithAggregatesInput, orderBy: [ResultOrderByInput!], skip: Int, take: Int, where: ResultWhereInput): [ResultGroupBy!]!
-  groupByRoute(by: [RouteScalarFieldEnum!]!, having: RouteScalarWhereWithAggregatesInput, orderBy: [RouteOrderByInput!], skip: Int, take: Int, where: RouteWhereInput): [RouteGroupBy!]!
-  groupByScoreBoulder(by: [ScoreBoulderScalarFieldEnum!]!, having: ScoreBoulderScalarWhereWithAggregatesInput, orderBy: [ScoreBoulderOrderByInput!], skip: Int, take: Int, where: ScoreBoulderWhereInput): [ScoreBoulderGroupBy!]!
-  groupByScoreLead(by: [ScoreLeadScalarFieldEnum!]!, having: ScoreLeadScalarWhereWithAggregatesInput, orderBy: [ScoreLeadOrderByInput!], skip: Int, take: Int, where: ScoreLeadWhereInput): [ScoreLeadGroupBy!]!
-  groupByScoreSpeed(by: [ScoreSpeedScalarFieldEnum!]!, having: ScoreSpeedScalarWhereWithAggregatesInput, orderBy: [ScoreSpeedOrderByInput!], skip: Int, take: Int, where: ScoreSpeedWhereInput): [ScoreSpeedGroupBy!]!
-  groupBySeason(by: [SeasonScalarFieldEnum!]!, having: SeasonScalarWhereWithAggregatesInput, orderBy: [SeasonOrderByInput!], skip: Int, take: Int, where: SeasonWhereInput): [SeasonGroupBy!]!
-  groupByStartList(by: [StartListScalarFieldEnum!]!, having: StartListScalarWhereWithAggregatesInput, orderBy: [StartListOrderByInput!], skip: Int, take: Int, where: StartListWhereInput): [StartListGroupBy!]!
-  groupByUser(by: [UserScalarFieldEnum!]!, having: UserScalarWhereWithAggregatesInput, orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): [UserGroupBy!]!
+  groupByCategory(by: [CategoryScalarFieldEnum!]!, having: CategoryScalarWhereWithAggregatesInput, orderBy: [CategoryOrderByWithAggregationInput!], skip: Int, take: Int, where: CategoryWhereInput): [CategoryGroupBy!]!
+  groupByClub(by: [ClubScalarFieldEnum!]!, having: ClubScalarWhereWithAggregatesInput, orderBy: [ClubOrderByWithAggregationInput!], skip: Int, take: Int, where: ClubWhereInput): [ClubGroupBy!]!
+  groupByComment(by: [CommentScalarFieldEnum!]!, having: CommentScalarWhereWithAggregatesInput, orderBy: [CommentOrderByWithAggregationInput!], skip: Int, take: Int, where: CommentWhereInput): [CommentGroupBy!]!
+  groupByCompetition(by: [CompetitionScalarFieldEnum!]!, having: CompetitionScalarWhereWithAggregatesInput, orderBy: [CompetitionOrderByWithAggregationInput!], skip: Int, take: Int, where: CompetitionWhereInput): [CompetitionGroupBy!]!
+  groupByCompetitionType(by: [CompetitionTypeScalarFieldEnum!]!, having: CompetitionTypeScalarWhereWithAggregatesInput, orderBy: [CompetitionTypeOrderByWithAggregationInput!], skip: Int, take: Int, where: CompetitionTypeWhereInput): [CompetitionTypeGroupBy!]!
+  groupByCompetitor(by: [CompetitorScalarFieldEnum!]!, having: CompetitorScalarWhereWithAggregatesInput, orderBy: [CompetitorOrderByWithAggregationInput!], skip: Int, take: Int, where: CompetitorWhereInput): [CompetitorGroupBy!]!
+  groupByCountry(by: [CountryScalarFieldEnum!]!, having: CountryScalarWhereWithAggregatesInput, orderBy: [CountryOrderByWithAggregationInput!], skip: Int, take: Int, where: CountryWhereInput): [CountryGroupBy!]!
+  groupByGrade(by: [GradeScalarFieldEnum!]!, having: GradeScalarWhereWithAggregatesInput, orderBy: [GradeOrderByWithAggregationInput!], skip: Int, take: Int, where: GradeWhereInput): [GradeGroupBy!]!
+  groupByLocation(by: [LocationScalarFieldEnum!]!, having: LocationScalarWhereWithAggregatesInput, orderBy: [LocationOrderByWithAggregationInput!], skip: Int, take: Int, where: LocationWhereInput): [LocationGroupBy!]!
+  groupByRegion(by: [RegionScalarFieldEnum!]!, having: RegionScalarWhereWithAggregatesInput, orderBy: [RegionOrderByWithAggregationInput!], skip: Int, take: Int, where: RegionWhereInput): [RegionGroupBy!]!
+  groupByRegistration(by: [RegistrationScalarFieldEnum!]!, having: RegistrationScalarWhereWithAggregatesInput, orderBy: [RegistrationOrderByWithAggregationInput!], skip: Int, take: Int, where: RegistrationWhereInput): [RegistrationGroupBy!]!
+  groupByResult(by: [ResultScalarFieldEnum!]!, having: ResultScalarWhereWithAggregatesInput, orderBy: [ResultOrderByWithAggregationInput!], skip: Int, take: Int, where: ResultWhereInput): [ResultGroupBy!]!
+  groupByRoute(by: [RouteScalarFieldEnum!]!, having: RouteScalarWhereWithAggregatesInput, orderBy: [RouteOrderByWithAggregationInput!], skip: Int, take: Int, where: RouteWhereInput): [RouteGroupBy!]!
+  groupByScoreBoulder(by: [ScoreBoulderScalarFieldEnum!]!, having: ScoreBoulderScalarWhereWithAggregatesInput, orderBy: [ScoreBoulderOrderByWithAggregationInput!], skip: Int, take: Int, where: ScoreBoulderWhereInput): [ScoreBoulderGroupBy!]!
+  groupByScoreLead(by: [ScoreLeadScalarFieldEnum!]!, having: ScoreLeadScalarWhereWithAggregatesInput, orderBy: [ScoreLeadOrderByWithAggregationInput!], skip: Int, take: Int, where: ScoreLeadWhereInput): [ScoreLeadGroupBy!]!
+  groupByScoreSpeed(by: [ScoreSpeedScalarFieldEnum!]!, having: ScoreSpeedScalarWhereWithAggregatesInput, orderBy: [ScoreSpeedOrderByWithAggregationInput!], skip: Int, take: Int, where: ScoreSpeedWhereInput): [ScoreSpeedGroupBy!]!
+  groupBySeason(by: [SeasonScalarFieldEnum!]!, having: SeasonScalarWhereWithAggregatesInput, orderBy: [SeasonOrderByWithAggregationInput!], skip: Int, take: Int, where: SeasonWhereInput): [SeasonGroupBy!]!
+  groupByStartList(by: [StartListScalarFieldEnum!]!, having: StartListScalarWhereWithAggregatesInput, orderBy: [StartListOrderByWithAggregationInput!], skip: Int, take: Int, where: StartListWhereInput): [StartListGroupBy!]!
+  groupByUser(by: [UserScalarFieldEnum!]!, having: UserScalarWhereWithAggregatesInput, orderBy: [UserOrderByWithAggregationInput!], skip: Int, take: Int, where: UserWhereInput): [UserGroupBy!]!
   location(where: LocationWhereUniqueInput!): Location
   locations(cursor: LocationWhereUniqueInput, distinct: [LocationScalarFieldEnum!], orderBy: [LocationOrderByInput!], skip: Int, take: Int, where: LocationWhereInput): [Location!]!
   region(where: RegionWhereUniqueInput!): Region
@@ -4611,13 +5074,22 @@ type Region {
 }
 
 type RegionAvgAggregate {
-  id: Float!
+  id: Float
+}
+
+input RegionAvgOrderByAggregateInput {
+  id: SortOrder
 }
 
 type RegionCountAggregate {
   _all: Int!
   id: Int!
-  name: Int
+  name: Int!
+}
+
+input RegionCountOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
 }
 
 input RegionCreateInput {
@@ -4646,26 +5118,46 @@ input RegionCreateWithoutLocationsInput {
 }
 
 type RegionGroupBy {
-  avg: RegionAvgAggregate
-  count: RegionCountAggregate
+  _avg: RegionAvgAggregate
+  _count: RegionCountAggregate
+  _max: RegionMaxAggregate
+  _min: RegionMinAggregate
+  _sum: RegionSumAggregate
   id: Int!
-  max: RegionMaxAggregate
-  min: RegionMinAggregate
   name: String!
-  sum: RegionSumAggregate
 }
 
 type RegionMaxAggregate {
-  id: Int!
+  id: Int
   name: String
+}
+
+input RegionMaxOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
 }
 
 type RegionMinAggregate {
-  id: Int!
+  id: Int
   name: String
 }
 
+input RegionMinOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+}
+
 input RegionOrderByInput {
+  id: SortOrder
+  name: SortOrder
+}
+
+input RegionOrderByWithAggregationInput {
+  _avg: RegionAvgOrderByAggregateInput
+  _count: RegionCountOrderByAggregateInput
+  _max: RegionMaxOrderByAggregateInput
+  _min: RegionMinOrderByAggregateInput
+  _sum: RegionSumOrderByAggregateInput
   id: SortOrder
   name: SortOrder
 }
@@ -4689,7 +5181,11 @@ input RegionScalarWhereWithAggregatesInput {
 }
 
 type RegionSumAggregate {
-  id: Int!
+  id: Int
+}
+
+input RegionSumOrderByAggregateInput {
+  id: SortOrder
 }
 
 input RegionUpdateInput {
@@ -4756,24 +5252,44 @@ type Registration {
 }
 
 type RegistrationAvgAggregate {
-  acceptorId: Float!
-  competitionId: Float!
-  competitorId: Float!
-  id: Float!
-  registrantId: Float!
+  acceptorId: Float
+  competitionId: Float
+  competitorId: Float
+  id: Float
+  registrantId: Float
+}
+
+input RegistrationAvgOrderByAggregateInput {
+  acceptorId: SortOrder
+  competitionId: SortOrder
+  competitorId: SortOrder
+  id: SortOrder
+  registrantId: SortOrder
 }
 
 type RegistrationCountAggregate {
   _all: Int!
-  accepted: Int
+  accepted: Int!
   acceptorId: Int!
   competitionId: Int!
   competitorId: Int!
-  createdAt: Int
+  createdAt: Int!
   id: Int!
-  paid: Int
+  paid: Int!
   registrantId: Int!
-  updatedAt: Int
+  updatedAt: Int!
+}
+
+input RegistrationCountOrderByAggregateInput {
+  accepted: SortOrder
+  acceptorId: SortOrder
+  competitionId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  paid: SortOrder
+  registrantId: SortOrder
+  updatedAt: SortOrder
 }
 
 input RegistrationCreateInput {
@@ -4952,19 +5468,19 @@ input RegistrationCreateWithoutRegistrantInput {
 }
 
 type RegistrationGroupBy {
+  _avg: RegistrationAvgAggregate
+  _count: RegistrationCountAggregate
+  _max: RegistrationMaxAggregate
+  _min: RegistrationMinAggregate
+  _sum: RegistrationSumAggregate
   accepted: Boolean!
   acceptorId: Int!
-  avg: RegistrationAvgAggregate
   competitionId: Int!
   competitorId: Int!
-  count: RegistrationCountAggregate
   createdAt: DateTime!
   id: Int!
-  max: RegistrationMaxAggregate
-  min: RegistrationMinAggregate
   paid: Boolean!
   registrantId: Int!
-  sum: RegistrationSumAggregate
   updatedAt: DateTime!
 }
 
@@ -4976,29 +5492,70 @@ input RegistrationListRelationFilter {
 
 type RegistrationMaxAggregate {
   accepted: Boolean
-  acceptorId: Int!
-  competitionId: Int!
-  competitorId: Int!
+  acceptorId: Int
+  competitionId: Int
+  competitorId: Int
   createdAt: DateTime
-  id: Int!
+  id: Int
   paid: Boolean
-  registrantId: Int!
+  registrantId: Int
   updatedAt: DateTime
+}
+
+input RegistrationMaxOrderByAggregateInput {
+  accepted: SortOrder
+  acceptorId: SortOrder
+  competitionId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  paid: SortOrder
+  registrantId: SortOrder
+  updatedAt: SortOrder
 }
 
 type RegistrationMinAggregate {
   accepted: Boolean
-  acceptorId: Int!
-  competitionId: Int!
-  competitorId: Int!
+  acceptorId: Int
+  competitionId: Int
+  competitorId: Int
   createdAt: DateTime
-  id: Int!
+  id: Int
   paid: Boolean
-  registrantId: Int!
+  registrantId: Int
   updatedAt: DateTime
 }
 
+input RegistrationMinOrderByAggregateInput {
+  accepted: SortOrder
+  acceptorId: SortOrder
+  competitionId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  paid: SortOrder
+  registrantId: SortOrder
+  updatedAt: SortOrder
+}
+
 input RegistrationOrderByInput {
+  accepted: SortOrder
+  acceptorId: SortOrder
+  competitionId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  paid: SortOrder
+  registrantId: SortOrder
+  updatedAt: SortOrder
+}
+
+input RegistrationOrderByWithAggregationInput {
+  _avg: RegistrationAvgOrderByAggregateInput
+  _count: RegistrationCountOrderByAggregateInput
+  _max: RegistrationMaxOrderByAggregateInput
+  _min: RegistrationMinOrderByAggregateInput
+  _sum: RegistrationSumOrderByAggregateInput
   accepted: SortOrder
   acceptorId: SortOrder
   competitionId: SortOrder
@@ -5053,11 +5610,19 @@ input RegistrationScalarWhereWithAggregatesInput {
 }
 
 type RegistrationSumAggregate {
-  acceptorId: Int!
-  competitionId: Int!
-  competitorId: Int!
-  id: Int!
-  registrantId: Int!
+  acceptorId: Int
+  competitionId: Int
+  competitorId: Int
+  id: Int
+  registrantId: Int
+}
+
+input RegistrationSumOrderByAggregateInput {
+  acceptorId: SortOrder
+  competitionId: SortOrder
+  competitorId: SortOrder
+  id: SortOrder
+  registrantId: SortOrder
 }
 
 input RegistrationUpdateInput {
@@ -5275,11 +5840,19 @@ type Result {
 }
 
 type ResultAvgAggregate {
-  approvedById: Float!
-  competitionId: Float!
-  competitorId: Float!
-  id: Float!
-  score: Float!
+  approvedById: Float
+  competitionId: Float
+  competitorId: Float
+  id: Float
+  score: Float
+}
+
+input ResultAvgOrderByAggregateInput {
+  approvedById: SortOrder
+  competitionId: SortOrder
+  competitorId: SortOrder
+  id: SortOrder
+  score: SortOrder
 }
 
 type ResultCountAggregate {
@@ -5287,10 +5860,20 @@ type ResultCountAggregate {
   approvedById: Int!
   competitionId: Int!
   competitorId: Int!
-  createdAt: Int
+  createdAt: Int!
   id: Int!
   score: Int!
-  updatedAt: Int
+  updatedAt: Int!
+}
+
+input ResultCountOrderByAggregateInput {
+  approvedById: SortOrder
+  competitionId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  score: SortOrder
+  updatedAt: SortOrder
 }
 
 input ResultCreateInput {
@@ -5421,17 +6004,17 @@ type ResultField {
 }
 
 type ResultGroupBy {
+  _avg: ResultAvgAggregate
+  _count: ResultCountAggregate
+  _max: ResultMaxAggregate
+  _min: ResultMinAggregate
+  _sum: ResultSumAggregate
   approvedById: Int!
-  avg: ResultAvgAggregate
   competitionId: Int!
   competitorId: Int!
-  count: ResultCountAggregate
   createdAt: DateTime!
   id: Int!
-  max: ResultMaxAggregate
-  min: ResultMinAggregate
   score: Int!
-  sum: ResultSumAggregate
   updatedAt: DateTime!
 }
 
@@ -5448,26 +6031,61 @@ input ResultListRelationFilter {
 }
 
 type ResultMaxAggregate {
-  approvedById: Int!
-  competitionId: Int!
-  competitorId: Int!
+  approvedById: Int
+  competitionId: Int
+  competitorId: Int
   createdAt: DateTime
-  id: Int!
-  score: Int!
+  id: Int
+  score: Int
   updatedAt: DateTime
+}
+
+input ResultMaxOrderByAggregateInput {
+  approvedById: SortOrder
+  competitionId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  score: SortOrder
+  updatedAt: SortOrder
 }
 
 type ResultMinAggregate {
-  approvedById: Int!
-  competitionId: Int!
-  competitorId: Int!
+  approvedById: Int
+  competitionId: Int
+  competitorId: Int
   createdAt: DateTime
-  id: Int!
-  score: Int!
+  id: Int
+  score: Int
   updatedAt: DateTime
 }
 
+input ResultMinOrderByAggregateInput {
+  approvedById: SortOrder
+  competitionId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  score: SortOrder
+  updatedAt: SortOrder
+}
+
 input ResultOrderByInput {
+  approvedById: SortOrder
+  competitionId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  score: SortOrder
+  updatedAt: SortOrder
+}
+
+input ResultOrderByWithAggregationInput {
+  _avg: ResultAvgOrderByAggregateInput
+  _count: ResultCountOrderByAggregateInput
+  _max: ResultMaxOrderByAggregateInput
+  _min: ResultMinOrderByAggregateInput
+  _sum: ResultSumOrderByAggregateInput
   approvedById: SortOrder
   competitionId: SortOrder
   competitorId: SortOrder
@@ -5524,11 +6142,19 @@ input ResultScalarWhereWithAggregatesInput {
 }
 
 type ResultSumAggregate {
-  approvedById: Int!
-  competitionId: Int!
-  competitorId: Int!
-  id: Int!
-  score: Int!
+  approvedById: Int
+  competitionId: Int
+  competitorId: Int
+  id: Int
+  score: Int
+}
+
+input ResultSumOrderByAggregateInput {
+  approvedById: SortOrder
+  competitionId: SortOrder
+  competitorId: SortOrder
+  id: SortOrder
+  score: SortOrder
 }
 
 input ResultUpdateInput {
@@ -5712,31 +6338,58 @@ type Route {
 }
 
 type RouteAvgAggregate {
-  categoryId: Float!
-  competitionId: Float!
-  gradeId: Float!
-  id: Float!
-  judgeId: Float!
-  number: Float!
-  setterId: Float!
+  categoryId: Float
+  competitionId: Float
+  gradeId: Float
+  id: Float
+  judgeId: Float
+  number: Float
+  setterId: Float
+}
+
+input RouteAvgOrderByAggregateInput {
+  categoryId: SortOrder
+  competitionId: SortOrder
+  gradeId: SortOrder
+  id: SortOrder
+  judgeId: SortOrder
+  number: SortOrder
+  setterId: SortOrder
 }
 
 type RouteCountAggregate {
   _all: Int!
-  active: Int
+  active: Int!
   categoryId: Int!
   competitionId: Int!
-  createdAt: Int
-  description: Int
+  createdAt: Int!
+  description: Int!
   gradeId: Int!
   id: Int!
   judgeId: Int!
-  name: Int
+  name: Int!
   number: Int!
-  round: Int
-  routeType: Int
+  round: Int!
+  routeType: Int!
   setterId: Int!
-  updatedAt: Int
+  updatedAt: Int!
+}
+
+input RouteCountOrderByAggregateInput {
+  active: SortOrder
+  categoryId: SortOrder
+  competitionId: SortOrder
+  createdAt: SortOrder
+  description: SortOrder
+  gradeId: SortOrder
+  id: SortOrder
+  judgeId: SortOrder
+  name: SortOrder
+  number: SortOrder
+  round: SortOrder
+  routeType: SortOrder
+  setterId: SortOrder
+  updatedAt: SortOrder
 }
 
 input RouteCreateInput {
@@ -6118,24 +6771,24 @@ input RouteCreateWithoutSetterInput {
 }
 
 type RouteGroupBy {
+  _avg: RouteAvgAggregate
+  _count: RouteCountAggregate
+  _max: RouteMaxAggregate
+  _min: RouteMinAggregate
+  _sum: RouteSumAggregate
   active: Boolean!
-  avg: RouteAvgAggregate
   categoryId: Int!
   competitionId: Int!
-  count: RouteCountAggregate
   createdAt: DateTime!
   description: String
   gradeId: Int!
   id: Int!
   judgeId: Int!
-  max: RouteMaxAggregate
-  min: RouteMinAggregate
   name: String!
   number: Int!
   round: Round!
   routeType: RouteType!
   setterId: Int!
-  sum: RouteSumAggregate
   updatedAt: DateTime!
 }
 
@@ -6147,39 +6800,95 @@ input RouteListRelationFilter {
 
 type RouteMaxAggregate {
   active: Boolean
-  categoryId: Int!
-  competitionId: Int!
+  categoryId: Int
+  competitionId: Int
   createdAt: DateTime
   description: String
-  gradeId: Int!
-  id: Int!
-  judgeId: Int!
+  gradeId: Int
+  id: Int
+  judgeId: Int
   name: String
-  number: Int!
+  number: Int
   round: Round
   routeType: RouteType
-  setterId: Int!
+  setterId: Int
   updatedAt: DateTime
+}
+
+input RouteMaxOrderByAggregateInput {
+  active: SortOrder
+  categoryId: SortOrder
+  competitionId: SortOrder
+  createdAt: SortOrder
+  description: SortOrder
+  gradeId: SortOrder
+  id: SortOrder
+  judgeId: SortOrder
+  name: SortOrder
+  number: SortOrder
+  round: SortOrder
+  routeType: SortOrder
+  setterId: SortOrder
+  updatedAt: SortOrder
 }
 
 type RouteMinAggregate {
   active: Boolean
-  categoryId: Int!
-  competitionId: Int!
+  categoryId: Int
+  competitionId: Int
   createdAt: DateTime
   description: String
-  gradeId: Int!
-  id: Int!
-  judgeId: Int!
+  gradeId: Int
+  id: Int
+  judgeId: Int
   name: String
-  number: Int!
+  number: Int
   round: Round
   routeType: RouteType
-  setterId: Int!
+  setterId: Int
   updatedAt: DateTime
 }
 
+input RouteMinOrderByAggregateInput {
+  active: SortOrder
+  categoryId: SortOrder
+  competitionId: SortOrder
+  createdAt: SortOrder
+  description: SortOrder
+  gradeId: SortOrder
+  id: SortOrder
+  judgeId: SortOrder
+  name: SortOrder
+  number: SortOrder
+  round: SortOrder
+  routeType: SortOrder
+  setterId: SortOrder
+  updatedAt: SortOrder
+}
+
 input RouteOrderByInput {
+  active: SortOrder
+  categoryId: SortOrder
+  competitionId: SortOrder
+  createdAt: SortOrder
+  description: SortOrder
+  gradeId: SortOrder
+  id: SortOrder
+  judgeId: SortOrder
+  name: SortOrder
+  number: SortOrder
+  round: SortOrder
+  routeType: SortOrder
+  setterId: SortOrder
+  updatedAt: SortOrder
+}
+
+input RouteOrderByWithAggregationInput {
+  _avg: RouteAvgOrderByAggregateInput
+  _count: RouteCountOrderByAggregateInput
+  _max: RouteMaxOrderByAggregateInput
+  _min: RouteMinOrderByAggregateInput
+  _sum: RouteSumOrderByAggregateInput
   active: SortOrder
   categoryId: SortOrder
   competitionId: SortOrder
@@ -6259,13 +6968,23 @@ input RouteScalarWhereWithAggregatesInput {
 }
 
 type RouteSumAggregate {
-  categoryId: Int!
-  competitionId: Int!
-  gradeId: Int!
-  id: Int!
-  judgeId: Int!
-  number: Int!
-  setterId: Int!
+  categoryId: Int
+  competitionId: Int
+  gradeId: Int
+  id: Int
+  judgeId: Int
+  number: Int
+  setterId: Int
+}
+
+input RouteSumOrderByAggregateInput {
+  categoryId: SortOrder
+  competitionId: SortOrder
+  gradeId: SortOrder
+  id: SortOrder
+  judgeId: SortOrder
+  number: SortOrder
+  setterId: SortOrder
 }
 
 enum RouteType {
@@ -6689,26 +7408,50 @@ type ScoreBoulder {
 type ScoreBoulderAvgAggregate {
   attempts: Float
   commentId: Float
-  competitorId: Float!
-  id: Float!
-  routeId: Float!
+  competitorId: Float
+  id: Float
+  routeId: Float
   time: Float
   top: Float
   zone: Float
 }
 
+input ScoreBoulderAvgOrderByAggregateInput {
+  attempts: SortOrder
+  commentId: SortOrder
+  competitorId: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
+  top: SortOrder
+  zone: SortOrder
+}
+
 type ScoreBoulderCountAggregate {
   _all: Int!
-  attempts: Int
-  commentId: Int
+  attempts: Int!
+  commentId: Int!
   competitorId: Int!
-  createdAt: Int
+  createdAt: Int!
   id: Int!
   routeId: Int!
-  time: Int
-  top: Int
-  updatedAt: Int
-  zone: Int
+  time: Int!
+  top: Int!
+  updatedAt: Int!
+  zone: Int!
+}
+
+input ScoreBoulderCountOrderByAggregateInput {
+  attempts: SortOrder
+  commentId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
+  top: SortOrder
+  updatedAt: SortOrder
+  zone: SortOrder
 }
 
 input ScoreBoulderCreateInput {
@@ -6857,17 +7600,17 @@ input ScoreBoulderCreateWithoutRouteInput {
 }
 
 type ScoreBoulderGroupBy {
+  _avg: ScoreBoulderAvgAggregate
+  _count: ScoreBoulderCountAggregate
+  _max: ScoreBoulderMaxAggregate
+  _min: ScoreBoulderMinAggregate
+  _sum: ScoreBoulderSumAggregate
   attempts: Int
-  avg: ScoreBoulderAvgAggregate
   commentId: Int
   competitorId: Int!
-  count: ScoreBoulderCountAggregate
   createdAt: DateTime!
   id: Int!
-  max: ScoreBoulderMaxAggregate
-  min: ScoreBoulderMinAggregate
   routeId: Int!
-  sum: ScoreBoulderSumAggregate
   time: Int
   top: Int
   updatedAt: DateTime!
@@ -6883,30 +7626,74 @@ input ScoreBoulderListRelationFilter {
 type ScoreBoulderMaxAggregate {
   attempts: Int
   commentId: Int
-  competitorId: Int!
+  competitorId: Int
   createdAt: DateTime
-  id: Int!
-  routeId: Int!
+  id: Int
+  routeId: Int
   time: Int
   top: Int
   updatedAt: DateTime
   zone: Int
+}
+
+input ScoreBoulderMaxOrderByAggregateInput {
+  attempts: SortOrder
+  commentId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
+  top: SortOrder
+  updatedAt: SortOrder
+  zone: SortOrder
 }
 
 type ScoreBoulderMinAggregate {
   attempts: Int
   commentId: Int
-  competitorId: Int!
+  competitorId: Int
   createdAt: DateTime
-  id: Int!
-  routeId: Int!
+  id: Int
+  routeId: Int
   time: Int
   top: Int
   updatedAt: DateTime
   zone: Int
 }
 
+input ScoreBoulderMinOrderByAggregateInput {
+  attempts: SortOrder
+  commentId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
+  top: SortOrder
+  updatedAt: SortOrder
+  zone: SortOrder
+}
+
 input ScoreBoulderOrderByInput {
+  attempts: SortOrder
+  commentId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
+  top: SortOrder
+  updatedAt: SortOrder
+  zone: SortOrder
+}
+
+input ScoreBoulderOrderByWithAggregationInput {
+  _avg: ScoreBoulderAvgOrderByAggregateInput
+  _count: ScoreBoulderCountOrderByAggregateInput
+  _max: ScoreBoulderMaxOrderByAggregateInput
+  _min: ScoreBoulderMinOrderByAggregateInput
+  _sum: ScoreBoulderSumOrderByAggregateInput
   attempts: SortOrder
   commentId: SortOrder
   competitorId: SortOrder
@@ -6967,12 +7754,23 @@ input ScoreBoulderScalarWhereWithAggregatesInput {
 type ScoreBoulderSumAggregate {
   attempts: Int
   commentId: Int
-  competitorId: Int!
-  id: Int!
-  routeId: Int!
+  competitorId: Int
+  id: Int
+  routeId: Int
   time: Int
   top: Int
   zone: Int
+}
+
+input ScoreBoulderSumOrderByAggregateInput {
+  attempts: SortOrder
+  commentId: SortOrder
+  competitorId: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
+  top: SortOrder
+  zone: SortOrder
 }
 
 input ScoreBoulderUpdateInput {
@@ -7166,22 +7964,41 @@ type ScoreLead {
 
 type ScoreLeadAvgAggregate {
   commentId: Float
-  competitorId: Float!
-  id: Float!
-  routeId: Float!
-  time: Float!
+  competitorId: Float
+  id: Float
+  routeId: Float
+  time: Float
+}
+
+input ScoreLeadAvgOrderByAggregateInput {
+  commentId: SortOrder
+  competitorId: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
 }
 
 type ScoreLeadCountAggregate {
   _all: Int!
-  commentId: Int
+  commentId: Int!
   competitorId: Int!
-  createdAt: Int
-  height: Int
+  createdAt: Int!
+  height: Int!
   id: Int!
   routeId: Int!
   time: Int!
-  updatedAt: Int
+  updatedAt: Int!
+}
+
+input ScoreLeadCountOrderByAggregateInput {
+  commentId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  height: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
+  updatedAt: SortOrder
 }
 
 input ScoreLeadCreateInput {
@@ -7314,17 +8131,17 @@ input ScoreLeadCreateWithoutRouteInput {
 }
 
 type ScoreLeadGroupBy {
-  avg: ScoreLeadAvgAggregate
+  _avg: ScoreLeadAvgAggregate
+  _count: ScoreLeadCountAggregate
+  _max: ScoreLeadMaxAggregate
+  _min: ScoreLeadMinAggregate
+  _sum: ScoreLeadSumAggregate
   commentId: Int
   competitorId: Int!
-  count: ScoreLeadCountAggregate
   createdAt: DateTime!
   height: String!
   id: Int!
-  max: ScoreLeadMaxAggregate
-  min: ScoreLeadMinAggregate
   routeId: Int!
-  sum: ScoreLeadSumAggregate
   time: Int!
   updatedAt: DateTime!
 }
@@ -7337,27 +8154,65 @@ input ScoreLeadListRelationFilter {
 
 type ScoreLeadMaxAggregate {
   commentId: Int
-  competitorId: Int!
+  competitorId: Int
   createdAt: DateTime
   height: String
-  id: Int!
-  routeId: Int!
-  time: Int!
+  id: Int
+  routeId: Int
+  time: Int
   updatedAt: DateTime
+}
+
+input ScoreLeadMaxOrderByAggregateInput {
+  commentId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  height: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
+  updatedAt: SortOrder
 }
 
 type ScoreLeadMinAggregate {
   commentId: Int
-  competitorId: Int!
+  competitorId: Int
   createdAt: DateTime
   height: String
-  id: Int!
-  routeId: Int!
-  time: Int!
+  id: Int
+  routeId: Int
+  time: Int
   updatedAt: DateTime
 }
 
+input ScoreLeadMinOrderByAggregateInput {
+  commentId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  height: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
+  updatedAt: SortOrder
+}
+
 input ScoreLeadOrderByInput {
+  commentId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  height: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
+  updatedAt: SortOrder
+}
+
+input ScoreLeadOrderByWithAggregationInput {
+  _avg: ScoreLeadAvgOrderByAggregateInput
+  _count: ScoreLeadCountOrderByAggregateInput
+  _max: ScoreLeadMaxOrderByAggregateInput
+  _min: ScoreLeadMinOrderByAggregateInput
+  _sum: ScoreLeadSumOrderByAggregateInput
   commentId: SortOrder
   competitorId: SortOrder
   createdAt: SortOrder
@@ -7409,10 +8264,18 @@ input ScoreLeadScalarWhereWithAggregatesInput {
 
 type ScoreLeadSumAggregate {
   commentId: Int
-  competitorId: Int!
-  id: Int!
-  routeId: Int!
-  time: Int!
+  competitorId: Int
+  id: Int
+  routeId: Int
+  time: Int
+}
+
+input ScoreLeadSumOrderByAggregateInput {
+  commentId: SortOrder
+  competitorId: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
 }
 
 input ScoreLeadUpdateInput {
@@ -7590,21 +8453,39 @@ type ScoreSpeed {
 
 type ScoreSpeedAvgAggregate {
   commentId: Float
-  competitorId: Float!
-  id: Float!
-  routeId: Float!
-  time: Float!
+  competitorId: Float
+  id: Float
+  routeId: Float
+  time: Float
+}
+
+input ScoreSpeedAvgOrderByAggregateInput {
+  commentId: SortOrder
+  competitorId: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
 }
 
 type ScoreSpeedCountAggregate {
   _all: Int!
-  commentId: Int
+  commentId: Int!
   competitorId: Int!
-  createdAt: Int
+  createdAt: Int!
   id: Int!
   routeId: Int!
   time: Int!
-  updatedAt: Int
+  updatedAt: Int!
+}
+
+input ScoreSpeedCountOrderByAggregateInput {
+  commentId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
+  updatedAt: SortOrder
 }
 
 input ScoreSpeedCreateInput {
@@ -7729,16 +8610,16 @@ input ScoreSpeedCreateWithoutRouteInput {
 }
 
 type ScoreSpeedGroupBy {
-  avg: ScoreSpeedAvgAggregate
+  _avg: ScoreSpeedAvgAggregate
+  _count: ScoreSpeedCountAggregate
+  _max: ScoreSpeedMaxAggregate
+  _min: ScoreSpeedMinAggregate
+  _sum: ScoreSpeedSumAggregate
   commentId: Int
   competitorId: Int!
-  count: ScoreSpeedCountAggregate
   createdAt: DateTime!
   id: Int!
-  max: ScoreSpeedMaxAggregate
-  min: ScoreSpeedMinAggregate
   routeId: Int!
-  sum: ScoreSpeedSumAggregate
   time: Int!
   updatedAt: DateTime!
 }
@@ -7751,25 +8632,60 @@ input ScoreSpeedListRelationFilter {
 
 type ScoreSpeedMaxAggregate {
   commentId: Int
-  competitorId: Int!
+  competitorId: Int
   createdAt: DateTime
-  id: Int!
-  routeId: Int!
-  time: Int!
+  id: Int
+  routeId: Int
+  time: Int
   updatedAt: DateTime
+}
+
+input ScoreSpeedMaxOrderByAggregateInput {
+  commentId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
+  updatedAt: SortOrder
 }
 
 type ScoreSpeedMinAggregate {
   commentId: Int
-  competitorId: Int!
+  competitorId: Int
   createdAt: DateTime
-  id: Int!
-  routeId: Int!
-  time: Int!
+  id: Int
+  routeId: Int
+  time: Int
   updatedAt: DateTime
 }
 
+input ScoreSpeedMinOrderByAggregateInput {
+  commentId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
+  updatedAt: SortOrder
+}
+
 input ScoreSpeedOrderByInput {
+  commentId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
+  updatedAt: SortOrder
+}
+
+input ScoreSpeedOrderByWithAggregationInput {
+  _avg: ScoreSpeedAvgOrderByAggregateInput
+  _count: ScoreSpeedCountOrderByAggregateInput
+  _max: ScoreSpeedMaxOrderByAggregateInput
+  _min: ScoreSpeedMinOrderByAggregateInput
+  _sum: ScoreSpeedSumOrderByAggregateInput
   commentId: SortOrder
   competitorId: SortOrder
   createdAt: SortOrder
@@ -7817,10 +8733,18 @@ input ScoreSpeedScalarWhereWithAggregatesInput {
 
 type ScoreSpeedSumAggregate {
   commentId: Int
-  competitorId: Int!
-  id: Int!
-  routeId: Int!
-  time: Int!
+  competitorId: Int
+  id: Int
+  routeId: Int
+  time: Int
+}
+
+input ScoreSpeedSumOrderByAggregateInput {
+  commentId: SortOrder
+  competitorId: SortOrder
+  id: SortOrder
+  routeId: SortOrder
+  time: SortOrder
 }
 
 input ScoreSpeedUpdateInput {
@@ -7985,20 +8909,36 @@ type Season {
 }
 
 type SeasonAvgAggregate {
-  id: Float!
+  id: Float
   year: Float
+}
+
+input SeasonAvgOrderByAggregateInput {
+  id: SortOrder
+  year: SortOrder
 }
 
 type SeasonCountAggregate {
   _all: Int!
-  createdAt: Int
-  description: Int
-  endDate: Int
+  createdAt: Int!
+  description: Int!
+  endDate: Int!
   id: Int!
-  name: Int
-  stardDate: Int
-  updatedAt: Int
-  year: Int
+  name: Int!
+  stardDate: Int!
+  updatedAt: Int!
+  year: Int!
+}
+
+input SeasonCountOrderByAggregateInput {
+  createdAt: SortOrder
+  description: SortOrder
+  endDate: SortOrder
+  id: SortOrder
+  name: SortOrder
+  stardDate: SortOrder
+  updatedAt: SortOrder
+  year: SortOrder
 }
 
 input SeasonCreateInput {
@@ -8045,17 +8985,17 @@ input SeasonCreateWithoutCompetitionsInput {
 }
 
 type SeasonGroupBy {
-  avg: SeasonAvgAggregate
-  count: SeasonCountAggregate
+  _avg: SeasonAvgAggregate
+  _count: SeasonCountAggregate
+  _max: SeasonMaxAggregate
+  _min: SeasonMinAggregate
+  _sum: SeasonSumAggregate
   createdAt: DateTime!
   description: String
   endDate: DateTime!
   id: Int!
-  max: SeasonMaxAggregate
-  min: SeasonMinAggregate
   name: String!
   stardDate: DateTime!
-  sum: SeasonSumAggregate
   updatedAt: DateTime!
   year: Int
 }
@@ -8064,25 +9004,63 @@ type SeasonMaxAggregate {
   createdAt: DateTime
   description: String
   endDate: DateTime
-  id: Int!
+  id: Int
   name: String
   stardDate: DateTime
   updatedAt: DateTime
   year: Int
+}
+
+input SeasonMaxOrderByAggregateInput {
+  createdAt: SortOrder
+  description: SortOrder
+  endDate: SortOrder
+  id: SortOrder
+  name: SortOrder
+  stardDate: SortOrder
+  updatedAt: SortOrder
+  year: SortOrder
 }
 
 type SeasonMinAggregate {
   createdAt: DateTime
   description: String
   endDate: DateTime
-  id: Int!
+  id: Int
   name: String
   stardDate: DateTime
   updatedAt: DateTime
   year: Int
 }
 
+input SeasonMinOrderByAggregateInput {
+  createdAt: SortOrder
+  description: SortOrder
+  endDate: SortOrder
+  id: SortOrder
+  name: SortOrder
+  stardDate: SortOrder
+  updatedAt: SortOrder
+  year: SortOrder
+}
+
 input SeasonOrderByInput {
+  createdAt: SortOrder
+  description: SortOrder
+  endDate: SortOrder
+  id: SortOrder
+  name: SortOrder
+  stardDate: SortOrder
+  updatedAt: SortOrder
+  year: SortOrder
+}
+
+input SeasonOrderByWithAggregationInput {
+  _avg: SeasonAvgOrderByAggregateInput
+  _count: SeasonCountOrderByAggregateInput
+  _max: SeasonMaxOrderByAggregateInput
+  _min: SeasonMinOrderByAggregateInput
+  _sum: SeasonSumOrderByAggregateInput
   createdAt: SortOrder
   description: SortOrder
   endDate: SortOrder
@@ -8124,8 +9102,13 @@ input SeasonScalarWhereWithAggregatesInput {
 }
 
 type SeasonSumAggregate {
-  id: Int!
+  id: Int
   year: Int
+}
+
+input SeasonSumOrderByAggregateInput {
+  id: SortOrder
+  year: SortOrder
 }
 
 input SeasonUpdateInput {
@@ -8208,20 +9191,36 @@ type StartList {
 }
 
 type StartListAvgAggregate {
-  competitionId: Float!
-  competitorId: Float!
-  id: Float!
-  startNumber: Float!
+  competitionId: Float
+  competitorId: Float
+  id: Float
+  startNumber: Float
+}
+
+input StartListAvgOrderByAggregateInput {
+  competitionId: SortOrder
+  competitorId: SortOrder
+  id: SortOrder
+  startNumber: SortOrder
 }
 
 type StartListCountAggregate {
   _all: Int!
   competitionId: Int!
   competitorId: Int!
-  createdAt: Int
+  createdAt: Int!
   id: Int!
   startNumber: Int!
-  updatedAt: Int
+  updatedAt: Int!
+}
+
+input StartListCountOrderByAggregateInput {
+  competitionId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  startNumber: SortOrder
+  updatedAt: SortOrder
 }
 
 input StartListCreateInput {
@@ -8306,16 +9305,16 @@ input StartListCreateWithoutCompetitorInput {
 }
 
 type StartListGroupBy {
-  avg: StartListAvgAggregate
+  _avg: StartListAvgAggregate
+  _count: StartListCountAggregate
+  _max: StartListMaxAggregate
+  _min: StartListMinAggregate
+  _sum: StartListSumAggregate
   competitionId: Int!
   competitorId: Int!
-  count: StartListCountAggregate
   createdAt: DateTime!
   id: Int!
-  max: StartListMaxAggregate
-  min: StartListMinAggregate
   startNumber: Int!
-  sum: StartListSumAggregate
   updatedAt: DateTime!
 }
 
@@ -8326,24 +9325,56 @@ input StartListListRelationFilter {
 }
 
 type StartListMaxAggregate {
-  competitionId: Int!
-  competitorId: Int!
+  competitionId: Int
+  competitorId: Int
   createdAt: DateTime
-  id: Int!
-  startNumber: Int!
+  id: Int
+  startNumber: Int
   updatedAt: DateTime
+}
+
+input StartListMaxOrderByAggregateInput {
+  competitionId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  startNumber: SortOrder
+  updatedAt: SortOrder
 }
 
 type StartListMinAggregate {
-  competitionId: Int!
-  competitorId: Int!
+  competitionId: Int
+  competitorId: Int
   createdAt: DateTime
-  id: Int!
-  startNumber: Int!
+  id: Int
+  startNumber: Int
   updatedAt: DateTime
 }
 
+input StartListMinOrderByAggregateInput {
+  competitionId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  startNumber: SortOrder
+  updatedAt: SortOrder
+}
+
 input StartListOrderByInput {
+  competitionId: SortOrder
+  competitorId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  startNumber: SortOrder
+  updatedAt: SortOrder
+}
+
+input StartListOrderByWithAggregationInput {
+  _avg: StartListAvgOrderByAggregateInput
+  _count: StartListCountOrderByAggregateInput
+  _max: StartListMaxOrderByAggregateInput
+  _min: StartListMinOrderByAggregateInput
+  _sum: StartListSumOrderByAggregateInput
   competitionId: SortOrder
   competitorId: SortOrder
   createdAt: SortOrder
@@ -8386,10 +9417,17 @@ input StartListScalarWhereWithAggregatesInput {
 }
 
 type StartListSumAggregate {
-  competitionId: Int!
-  competitorId: Int!
-  id: Int!
-  startNumber: Int!
+  competitionId: Int
+  competitorId: Int
+  id: Int
+  startNumber: Int
+}
+
+input StartListSumOrderByAggregateInput {
+  competitionId: SortOrder
+  competitorId: SortOrder
+  id: SortOrder
+  startNumber: SortOrder
 }
 
 input StartListUpdateInput {
@@ -8533,8 +9571,10 @@ input StringNullableFilter {
 }
 
 input StringNullableWithAggregatesFilter {
+  _count: NestedIntNullableFilter
+  _max: NestedStringNullableFilter
+  _min: NestedStringNullableFilter
   contains: String
-  count: NestedIntNullableFilter
   endsWith: String
   equals: String
   gt: String
@@ -8542,8 +9582,6 @@ input StringNullableWithAggregatesFilter {
   in: [String!]
   lt: String
   lte: String
-  max: NestedStringNullableFilter
-  min: NestedStringNullableFilter
   mode: QueryMode
   not: NestedStringNullableWithAggregatesFilter
   notIn: [String!]
@@ -8551,8 +9589,10 @@ input StringNullableWithAggregatesFilter {
 }
 
 input StringWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedStringFilter
+  _min: NestedStringFilter
   contains: String
-  count: NestedIntFilter
   endsWith: String
   equals: String
   gt: String
@@ -8560,8 +9600,6 @@ input StringWithAggregatesFilter {
   in: [String!]
   lt: String
   lte: String
-  max: NestedStringFilter
-  min: NestedStringFilter
   mode: QueryMode
   not: NestedStringWithAggregatesFilter
   notIn: [String!]
@@ -8589,22 +9627,40 @@ type User {
 }
 
 type UserAvgAggregate {
-  id: Float!
+  id: Float
   locationId: Float
+}
+
+input UserAvgOrderByAggregateInput {
+  id: SortOrder
+  locationId: SortOrder
 }
 
 type UserCountAggregate {
   _all: Int!
-  createdAt: Int
-  email: Int
-  firstName: Int
+  createdAt: Int!
+  email: Int!
+  firstName: Int!
   id: Int!
-  lastName: Int
-  locationId: Int
-  password: Int
-  publicId: Int
-  role: Int
-  updatedAt: Int
+  lastName: Int!
+  locationId: Int!
+  password: Int!
+  publicId: Int!
+  role: Int!
+  updatedAt: Int!
+}
+
+input UserCountOrderByAggregateInput {
+  createdAt: SortOrder
+  email: SortOrder
+  firstName: SortOrder
+  id: SortOrder
+  lastName: SortOrder
+  locationId: SortOrder
+  password: SortOrder
+  publicId: SortOrder
+  role: SortOrder
+  updatedAt: SortOrder
 }
 
 input UserCreateInput {
@@ -8853,20 +9909,20 @@ input UserCreateWithoutRoutesSetInput {
 }
 
 type UserGroupBy {
-  avg: UserAvgAggregate
-  count: UserCountAggregate
+  _avg: UserAvgAggregate
+  _count: UserCountAggregate
+  _max: UserMaxAggregate
+  _min: UserMinAggregate
+  _sum: UserSumAggregate
   createdAt: DateTime!
   email: String!
   firstName: String!
   id: Int!
   lastName: String!
   locationId: Int
-  max: UserMaxAggregate
-  min: UserMinAggregate
   password: String!
   publicId: String!
   role: UserRole!
-  sum: UserSumAggregate
   updatedAt: DateTime!
 }
 
@@ -8885,20 +9941,33 @@ type UserMaxAggregate {
   createdAt: DateTime
   email: String
   firstName: String
-  id: Int!
+  id: Int
   lastName: String
   locationId: Int
   password: String
   publicId: String
   role: UserRole
   updatedAt: DateTime
+}
+
+input UserMaxOrderByAggregateInput {
+  createdAt: SortOrder
+  email: SortOrder
+  firstName: SortOrder
+  id: SortOrder
+  lastName: SortOrder
+  locationId: SortOrder
+  password: SortOrder
+  publicId: SortOrder
+  role: SortOrder
+  updatedAt: SortOrder
 }
 
 type UserMinAggregate {
   createdAt: DateTime
   email: String
   firstName: String
-  id: Int!
+  id: Int
   lastName: String
   locationId: Int
   password: String
@@ -8907,7 +9976,38 @@ type UserMinAggregate {
   updatedAt: DateTime
 }
 
+input UserMinOrderByAggregateInput {
+  createdAt: SortOrder
+  email: SortOrder
+  firstName: SortOrder
+  id: SortOrder
+  lastName: SortOrder
+  locationId: SortOrder
+  password: SortOrder
+  publicId: SortOrder
+  role: SortOrder
+  updatedAt: SortOrder
+}
+
 input UserOrderByInput {
+  createdAt: SortOrder
+  email: SortOrder
+  firstName: SortOrder
+  id: SortOrder
+  lastName: SortOrder
+  locationId: SortOrder
+  password: SortOrder
+  publicId: SortOrder
+  role: SortOrder
+  updatedAt: SortOrder
+}
+
+input UserOrderByWithAggregationInput {
+  _avg: UserAvgOrderByAggregateInput
+  _count: UserCountOrderByAggregateInput
+  _max: UserMaxOrderByAggregateInput
+  _min: UserMinOrderByAggregateInput
+  _sum: UserSumOrderByAggregateInput
   createdAt: SortOrder
   email: SortOrder
   firstName: SortOrder
@@ -8978,8 +10078,13 @@ input UserScalarWhereWithAggregatesInput {
 }
 
 type UserSumAggregate {
-  id: Int!
+  id: Int
   locationId: Int
+}
+
+input UserSumOrderByAggregateInput {
+  id: SortOrder
+  locationId: SortOrder
 }
 
 input UserUpdateInput {
