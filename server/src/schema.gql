@@ -4549,6 +4549,7 @@ type Query {
   findFirstSeason(cursor: SeasonWhereUniqueInput, distinct: [SeasonScalarFieldEnum!], orderBy: [SeasonOrderByInput!], skip: Int, take: Int, where: SeasonWhereInput): Season
   findFirstStartList(cursor: StartListWhereUniqueInput, distinct: [StartListScalarFieldEnum!], orderBy: [StartListOrderByInput!], skip: Int, take: Int, where: StartListWhereInput): StartList
   findFirstUser(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): User
+  getBoulderCompResults(data: ResultInput!): ResultOutput!
   getCompResults(data: ResultInput!): ResultOutput!
   getCompetitorForScoring(data: FindStartListInput!): Competitor!
   getLeadCompResults(data: ResultInput!): ResultOutput!
@@ -6670,7 +6671,7 @@ input RouteWhereUniqueInput {
 }
 
 type ScoreBoulder {
-  attempts: Int!
+  attempts: Int
   comment: Comment
   commentId: Int
   competitor: Competitor!
@@ -6680,58 +6681,58 @@ type ScoreBoulder {
   route: Route!
   routeId: Int!
   time: Int
-  top: Int!
+  top: Int
   updatedAt: DateTime!
-  zone: Int!
+  zone: Int
 }
 
 type ScoreBoulderAvgAggregate {
-  attempts: Float!
+  attempts: Float
   commentId: Float
   competitorId: Float!
   id: Float!
   routeId: Float!
   time: Float
-  top: Float!
-  zone: Float!
+  top: Float
+  zone: Float
 }
 
 type ScoreBoulderCountAggregate {
   _all: Int!
-  attempts: Int!
+  attempts: Int
   commentId: Int
   competitorId: Int!
   createdAt: Int
   id: Int!
   routeId: Int!
   time: Int
-  top: Int!
+  top: Int
   updatedAt: Int
-  zone: Int!
+  zone: Int
 }
 
 input ScoreBoulderCreateInput {
-  attempts: Int!
+  attempts: Int
   comment: CommentCreateNestedOneWithoutScoresBoulderInput
   competitor: CompetitorCreateNestedOneWithoutScoresBoulderInput!
   createdAt: DateTime
   route: RouteCreateNestedOneWithoutScoreBoulderInput!
   time: Int
-  top: Int!
+  top: Int
   updatedAt: DateTime
-  zone: Int!
+  zone: Int
 }
 
 input ScoreBoulderCreateManyCommentInput {
-  attempts: Int!
+  attempts: Int
   competitorId: Int!
   createdAt: DateTime
   id: Int
   routeId: Int!
   time: Int
-  top: Int!
+  top: Int
   updatedAt: DateTime
-  zone: Int!
+  zone: Int
 }
 
 input ScoreBoulderCreateManyCommentInputEnvelope {
@@ -6740,15 +6741,15 @@ input ScoreBoulderCreateManyCommentInputEnvelope {
 }
 
 input ScoreBoulderCreateManyCompetitorInput {
-  attempts: Int!
+  attempts: Int
   commentId: Int
   createdAt: DateTime
   id: Int
   routeId: Int!
   time: Int
-  top: Int!
+  top: Int
   updatedAt: DateTime
-  zone: Int!
+  zone: Int
 }
 
 input ScoreBoulderCreateManyCompetitorInputEnvelope {
@@ -6757,28 +6758,28 @@ input ScoreBoulderCreateManyCompetitorInputEnvelope {
 }
 
 input ScoreBoulderCreateManyInput {
-  attempts: Int!
+  attempts: Int
   commentId: Int
   competitorId: Int!
   createdAt: DateTime
   id: Int
   routeId: Int!
   time: Int
-  top: Int!
+  top: Int
   updatedAt: DateTime
-  zone: Int!
+  zone: Int
 }
 
 input ScoreBoulderCreateManyRouteInput {
-  attempts: Int!
+  attempts: Int
   commentId: Int
   competitorId: Int!
   createdAt: DateTime
   id: Int
   time: Int
-  top: Int!
+  top: Int
   updatedAt: DateTime
-  zone: Int!
+  zone: Int
 }
 
 input ScoreBoulderCreateManyRouteInputEnvelope {
@@ -6823,40 +6824,40 @@ input ScoreBoulderCreateOrConnectWithoutRouteInput {
 }
 
 input ScoreBoulderCreateWithoutCommentInput {
-  attempts: Int!
+  attempts: Int
   competitor: CompetitorCreateNestedOneWithoutScoresBoulderInput!
   createdAt: DateTime
   route: RouteCreateNestedOneWithoutScoreBoulderInput!
   time: Int
-  top: Int!
+  top: Int
   updatedAt: DateTime
-  zone: Int!
+  zone: Int
 }
 
 input ScoreBoulderCreateWithoutCompetitorInput {
-  attempts: Int!
+  attempts: Int
   comment: CommentCreateNestedOneWithoutScoresBoulderInput
   createdAt: DateTime
   route: RouteCreateNestedOneWithoutScoreBoulderInput!
   time: Int
-  top: Int!
+  top: Int
   updatedAt: DateTime
-  zone: Int!
+  zone: Int
 }
 
 input ScoreBoulderCreateWithoutRouteInput {
-  attempts: Int!
+  attempts: Int
   comment: CommentCreateNestedOneWithoutScoresBoulderInput
   competitor: CompetitorCreateNestedOneWithoutScoresBoulderInput!
   createdAt: DateTime
   time: Int
-  top: Int!
+  top: Int
   updatedAt: DateTime
-  zone: Int!
+  zone: Int
 }
 
 type ScoreBoulderGroupBy {
-  attempts: Int!
+  attempts: Int
   avg: ScoreBoulderAvgAggregate
   commentId: Int
   competitorId: Int!
@@ -6868,9 +6869,9 @@ type ScoreBoulderGroupBy {
   routeId: Int!
   sum: ScoreBoulderSumAggregate
   time: Int
-  top: Int!
+  top: Int
   updatedAt: DateTime!
-  zone: Int!
+  zone: Int
 }
 
 input ScoreBoulderListRelationFilter {
@@ -6880,29 +6881,29 @@ input ScoreBoulderListRelationFilter {
 }
 
 type ScoreBoulderMaxAggregate {
-  attempts: Int!
+  attempts: Int
   commentId: Int
   competitorId: Int!
   createdAt: DateTime
   id: Int!
   routeId: Int!
   time: Int
-  top: Int!
+  top: Int
   updatedAt: DateTime
-  zone: Int!
+  zone: Int
 }
 
 type ScoreBoulderMinAggregate {
-  attempts: Int!
+  attempts: Int
   commentId: Int
   competitorId: Int!
   createdAt: DateTime
   id: Int!
   routeId: Int!
   time: Int
-  top: Int!
+  top: Int
   updatedAt: DateTime
-  zone: Int!
+  zone: Int
 }
 
 input ScoreBoulderOrderByInput {
@@ -6935,64 +6936,64 @@ input ScoreBoulderScalarWhereInput {
   AND: [ScoreBoulderScalarWhereInput!]
   NOT: [ScoreBoulderScalarWhereInput!]
   OR: [ScoreBoulderScalarWhereInput!]
-  attempts: IntFilter
+  attempts: IntNullableFilter
   commentId: IntNullableFilter
   competitorId: IntFilter
   createdAt: DateTimeFilter
   id: IntFilter
   routeId: IntFilter
   time: IntNullableFilter
-  top: IntFilter
+  top: IntNullableFilter
   updatedAt: DateTimeFilter
-  zone: IntFilter
+  zone: IntNullableFilter
 }
 
 input ScoreBoulderScalarWhereWithAggregatesInput {
   AND: [ScoreBoulderScalarWhereWithAggregatesInput!]
   NOT: [ScoreBoulderScalarWhereWithAggregatesInput!]
   OR: [ScoreBoulderScalarWhereWithAggregatesInput!]
-  attempts: IntWithAggregatesFilter
+  attempts: IntNullableWithAggregatesFilter
   commentId: IntNullableWithAggregatesFilter
   competitorId: IntWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
   id: IntWithAggregatesFilter
   routeId: IntWithAggregatesFilter
   time: IntNullableWithAggregatesFilter
-  top: IntWithAggregatesFilter
+  top: IntNullableWithAggregatesFilter
   updatedAt: DateTimeWithAggregatesFilter
-  zone: IntWithAggregatesFilter
+  zone: IntNullableWithAggregatesFilter
 }
 
 type ScoreBoulderSumAggregate {
-  attempts: Int!
+  attempts: Int
   commentId: Int
   competitorId: Int!
   id: Int!
   routeId: Int!
   time: Int
-  top: Int!
-  zone: Int!
+  top: Int
+  zone: Int
 }
 
 input ScoreBoulderUpdateInput {
-  attempts: IntFieldUpdateOperationsInput
+  attempts: NullableIntFieldUpdateOperationsInput
   comment: CommentUpdateOneWithoutScoresBoulderInput
   competitor: CompetitorUpdateOneRequiredWithoutScoresBoulderInput
   createdAt: DateTimeFieldUpdateOperationsInput
   route: RouteUpdateOneRequiredWithoutScoreBoulderInput
   time: NullableIntFieldUpdateOperationsInput
-  top: IntFieldUpdateOperationsInput
+  top: NullableIntFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  zone: IntFieldUpdateOperationsInput
+  zone: NullableIntFieldUpdateOperationsInput
 }
 
 input ScoreBoulderUpdateManyMutationInput {
-  attempts: IntFieldUpdateOperationsInput
+  attempts: NullableIntFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   time: NullableIntFieldUpdateOperationsInput
-  top: IntFieldUpdateOperationsInput
+  top: NullableIntFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  zone: IntFieldUpdateOperationsInput
+  zone: NullableIntFieldUpdateOperationsInput
 }
 
 input ScoreBoulderUpdateManyWithWhereWithoutCommentInput {
@@ -7068,36 +7069,36 @@ input ScoreBoulderUpdateWithWhereUniqueWithoutRouteInput {
 }
 
 input ScoreBoulderUpdateWithoutCommentInput {
-  attempts: IntFieldUpdateOperationsInput
+  attempts: NullableIntFieldUpdateOperationsInput
   competitor: CompetitorUpdateOneRequiredWithoutScoresBoulderInput
   createdAt: DateTimeFieldUpdateOperationsInput
   route: RouteUpdateOneRequiredWithoutScoreBoulderInput
   time: NullableIntFieldUpdateOperationsInput
-  top: IntFieldUpdateOperationsInput
+  top: NullableIntFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  zone: IntFieldUpdateOperationsInput
+  zone: NullableIntFieldUpdateOperationsInput
 }
 
 input ScoreBoulderUpdateWithoutCompetitorInput {
-  attempts: IntFieldUpdateOperationsInput
+  attempts: NullableIntFieldUpdateOperationsInput
   comment: CommentUpdateOneWithoutScoresBoulderInput
   createdAt: DateTimeFieldUpdateOperationsInput
   route: RouteUpdateOneRequiredWithoutScoreBoulderInput
   time: NullableIntFieldUpdateOperationsInput
-  top: IntFieldUpdateOperationsInput
+  top: NullableIntFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  zone: IntFieldUpdateOperationsInput
+  zone: NullableIntFieldUpdateOperationsInput
 }
 
 input ScoreBoulderUpdateWithoutRouteInput {
-  attempts: IntFieldUpdateOperationsInput
+  attempts: NullableIntFieldUpdateOperationsInput
   comment: CommentUpdateOneWithoutScoresBoulderInput
   competitor: CompetitorUpdateOneRequiredWithoutScoresBoulderInput
   createdAt: DateTimeFieldUpdateOperationsInput
   time: NullableIntFieldUpdateOperationsInput
-  top: IntFieldUpdateOperationsInput
+  top: NullableIntFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  zone: IntFieldUpdateOperationsInput
+  zone: NullableIntFieldUpdateOperationsInput
 }
 
 input ScoreBoulderUpsertWithWhereUniqueWithoutCommentInput {
@@ -7122,7 +7123,7 @@ input ScoreBoulderWhereInput {
   AND: [ScoreBoulderWhereInput!]
   NOT: [ScoreBoulderWhereInput!]
   OR: [ScoreBoulderWhereInput!]
-  attempts: IntFilter
+  attempts: IntNullableFilter
   comment: CommentRelationFilter
   commentId: IntNullableFilter
   competitor: CompetitorRelationFilter
@@ -7132,9 +7133,9 @@ input ScoreBoulderWhereInput {
   route: RouteRelationFilter
   routeId: IntFilter
   time: IntNullableFilter
-  top: IntFilter
+  top: IntNullableFilter
   updatedAt: DateTimeFilter
-  zone: IntFilter
+  zone: IntNullableFilter
 }
 
 input ScoreBoulderWhereUniqueInput {

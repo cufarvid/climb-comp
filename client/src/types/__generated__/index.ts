@@ -5515,6 +5515,7 @@ export type Query = {
   findFirstSeason?: Maybe<Season>;
   findFirstStartList?: Maybe<StartList>;
   findFirstUser?: Maybe<User>;
+  getBoulderCompResults: ResultOutput;
   getCompResults: ResultOutput;
   getCompetitorForScoring: Competitor;
   getLeadCompResults: ResultOutput;
@@ -5976,6 +5977,10 @@ export type QueryFindFirstUserArgs = {
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<UserWhereInput>;
+};
+
+export type QueryGetBoulderCompResultsArgs = {
+  data: ResultInput;
 };
 
 export type QueryGetCompResultsArgs = {
@@ -8497,7 +8502,7 @@ export type RouteWhereUniqueInput = {
 
 export type ScoreBoulder = {
   __typename?: 'ScoreBoulder';
-  attempts: Scalars['Int'];
+  attempts?: Maybe<Scalars['Int']>;
   comment?: Maybe<Comment>;
   commentId?: Maybe<Scalars['Int']>;
   competitor: Competitor;
@@ -8507,60 +8512,60 @@ export type ScoreBoulder = {
   route: Route;
   routeId: Scalars['Int'];
   time?: Maybe<Scalars['Int']>;
-  top: Scalars['Int'];
+  top?: Maybe<Scalars['Int']>;
   updatedAt: Scalars['DateTime'];
-  zone: Scalars['Int'];
+  zone?: Maybe<Scalars['Int']>;
 };
 
 export type ScoreBoulderAvgAggregate = {
   __typename?: 'ScoreBoulderAvgAggregate';
-  attempts: Scalars['Float'];
+  attempts?: Maybe<Scalars['Float']>;
   commentId?: Maybe<Scalars['Float']>;
   competitorId: Scalars['Float'];
   id: Scalars['Float'];
   routeId: Scalars['Float'];
   time?: Maybe<Scalars['Float']>;
-  top: Scalars['Float'];
-  zone: Scalars['Float'];
+  top?: Maybe<Scalars['Float']>;
+  zone?: Maybe<Scalars['Float']>;
 };
 
 export type ScoreBoulderCountAggregate = {
   __typename?: 'ScoreBoulderCountAggregate';
   _all: Scalars['Int'];
-  attempts: Scalars['Int'];
+  attempts?: Maybe<Scalars['Int']>;
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
   createdAt?: Maybe<Scalars['Int']>;
   id: Scalars['Int'];
   routeId: Scalars['Int'];
   time?: Maybe<Scalars['Int']>;
-  top: Scalars['Int'];
+  top?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['Int']>;
-  zone: Scalars['Int'];
+  zone?: Maybe<Scalars['Int']>;
 };
 
 export type ScoreBoulderCreateInput = {
-  attempts: Scalars['Int'];
+  attempts?: Maybe<Scalars['Int']>;
   comment?: Maybe<CommentCreateNestedOneWithoutScoresBoulderInput>;
   competitor: CompetitorCreateNestedOneWithoutScoresBoulderInput;
   createdAt?: Maybe<Scalars['DateTime']>;
   route: RouteCreateNestedOneWithoutScoreBoulderInput;
   time?: Maybe<Scalars['Int']>;
-  top: Scalars['Int'];
+  top?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  zone: Scalars['Int'];
+  zone?: Maybe<Scalars['Int']>;
 };
 
 export type ScoreBoulderCreateManyCommentInput = {
-  attempts: Scalars['Int'];
+  attempts?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['Int']>;
   routeId: Scalars['Int'];
   time?: Maybe<Scalars['Int']>;
-  top: Scalars['Int'];
+  top?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  zone: Scalars['Int'];
+  zone?: Maybe<Scalars['Int']>;
 };
 
 export type ScoreBoulderCreateManyCommentInputEnvelope = {
@@ -8569,15 +8574,15 @@ export type ScoreBoulderCreateManyCommentInputEnvelope = {
 };
 
 export type ScoreBoulderCreateManyCompetitorInput = {
-  attempts: Scalars['Int'];
+  attempts?: Maybe<Scalars['Int']>;
   commentId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['Int']>;
   routeId: Scalars['Int'];
   time?: Maybe<Scalars['Int']>;
-  top: Scalars['Int'];
+  top?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  zone: Scalars['Int'];
+  zone?: Maybe<Scalars['Int']>;
 };
 
 export type ScoreBoulderCreateManyCompetitorInputEnvelope = {
@@ -8586,28 +8591,28 @@ export type ScoreBoulderCreateManyCompetitorInputEnvelope = {
 };
 
 export type ScoreBoulderCreateManyInput = {
-  attempts: Scalars['Int'];
+  attempts?: Maybe<Scalars['Int']>;
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['Int']>;
   routeId: Scalars['Int'];
   time?: Maybe<Scalars['Int']>;
-  top: Scalars['Int'];
+  top?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  zone: Scalars['Int'];
+  zone?: Maybe<Scalars['Int']>;
 };
 
 export type ScoreBoulderCreateManyRouteInput = {
-  attempts: Scalars['Int'];
+  attempts?: Maybe<Scalars['Int']>;
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['Int']>;
   time?: Maybe<Scalars['Int']>;
-  top: Scalars['Int'];
+  top?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  zone: Scalars['Int'];
+  zone?: Maybe<Scalars['Int']>;
 };
 
 export type ScoreBoulderCreateManyRouteInputEnvelope = {
@@ -8656,41 +8661,41 @@ export type ScoreBoulderCreateOrConnectWithoutRouteInput = {
 };
 
 export type ScoreBoulderCreateWithoutCommentInput = {
-  attempts: Scalars['Int'];
+  attempts?: Maybe<Scalars['Int']>;
   competitor: CompetitorCreateNestedOneWithoutScoresBoulderInput;
   createdAt?: Maybe<Scalars['DateTime']>;
   route: RouteCreateNestedOneWithoutScoreBoulderInput;
   time?: Maybe<Scalars['Int']>;
-  top: Scalars['Int'];
+  top?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  zone: Scalars['Int'];
+  zone?: Maybe<Scalars['Int']>;
 };
 
 export type ScoreBoulderCreateWithoutCompetitorInput = {
-  attempts: Scalars['Int'];
+  attempts?: Maybe<Scalars['Int']>;
   comment?: Maybe<CommentCreateNestedOneWithoutScoresBoulderInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   route: RouteCreateNestedOneWithoutScoreBoulderInput;
   time?: Maybe<Scalars['Int']>;
-  top: Scalars['Int'];
+  top?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  zone: Scalars['Int'];
+  zone?: Maybe<Scalars['Int']>;
 };
 
 export type ScoreBoulderCreateWithoutRouteInput = {
-  attempts: Scalars['Int'];
+  attempts?: Maybe<Scalars['Int']>;
   comment?: Maybe<CommentCreateNestedOneWithoutScoresBoulderInput>;
   competitor: CompetitorCreateNestedOneWithoutScoresBoulderInput;
   createdAt?: Maybe<Scalars['DateTime']>;
   time?: Maybe<Scalars['Int']>;
-  top: Scalars['Int'];
+  top?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  zone: Scalars['Int'];
+  zone?: Maybe<Scalars['Int']>;
 };
 
 export type ScoreBoulderGroupBy = {
   __typename?: 'ScoreBoulderGroupBy';
-  attempts: Scalars['Int'];
+  attempts?: Maybe<Scalars['Int']>;
   avg?: Maybe<ScoreBoulderAvgAggregate>;
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
@@ -8702,9 +8707,9 @@ export type ScoreBoulderGroupBy = {
   routeId: Scalars['Int'];
   sum?: Maybe<ScoreBoulderSumAggregate>;
   time?: Maybe<Scalars['Int']>;
-  top: Scalars['Int'];
+  top?: Maybe<Scalars['Int']>;
   updatedAt: Scalars['DateTime'];
-  zone: Scalars['Int'];
+  zone?: Maybe<Scalars['Int']>;
 };
 
 export type ScoreBoulderListRelationFilter = {
@@ -8715,30 +8720,30 @@ export type ScoreBoulderListRelationFilter = {
 
 export type ScoreBoulderMaxAggregate = {
   __typename?: 'ScoreBoulderMaxAggregate';
-  attempts: Scalars['Int'];
+  attempts?: Maybe<Scalars['Int']>;
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
   id: Scalars['Int'];
   routeId: Scalars['Int'];
   time?: Maybe<Scalars['Int']>;
-  top: Scalars['Int'];
+  top?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  zone: Scalars['Int'];
+  zone?: Maybe<Scalars['Int']>;
 };
 
 export type ScoreBoulderMinAggregate = {
   __typename?: 'ScoreBoulderMinAggregate';
-  attempts: Scalars['Int'];
+  attempts?: Maybe<Scalars['Int']>;
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
   id: Scalars['Int'];
   routeId: Scalars['Int'];
   time?: Maybe<Scalars['Int']>;
-  top: Scalars['Int'];
+  top?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  zone: Scalars['Int'];
+  zone?: Maybe<Scalars['Int']>;
 };
 
 export type ScoreBoulderOrderByInput = {
@@ -8771,65 +8776,65 @@ export type ScoreBoulderScalarWhereInput = {
   AND?: Maybe<Array<ScoreBoulderScalarWhereInput>>;
   NOT?: Maybe<Array<ScoreBoulderScalarWhereInput>>;
   OR?: Maybe<Array<ScoreBoulderScalarWhereInput>>;
-  attempts?: Maybe<IntFilter>;
+  attempts?: Maybe<IntNullableFilter>;
   commentId?: Maybe<IntNullableFilter>;
   competitorId?: Maybe<IntFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   id?: Maybe<IntFilter>;
   routeId?: Maybe<IntFilter>;
   time?: Maybe<IntNullableFilter>;
-  top?: Maybe<IntFilter>;
+  top?: Maybe<IntNullableFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
-  zone?: Maybe<IntFilter>;
+  zone?: Maybe<IntNullableFilter>;
 };
 
 export type ScoreBoulderScalarWhereWithAggregatesInput = {
   AND?: Maybe<Array<ScoreBoulderScalarWhereWithAggregatesInput>>;
   NOT?: Maybe<Array<ScoreBoulderScalarWhereWithAggregatesInput>>;
   OR?: Maybe<Array<ScoreBoulderScalarWhereWithAggregatesInput>>;
-  attempts?: Maybe<IntWithAggregatesFilter>;
+  attempts?: Maybe<IntNullableWithAggregatesFilter>;
   commentId?: Maybe<IntNullableWithAggregatesFilter>;
   competitorId?: Maybe<IntWithAggregatesFilter>;
   createdAt?: Maybe<DateTimeWithAggregatesFilter>;
   id?: Maybe<IntWithAggregatesFilter>;
   routeId?: Maybe<IntWithAggregatesFilter>;
   time?: Maybe<IntNullableWithAggregatesFilter>;
-  top?: Maybe<IntWithAggregatesFilter>;
+  top?: Maybe<IntNullableWithAggregatesFilter>;
   updatedAt?: Maybe<DateTimeWithAggregatesFilter>;
-  zone?: Maybe<IntWithAggregatesFilter>;
+  zone?: Maybe<IntNullableWithAggregatesFilter>;
 };
 
 export type ScoreBoulderSumAggregate = {
   __typename?: 'ScoreBoulderSumAggregate';
-  attempts: Scalars['Int'];
+  attempts?: Maybe<Scalars['Int']>;
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
   id: Scalars['Int'];
   routeId: Scalars['Int'];
   time?: Maybe<Scalars['Int']>;
-  top: Scalars['Int'];
-  zone: Scalars['Int'];
+  top?: Maybe<Scalars['Int']>;
+  zone?: Maybe<Scalars['Int']>;
 };
 
 export type ScoreBoulderUpdateInput = {
-  attempts?: Maybe<IntFieldUpdateOperationsInput>;
+  attempts?: Maybe<NullableIntFieldUpdateOperationsInput>;
   comment?: Maybe<CommentUpdateOneWithoutScoresBoulderInput>;
   competitor?: Maybe<CompetitorUpdateOneRequiredWithoutScoresBoulderInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   route?: Maybe<RouteUpdateOneRequiredWithoutScoreBoulderInput>;
   time?: Maybe<NullableIntFieldUpdateOperationsInput>;
-  top?: Maybe<IntFieldUpdateOperationsInput>;
+  top?: Maybe<NullableIntFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  zone?: Maybe<IntFieldUpdateOperationsInput>;
+  zone?: Maybe<NullableIntFieldUpdateOperationsInput>;
 };
 
 export type ScoreBoulderUpdateManyMutationInput = {
-  attempts?: Maybe<IntFieldUpdateOperationsInput>;
+  attempts?: Maybe<NullableIntFieldUpdateOperationsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   time?: Maybe<NullableIntFieldUpdateOperationsInput>;
-  top?: Maybe<IntFieldUpdateOperationsInput>;
+  top?: Maybe<NullableIntFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  zone?: Maybe<IntFieldUpdateOperationsInput>;
+  zone?: Maybe<NullableIntFieldUpdateOperationsInput>;
 };
 
 export type ScoreBoulderUpdateManyWithWhereWithoutCommentInput = {
@@ -8915,36 +8920,36 @@ export type ScoreBoulderUpdateWithWhereUniqueWithoutRouteInput = {
 };
 
 export type ScoreBoulderUpdateWithoutCommentInput = {
-  attempts?: Maybe<IntFieldUpdateOperationsInput>;
+  attempts?: Maybe<NullableIntFieldUpdateOperationsInput>;
   competitor?: Maybe<CompetitorUpdateOneRequiredWithoutScoresBoulderInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   route?: Maybe<RouteUpdateOneRequiredWithoutScoreBoulderInput>;
   time?: Maybe<NullableIntFieldUpdateOperationsInput>;
-  top?: Maybe<IntFieldUpdateOperationsInput>;
+  top?: Maybe<NullableIntFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  zone?: Maybe<IntFieldUpdateOperationsInput>;
+  zone?: Maybe<NullableIntFieldUpdateOperationsInput>;
 };
 
 export type ScoreBoulderUpdateWithoutCompetitorInput = {
-  attempts?: Maybe<IntFieldUpdateOperationsInput>;
+  attempts?: Maybe<NullableIntFieldUpdateOperationsInput>;
   comment?: Maybe<CommentUpdateOneWithoutScoresBoulderInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   route?: Maybe<RouteUpdateOneRequiredWithoutScoreBoulderInput>;
   time?: Maybe<NullableIntFieldUpdateOperationsInput>;
-  top?: Maybe<IntFieldUpdateOperationsInput>;
+  top?: Maybe<NullableIntFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  zone?: Maybe<IntFieldUpdateOperationsInput>;
+  zone?: Maybe<NullableIntFieldUpdateOperationsInput>;
 };
 
 export type ScoreBoulderUpdateWithoutRouteInput = {
-  attempts?: Maybe<IntFieldUpdateOperationsInput>;
+  attempts?: Maybe<NullableIntFieldUpdateOperationsInput>;
   comment?: Maybe<CommentUpdateOneWithoutScoresBoulderInput>;
   competitor?: Maybe<CompetitorUpdateOneRequiredWithoutScoresBoulderInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   time?: Maybe<NullableIntFieldUpdateOperationsInput>;
-  top?: Maybe<IntFieldUpdateOperationsInput>;
+  top?: Maybe<NullableIntFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  zone?: Maybe<IntFieldUpdateOperationsInput>;
+  zone?: Maybe<NullableIntFieldUpdateOperationsInput>;
 };
 
 export type ScoreBoulderUpsertWithWhereUniqueWithoutCommentInput = {
@@ -8969,7 +8974,7 @@ export type ScoreBoulderWhereInput = {
   AND?: Maybe<Array<ScoreBoulderWhereInput>>;
   NOT?: Maybe<Array<ScoreBoulderWhereInput>>;
   OR?: Maybe<Array<ScoreBoulderWhereInput>>;
-  attempts?: Maybe<IntFilter>;
+  attempts?: Maybe<IntNullableFilter>;
   comment?: Maybe<CommentRelationFilter>;
   commentId?: Maybe<IntNullableFilter>;
   competitor?: Maybe<CompetitorRelationFilter>;
@@ -8979,9 +8984,9 @@ export type ScoreBoulderWhereInput = {
   route?: Maybe<RouteRelationFilter>;
   routeId?: Maybe<IntFilter>;
   time?: Maybe<IntNullableFilter>;
-  top?: Maybe<IntFilter>;
+  top?: Maybe<IntNullableFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
-  zone?: Maybe<IntFilter>;
+  zone?: Maybe<IntNullableFilter>;
 };
 
 export type ScoreBoulderWhereUniqueInput = {
