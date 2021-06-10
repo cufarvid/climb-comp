@@ -8,6 +8,7 @@ datasource db {
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["orderByAggregateGroup"]
 }
 
 generator typegraphql {
@@ -227,9 +228,9 @@ model ScoreBoulder {
   id           Int        @id @default(autoincrement())
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
-  top          Int
-  zone         Int
-  attempts     Int
+  top          Int?
+  zone         Int?
+  attempts     Int?
   time         Int?
   competitor   Competitor @relation(fields: [competitorId], references: [id])
   competitorId Int

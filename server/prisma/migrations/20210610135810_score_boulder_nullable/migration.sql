@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "ScoreBoulder" ALTER COLUMN "top" DROP NOT NULL,
+ALTER COLUMN "zone" DROP NOT NULL,
+ALTER COLUMN "attempts" DROP NOT NULL;

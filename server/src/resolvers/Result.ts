@@ -2,7 +2,12 @@ import { Arg, Ctx, Query, Resolver } from 'type-graphql';
 import { ApolloError } from 'apollo-server-errors';
 
 import { Context, ResultInput, ResultOutput } from '../types';
-import { getLeadResults, getSpeedResults, resultRankMapper } from '../utils';
+import {
+  getBoulderResults,
+  getLeadResults,
+  getSpeedResults,
+  resultRankMapper,
+} from '../utils';
 
 @Resolver()
 export class ResultResolver {
@@ -51,6 +56,30 @@ export class ResultResolver {
   }
 
   @Query(() => ResultOutput)
+  async getBoulderCompResults(
+    @Ctx() { prisma }: Context,
+    @Arg('data') { competitionId, categoryId }: ResultInput,
+  ): Promise<ResultOutput> {
+    // Fetch start list
+    // This is needed because we cant include competitor data in groupBy operations
+    const startList = await prisma.startList.findMany({
+      where: {
+        competitionId: competitionId,
+        competitor: { categoryId: categoryId },
+      },
+      include: { competitor: true },
+    });
+
+    const results = await getBoulderResults(startList, {
+      prisma,
+      competitionId,
+      categoryId,
+    });
+
+    return { results: results.map(resultRankMapper) };
+  }
+
+  @Query(() => ResultOutput)
   async getCompResults(
     @Ctx() { prisma, user }: Context,
     @Arg('data') { competitionId, categoryId, competitionType }: ResultInput,
@@ -64,6 +93,7 @@ export class ResultResolver {
       case 'Speed':
         return this.getSpeedCompResults(context, data);
       case 'Boulder':
+        return this.getBoulderCompResults(context, data);
       default:
         throw new ApolloError('Invalid competition type');
     }
