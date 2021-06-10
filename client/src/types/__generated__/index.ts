@@ -24,173 +24,173 @@ export type AffectedRowsOutput = {
 
 export type AggregateCategory = {
   __typename?: 'AggregateCategory';
-  avg?: Maybe<CategoryAvgAggregate>;
-  count?: Maybe<CategoryCountAggregate>;
-  max?: Maybe<CategoryMaxAggregate>;
-  min?: Maybe<CategoryMinAggregate>;
-  sum?: Maybe<CategorySumAggregate>;
+  _avg?: Maybe<CategoryAvgAggregate>;
+  _count?: Maybe<CategoryCountAggregate>;
+  _max?: Maybe<CategoryMaxAggregate>;
+  _min?: Maybe<CategoryMinAggregate>;
+  _sum?: Maybe<CategorySumAggregate>;
 };
 
 export type AggregateClub = {
   __typename?: 'AggregateClub';
-  avg?: Maybe<ClubAvgAggregate>;
-  count?: Maybe<ClubCountAggregate>;
-  max?: Maybe<ClubMaxAggregate>;
-  min?: Maybe<ClubMinAggregate>;
-  sum?: Maybe<ClubSumAggregate>;
+  _avg?: Maybe<ClubAvgAggregate>;
+  _count?: Maybe<ClubCountAggregate>;
+  _max?: Maybe<ClubMaxAggregate>;
+  _min?: Maybe<ClubMinAggregate>;
+  _sum?: Maybe<ClubSumAggregate>;
 };
 
 export type AggregateComment = {
   __typename?: 'AggregateComment';
-  avg?: Maybe<CommentAvgAggregate>;
-  count?: Maybe<CommentCountAggregate>;
-  max?: Maybe<CommentMaxAggregate>;
-  min?: Maybe<CommentMinAggregate>;
-  sum?: Maybe<CommentSumAggregate>;
+  _avg?: Maybe<CommentAvgAggregate>;
+  _count?: Maybe<CommentCountAggregate>;
+  _max?: Maybe<CommentMaxAggregate>;
+  _min?: Maybe<CommentMinAggregate>;
+  _sum?: Maybe<CommentSumAggregate>;
 };
 
 export type AggregateCompetition = {
   __typename?: 'AggregateCompetition';
-  avg?: Maybe<CompetitionAvgAggregate>;
-  count?: Maybe<CompetitionCountAggregate>;
-  max?: Maybe<CompetitionMaxAggregate>;
-  min?: Maybe<CompetitionMinAggregate>;
-  sum?: Maybe<CompetitionSumAggregate>;
+  _avg?: Maybe<CompetitionAvgAggregate>;
+  _count?: Maybe<CompetitionCountAggregate>;
+  _max?: Maybe<CompetitionMaxAggregate>;
+  _min?: Maybe<CompetitionMinAggregate>;
+  _sum?: Maybe<CompetitionSumAggregate>;
 };
 
 export type AggregateCompetitionType = {
   __typename?: 'AggregateCompetitionType';
-  avg?: Maybe<CompetitionTypeAvgAggregate>;
-  count?: Maybe<CompetitionTypeCountAggregate>;
-  max?: Maybe<CompetitionTypeMaxAggregate>;
-  min?: Maybe<CompetitionTypeMinAggregate>;
-  sum?: Maybe<CompetitionTypeSumAggregate>;
+  _avg?: Maybe<CompetitionTypeAvgAggregate>;
+  _count?: Maybe<CompetitionTypeCountAggregate>;
+  _max?: Maybe<CompetitionTypeMaxAggregate>;
+  _min?: Maybe<CompetitionTypeMinAggregate>;
+  _sum?: Maybe<CompetitionTypeSumAggregate>;
 };
 
 export type AggregateCompetitor = {
   __typename?: 'AggregateCompetitor';
-  avg?: Maybe<CompetitorAvgAggregate>;
-  count?: Maybe<CompetitorCountAggregate>;
-  max?: Maybe<CompetitorMaxAggregate>;
-  min?: Maybe<CompetitorMinAggregate>;
-  sum?: Maybe<CompetitorSumAggregate>;
+  _avg?: Maybe<CompetitorAvgAggregate>;
+  _count?: Maybe<CompetitorCountAggregate>;
+  _max?: Maybe<CompetitorMaxAggregate>;
+  _min?: Maybe<CompetitorMinAggregate>;
+  _sum?: Maybe<CompetitorSumAggregate>;
 };
 
 export type AggregateCountry = {
   __typename?: 'AggregateCountry';
-  avg?: Maybe<CountryAvgAggregate>;
-  count?: Maybe<CountryCountAggregate>;
-  max?: Maybe<CountryMaxAggregate>;
-  min?: Maybe<CountryMinAggregate>;
-  sum?: Maybe<CountrySumAggregate>;
+  _avg?: Maybe<CountryAvgAggregate>;
+  _count?: Maybe<CountryCountAggregate>;
+  _max?: Maybe<CountryMaxAggregate>;
+  _min?: Maybe<CountryMinAggregate>;
+  _sum?: Maybe<CountrySumAggregate>;
 };
 
 export type AggregateGrade = {
   __typename?: 'AggregateGrade';
-  avg?: Maybe<GradeAvgAggregate>;
-  count?: Maybe<GradeCountAggregate>;
-  max?: Maybe<GradeMaxAggregate>;
-  min?: Maybe<GradeMinAggregate>;
-  sum?: Maybe<GradeSumAggregate>;
+  _avg?: Maybe<GradeAvgAggregate>;
+  _count?: Maybe<GradeCountAggregate>;
+  _max?: Maybe<GradeMaxAggregate>;
+  _min?: Maybe<GradeMinAggregate>;
+  _sum?: Maybe<GradeSumAggregate>;
 };
 
 export type AggregateLocation = {
   __typename?: 'AggregateLocation';
-  avg?: Maybe<LocationAvgAggregate>;
-  count?: Maybe<LocationCountAggregate>;
-  max?: Maybe<LocationMaxAggregate>;
-  min?: Maybe<LocationMinAggregate>;
-  sum?: Maybe<LocationSumAggregate>;
+  _avg?: Maybe<LocationAvgAggregate>;
+  _count?: Maybe<LocationCountAggregate>;
+  _max?: Maybe<LocationMaxAggregate>;
+  _min?: Maybe<LocationMinAggregate>;
+  _sum?: Maybe<LocationSumAggregate>;
 };
 
 export type AggregateRegion = {
   __typename?: 'AggregateRegion';
-  avg?: Maybe<RegionAvgAggregate>;
-  count?: Maybe<RegionCountAggregate>;
-  max?: Maybe<RegionMaxAggregate>;
-  min?: Maybe<RegionMinAggregate>;
-  sum?: Maybe<RegionSumAggregate>;
+  _avg?: Maybe<RegionAvgAggregate>;
+  _count?: Maybe<RegionCountAggregate>;
+  _max?: Maybe<RegionMaxAggregate>;
+  _min?: Maybe<RegionMinAggregate>;
+  _sum?: Maybe<RegionSumAggregate>;
 };
 
 export type AggregateRegistration = {
   __typename?: 'AggregateRegistration';
-  avg?: Maybe<RegistrationAvgAggregate>;
-  count?: Maybe<RegistrationCountAggregate>;
-  max?: Maybe<RegistrationMaxAggregate>;
-  min?: Maybe<RegistrationMinAggregate>;
-  sum?: Maybe<RegistrationSumAggregate>;
+  _avg?: Maybe<RegistrationAvgAggregate>;
+  _count?: Maybe<RegistrationCountAggregate>;
+  _max?: Maybe<RegistrationMaxAggregate>;
+  _min?: Maybe<RegistrationMinAggregate>;
+  _sum?: Maybe<RegistrationSumAggregate>;
 };
 
 export type AggregateResult = {
   __typename?: 'AggregateResult';
-  avg?: Maybe<ResultAvgAggregate>;
-  count?: Maybe<ResultCountAggregate>;
-  max?: Maybe<ResultMaxAggregate>;
-  min?: Maybe<ResultMinAggregate>;
-  sum?: Maybe<ResultSumAggregate>;
+  _avg?: Maybe<ResultAvgAggregate>;
+  _count?: Maybe<ResultCountAggregate>;
+  _max?: Maybe<ResultMaxAggregate>;
+  _min?: Maybe<ResultMinAggregate>;
+  _sum?: Maybe<ResultSumAggregate>;
 };
 
 export type AggregateRoute = {
   __typename?: 'AggregateRoute';
-  avg?: Maybe<RouteAvgAggregate>;
-  count?: Maybe<RouteCountAggregate>;
-  max?: Maybe<RouteMaxAggregate>;
-  min?: Maybe<RouteMinAggregate>;
-  sum?: Maybe<RouteSumAggregate>;
+  _avg?: Maybe<RouteAvgAggregate>;
+  _count?: Maybe<RouteCountAggregate>;
+  _max?: Maybe<RouteMaxAggregate>;
+  _min?: Maybe<RouteMinAggregate>;
+  _sum?: Maybe<RouteSumAggregate>;
 };
 
 export type AggregateScoreBoulder = {
   __typename?: 'AggregateScoreBoulder';
-  avg?: Maybe<ScoreBoulderAvgAggregate>;
-  count?: Maybe<ScoreBoulderCountAggregate>;
-  max?: Maybe<ScoreBoulderMaxAggregate>;
-  min?: Maybe<ScoreBoulderMinAggregate>;
-  sum?: Maybe<ScoreBoulderSumAggregate>;
+  _avg?: Maybe<ScoreBoulderAvgAggregate>;
+  _count?: Maybe<ScoreBoulderCountAggregate>;
+  _max?: Maybe<ScoreBoulderMaxAggregate>;
+  _min?: Maybe<ScoreBoulderMinAggregate>;
+  _sum?: Maybe<ScoreBoulderSumAggregate>;
 };
 
 export type AggregateScoreLead = {
   __typename?: 'AggregateScoreLead';
-  avg?: Maybe<ScoreLeadAvgAggregate>;
-  count?: Maybe<ScoreLeadCountAggregate>;
-  max?: Maybe<ScoreLeadMaxAggregate>;
-  min?: Maybe<ScoreLeadMinAggregate>;
-  sum?: Maybe<ScoreLeadSumAggregate>;
+  _avg?: Maybe<ScoreLeadAvgAggregate>;
+  _count?: Maybe<ScoreLeadCountAggregate>;
+  _max?: Maybe<ScoreLeadMaxAggregate>;
+  _min?: Maybe<ScoreLeadMinAggregate>;
+  _sum?: Maybe<ScoreLeadSumAggregate>;
 };
 
 export type AggregateScoreSpeed = {
   __typename?: 'AggregateScoreSpeed';
-  avg?: Maybe<ScoreSpeedAvgAggregate>;
-  count?: Maybe<ScoreSpeedCountAggregate>;
-  max?: Maybe<ScoreSpeedMaxAggregate>;
-  min?: Maybe<ScoreSpeedMinAggregate>;
-  sum?: Maybe<ScoreSpeedSumAggregate>;
+  _avg?: Maybe<ScoreSpeedAvgAggregate>;
+  _count?: Maybe<ScoreSpeedCountAggregate>;
+  _max?: Maybe<ScoreSpeedMaxAggregate>;
+  _min?: Maybe<ScoreSpeedMinAggregate>;
+  _sum?: Maybe<ScoreSpeedSumAggregate>;
 };
 
 export type AggregateSeason = {
   __typename?: 'AggregateSeason';
-  avg?: Maybe<SeasonAvgAggregate>;
-  count?: Maybe<SeasonCountAggregate>;
-  max?: Maybe<SeasonMaxAggregate>;
-  min?: Maybe<SeasonMinAggregate>;
-  sum?: Maybe<SeasonSumAggregate>;
+  _avg?: Maybe<SeasonAvgAggregate>;
+  _count?: Maybe<SeasonCountAggregate>;
+  _max?: Maybe<SeasonMaxAggregate>;
+  _min?: Maybe<SeasonMinAggregate>;
+  _sum?: Maybe<SeasonSumAggregate>;
 };
 
 export type AggregateStartList = {
   __typename?: 'AggregateStartList';
-  avg?: Maybe<StartListAvgAggregate>;
-  count?: Maybe<StartListCountAggregate>;
-  max?: Maybe<StartListMaxAggregate>;
-  min?: Maybe<StartListMinAggregate>;
-  sum?: Maybe<StartListSumAggregate>;
+  _avg?: Maybe<StartListAvgAggregate>;
+  _count?: Maybe<StartListCountAggregate>;
+  _max?: Maybe<StartListMaxAggregate>;
+  _min?: Maybe<StartListMinAggregate>;
+  _sum?: Maybe<StartListSumAggregate>;
 };
 
 export type AggregateUser = {
   __typename?: 'AggregateUser';
-  avg?: Maybe<UserAvgAggregate>;
-  count?: Maybe<UserCountAggregate>;
-  max?: Maybe<UserMaxAggregate>;
-  min?: Maybe<UserMinAggregate>;
-  sum?: Maybe<UserSumAggregate>;
+  _avg?: Maybe<UserAvgAggregate>;
+  _count?: Maybe<UserCountAggregate>;
+  _max?: Maybe<UserMaxAggregate>;
+  _min?: Maybe<UserMinAggregate>;
+  _sum?: Maybe<UserSumAggregate>;
 };
 
 export type BoolFieldUpdateOperationsInput = {
@@ -203,10 +203,10 @@ export type BoolFilter = {
 };
 
 export type BoolWithAggregatesFilter = {
-  count?: Maybe<NestedIntFilter>;
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedBoolFilter>;
+  _min?: Maybe<NestedBoolFilter>;
   equals?: Maybe<Scalars['Boolean']>;
-  max?: Maybe<NestedBoolFilter>;
-  min?: Maybe<NestedBoolFilter>;
   not?: Maybe<NestedBoolWithAggregatesFilter>;
 };
 
@@ -241,9 +241,15 @@ export type CategoryRoutesArgs = {
 
 export type CategoryAvgAggregate = {
   __typename?: 'CategoryAvgAggregate';
-  ageFrom: Scalars['Float'];
-  ageTo: Scalars['Float'];
-  id: Scalars['Float'];
+  ageFrom?: Maybe<Scalars['Float']>;
+  ageTo?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+};
+
+export type CategoryAvgOrderByAggregateInput = {
+  ageFrom?: Maybe<SortOrder>;
+  ageTo?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
 };
 
 export type CategoryCountAggregate = {
@@ -251,9 +257,17 @@ export type CategoryCountAggregate = {
   _all: Scalars['Int'];
   ageFrom: Scalars['Int'];
   ageTo: Scalars['Int'];
-  description?: Maybe<Scalars['Int']>;
+  description: Scalars['Int'];
   id: Scalars['Int'];
-  name?: Maybe<Scalars['Int']>;
+  name: Scalars['Int'];
+};
+
+export type CategoryCountOrderByAggregateInput = {
+  ageFrom?: Maybe<SortOrder>;
+  ageTo?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
 };
 
 export type CategoryCreateInput = {
@@ -313,37 +327,66 @@ export type CategoryCreateWithoutRoutesInput = {
 
 export type CategoryGroupBy = {
   __typename?: 'CategoryGroupBy';
+  _avg?: Maybe<CategoryAvgAggregate>;
+  _count?: Maybe<CategoryCountAggregate>;
+  _max?: Maybe<CategoryMaxAggregate>;
+  _min?: Maybe<CategoryMinAggregate>;
+  _sum?: Maybe<CategorySumAggregate>;
   ageFrom: Scalars['Int'];
   ageTo: Scalars['Int'];
-  avg?: Maybe<CategoryAvgAggregate>;
-  count?: Maybe<CategoryCountAggregate>;
   description?: Maybe<Scalars['String']>;
   id: Scalars['Int'];
-  max?: Maybe<CategoryMaxAggregate>;
-  min?: Maybe<CategoryMinAggregate>;
   name: Scalars['String'];
-  sum?: Maybe<CategorySumAggregate>;
 };
 
 export type CategoryMaxAggregate = {
   __typename?: 'CategoryMaxAggregate';
-  ageFrom: Scalars['Int'];
-  ageTo: Scalars['Int'];
+  ageFrom?: Maybe<Scalars['Int']>;
+  ageTo?: Maybe<Scalars['Int']>;
   description?: Maybe<Scalars['String']>;
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+};
+
+export type CategoryMaxOrderByAggregateInput = {
+  ageFrom?: Maybe<SortOrder>;
+  ageTo?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
 };
 
 export type CategoryMinAggregate = {
   __typename?: 'CategoryMinAggregate';
-  ageFrom: Scalars['Int'];
-  ageTo: Scalars['Int'];
+  ageFrom?: Maybe<Scalars['Int']>;
+  ageTo?: Maybe<Scalars['Int']>;
   description?: Maybe<Scalars['String']>;
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
 };
 
+export type CategoryMinOrderByAggregateInput = {
+  ageFrom?: Maybe<SortOrder>;
+  ageTo?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+};
+
 export type CategoryOrderByInput = {
+  ageFrom?: Maybe<SortOrder>;
+  ageTo?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+};
+
+export type CategoryOrderByWithAggregationInput = {
+  _avg?: Maybe<CategoryAvgOrderByAggregateInput>;
+  _count?: Maybe<CategoryCountOrderByAggregateInput>;
+  _max?: Maybe<CategoryMaxOrderByAggregateInput>;
+  _min?: Maybe<CategoryMinOrderByAggregateInput>;
+  _sum?: Maybe<CategorySumOrderByAggregateInput>;
   ageFrom?: Maybe<SortOrder>;
   ageTo?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
@@ -377,9 +420,15 @@ export type CategoryScalarWhereWithAggregatesInput = {
 
 export type CategorySumAggregate = {
   __typename?: 'CategorySumAggregate';
-  ageFrom: Scalars['Int'];
-  ageTo: Scalars['Int'];
-  id: Scalars['Int'];
+  ageFrom?: Maybe<Scalars['Int']>;
+  ageTo?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+};
+
+export type CategorySumOrderByAggregateInput = {
+  ageFrom?: Maybe<SortOrder>;
+  ageTo?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
 };
 
 export type CategoryUpdateInput = {
@@ -491,20 +540,35 @@ export type ClubCompetitorsArgs = {
 
 export type ClubAvgAggregate = {
   __typename?: 'ClubAvgAggregate';
-  id: Scalars['Float'];
-  locationId: Scalars['Float'];
+  id?: Maybe<Scalars['Float']>;
+  locationId?: Maybe<Scalars['Float']>;
+};
+
+export type ClubAvgOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
 };
 
 export type ClubCountAggregate = {
   __typename?: 'ClubCountAggregate';
   _all: Scalars['Int'];
-  address?: Maybe<Scalars['Int']>;
-  createdAt?: Maybe<Scalars['Int']>;
-  description?: Maybe<Scalars['Int']>;
+  address: Scalars['Int'];
+  createdAt: Scalars['Int'];
+  description: Scalars['Int'];
   id: Scalars['Int'];
   locationId: Scalars['Int'];
-  name?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['Int']>;
+  name: Scalars['Int'];
+  updatedAt: Scalars['Int'];
+};
+
+export type ClubCountOrderByAggregateInput = {
+  address?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type ClubCreateInput = {
@@ -608,17 +672,17 @@ export type ClubCreateWithoutLocationInput = {
 
 export type ClubGroupBy = {
   __typename?: 'ClubGroupBy';
+  _avg?: Maybe<ClubAvgAggregate>;
+  _count?: Maybe<ClubCountAggregate>;
+  _max?: Maybe<ClubMaxAggregate>;
+  _min?: Maybe<ClubMinAggregate>;
+  _sum?: Maybe<ClubSumAggregate>;
   address?: Maybe<Scalars['String']>;
-  avg?: Maybe<ClubAvgAggregate>;
-  count?: Maybe<ClubCountAggregate>;
   createdAt: Scalars['DateTime'];
   description?: Maybe<Scalars['String']>;
   id: Scalars['Int'];
   locationId: Scalars['Int'];
-  max?: Maybe<ClubMaxAggregate>;
-  min?: Maybe<ClubMinAggregate>;
   name: Scalars['String'];
-  sum?: Maybe<ClubSumAggregate>;
   updatedAt: Scalars['DateTime'];
 };
 
@@ -633,10 +697,20 @@ export type ClubMaxAggregate = {
   address?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
-  id: Scalars['Int'];
-  locationId: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  locationId?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ClubMaxOrderByAggregateInput = {
+  address?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type ClubMinAggregate = {
@@ -644,13 +718,38 @@ export type ClubMinAggregate = {
   address?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
-  id: Scalars['Int'];
-  locationId: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  locationId?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
+export type ClubMinOrderByAggregateInput = {
+  address?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
 export type ClubOrderByInput = {
+  address?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export type ClubOrderByWithAggregationInput = {
+  _avg?: Maybe<ClubAvgOrderByAggregateInput>;
+  _count?: Maybe<ClubCountOrderByAggregateInput>;
+  _max?: Maybe<ClubMaxOrderByAggregateInput>;
+  _min?: Maybe<ClubMinOrderByAggregateInput>;
+  _sum?: Maybe<ClubSumOrderByAggregateInput>;
   address?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
@@ -703,8 +802,13 @@ export type ClubScalarWhereWithAggregatesInput = {
 
 export type ClubSumAggregate = {
   __typename?: 'ClubSumAggregate';
-  id: Scalars['Int'];
-  locationId: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  locationId?: Maybe<Scalars['Int']>;
+};
+
+export type ClubSumOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
 };
 
 export type ClubUpdateInput = {
@@ -874,18 +978,31 @@ export type CommentScoresSpeedArgs = {
 
 export type CommentAvgAggregate = {
   __typename?: 'CommentAvgAggregate';
-  id: Scalars['Float'];
+  id?: Maybe<Scalars['Float']>;
   userId?: Maybe<Scalars['Float']>;
+};
+
+export type CommentAvgOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  userId?: Maybe<SortOrder>;
 };
 
 export type CommentCountAggregate = {
   __typename?: 'CommentCountAggregate';
   _all: Scalars['Int'];
-  content?: Maybe<Scalars['Int']>;
-  createdAt?: Maybe<Scalars['Int']>;
+  content: Scalars['Int'];
+  createdAt: Scalars['Int'];
   id: Scalars['Int'];
-  updatedAt?: Maybe<Scalars['Int']>;
-  userId?: Maybe<Scalars['Int']>;
+  updatedAt: Scalars['Int'];
+  userId: Scalars['Int'];
+};
+
+export type CommentCountOrderByAggregateInput = {
+  content?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  userId?: Maybe<SortOrder>;
 };
 
 export type CommentCreateInput = {
@@ -1001,14 +1118,14 @@ export type CommentCreateWithoutUserInput = {
 
 export type CommentGroupBy = {
   __typename?: 'CommentGroupBy';
-  avg?: Maybe<CommentAvgAggregate>;
+  _avg?: Maybe<CommentAvgAggregate>;
+  _count?: Maybe<CommentCountAggregate>;
+  _max?: Maybe<CommentMaxAggregate>;
+  _min?: Maybe<CommentMinAggregate>;
+  _sum?: Maybe<CommentSumAggregate>;
   content: Scalars['String'];
-  count?: Maybe<CommentCountAggregate>;
   createdAt: Scalars['DateTime'];
   id: Scalars['Int'];
-  max?: Maybe<CommentMaxAggregate>;
-  min?: Maybe<CommentMinAggregate>;
-  sum?: Maybe<CommentSumAggregate>;
   updatedAt: Scalars['DateTime'];
   userId?: Maybe<Scalars['Int']>;
 };
@@ -1023,21 +1140,50 @@ export type CommentMaxAggregate = {
   __typename?: 'CommentMaxAggregate';
   content?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   userId?: Maybe<Scalars['Int']>;
+};
+
+export type CommentMaxOrderByAggregateInput = {
+  content?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  userId?: Maybe<SortOrder>;
 };
 
 export type CommentMinAggregate = {
   __typename?: 'CommentMinAggregate';
   content?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   userId?: Maybe<Scalars['Int']>;
 };
 
+export type CommentMinOrderByAggregateInput = {
+  content?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  userId?: Maybe<SortOrder>;
+};
+
 export type CommentOrderByInput = {
+  content?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  userId?: Maybe<SortOrder>;
+};
+
+export type CommentOrderByWithAggregationInput = {
+  _avg?: Maybe<CommentAvgOrderByAggregateInput>;
+  _count?: Maybe<CommentCountOrderByAggregateInput>;
+  _max?: Maybe<CommentMaxOrderByAggregateInput>;
+  _min?: Maybe<CommentMinOrderByAggregateInput>;
+  _sum?: Maybe<CommentSumOrderByAggregateInput>;
   content?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
@@ -1082,8 +1228,13 @@ export type CommentScalarWhereWithAggregatesInput = {
 
 export type CommentSumAggregate = {
   __typename?: 'CommentSumAggregate';
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   userId?: Maybe<Scalars['Int']>;
+};
+
+export type CommentSumOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  userId?: Maybe<SortOrder>;
 };
 
 export type CommentUpdateInput = {
@@ -1295,29 +1446,53 @@ export type CompetitionStartListsArgs = {
 
 export type CompetitionAvgAggregate = {
   __typename?: 'CompetitionAvgAggregate';
-  clubId: Scalars['Float'];
-  compTypeId: Scalars['Float'];
-  id: Scalars['Float'];
-  locationId: Scalars['Float'];
-  seasonId: Scalars['Float'];
+  clubId?: Maybe<Scalars['Float']>;
+  compTypeId?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  locationId?: Maybe<Scalars['Float']>;
+  seasonId?: Maybe<Scalars['Float']>;
+};
+
+export type CompetitionAvgOrderByAggregateInput = {
+  clubId?: Maybe<SortOrder>;
+  compTypeId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  seasonId?: Maybe<SortOrder>;
 };
 
 export type CompetitionCountAggregate = {
   __typename?: 'CompetitionCountAggregate';
   _all: Scalars['Int'];
-  active?: Maybe<Scalars['Int']>;
-  address?: Maybe<Scalars['Int']>;
+  active: Scalars['Int'];
+  address: Scalars['Int'];
   clubId: Scalars['Int'];
   compTypeId: Scalars['Int'];
-  createdAt?: Maybe<Scalars['Int']>;
-  description?: Maybe<Scalars['Int']>;
-  endDate?: Maybe<Scalars['Int']>;
+  createdAt: Scalars['Int'];
+  description: Scalars['Int'];
+  endDate: Scalars['Int'];
   id: Scalars['Int'];
   locationId: Scalars['Int'];
-  name?: Maybe<Scalars['Int']>;
+  name: Scalars['Int'];
   seasonId: Scalars['Int'];
-  startDate?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['Int']>;
+  startDate: Scalars['Int'];
+  updatedAt: Scalars['Int'];
+};
+
+export type CompetitionCountOrderByAggregateInput = {
+  active?: Maybe<SortOrder>;
+  address?: Maybe<SortOrder>;
+  clubId?: Maybe<SortOrder>;
+  compTypeId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  endDate?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  seasonId?: Maybe<SortOrder>;
+  startDate?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type CompetitionCreateInput = {
@@ -1677,23 +1852,23 @@ export type CompetitionCreateWithoutStartListsInput = {
 
 export type CompetitionGroupBy = {
   __typename?: 'CompetitionGroupBy';
+  _avg?: Maybe<CompetitionAvgAggregate>;
+  _count?: Maybe<CompetitionCountAggregate>;
+  _max?: Maybe<CompetitionMaxAggregate>;
+  _min?: Maybe<CompetitionMinAggregate>;
+  _sum?: Maybe<CompetitionSumAggregate>;
   active: Scalars['Boolean'];
   address: Scalars['String'];
-  avg?: Maybe<CompetitionAvgAggregate>;
   clubId: Scalars['Int'];
   compTypeId: Scalars['Int'];
-  count?: Maybe<CompetitionCountAggregate>;
   createdAt: Scalars['DateTime'];
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
   id: Scalars['Int'];
   locationId: Scalars['Int'];
-  max?: Maybe<CompetitionMaxAggregate>;
-  min?: Maybe<CompetitionMinAggregate>;
   name: Scalars['String'];
   seasonId: Scalars['Int'];
   startDate: Scalars['DateTime'];
-  sum?: Maybe<CompetitionSumAggregate>;
   updatedAt: Scalars['DateTime'];
 };
 
@@ -1707,37 +1882,90 @@ export type CompetitionMaxAggregate = {
   __typename?: 'CompetitionMaxAggregate';
   active?: Maybe<Scalars['Boolean']>;
   address?: Maybe<Scalars['String']>;
-  clubId: Scalars['Int'];
-  compTypeId: Scalars['Int'];
+  clubId?: Maybe<Scalars['Int']>;
+  compTypeId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
   endDate?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
-  locationId: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  locationId?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
-  seasonId: Scalars['Int'];
+  seasonId?: Maybe<Scalars['Int']>;
   startDate?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type CompetitionMaxOrderByAggregateInput = {
+  active?: Maybe<SortOrder>;
+  address?: Maybe<SortOrder>;
+  clubId?: Maybe<SortOrder>;
+  compTypeId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  endDate?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  seasonId?: Maybe<SortOrder>;
+  startDate?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type CompetitionMinAggregate = {
   __typename?: 'CompetitionMinAggregate';
   active?: Maybe<Scalars['Boolean']>;
   address?: Maybe<Scalars['String']>;
-  clubId: Scalars['Int'];
-  compTypeId: Scalars['Int'];
+  clubId?: Maybe<Scalars['Int']>;
+  compTypeId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
   endDate?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
-  locationId: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  locationId?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
-  seasonId: Scalars['Int'];
+  seasonId?: Maybe<Scalars['Int']>;
   startDate?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
+export type CompetitionMinOrderByAggregateInput = {
+  active?: Maybe<SortOrder>;
+  address?: Maybe<SortOrder>;
+  clubId?: Maybe<SortOrder>;
+  compTypeId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  endDate?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  seasonId?: Maybe<SortOrder>;
+  startDate?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
 export type CompetitionOrderByInput = {
+  active?: Maybe<SortOrder>;
+  address?: Maybe<SortOrder>;
+  clubId?: Maybe<SortOrder>;
+  compTypeId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  endDate?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  seasonId?: Maybe<SortOrder>;
+  startDate?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export type CompetitionOrderByWithAggregationInput = {
+  _avg?: Maybe<CompetitionAvgOrderByAggregateInput>;
+  _count?: Maybe<CompetitionCountOrderByAggregateInput>;
+  _max?: Maybe<CompetitionMaxOrderByAggregateInput>;
+  _min?: Maybe<CompetitionMinOrderByAggregateInput>;
+  _sum?: Maybe<CompetitionSumOrderByAggregateInput>;
   active?: Maybe<SortOrder>;
   address?: Maybe<SortOrder>;
   clubId?: Maybe<SortOrder>;
@@ -1814,11 +2042,19 @@ export type CompetitionScalarWhereWithAggregatesInput = {
 
 export type CompetitionSumAggregate = {
   __typename?: 'CompetitionSumAggregate';
-  clubId: Scalars['Int'];
-  compTypeId: Scalars['Int'];
-  id: Scalars['Int'];
-  locationId: Scalars['Int'];
-  seasonId: Scalars['Int'];
+  clubId?: Maybe<Scalars['Int']>;
+  compTypeId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  locationId?: Maybe<Scalars['Int']>;
+  seasonId?: Maybe<Scalars['Int']>;
+};
+
+export type CompetitionSumOrderByAggregateInput = {
+  clubId?: Maybe<SortOrder>;
+  compTypeId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  seasonId?: Maybe<SortOrder>;
 };
 
 export type CompetitionType = {
@@ -1840,15 +2076,25 @@ export type CompetitionTypeCompetitionsArgs = {
 
 export type CompetitionTypeAvgAggregate = {
   __typename?: 'CompetitionTypeAvgAggregate';
-  id: Scalars['Float'];
+  id?: Maybe<Scalars['Float']>;
+};
+
+export type CompetitionTypeAvgOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
 };
 
 export type CompetitionTypeCountAggregate = {
   __typename?: 'CompetitionTypeCountAggregate';
   _all: Scalars['Int'];
-  description?: Maybe<Scalars['Int']>;
+  description: Scalars['Int'];
   id: Scalars['Int'];
-  name?: Maybe<Scalars['Int']>;
+  name: Scalars['Int'];
+};
+
+export type CompetitionTypeCountOrderByAggregateInput = {
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
 };
 
 export type CompetitionTypeCreateInput = {
@@ -1881,31 +2127,54 @@ export type CompetitionTypeCreateWithoutCompetitionsInput = {
 
 export type CompetitionTypeGroupBy = {
   __typename?: 'CompetitionTypeGroupBy';
-  avg?: Maybe<CompetitionTypeAvgAggregate>;
-  count?: Maybe<CompetitionTypeCountAggregate>;
+  _avg?: Maybe<CompetitionTypeAvgAggregate>;
+  _count?: Maybe<CompetitionTypeCountAggregate>;
+  _max?: Maybe<CompetitionTypeMaxAggregate>;
+  _min?: Maybe<CompetitionTypeMinAggregate>;
+  _sum?: Maybe<CompetitionTypeSumAggregate>;
   description?: Maybe<Scalars['String']>;
   id: Scalars['Int'];
-  max?: Maybe<CompetitionTypeMaxAggregate>;
-  min?: Maybe<CompetitionTypeMinAggregate>;
   name: Scalars['String'];
-  sum?: Maybe<CompetitionTypeSumAggregate>;
 };
 
 export type CompetitionTypeMaxAggregate = {
   __typename?: 'CompetitionTypeMaxAggregate';
   description?: Maybe<Scalars['String']>;
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+};
+
+export type CompetitionTypeMaxOrderByAggregateInput = {
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
 };
 
 export type CompetitionTypeMinAggregate = {
   __typename?: 'CompetitionTypeMinAggregate';
   description?: Maybe<Scalars['String']>;
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
 };
 
+export type CompetitionTypeMinOrderByAggregateInput = {
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+};
+
 export type CompetitionTypeOrderByInput = {
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+};
+
+export type CompetitionTypeOrderByWithAggregationInput = {
+  _avg?: Maybe<CompetitionTypeAvgOrderByAggregateInput>;
+  _count?: Maybe<CompetitionTypeCountOrderByAggregateInput>;
+  _max?: Maybe<CompetitionTypeMaxOrderByAggregateInput>;
+  _min?: Maybe<CompetitionTypeMinOrderByAggregateInput>;
+  _sum?: Maybe<CompetitionTypeSumOrderByAggregateInput>;
   description?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
@@ -1933,7 +2202,11 @@ export type CompetitionTypeScalarWhereWithAggregatesInput = {
 
 export type CompetitionTypeSumAggregate = {
   __typename?: 'CompetitionTypeSumAggregate';
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+};
+
+export type CompetitionTypeSumOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
 };
 
 export type CompetitionTypeUpdateInput = {
@@ -2441,27 +2714,49 @@ export type CompetitorStartListsArgs = {
 
 export type CompetitorAvgAggregate = {
   __typename?: 'CompetitorAvgAggregate';
-  categoryId: Scalars['Float'];
-  clubId: Scalars['Float'];
-  id: Scalars['Float'];
-  locationId: Scalars['Float'];
+  categoryId?: Maybe<Scalars['Float']>;
+  clubId?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  locationId?: Maybe<Scalars['Float']>;
+};
+
+export type CompetitorAvgOrderByAggregateInput = {
+  categoryId?: Maybe<SortOrder>;
+  clubId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
 };
 
 export type CompetitorCountAggregate = {
   __typename?: 'CompetitorCountAggregate';
   _all: Scalars['Int'];
-  address?: Maybe<Scalars['Int']>;
-  birthDate?: Maybe<Scalars['Int']>;
+  address: Scalars['Int'];
+  birthDate: Scalars['Int'];
   categoryId: Scalars['Int'];
   clubId: Scalars['Int'];
-  createdAt?: Maybe<Scalars['Int']>;
-  firstName?: Maybe<Scalars['Int']>;
-  gender?: Maybe<Scalars['Int']>;
+  createdAt: Scalars['Int'];
+  firstName: Scalars['Int'];
+  gender: Scalars['Int'];
   id: Scalars['Int'];
-  lastName?: Maybe<Scalars['Int']>;
+  lastName: Scalars['Int'];
   locationId: Scalars['Int'];
-  publicId?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['Int']>;
+  publicId: Scalars['Int'];
+  updatedAt: Scalars['Int'];
+};
+
+export type CompetitorCountOrderByAggregateInput = {
+  address?: Maybe<SortOrder>;
+  birthDate?: Maybe<SortOrder>;
+  categoryId?: Maybe<SortOrder>;
+  clubId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  firstName?: Maybe<SortOrder>;
+  gender?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  lastName?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  publicId?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type CompetitorCreateInput = {
@@ -2831,22 +3126,22 @@ export type CompetitorCreateWithoutStartListsInput = {
 
 export type CompetitorGroupBy = {
   __typename?: 'CompetitorGroupBy';
+  _avg?: Maybe<CompetitorAvgAggregate>;
+  _count?: Maybe<CompetitorCountAggregate>;
+  _max?: Maybe<CompetitorMaxAggregate>;
+  _min?: Maybe<CompetitorMinAggregate>;
+  _sum?: Maybe<CompetitorSumAggregate>;
   address?: Maybe<Scalars['String']>;
-  avg?: Maybe<CompetitorAvgAggregate>;
   birthDate?: Maybe<Scalars['DateTime']>;
   categoryId: Scalars['Int'];
   clubId: Scalars['Int'];
-  count?: Maybe<CompetitorCountAggregate>;
   createdAt: Scalars['DateTime'];
   firstName: Scalars['String'];
   gender: Gender;
   id: Scalars['Int'];
   lastName: Scalars['String'];
   locationId: Scalars['Int'];
-  max?: Maybe<CompetitorMaxAggregate>;
-  min?: Maybe<CompetitorMinAggregate>;
   publicId: Scalars['String'];
-  sum?: Maybe<CompetitorSumAggregate>;
   updatedAt: Scalars['DateTime'];
 };
 
@@ -2860,35 +3155,85 @@ export type CompetitorMaxAggregate = {
   __typename?: 'CompetitorMaxAggregate';
   address?: Maybe<Scalars['String']>;
   birthDate?: Maybe<Scalars['DateTime']>;
-  categoryId: Scalars['Int'];
-  clubId: Scalars['Int'];
+  categoryId?: Maybe<Scalars['Int']>;
+  clubId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName?: Maybe<Scalars['String']>;
   gender?: Maybe<Gender>;
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   lastName?: Maybe<Scalars['String']>;
-  locationId: Scalars['Int'];
+  locationId?: Maybe<Scalars['Int']>;
   publicId?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type CompetitorMaxOrderByAggregateInput = {
+  address?: Maybe<SortOrder>;
+  birthDate?: Maybe<SortOrder>;
+  categoryId?: Maybe<SortOrder>;
+  clubId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  firstName?: Maybe<SortOrder>;
+  gender?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  lastName?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  publicId?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type CompetitorMinAggregate = {
   __typename?: 'CompetitorMinAggregate';
   address?: Maybe<Scalars['String']>;
   birthDate?: Maybe<Scalars['DateTime']>;
-  categoryId: Scalars['Int'];
-  clubId: Scalars['Int'];
+  categoryId?: Maybe<Scalars['Int']>;
+  clubId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName?: Maybe<Scalars['String']>;
   gender?: Maybe<Gender>;
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   lastName?: Maybe<Scalars['String']>;
-  locationId: Scalars['Int'];
+  locationId?: Maybe<Scalars['Int']>;
   publicId?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
+export type CompetitorMinOrderByAggregateInput = {
+  address?: Maybe<SortOrder>;
+  birthDate?: Maybe<SortOrder>;
+  categoryId?: Maybe<SortOrder>;
+  clubId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  firstName?: Maybe<SortOrder>;
+  gender?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  lastName?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  publicId?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
 export type CompetitorOrderByInput = {
+  address?: Maybe<SortOrder>;
+  birthDate?: Maybe<SortOrder>;
+  categoryId?: Maybe<SortOrder>;
+  clubId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  firstName?: Maybe<SortOrder>;
+  gender?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  lastName?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  publicId?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export type CompetitorOrderByWithAggregationInput = {
+  _avg?: Maybe<CompetitorAvgOrderByAggregateInput>;
+  _count?: Maybe<CompetitorCountOrderByAggregateInput>;
+  _max?: Maybe<CompetitorMaxOrderByAggregateInput>;
+  _min?: Maybe<CompetitorMinOrderByAggregateInput>;
+  _sum?: Maybe<CompetitorSumOrderByAggregateInput>;
   address?: Maybe<SortOrder>;
   birthDate?: Maybe<SortOrder>;
   categoryId?: Maybe<SortOrder>;
@@ -2961,10 +3306,17 @@ export type CompetitorScalarWhereWithAggregatesInput = {
 
 export type CompetitorSumAggregate = {
   __typename?: 'CompetitorSumAggregate';
-  categoryId: Scalars['Int'];
-  clubId: Scalars['Int'];
-  id: Scalars['Int'];
-  locationId: Scalars['Int'];
+  categoryId?: Maybe<Scalars['Int']>;
+  clubId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  locationId?: Maybe<Scalars['Int']>;
+};
+
+export type CompetitorSumOrderByAggregateInput = {
+  categoryId?: Maybe<SortOrder>;
+  clubId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
 };
 
 export type CompetitorUpdateInput = {
@@ -3387,14 +3739,23 @@ export type CountryLocationsArgs = {
 
 export type CountryAvgAggregate = {
   __typename?: 'CountryAvgAggregate';
-  id: Scalars['Float'];
+  id?: Maybe<Scalars['Float']>;
+};
+
+export type CountryAvgOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
 };
 
 export type CountryCountAggregate = {
   __typename?: 'CountryCountAggregate';
   _all: Scalars['Int'];
   id: Scalars['Int'];
-  name?: Maybe<Scalars['Int']>;
+  name: Scalars['Int'];
+};
+
+export type CountryCountOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
 };
 
 export type CountryCreateInput = {
@@ -3424,28 +3785,48 @@ export type CountryCreateWithoutLocationsInput = {
 
 export type CountryGroupBy = {
   __typename?: 'CountryGroupBy';
-  avg?: Maybe<CountryAvgAggregate>;
-  count?: Maybe<CountryCountAggregate>;
+  _avg?: Maybe<CountryAvgAggregate>;
+  _count?: Maybe<CountryCountAggregate>;
+  _max?: Maybe<CountryMaxAggregate>;
+  _min?: Maybe<CountryMinAggregate>;
+  _sum?: Maybe<CountrySumAggregate>;
   id: Scalars['Int'];
-  max?: Maybe<CountryMaxAggregate>;
-  min?: Maybe<CountryMinAggregate>;
   name: Scalars['String'];
-  sum?: Maybe<CountrySumAggregate>;
 };
 
 export type CountryMaxAggregate = {
   __typename?: 'CountryMaxAggregate';
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+};
+
+export type CountryMaxOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
 };
 
 export type CountryMinAggregate = {
   __typename?: 'CountryMinAggregate';
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
 };
 
+export type CountryMinOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+};
+
 export type CountryOrderByInput = {
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+};
+
+export type CountryOrderByWithAggregationInput = {
+  _avg?: Maybe<CountryAvgOrderByAggregateInput>;
+  _count?: Maybe<CountryCountOrderByAggregateInput>;
+  _max?: Maybe<CountryMaxOrderByAggregateInput>;
+  _min?: Maybe<CountryMinOrderByAggregateInput>;
+  _sum?: Maybe<CountrySumOrderByAggregateInput>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
 };
@@ -3470,7 +3851,11 @@ export type CountryScalarWhereWithAggregatesInput = {
 
 export type CountrySumAggregate = {
   __typename?: 'CountrySumAggregate';
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+};
+
+export type CountrySumOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
 };
 
 export type CountryUpdateInput = {
@@ -3539,29 +3924,29 @@ export type DateTimeNullableFilter = {
 };
 
 export type DateTimeNullableWithAggregatesFilter = {
-  count?: Maybe<NestedIntNullableFilter>;
+  _count?: Maybe<NestedIntNullableFilter>;
+  _max?: Maybe<NestedDateTimeNullableFilter>;
+  _min?: Maybe<NestedDateTimeNullableFilter>;
   equals?: Maybe<Scalars['DateTime']>;
   gt?: Maybe<Scalars['DateTime']>;
   gte?: Maybe<Scalars['DateTime']>;
   in?: Maybe<Array<Scalars['DateTime']>>;
   lt?: Maybe<Scalars['DateTime']>;
   lte?: Maybe<Scalars['DateTime']>;
-  max?: Maybe<NestedDateTimeNullableFilter>;
-  min?: Maybe<NestedDateTimeNullableFilter>;
   not?: Maybe<NestedDateTimeNullableWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
 
 export type DateTimeWithAggregatesFilter = {
-  count?: Maybe<NestedIntFilter>;
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedDateTimeFilter>;
+  _min?: Maybe<NestedDateTimeFilter>;
   equals?: Maybe<Scalars['DateTime']>;
   gt?: Maybe<Scalars['DateTime']>;
   gte?: Maybe<Scalars['DateTime']>;
   in?: Maybe<Array<Scalars['DateTime']>>;
   lt?: Maybe<Scalars['DateTime']>;
   lte?: Maybe<Scalars['DateTime']>;
-  max?: Maybe<NestedDateTimeFilter>;
-  min?: Maybe<NestedDateTimeFilter>;
   not?: Maybe<NestedDateTimeWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
@@ -3578,11 +3963,11 @@ export type EnumGenderFilter = {
 };
 
 export type EnumGenderWithAggregatesFilter = {
-  count?: Maybe<NestedIntFilter>;
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedEnumGenderFilter>;
+  _min?: Maybe<NestedEnumGenderFilter>;
   equals?: Maybe<Gender>;
   in?: Maybe<Array<Gender>>;
-  max?: Maybe<NestedEnumGenderFilter>;
-  min?: Maybe<NestedEnumGenderFilter>;
   not?: Maybe<NestedEnumGenderWithAggregatesFilter>;
   notIn?: Maybe<Array<Gender>>;
 };
@@ -3599,11 +3984,11 @@ export type EnumRoundFilter = {
 };
 
 export type EnumRoundWithAggregatesFilter = {
-  count?: Maybe<NestedIntFilter>;
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedEnumRoundFilter>;
+  _min?: Maybe<NestedEnumRoundFilter>;
   equals?: Maybe<Round>;
   in?: Maybe<Array<Round>>;
-  max?: Maybe<NestedEnumRoundFilter>;
-  min?: Maybe<NestedEnumRoundFilter>;
   not?: Maybe<NestedEnumRoundWithAggregatesFilter>;
   notIn?: Maybe<Array<Round>>;
 };
@@ -3620,11 +4005,11 @@ export type EnumRouteTypeFilter = {
 };
 
 export type EnumRouteTypeWithAggregatesFilter = {
-  count?: Maybe<NestedIntFilter>;
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedEnumRouteTypeFilter>;
+  _min?: Maybe<NestedEnumRouteTypeFilter>;
   equals?: Maybe<RouteType>;
   in?: Maybe<Array<RouteType>>;
-  max?: Maybe<NestedEnumRouteTypeFilter>;
-  min?: Maybe<NestedEnumRouteTypeFilter>;
   not?: Maybe<NestedEnumRouteTypeWithAggregatesFilter>;
   notIn?: Maybe<Array<RouteType>>;
 };
@@ -3641,11 +4026,11 @@ export type EnumUserRoleFilter = {
 };
 
 export type EnumUserRoleWithAggregatesFilter = {
-  count?: Maybe<NestedIntFilter>;
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedEnumUserRoleFilter>;
+  _min?: Maybe<NestedEnumUserRoleFilter>;
   equals?: Maybe<UserRole>;
   in?: Maybe<Array<UserRole>>;
-  max?: Maybe<NestedEnumUserRoleFilter>;
-  min?: Maybe<NestedEnumUserRoleFilter>;
   not?: Maybe<NestedEnumUserRoleWithAggregatesFilter>;
   notIn?: Maybe<Array<UserRole>>;
 };
@@ -3678,14 +4063,23 @@ export type GradeRoutesArgs = {
 
 export type GradeAvgAggregate = {
   __typename?: 'GradeAvgAggregate';
-  id: Scalars['Float'];
+  id?: Maybe<Scalars['Float']>;
+};
+
+export type GradeAvgOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
 };
 
 export type GradeCountAggregate = {
   __typename?: 'GradeCountAggregate';
   _all: Scalars['Int'];
   id: Scalars['Int'];
-  name?: Maybe<Scalars['Int']>;
+  name: Scalars['Int'];
+};
+
+export type GradeCountOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
 };
 
 export type GradeCreateInput = {
@@ -3715,28 +4109,48 @@ export type GradeCreateWithoutRoutesInput = {
 
 export type GradeGroupBy = {
   __typename?: 'GradeGroupBy';
-  avg?: Maybe<GradeAvgAggregate>;
-  count?: Maybe<GradeCountAggregate>;
+  _avg?: Maybe<GradeAvgAggregate>;
+  _count?: Maybe<GradeCountAggregate>;
+  _max?: Maybe<GradeMaxAggregate>;
+  _min?: Maybe<GradeMinAggregate>;
+  _sum?: Maybe<GradeSumAggregate>;
   id: Scalars['Int'];
-  max?: Maybe<GradeMaxAggregate>;
-  min?: Maybe<GradeMinAggregate>;
   name: Scalars['String'];
-  sum?: Maybe<GradeSumAggregate>;
 };
 
 export type GradeMaxAggregate = {
   __typename?: 'GradeMaxAggregate';
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+};
+
+export type GradeMaxOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
 };
 
 export type GradeMinAggregate = {
   __typename?: 'GradeMinAggregate';
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
 };
 
+export type GradeMinOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+};
+
 export type GradeOrderByInput = {
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+};
+
+export type GradeOrderByWithAggregationInput = {
+  _avg?: Maybe<GradeAvgOrderByAggregateInput>;
+  _count?: Maybe<GradeCountOrderByAggregateInput>;
+  _max?: Maybe<GradeMaxOrderByAggregateInput>;
+  _min?: Maybe<GradeMinOrderByAggregateInput>;
+  _sum?: Maybe<GradeSumOrderByAggregateInput>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
 };
@@ -3761,7 +4175,11 @@ export type GradeScalarWhereWithAggregatesInput = {
 
 export type GradeSumAggregate = {
   __typename?: 'GradeSumAggregate';
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+};
+
+export type GradeSumOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
 };
 
 export type GradeUpdateInput = {
@@ -3834,35 +4252,35 @@ export type IntNullableFilter = {
 };
 
 export type IntNullableWithAggregatesFilter = {
-  avg?: Maybe<NestedFloatNullableFilter>;
-  count?: Maybe<NestedIntNullableFilter>;
+  _avg?: Maybe<NestedFloatNullableFilter>;
+  _count?: Maybe<NestedIntNullableFilter>;
+  _max?: Maybe<NestedIntNullableFilter>;
+  _min?: Maybe<NestedIntNullableFilter>;
+  _sum?: Maybe<NestedIntNullableFilter>;
   equals?: Maybe<Scalars['Int']>;
   gt?: Maybe<Scalars['Int']>;
   gte?: Maybe<Scalars['Int']>;
   in?: Maybe<Array<Scalars['Int']>>;
   lt?: Maybe<Scalars['Int']>;
   lte?: Maybe<Scalars['Int']>;
-  max?: Maybe<NestedIntNullableFilter>;
-  min?: Maybe<NestedIntNullableFilter>;
   not?: Maybe<NestedIntNullableWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['Int']>>;
-  sum?: Maybe<NestedIntNullableFilter>;
 };
 
 export type IntWithAggregatesFilter = {
-  avg?: Maybe<NestedFloatFilter>;
-  count?: Maybe<NestedIntFilter>;
+  _avg?: Maybe<NestedFloatFilter>;
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedIntFilter>;
+  _min?: Maybe<NestedIntFilter>;
+  _sum?: Maybe<NestedIntFilter>;
   equals?: Maybe<Scalars['Int']>;
   gt?: Maybe<Scalars['Int']>;
   gte?: Maybe<Scalars['Int']>;
   in?: Maybe<Array<Scalars['Int']>>;
   lt?: Maybe<Scalars['Int']>;
   lte?: Maybe<Scalars['Int']>;
-  max?: Maybe<NestedIntFilter>;
-  min?: Maybe<NestedIntFilter>;
   not?: Maybe<NestedIntWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['Int']>>;
-  sum?: Maybe<NestedIntFilter>;
 };
 
 export type Location = {
@@ -3917,9 +4335,15 @@ export type LocationUsersArgs = {
 
 export type LocationAvgAggregate = {
   __typename?: 'LocationAvgAggregate';
-  countryId: Scalars['Float'];
-  id: Scalars['Float'];
-  regionId: Scalars['Float'];
+  countryId?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  regionId?: Maybe<Scalars['Float']>;
+};
+
+export type LocationAvgOrderByAggregateInput = {
+  countryId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
 };
 
 export type LocationCountAggregate = {
@@ -3927,8 +4351,15 @@ export type LocationCountAggregate = {
   _all: Scalars['Int'];
   countryId: Scalars['Int'];
   id: Scalars['Int'];
-  name?: Maybe<Scalars['Int']>;
+  name: Scalars['Int'];
   regionId: Scalars['Int'];
+};
+
+export type LocationCountOrderByAggregateInput = {
+  countryId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
 };
 
 export type LocationCreateInput = {
@@ -4094,15 +4525,15 @@ export type LocationCreateWithoutUsersInput = {
 
 export type LocationGroupBy = {
   __typename?: 'LocationGroupBy';
-  avg?: Maybe<LocationAvgAggregate>;
-  count?: Maybe<LocationCountAggregate>;
+  _avg?: Maybe<LocationAvgAggregate>;
+  _count?: Maybe<LocationCountAggregate>;
+  _max?: Maybe<LocationMaxAggregate>;
+  _min?: Maybe<LocationMinAggregate>;
+  _sum?: Maybe<LocationSumAggregate>;
   countryId: Scalars['Int'];
   id: Scalars['Int'];
-  max?: Maybe<LocationMaxAggregate>;
-  min?: Maybe<LocationMinAggregate>;
   name?: Maybe<Scalars['String']>;
   regionId: Scalars['Int'];
-  sum?: Maybe<LocationSumAggregate>;
 };
 
 export type LocationListRelationFilter = {
@@ -4113,21 +4544,47 @@ export type LocationListRelationFilter = {
 
 export type LocationMaxAggregate = {
   __typename?: 'LocationMaxAggregate';
-  countryId: Scalars['Int'];
-  id: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
-  regionId: Scalars['Int'];
+  regionId?: Maybe<Scalars['Int']>;
+};
+
+export type LocationMaxOrderByAggregateInput = {
+  countryId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
 };
 
 export type LocationMinAggregate = {
   __typename?: 'LocationMinAggregate';
-  countryId: Scalars['Int'];
-  id: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
-  regionId: Scalars['Int'];
+  regionId?: Maybe<Scalars['Int']>;
+};
+
+export type LocationMinOrderByAggregateInput = {
+  countryId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
 };
 
 export type LocationOrderByInput = {
+  countryId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
+};
+
+export type LocationOrderByWithAggregationInput = {
+  _avg?: Maybe<LocationAvgOrderByAggregateInput>;
+  _count?: Maybe<LocationCountOrderByAggregateInput>;
+  _max?: Maybe<LocationMaxOrderByAggregateInput>;
+  _min?: Maybe<LocationMinOrderByAggregateInput>;
+  _sum?: Maybe<LocationSumOrderByAggregateInput>;
   countryId?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
@@ -4168,9 +4625,15 @@ export type LocationScalarWhereWithAggregatesInput = {
 
 export type LocationSumAggregate = {
   __typename?: 'LocationSumAggregate';
-  countryId: Scalars['Int'];
-  id: Scalars['Int'];
-  regionId: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  regionId?: Maybe<Scalars['Int']>;
+};
+
+export type LocationSumOrderByAggregateInput = {
+  countryId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
 };
 
 export type LocationUpdateInput = {
@@ -5181,10 +5644,10 @@ export type NestedBoolFilter = {
 };
 
 export type NestedBoolWithAggregatesFilter = {
-  count?: Maybe<NestedIntFilter>;
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedBoolFilter>;
+  _min?: Maybe<NestedBoolFilter>;
   equals?: Maybe<Scalars['Boolean']>;
-  max?: Maybe<NestedBoolFilter>;
-  min?: Maybe<NestedBoolFilter>;
   not?: Maybe<NestedBoolWithAggregatesFilter>;
 };
 
@@ -5211,29 +5674,29 @@ export type NestedDateTimeNullableFilter = {
 };
 
 export type NestedDateTimeNullableWithAggregatesFilter = {
-  count?: Maybe<NestedIntNullableFilter>;
+  _count?: Maybe<NestedIntNullableFilter>;
+  _max?: Maybe<NestedDateTimeNullableFilter>;
+  _min?: Maybe<NestedDateTimeNullableFilter>;
   equals?: Maybe<Scalars['DateTime']>;
   gt?: Maybe<Scalars['DateTime']>;
   gte?: Maybe<Scalars['DateTime']>;
   in?: Maybe<Array<Scalars['DateTime']>>;
   lt?: Maybe<Scalars['DateTime']>;
   lte?: Maybe<Scalars['DateTime']>;
-  max?: Maybe<NestedDateTimeNullableFilter>;
-  min?: Maybe<NestedDateTimeNullableFilter>;
   not?: Maybe<NestedDateTimeNullableWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
 
 export type NestedDateTimeWithAggregatesFilter = {
-  count?: Maybe<NestedIntFilter>;
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedDateTimeFilter>;
+  _min?: Maybe<NestedDateTimeFilter>;
   equals?: Maybe<Scalars['DateTime']>;
   gt?: Maybe<Scalars['DateTime']>;
   gte?: Maybe<Scalars['DateTime']>;
   in?: Maybe<Array<Scalars['DateTime']>>;
   lt?: Maybe<Scalars['DateTime']>;
   lte?: Maybe<Scalars['DateTime']>;
-  max?: Maybe<NestedDateTimeFilter>;
-  min?: Maybe<NestedDateTimeFilter>;
   not?: Maybe<NestedDateTimeWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
@@ -5246,11 +5709,11 @@ export type NestedEnumGenderFilter = {
 };
 
 export type NestedEnumGenderWithAggregatesFilter = {
-  count?: Maybe<NestedIntFilter>;
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedEnumGenderFilter>;
+  _min?: Maybe<NestedEnumGenderFilter>;
   equals?: Maybe<Gender>;
   in?: Maybe<Array<Gender>>;
-  max?: Maybe<NestedEnumGenderFilter>;
-  min?: Maybe<NestedEnumGenderFilter>;
   not?: Maybe<NestedEnumGenderWithAggregatesFilter>;
   notIn?: Maybe<Array<Gender>>;
 };
@@ -5263,11 +5726,11 @@ export type NestedEnumRoundFilter = {
 };
 
 export type NestedEnumRoundWithAggregatesFilter = {
-  count?: Maybe<NestedIntFilter>;
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedEnumRoundFilter>;
+  _min?: Maybe<NestedEnumRoundFilter>;
   equals?: Maybe<Round>;
   in?: Maybe<Array<Round>>;
-  max?: Maybe<NestedEnumRoundFilter>;
-  min?: Maybe<NestedEnumRoundFilter>;
   not?: Maybe<NestedEnumRoundWithAggregatesFilter>;
   notIn?: Maybe<Array<Round>>;
 };
@@ -5280,11 +5743,11 @@ export type NestedEnumRouteTypeFilter = {
 };
 
 export type NestedEnumRouteTypeWithAggregatesFilter = {
-  count?: Maybe<NestedIntFilter>;
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedEnumRouteTypeFilter>;
+  _min?: Maybe<NestedEnumRouteTypeFilter>;
   equals?: Maybe<RouteType>;
   in?: Maybe<Array<RouteType>>;
-  max?: Maybe<NestedEnumRouteTypeFilter>;
-  min?: Maybe<NestedEnumRouteTypeFilter>;
   not?: Maybe<NestedEnumRouteTypeWithAggregatesFilter>;
   notIn?: Maybe<Array<RouteType>>;
 };
@@ -5297,11 +5760,11 @@ export type NestedEnumUserRoleFilter = {
 };
 
 export type NestedEnumUserRoleWithAggregatesFilter = {
-  count?: Maybe<NestedIntFilter>;
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedEnumUserRoleFilter>;
+  _min?: Maybe<NestedEnumUserRoleFilter>;
   equals?: Maybe<UserRole>;
   in?: Maybe<Array<UserRole>>;
-  max?: Maybe<NestedEnumUserRoleFilter>;
-  min?: Maybe<NestedEnumUserRoleFilter>;
   not?: Maybe<NestedEnumUserRoleWithAggregatesFilter>;
   notIn?: Maybe<Array<UserRole>>;
 };
@@ -5351,35 +5814,35 @@ export type NestedIntNullableFilter = {
 };
 
 export type NestedIntNullableWithAggregatesFilter = {
-  avg?: Maybe<NestedFloatNullableFilter>;
-  count?: Maybe<NestedIntNullableFilter>;
+  _avg?: Maybe<NestedFloatNullableFilter>;
+  _count?: Maybe<NestedIntNullableFilter>;
+  _max?: Maybe<NestedIntNullableFilter>;
+  _min?: Maybe<NestedIntNullableFilter>;
+  _sum?: Maybe<NestedIntNullableFilter>;
   equals?: Maybe<Scalars['Int']>;
   gt?: Maybe<Scalars['Int']>;
   gte?: Maybe<Scalars['Int']>;
   in?: Maybe<Array<Scalars['Int']>>;
   lt?: Maybe<Scalars['Int']>;
   lte?: Maybe<Scalars['Int']>;
-  max?: Maybe<NestedIntNullableFilter>;
-  min?: Maybe<NestedIntNullableFilter>;
   not?: Maybe<NestedIntNullableWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['Int']>>;
-  sum?: Maybe<NestedIntNullableFilter>;
 };
 
 export type NestedIntWithAggregatesFilter = {
-  avg?: Maybe<NestedFloatFilter>;
-  count?: Maybe<NestedIntFilter>;
+  _avg?: Maybe<NestedFloatFilter>;
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedIntFilter>;
+  _min?: Maybe<NestedIntFilter>;
+  _sum?: Maybe<NestedIntFilter>;
   equals?: Maybe<Scalars['Int']>;
   gt?: Maybe<Scalars['Int']>;
   gte?: Maybe<Scalars['Int']>;
   in?: Maybe<Array<Scalars['Int']>>;
   lt?: Maybe<Scalars['Int']>;
   lte?: Maybe<Scalars['Int']>;
-  max?: Maybe<NestedIntFilter>;
-  min?: Maybe<NestedIntFilter>;
   not?: Maybe<NestedIntWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['Int']>>;
-  sum?: Maybe<NestedIntFilter>;
 };
 
 export type NestedStringFilter = {
@@ -5411,8 +5874,10 @@ export type NestedStringNullableFilter = {
 };
 
 export type NestedStringNullableWithAggregatesFilter = {
+  _count?: Maybe<NestedIntNullableFilter>;
+  _max?: Maybe<NestedStringNullableFilter>;
+  _min?: Maybe<NestedStringNullableFilter>;
   contains?: Maybe<Scalars['String']>;
-  count?: Maybe<NestedIntNullableFilter>;
   endsWith?: Maybe<Scalars['String']>;
   equals?: Maybe<Scalars['String']>;
   gt?: Maybe<Scalars['String']>;
@@ -5420,16 +5885,16 @@ export type NestedStringNullableWithAggregatesFilter = {
   in?: Maybe<Array<Scalars['String']>>;
   lt?: Maybe<Scalars['String']>;
   lte?: Maybe<Scalars['String']>;
-  max?: Maybe<NestedStringNullableFilter>;
-  min?: Maybe<NestedStringNullableFilter>;
   not?: Maybe<NestedStringNullableWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['String']>>;
   startsWith?: Maybe<Scalars['String']>;
 };
 
 export type NestedStringWithAggregatesFilter = {
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedStringFilter>;
+  _min?: Maybe<NestedStringFilter>;
   contains?: Maybe<Scalars['String']>;
-  count?: Maybe<NestedIntFilter>;
   endsWith?: Maybe<Scalars['String']>;
   equals?: Maybe<Scalars['String']>;
   gt?: Maybe<Scalars['String']>;
@@ -5437,8 +5902,6 @@ export type NestedStringWithAggregatesFilter = {
   in?: Maybe<Array<Scalars['String']>>;
   lt?: Maybe<Scalars['String']>;
   lte?: Maybe<Scalars['String']>;
-  max?: Maybe<NestedStringFilter>;
-  min?: Maybe<NestedStringFilter>;
   not?: Maybe<NestedStringWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['String']>>;
   startsWith?: Maybe<Scalars['String']>;
@@ -6015,7 +6478,7 @@ export type QueryGradesArgs = {
 export type QueryGroupByCategoryArgs = {
   by: Array<CategoryScalarFieldEnum>;
   having?: Maybe<CategoryScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<CategoryOrderByInput>>;
+  orderBy?: Maybe<Array<CategoryOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<CategoryWhereInput>;
@@ -6024,7 +6487,7 @@ export type QueryGroupByCategoryArgs = {
 export type QueryGroupByClubArgs = {
   by: Array<ClubScalarFieldEnum>;
   having?: Maybe<ClubScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<ClubOrderByInput>>;
+  orderBy?: Maybe<Array<ClubOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<ClubWhereInput>;
@@ -6033,7 +6496,7 @@ export type QueryGroupByClubArgs = {
 export type QueryGroupByCommentArgs = {
   by: Array<CommentScalarFieldEnum>;
   having?: Maybe<CommentScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<CommentOrderByInput>>;
+  orderBy?: Maybe<Array<CommentOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<CommentWhereInput>;
@@ -6042,7 +6505,7 @@ export type QueryGroupByCommentArgs = {
 export type QueryGroupByCompetitionArgs = {
   by: Array<CompetitionScalarFieldEnum>;
   having?: Maybe<CompetitionScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<CompetitionOrderByInput>>;
+  orderBy?: Maybe<Array<CompetitionOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<CompetitionWhereInput>;
@@ -6051,7 +6514,7 @@ export type QueryGroupByCompetitionArgs = {
 export type QueryGroupByCompetitionTypeArgs = {
   by: Array<CompetitionTypeScalarFieldEnum>;
   having?: Maybe<CompetitionTypeScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<CompetitionTypeOrderByInput>>;
+  orderBy?: Maybe<Array<CompetitionTypeOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<CompetitionTypeWhereInput>;
@@ -6060,7 +6523,7 @@ export type QueryGroupByCompetitionTypeArgs = {
 export type QueryGroupByCompetitorArgs = {
   by: Array<CompetitorScalarFieldEnum>;
   having?: Maybe<CompetitorScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<CompetitorOrderByInput>>;
+  orderBy?: Maybe<Array<CompetitorOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<CompetitorWhereInput>;
@@ -6069,7 +6532,7 @@ export type QueryGroupByCompetitorArgs = {
 export type QueryGroupByCountryArgs = {
   by: Array<CountryScalarFieldEnum>;
   having?: Maybe<CountryScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<CountryOrderByInput>>;
+  orderBy?: Maybe<Array<CountryOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<CountryWhereInput>;
@@ -6078,7 +6541,7 @@ export type QueryGroupByCountryArgs = {
 export type QueryGroupByGradeArgs = {
   by: Array<GradeScalarFieldEnum>;
   having?: Maybe<GradeScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<GradeOrderByInput>>;
+  orderBy?: Maybe<Array<GradeOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<GradeWhereInput>;
@@ -6087,7 +6550,7 @@ export type QueryGroupByGradeArgs = {
 export type QueryGroupByLocationArgs = {
   by: Array<LocationScalarFieldEnum>;
   having?: Maybe<LocationScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<LocationOrderByInput>>;
+  orderBy?: Maybe<Array<LocationOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<LocationWhereInput>;
@@ -6096,7 +6559,7 @@ export type QueryGroupByLocationArgs = {
 export type QueryGroupByRegionArgs = {
   by: Array<RegionScalarFieldEnum>;
   having?: Maybe<RegionScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<RegionOrderByInput>>;
+  orderBy?: Maybe<Array<RegionOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<RegionWhereInput>;
@@ -6105,7 +6568,7 @@ export type QueryGroupByRegionArgs = {
 export type QueryGroupByRegistrationArgs = {
   by: Array<RegistrationScalarFieldEnum>;
   having?: Maybe<RegistrationScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<RegistrationOrderByInput>>;
+  orderBy?: Maybe<Array<RegistrationOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<RegistrationWhereInput>;
@@ -6114,7 +6577,7 @@ export type QueryGroupByRegistrationArgs = {
 export type QueryGroupByResultArgs = {
   by: Array<ResultScalarFieldEnum>;
   having?: Maybe<ResultScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<ResultOrderByInput>>;
+  orderBy?: Maybe<Array<ResultOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<ResultWhereInput>;
@@ -6123,7 +6586,7 @@ export type QueryGroupByResultArgs = {
 export type QueryGroupByRouteArgs = {
   by: Array<RouteScalarFieldEnum>;
   having?: Maybe<RouteScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<RouteOrderByInput>>;
+  orderBy?: Maybe<Array<RouteOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<RouteWhereInput>;
@@ -6132,7 +6595,7 @@ export type QueryGroupByRouteArgs = {
 export type QueryGroupByScoreBoulderArgs = {
   by: Array<ScoreBoulderScalarFieldEnum>;
   having?: Maybe<ScoreBoulderScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<ScoreBoulderOrderByInput>>;
+  orderBy?: Maybe<Array<ScoreBoulderOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<ScoreBoulderWhereInput>;
@@ -6141,7 +6604,7 @@ export type QueryGroupByScoreBoulderArgs = {
 export type QueryGroupByScoreLeadArgs = {
   by: Array<ScoreLeadScalarFieldEnum>;
   having?: Maybe<ScoreLeadScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<ScoreLeadOrderByInput>>;
+  orderBy?: Maybe<Array<ScoreLeadOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<ScoreLeadWhereInput>;
@@ -6150,7 +6613,7 @@ export type QueryGroupByScoreLeadArgs = {
 export type QueryGroupByScoreSpeedArgs = {
   by: Array<ScoreSpeedScalarFieldEnum>;
   having?: Maybe<ScoreSpeedScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<ScoreSpeedOrderByInput>>;
+  orderBy?: Maybe<Array<ScoreSpeedOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<ScoreSpeedWhereInput>;
@@ -6159,7 +6622,7 @@ export type QueryGroupByScoreSpeedArgs = {
 export type QueryGroupBySeasonArgs = {
   by: Array<SeasonScalarFieldEnum>;
   having?: Maybe<SeasonScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<SeasonOrderByInput>>;
+  orderBy?: Maybe<Array<SeasonOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<SeasonWhereInput>;
@@ -6168,7 +6631,7 @@ export type QueryGroupBySeasonArgs = {
 export type QueryGroupByStartListArgs = {
   by: Array<StartListScalarFieldEnum>;
   having?: Maybe<StartListScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<StartListOrderByInput>>;
+  orderBy?: Maybe<Array<StartListOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<StartListWhereInput>;
@@ -6177,7 +6640,7 @@ export type QueryGroupByStartListArgs = {
 export type QueryGroupByUserArgs = {
   by: Array<UserScalarFieldEnum>;
   having?: Maybe<UserScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<UserOrderByInput>>;
+  orderBy?: Maybe<Array<UserOrderByWithAggregationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<UserWhereInput>;
@@ -6349,14 +6812,23 @@ export type RegionLocationsArgs = {
 
 export type RegionAvgAggregate = {
   __typename?: 'RegionAvgAggregate';
-  id: Scalars['Float'];
+  id?: Maybe<Scalars['Float']>;
+};
+
+export type RegionAvgOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
 };
 
 export type RegionCountAggregate = {
   __typename?: 'RegionCountAggregate';
   _all: Scalars['Int'];
   id: Scalars['Int'];
-  name?: Maybe<Scalars['Int']>;
+  name: Scalars['Int'];
+};
+
+export type RegionCountOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
 };
 
 export type RegionCreateInput = {
@@ -6386,28 +6858,48 @@ export type RegionCreateWithoutLocationsInput = {
 
 export type RegionGroupBy = {
   __typename?: 'RegionGroupBy';
-  avg?: Maybe<RegionAvgAggregate>;
-  count?: Maybe<RegionCountAggregate>;
+  _avg?: Maybe<RegionAvgAggregate>;
+  _count?: Maybe<RegionCountAggregate>;
+  _max?: Maybe<RegionMaxAggregate>;
+  _min?: Maybe<RegionMinAggregate>;
+  _sum?: Maybe<RegionSumAggregate>;
   id: Scalars['Int'];
-  max?: Maybe<RegionMaxAggregate>;
-  min?: Maybe<RegionMinAggregate>;
   name: Scalars['String'];
-  sum?: Maybe<RegionSumAggregate>;
 };
 
 export type RegionMaxAggregate = {
   __typename?: 'RegionMaxAggregate';
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+};
+
+export type RegionMaxOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
 };
 
 export type RegionMinAggregate = {
   __typename?: 'RegionMinAggregate';
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
 };
 
+export type RegionMinOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+};
+
 export type RegionOrderByInput = {
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+};
+
+export type RegionOrderByWithAggregationInput = {
+  _avg?: Maybe<RegionAvgOrderByAggregateInput>;
+  _count?: Maybe<RegionCountOrderByAggregateInput>;
+  _max?: Maybe<RegionMaxOrderByAggregateInput>;
+  _min?: Maybe<RegionMinOrderByAggregateInput>;
+  _sum?: Maybe<RegionSumOrderByAggregateInput>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
 };
@@ -6432,7 +6924,11 @@ export type RegionScalarWhereWithAggregatesInput = {
 
 export type RegionSumAggregate = {
   __typename?: 'RegionSumAggregate';
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+};
+
+export type RegionSumOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
 };
 
 export type RegionUpdateInput = {
@@ -6501,25 +6997,45 @@ export type Registration = {
 
 export type RegistrationAvgAggregate = {
   __typename?: 'RegistrationAvgAggregate';
-  acceptorId: Scalars['Float'];
-  competitionId: Scalars['Float'];
-  competitorId: Scalars['Float'];
-  id: Scalars['Float'];
-  registrantId: Scalars['Float'];
+  acceptorId?: Maybe<Scalars['Float']>;
+  competitionId?: Maybe<Scalars['Float']>;
+  competitorId?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  registrantId?: Maybe<Scalars['Float']>;
+};
+
+export type RegistrationAvgOrderByAggregateInput = {
+  acceptorId?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  registrantId?: Maybe<SortOrder>;
 };
 
 export type RegistrationCountAggregate = {
   __typename?: 'RegistrationCountAggregate';
   _all: Scalars['Int'];
-  accepted?: Maybe<Scalars['Int']>;
+  accepted: Scalars['Int'];
   acceptorId: Scalars['Int'];
   competitionId: Scalars['Int'];
   competitorId: Scalars['Int'];
-  createdAt?: Maybe<Scalars['Int']>;
+  createdAt: Scalars['Int'];
   id: Scalars['Int'];
-  paid?: Maybe<Scalars['Int']>;
+  paid: Scalars['Int'];
   registrantId: Scalars['Int'];
-  updatedAt?: Maybe<Scalars['Int']>;
+  updatedAt: Scalars['Int'];
+};
+
+export type RegistrationCountOrderByAggregateInput = {
+  accepted?: Maybe<SortOrder>;
+  acceptorId?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  paid?: Maybe<SortOrder>;
+  registrantId?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type RegistrationCreateInput = {
@@ -6707,19 +7223,19 @@ export type RegistrationCreateWithoutRegistrantInput = {
 
 export type RegistrationGroupBy = {
   __typename?: 'RegistrationGroupBy';
+  _avg?: Maybe<RegistrationAvgAggregate>;
+  _count?: Maybe<RegistrationCountAggregate>;
+  _max?: Maybe<RegistrationMaxAggregate>;
+  _min?: Maybe<RegistrationMinAggregate>;
+  _sum?: Maybe<RegistrationSumAggregate>;
   accepted: Scalars['Boolean'];
   acceptorId: Scalars['Int'];
-  avg?: Maybe<RegistrationAvgAggregate>;
   competitionId: Scalars['Int'];
   competitorId: Scalars['Int'];
-  count?: Maybe<RegistrationCountAggregate>;
   createdAt: Scalars['DateTime'];
   id: Scalars['Int'];
-  max?: Maybe<RegistrationMaxAggregate>;
-  min?: Maybe<RegistrationMinAggregate>;
   paid: Scalars['Boolean'];
   registrantId: Scalars['Int'];
-  sum?: Maybe<RegistrationSumAggregate>;
   updatedAt: Scalars['DateTime'];
 };
 
@@ -6732,30 +7248,71 @@ export type RegistrationListRelationFilter = {
 export type RegistrationMaxAggregate = {
   __typename?: 'RegistrationMaxAggregate';
   accepted?: Maybe<Scalars['Boolean']>;
-  acceptorId: Scalars['Int'];
-  competitionId: Scalars['Int'];
-  competitorId: Scalars['Int'];
+  acceptorId?: Maybe<Scalars['Int']>;
+  competitionId?: Maybe<Scalars['Int']>;
+  competitorId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   paid?: Maybe<Scalars['Boolean']>;
-  registrantId: Scalars['Int'];
+  registrantId?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type RegistrationMaxOrderByAggregateInput = {
+  accepted?: Maybe<SortOrder>;
+  acceptorId?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  paid?: Maybe<SortOrder>;
+  registrantId?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type RegistrationMinAggregate = {
   __typename?: 'RegistrationMinAggregate';
   accepted?: Maybe<Scalars['Boolean']>;
-  acceptorId: Scalars['Int'];
-  competitionId: Scalars['Int'];
-  competitorId: Scalars['Int'];
+  acceptorId?: Maybe<Scalars['Int']>;
+  competitionId?: Maybe<Scalars['Int']>;
+  competitorId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   paid?: Maybe<Scalars['Boolean']>;
-  registrantId: Scalars['Int'];
+  registrantId?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
+export type RegistrationMinOrderByAggregateInput = {
+  accepted?: Maybe<SortOrder>;
+  acceptorId?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  paid?: Maybe<SortOrder>;
+  registrantId?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
 export type RegistrationOrderByInput = {
+  accepted?: Maybe<SortOrder>;
+  acceptorId?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  paid?: Maybe<SortOrder>;
+  registrantId?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export type RegistrationOrderByWithAggregationInput = {
+  _avg?: Maybe<RegistrationAvgOrderByAggregateInput>;
+  _count?: Maybe<RegistrationCountOrderByAggregateInput>;
+  _max?: Maybe<RegistrationMaxOrderByAggregateInput>;
+  _min?: Maybe<RegistrationMinOrderByAggregateInput>;
+  _sum?: Maybe<RegistrationSumOrderByAggregateInput>;
   accepted?: Maybe<SortOrder>;
   acceptorId?: Maybe<SortOrder>;
   competitionId?: Maybe<SortOrder>;
@@ -6811,11 +7368,19 @@ export type RegistrationScalarWhereWithAggregatesInput = {
 
 export type RegistrationSumAggregate = {
   __typename?: 'RegistrationSumAggregate';
-  acceptorId: Scalars['Int'];
-  competitionId: Scalars['Int'];
-  competitorId: Scalars['Int'];
-  id: Scalars['Int'];
-  registrantId: Scalars['Int'];
+  acceptorId?: Maybe<Scalars['Int']>;
+  competitionId?: Maybe<Scalars['Int']>;
+  competitorId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  registrantId?: Maybe<Scalars['Int']>;
+};
+
+export type RegistrationSumOrderByAggregateInput = {
+  acceptorId?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  registrantId?: Maybe<SortOrder>;
 };
 
 export type RegistrationUpdateInput = {
@@ -7063,11 +7628,19 @@ export type Result = {
 
 export type ResultAvgAggregate = {
   __typename?: 'ResultAvgAggregate';
-  approvedById: Scalars['Float'];
-  competitionId: Scalars['Float'];
-  competitorId: Scalars['Float'];
-  id: Scalars['Float'];
-  score: Scalars['Float'];
+  approvedById?: Maybe<Scalars['Float']>;
+  competitionId?: Maybe<Scalars['Float']>;
+  competitorId?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  score?: Maybe<Scalars['Float']>;
+};
+
+export type ResultAvgOrderByAggregateInput = {
+  approvedById?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  score?: Maybe<SortOrder>;
 };
 
 export type ResultCountAggregate = {
@@ -7076,10 +7649,20 @@ export type ResultCountAggregate = {
   approvedById: Scalars['Int'];
   competitionId: Scalars['Int'];
   competitorId: Scalars['Int'];
-  createdAt?: Maybe<Scalars['Int']>;
+  createdAt: Scalars['Int'];
   id: Scalars['Int'];
   score: Scalars['Int'];
-  updatedAt?: Maybe<Scalars['Int']>;
+  updatedAt: Scalars['Int'];
+};
+
+export type ResultCountOrderByAggregateInput = {
+  approvedById?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  score?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type ResultCreateInput = {
@@ -7212,17 +7795,17 @@ export type ResultField = {
 
 export type ResultGroupBy = {
   __typename?: 'ResultGroupBy';
+  _avg?: Maybe<ResultAvgAggregate>;
+  _count?: Maybe<ResultCountAggregate>;
+  _max?: Maybe<ResultMaxAggregate>;
+  _min?: Maybe<ResultMinAggregate>;
+  _sum?: Maybe<ResultSumAggregate>;
   approvedById: Scalars['Int'];
-  avg?: Maybe<ResultAvgAggregate>;
   competitionId: Scalars['Int'];
   competitorId: Scalars['Int'];
-  count?: Maybe<ResultCountAggregate>;
   createdAt: Scalars['DateTime'];
   id: Scalars['Int'];
-  max?: Maybe<ResultMaxAggregate>;
-  min?: Maybe<ResultMinAggregate>;
   score: Scalars['Int'];
-  sum?: Maybe<ResultSumAggregate>;
   updatedAt: Scalars['DateTime'];
 };
 
@@ -7240,27 +7823,62 @@ export type ResultListRelationFilter = {
 
 export type ResultMaxAggregate = {
   __typename?: 'ResultMaxAggregate';
-  approvedById: Scalars['Int'];
-  competitionId: Scalars['Int'];
-  competitorId: Scalars['Int'];
+  approvedById?: Maybe<Scalars['Int']>;
+  competitionId?: Maybe<Scalars['Int']>;
+  competitorId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
-  score: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  score?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ResultMaxOrderByAggregateInput = {
+  approvedById?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  score?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type ResultMinAggregate = {
   __typename?: 'ResultMinAggregate';
-  approvedById: Scalars['Int'];
-  competitionId: Scalars['Int'];
-  competitorId: Scalars['Int'];
+  approvedById?: Maybe<Scalars['Int']>;
+  competitionId?: Maybe<Scalars['Int']>;
+  competitorId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
-  score: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  score?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
+export type ResultMinOrderByAggregateInput = {
+  approvedById?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  score?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
 export type ResultOrderByInput = {
+  approvedById?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  score?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export type ResultOrderByWithAggregationInput = {
+  _avg?: Maybe<ResultAvgOrderByAggregateInput>;
+  _count?: Maybe<ResultCountOrderByAggregateInput>;
+  _max?: Maybe<ResultMaxOrderByAggregateInput>;
+  _min?: Maybe<ResultMinOrderByAggregateInput>;
+  _sum?: Maybe<ResultSumOrderByAggregateInput>;
   approvedById?: Maybe<SortOrder>;
   competitionId?: Maybe<SortOrder>;
   competitorId?: Maybe<SortOrder>;
@@ -7320,11 +7938,19 @@ export type ResultScalarWhereWithAggregatesInput = {
 
 export type ResultSumAggregate = {
   __typename?: 'ResultSumAggregate';
-  approvedById: Scalars['Int'];
-  competitionId: Scalars['Int'];
-  competitorId: Scalars['Int'];
-  id: Scalars['Int'];
-  score: Scalars['Int'];
+  approvedById?: Maybe<Scalars['Int']>;
+  competitionId?: Maybe<Scalars['Int']>;
+  competitorId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  score?: Maybe<Scalars['Int']>;
+};
+
+export type ResultSumOrderByAggregateInput = {
+  approvedById?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  score?: Maybe<SortOrder>;
 };
 
 export type ResultUpdateInput = {
@@ -7537,32 +8163,59 @@ export type RouteScoreSpeedArgs = {
 
 export type RouteAvgAggregate = {
   __typename?: 'RouteAvgAggregate';
-  categoryId: Scalars['Float'];
-  competitionId: Scalars['Float'];
-  gradeId: Scalars['Float'];
-  id: Scalars['Float'];
-  judgeId: Scalars['Float'];
-  number: Scalars['Float'];
-  setterId: Scalars['Float'];
+  categoryId?: Maybe<Scalars['Float']>;
+  competitionId?: Maybe<Scalars['Float']>;
+  gradeId?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  judgeId?: Maybe<Scalars['Float']>;
+  number?: Maybe<Scalars['Float']>;
+  setterId?: Maybe<Scalars['Float']>;
+};
+
+export type RouteAvgOrderByAggregateInput = {
+  categoryId?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  gradeId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  judgeId?: Maybe<SortOrder>;
+  number?: Maybe<SortOrder>;
+  setterId?: Maybe<SortOrder>;
 };
 
 export type RouteCountAggregate = {
   __typename?: 'RouteCountAggregate';
   _all: Scalars['Int'];
-  active?: Maybe<Scalars['Int']>;
+  active: Scalars['Int'];
   categoryId: Scalars['Int'];
   competitionId: Scalars['Int'];
-  createdAt?: Maybe<Scalars['Int']>;
-  description?: Maybe<Scalars['Int']>;
+  createdAt: Scalars['Int'];
+  description: Scalars['Int'];
   gradeId: Scalars['Int'];
   id: Scalars['Int'];
   judgeId: Scalars['Int'];
-  name?: Maybe<Scalars['Int']>;
+  name: Scalars['Int'];
   number: Scalars['Int'];
-  round?: Maybe<Scalars['Int']>;
-  routeType?: Maybe<Scalars['Int']>;
+  round: Scalars['Int'];
+  routeType: Scalars['Int'];
   setterId: Scalars['Int'];
-  updatedAt?: Maybe<Scalars['Int']>;
+  updatedAt: Scalars['Int'];
+};
+
+export type RouteCountOrderByAggregateInput = {
+  active?: Maybe<SortOrder>;
+  categoryId?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  gradeId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  judgeId?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  number?: Maybe<SortOrder>;
+  round?: Maybe<SortOrder>;
+  routeType?: Maybe<SortOrder>;
+  setterId?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type RouteCreateInput = {
@@ -7945,24 +8598,24 @@ export type RouteCreateWithoutSetterInput = {
 
 export type RouteGroupBy = {
   __typename?: 'RouteGroupBy';
+  _avg?: Maybe<RouteAvgAggregate>;
+  _count?: Maybe<RouteCountAggregate>;
+  _max?: Maybe<RouteMaxAggregate>;
+  _min?: Maybe<RouteMinAggregate>;
+  _sum?: Maybe<RouteSumAggregate>;
   active: Scalars['Boolean'];
-  avg?: Maybe<RouteAvgAggregate>;
   categoryId: Scalars['Int'];
   competitionId: Scalars['Int'];
-  count?: Maybe<RouteCountAggregate>;
   createdAt: Scalars['DateTime'];
   description?: Maybe<Scalars['String']>;
   gradeId: Scalars['Int'];
   id: Scalars['Int'];
   judgeId: Scalars['Int'];
-  max?: Maybe<RouteMaxAggregate>;
-  min?: Maybe<RouteMinAggregate>;
   name: Scalars['String'];
   number: Scalars['Int'];
   round: Round;
   routeType: RouteType;
   setterId: Scalars['Int'];
-  sum?: Maybe<RouteSumAggregate>;
   updatedAt: Scalars['DateTime'];
 };
 
@@ -7975,40 +8628,96 @@ export type RouteListRelationFilter = {
 export type RouteMaxAggregate = {
   __typename?: 'RouteMaxAggregate';
   active?: Maybe<Scalars['Boolean']>;
-  categoryId: Scalars['Int'];
-  competitionId: Scalars['Int'];
+  categoryId?: Maybe<Scalars['Int']>;
+  competitionId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
-  gradeId: Scalars['Int'];
-  id: Scalars['Int'];
-  judgeId: Scalars['Int'];
+  gradeId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  judgeId?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
-  number: Scalars['Int'];
+  number?: Maybe<Scalars['Int']>;
   round?: Maybe<Round>;
   routeType?: Maybe<RouteType>;
-  setterId: Scalars['Int'];
+  setterId?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type RouteMaxOrderByAggregateInput = {
+  active?: Maybe<SortOrder>;
+  categoryId?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  gradeId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  judgeId?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  number?: Maybe<SortOrder>;
+  round?: Maybe<SortOrder>;
+  routeType?: Maybe<SortOrder>;
+  setterId?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type RouteMinAggregate = {
   __typename?: 'RouteMinAggregate';
   active?: Maybe<Scalars['Boolean']>;
-  categoryId: Scalars['Int'];
-  competitionId: Scalars['Int'];
+  categoryId?: Maybe<Scalars['Int']>;
+  competitionId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
-  gradeId: Scalars['Int'];
-  id: Scalars['Int'];
-  judgeId: Scalars['Int'];
+  gradeId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  judgeId?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
-  number: Scalars['Int'];
+  number?: Maybe<Scalars['Int']>;
   round?: Maybe<Round>;
   routeType?: Maybe<RouteType>;
-  setterId: Scalars['Int'];
+  setterId?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
+export type RouteMinOrderByAggregateInput = {
+  active?: Maybe<SortOrder>;
+  categoryId?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  gradeId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  judgeId?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  number?: Maybe<SortOrder>;
+  round?: Maybe<SortOrder>;
+  routeType?: Maybe<SortOrder>;
+  setterId?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
 export type RouteOrderByInput = {
+  active?: Maybe<SortOrder>;
+  categoryId?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  gradeId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  judgeId?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  number?: Maybe<SortOrder>;
+  round?: Maybe<SortOrder>;
+  routeType?: Maybe<SortOrder>;
+  setterId?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export type RouteOrderByWithAggregationInput = {
+  _avg?: Maybe<RouteAvgOrderByAggregateInput>;
+  _count?: Maybe<RouteCountOrderByAggregateInput>;
+  _max?: Maybe<RouteMaxOrderByAggregateInput>;
+  _min?: Maybe<RouteMinOrderByAggregateInput>;
+  _sum?: Maybe<RouteSumOrderByAggregateInput>;
   active?: Maybe<SortOrder>;
   categoryId?: Maybe<SortOrder>;
   competitionId?: Maybe<SortOrder>;
@@ -8089,13 +8798,23 @@ export type RouteScalarWhereWithAggregatesInput = {
 
 export type RouteSumAggregate = {
   __typename?: 'RouteSumAggregate';
-  categoryId: Scalars['Int'];
-  competitionId: Scalars['Int'];
-  gradeId: Scalars['Int'];
-  id: Scalars['Int'];
-  judgeId: Scalars['Int'];
-  number: Scalars['Int'];
-  setterId: Scalars['Int'];
+  categoryId?: Maybe<Scalars['Int']>;
+  competitionId?: Maybe<Scalars['Int']>;
+  gradeId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  judgeId?: Maybe<Scalars['Int']>;
+  number?: Maybe<Scalars['Int']>;
+  setterId?: Maybe<Scalars['Int']>;
+};
+
+export type RouteSumOrderByAggregateInput = {
+  categoryId?: Maybe<SortOrder>;
+  competitionId?: Maybe<SortOrder>;
+  gradeId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  judgeId?: Maybe<SortOrder>;
+  number?: Maybe<SortOrder>;
+  setterId?: Maybe<SortOrder>;
 };
 
 export enum RouteType {
@@ -8521,27 +9240,51 @@ export type ScoreBoulderAvgAggregate = {
   __typename?: 'ScoreBoulderAvgAggregate';
   attempts?: Maybe<Scalars['Float']>;
   commentId?: Maybe<Scalars['Float']>;
-  competitorId: Scalars['Float'];
-  id: Scalars['Float'];
-  routeId: Scalars['Float'];
+  competitorId?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  routeId?: Maybe<Scalars['Float']>;
   time?: Maybe<Scalars['Float']>;
   top?: Maybe<Scalars['Float']>;
   zone?: Maybe<Scalars['Float']>;
 };
 
+export type ScoreBoulderAvgOrderByAggregateInput = {
+  attempts?: Maybe<SortOrder>;
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
+  top?: Maybe<SortOrder>;
+  zone?: Maybe<SortOrder>;
+};
+
 export type ScoreBoulderCountAggregate = {
   __typename?: 'ScoreBoulderCountAggregate';
   _all: Scalars['Int'];
-  attempts?: Maybe<Scalars['Int']>;
-  commentId?: Maybe<Scalars['Int']>;
+  attempts: Scalars['Int'];
+  commentId: Scalars['Int'];
   competitorId: Scalars['Int'];
-  createdAt?: Maybe<Scalars['Int']>;
+  createdAt: Scalars['Int'];
   id: Scalars['Int'];
   routeId: Scalars['Int'];
-  time?: Maybe<Scalars['Int']>;
-  top?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['Int']>;
-  zone?: Maybe<Scalars['Int']>;
+  time: Scalars['Int'];
+  top: Scalars['Int'];
+  updatedAt: Scalars['Int'];
+  zone: Scalars['Int'];
+};
+
+export type ScoreBoulderCountOrderByAggregateInput = {
+  attempts?: Maybe<SortOrder>;
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
+  top?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  zone?: Maybe<SortOrder>;
 };
 
 export type ScoreBoulderCreateInput = {
@@ -8695,17 +9438,17 @@ export type ScoreBoulderCreateWithoutRouteInput = {
 
 export type ScoreBoulderGroupBy = {
   __typename?: 'ScoreBoulderGroupBy';
+  _avg?: Maybe<ScoreBoulderAvgAggregate>;
+  _count?: Maybe<ScoreBoulderCountAggregate>;
+  _max?: Maybe<ScoreBoulderMaxAggregate>;
+  _min?: Maybe<ScoreBoulderMinAggregate>;
+  _sum?: Maybe<ScoreBoulderSumAggregate>;
   attempts?: Maybe<Scalars['Int']>;
-  avg?: Maybe<ScoreBoulderAvgAggregate>;
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
-  count?: Maybe<ScoreBoulderCountAggregate>;
   createdAt: Scalars['DateTime'];
   id: Scalars['Int'];
-  max?: Maybe<ScoreBoulderMaxAggregate>;
-  min?: Maybe<ScoreBoulderMinAggregate>;
   routeId: Scalars['Int'];
-  sum?: Maybe<ScoreBoulderSumAggregate>;
   time?: Maybe<Scalars['Int']>;
   top?: Maybe<Scalars['Int']>;
   updatedAt: Scalars['DateTime'];
@@ -8722,31 +9465,75 @@ export type ScoreBoulderMaxAggregate = {
   __typename?: 'ScoreBoulderMaxAggregate';
   attempts?: Maybe<Scalars['Int']>;
   commentId?: Maybe<Scalars['Int']>;
-  competitorId: Scalars['Int'];
+  competitorId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
-  routeId: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  routeId?: Maybe<Scalars['Int']>;
   time?: Maybe<Scalars['Int']>;
   top?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   zone?: Maybe<Scalars['Int']>;
+};
+
+export type ScoreBoulderMaxOrderByAggregateInput = {
+  attempts?: Maybe<SortOrder>;
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
+  top?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  zone?: Maybe<SortOrder>;
 };
 
 export type ScoreBoulderMinAggregate = {
   __typename?: 'ScoreBoulderMinAggregate';
   attempts?: Maybe<Scalars['Int']>;
   commentId?: Maybe<Scalars['Int']>;
-  competitorId: Scalars['Int'];
+  competitorId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
-  routeId: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  routeId?: Maybe<Scalars['Int']>;
   time?: Maybe<Scalars['Int']>;
   top?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   zone?: Maybe<Scalars['Int']>;
 };
 
+export type ScoreBoulderMinOrderByAggregateInput = {
+  attempts?: Maybe<SortOrder>;
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
+  top?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  zone?: Maybe<SortOrder>;
+};
+
 export type ScoreBoulderOrderByInput = {
+  attempts?: Maybe<SortOrder>;
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
+  top?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  zone?: Maybe<SortOrder>;
+};
+
+export type ScoreBoulderOrderByWithAggregationInput = {
+  _avg?: Maybe<ScoreBoulderAvgOrderByAggregateInput>;
+  _count?: Maybe<ScoreBoulderCountOrderByAggregateInput>;
+  _max?: Maybe<ScoreBoulderMaxOrderByAggregateInput>;
+  _min?: Maybe<ScoreBoulderMinOrderByAggregateInput>;
+  _sum?: Maybe<ScoreBoulderSumOrderByAggregateInput>;
   attempts?: Maybe<SortOrder>;
   commentId?: Maybe<SortOrder>;
   competitorId?: Maybe<SortOrder>;
@@ -8808,12 +9595,23 @@ export type ScoreBoulderSumAggregate = {
   __typename?: 'ScoreBoulderSumAggregate';
   attempts?: Maybe<Scalars['Int']>;
   commentId?: Maybe<Scalars['Int']>;
-  competitorId: Scalars['Int'];
-  id: Scalars['Int'];
-  routeId: Scalars['Int'];
+  competitorId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  routeId?: Maybe<Scalars['Int']>;
   time?: Maybe<Scalars['Int']>;
   top?: Maybe<Scalars['Int']>;
   zone?: Maybe<Scalars['Int']>;
+};
+
+export type ScoreBoulderSumOrderByAggregateInput = {
+  attempts?: Maybe<SortOrder>;
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
+  top?: Maybe<SortOrder>;
+  zone?: Maybe<SortOrder>;
 };
 
 export type ScoreBoulderUpdateInput = {
@@ -9019,23 +9817,42 @@ export type ScoreLead = {
 export type ScoreLeadAvgAggregate = {
   __typename?: 'ScoreLeadAvgAggregate';
   commentId?: Maybe<Scalars['Float']>;
-  competitorId: Scalars['Float'];
-  id: Scalars['Float'];
-  routeId: Scalars['Float'];
-  time: Scalars['Float'];
+  competitorId?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  routeId?: Maybe<Scalars['Float']>;
+  time?: Maybe<Scalars['Float']>;
+};
+
+export type ScoreLeadAvgOrderByAggregateInput = {
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
 };
 
 export type ScoreLeadCountAggregate = {
   __typename?: 'ScoreLeadCountAggregate';
   _all: Scalars['Int'];
-  commentId?: Maybe<Scalars['Int']>;
+  commentId: Scalars['Int'];
   competitorId: Scalars['Int'];
-  createdAt?: Maybe<Scalars['Int']>;
-  height?: Maybe<Scalars['Int']>;
+  createdAt: Scalars['Int'];
+  height: Scalars['Int'];
   id: Scalars['Int'];
   routeId: Scalars['Int'];
   time: Scalars['Int'];
-  updatedAt?: Maybe<Scalars['Int']>;
+  updatedAt: Scalars['Int'];
+};
+
+export type ScoreLeadCountOrderByAggregateInput = {
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  height?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type ScoreLeadCreateInput = {
@@ -9171,17 +9988,17 @@ export type ScoreLeadCreateWithoutRouteInput = {
 
 export type ScoreLeadGroupBy = {
   __typename?: 'ScoreLeadGroupBy';
-  avg?: Maybe<ScoreLeadAvgAggregate>;
+  _avg?: Maybe<ScoreLeadAvgAggregate>;
+  _count?: Maybe<ScoreLeadCountAggregate>;
+  _max?: Maybe<ScoreLeadMaxAggregate>;
+  _min?: Maybe<ScoreLeadMinAggregate>;
+  _sum?: Maybe<ScoreLeadSumAggregate>;
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
-  count?: Maybe<ScoreLeadCountAggregate>;
   createdAt: Scalars['DateTime'];
   height: Scalars['String'];
   id: Scalars['Int'];
-  max?: Maybe<ScoreLeadMaxAggregate>;
-  min?: Maybe<ScoreLeadMinAggregate>;
   routeId: Scalars['Int'];
-  sum?: Maybe<ScoreLeadSumAggregate>;
   time: Scalars['Int'];
   updatedAt: Scalars['DateTime'];
 };
@@ -9195,28 +10012,66 @@ export type ScoreLeadListRelationFilter = {
 export type ScoreLeadMaxAggregate = {
   __typename?: 'ScoreLeadMaxAggregate';
   commentId?: Maybe<Scalars['Int']>;
-  competitorId: Scalars['Int'];
+  competitorId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   height?: Maybe<Scalars['String']>;
-  id: Scalars['Int'];
-  routeId: Scalars['Int'];
-  time: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  routeId?: Maybe<Scalars['Int']>;
+  time?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ScoreLeadMaxOrderByAggregateInput = {
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  height?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type ScoreLeadMinAggregate = {
   __typename?: 'ScoreLeadMinAggregate';
   commentId?: Maybe<Scalars['Int']>;
-  competitorId: Scalars['Int'];
+  competitorId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   height?: Maybe<Scalars['String']>;
-  id: Scalars['Int'];
-  routeId: Scalars['Int'];
-  time: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  routeId?: Maybe<Scalars['Int']>;
+  time?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
+export type ScoreLeadMinOrderByAggregateInput = {
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  height?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
 export type ScoreLeadOrderByInput = {
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  height?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export type ScoreLeadOrderByWithAggregationInput = {
+  _avg?: Maybe<ScoreLeadAvgOrderByAggregateInput>;
+  _count?: Maybe<ScoreLeadCountOrderByAggregateInput>;
+  _max?: Maybe<ScoreLeadMaxOrderByAggregateInput>;
+  _min?: Maybe<ScoreLeadMinOrderByAggregateInput>;
+  _sum?: Maybe<ScoreLeadSumOrderByAggregateInput>;
   commentId?: Maybe<SortOrder>;
   competitorId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
@@ -9269,10 +10124,18 @@ export type ScoreLeadScalarWhereWithAggregatesInput = {
 export type ScoreLeadSumAggregate = {
   __typename?: 'ScoreLeadSumAggregate';
   commentId?: Maybe<Scalars['Int']>;
-  competitorId: Scalars['Int'];
-  id: Scalars['Int'];
-  routeId: Scalars['Int'];
-  time: Scalars['Int'];
+  competitorId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  routeId?: Maybe<Scalars['Int']>;
+  time?: Maybe<Scalars['Int']>;
+};
+
+export type ScoreLeadSumOrderByAggregateInput = {
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
 };
 
 export type ScoreLeadUpdateInput = {
@@ -9455,22 +10318,40 @@ export type ScoreSpeed = {
 export type ScoreSpeedAvgAggregate = {
   __typename?: 'ScoreSpeedAvgAggregate';
   commentId?: Maybe<Scalars['Float']>;
-  competitorId: Scalars['Float'];
-  id: Scalars['Float'];
-  routeId: Scalars['Float'];
-  time: Scalars['Float'];
+  competitorId?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  routeId?: Maybe<Scalars['Float']>;
+  time?: Maybe<Scalars['Float']>;
+};
+
+export type ScoreSpeedAvgOrderByAggregateInput = {
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
 };
 
 export type ScoreSpeedCountAggregate = {
   __typename?: 'ScoreSpeedCountAggregate';
   _all: Scalars['Int'];
-  commentId?: Maybe<Scalars['Int']>;
+  commentId: Scalars['Int'];
   competitorId: Scalars['Int'];
-  createdAt?: Maybe<Scalars['Int']>;
+  createdAt: Scalars['Int'];
   id: Scalars['Int'];
   routeId: Scalars['Int'];
   time: Scalars['Int'];
-  updatedAt?: Maybe<Scalars['Int']>;
+  updatedAt: Scalars['Int'];
+};
+
+export type ScoreSpeedCountOrderByAggregateInput = {
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type ScoreSpeedCreateInput = {
@@ -9598,16 +10479,16 @@ export type ScoreSpeedCreateWithoutRouteInput = {
 
 export type ScoreSpeedGroupBy = {
   __typename?: 'ScoreSpeedGroupBy';
-  avg?: Maybe<ScoreSpeedAvgAggregate>;
+  _avg?: Maybe<ScoreSpeedAvgAggregate>;
+  _count?: Maybe<ScoreSpeedCountAggregate>;
+  _max?: Maybe<ScoreSpeedMaxAggregate>;
+  _min?: Maybe<ScoreSpeedMinAggregate>;
+  _sum?: Maybe<ScoreSpeedSumAggregate>;
   commentId?: Maybe<Scalars['Int']>;
   competitorId: Scalars['Int'];
-  count?: Maybe<ScoreSpeedCountAggregate>;
   createdAt: Scalars['DateTime'];
   id: Scalars['Int'];
-  max?: Maybe<ScoreSpeedMaxAggregate>;
-  min?: Maybe<ScoreSpeedMinAggregate>;
   routeId: Scalars['Int'];
-  sum?: Maybe<ScoreSpeedSumAggregate>;
   time: Scalars['Int'];
   updatedAt: Scalars['DateTime'];
 };
@@ -9621,26 +10502,61 @@ export type ScoreSpeedListRelationFilter = {
 export type ScoreSpeedMaxAggregate = {
   __typename?: 'ScoreSpeedMaxAggregate';
   commentId?: Maybe<Scalars['Int']>;
-  competitorId: Scalars['Int'];
+  competitorId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
-  routeId: Scalars['Int'];
-  time: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  routeId?: Maybe<Scalars['Int']>;
+  time?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ScoreSpeedMaxOrderByAggregateInput = {
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type ScoreSpeedMinAggregate = {
   __typename?: 'ScoreSpeedMinAggregate';
   commentId?: Maybe<Scalars['Int']>;
-  competitorId: Scalars['Int'];
+  competitorId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
-  routeId: Scalars['Int'];
-  time: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  routeId?: Maybe<Scalars['Int']>;
+  time?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
+export type ScoreSpeedMinOrderByAggregateInput = {
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
 export type ScoreSpeedOrderByInput = {
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export type ScoreSpeedOrderByWithAggregationInput = {
+  _avg?: Maybe<ScoreSpeedAvgOrderByAggregateInput>;
+  _count?: Maybe<ScoreSpeedCountOrderByAggregateInput>;
+  _max?: Maybe<ScoreSpeedMaxOrderByAggregateInput>;
+  _min?: Maybe<ScoreSpeedMinOrderByAggregateInput>;
+  _sum?: Maybe<ScoreSpeedSumOrderByAggregateInput>;
   commentId?: Maybe<SortOrder>;
   competitorId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
@@ -9689,10 +10605,18 @@ export type ScoreSpeedScalarWhereWithAggregatesInput = {
 export type ScoreSpeedSumAggregate = {
   __typename?: 'ScoreSpeedSumAggregate';
   commentId?: Maybe<Scalars['Int']>;
-  competitorId: Scalars['Int'];
-  id: Scalars['Int'];
-  routeId: Scalars['Int'];
-  time: Scalars['Int'];
+  competitorId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  routeId?: Maybe<Scalars['Int']>;
+  time?: Maybe<Scalars['Int']>;
+};
+
+export type ScoreSpeedSumOrderByAggregateInput = {
+  commentId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  routeId?: Maybe<SortOrder>;
+  time?: Maybe<SortOrder>;
 };
 
 export type ScoreSpeedUpdateInput = {
@@ -9872,21 +10796,37 @@ export type SeasonCompetitionsArgs = {
 
 export type SeasonAvgAggregate = {
   __typename?: 'SeasonAvgAggregate';
-  id: Scalars['Float'];
+  id?: Maybe<Scalars['Float']>;
   year?: Maybe<Scalars['Float']>;
+};
+
+export type SeasonAvgOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  year?: Maybe<SortOrder>;
 };
 
 export type SeasonCountAggregate = {
   __typename?: 'SeasonCountAggregate';
   _all: Scalars['Int'];
-  createdAt?: Maybe<Scalars['Int']>;
-  description?: Maybe<Scalars['Int']>;
-  endDate?: Maybe<Scalars['Int']>;
+  createdAt: Scalars['Int'];
+  description: Scalars['Int'];
+  endDate: Scalars['Int'];
   id: Scalars['Int'];
-  name?: Maybe<Scalars['Int']>;
-  stardDate?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['Int']>;
-  year?: Maybe<Scalars['Int']>;
+  name: Scalars['Int'];
+  stardDate: Scalars['Int'];
+  updatedAt: Scalars['Int'];
+  year: Scalars['Int'];
+};
+
+export type SeasonCountOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  endDate?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  stardDate?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  year?: Maybe<SortOrder>;
 };
 
 export type SeasonCreateInput = {
@@ -9934,17 +10874,17 @@ export type SeasonCreateWithoutCompetitionsInput = {
 
 export type SeasonGroupBy = {
   __typename?: 'SeasonGroupBy';
-  avg?: Maybe<SeasonAvgAggregate>;
-  count?: Maybe<SeasonCountAggregate>;
+  _avg?: Maybe<SeasonAvgAggregate>;
+  _count?: Maybe<SeasonCountAggregate>;
+  _max?: Maybe<SeasonMaxAggregate>;
+  _min?: Maybe<SeasonMinAggregate>;
+  _sum?: Maybe<SeasonSumAggregate>;
   createdAt: Scalars['DateTime'];
   description?: Maybe<Scalars['String']>;
   endDate: Scalars['DateTime'];
   id: Scalars['Int'];
-  max?: Maybe<SeasonMaxAggregate>;
-  min?: Maybe<SeasonMinAggregate>;
   name: Scalars['String'];
   stardDate: Scalars['DateTime'];
-  sum?: Maybe<SeasonSumAggregate>;
   updatedAt: Scalars['DateTime'];
   year?: Maybe<Scalars['Int']>;
 };
@@ -9954,11 +10894,22 @@ export type SeasonMaxAggregate = {
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
   endDate?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
   stardDate?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   year?: Maybe<Scalars['Int']>;
+};
+
+export type SeasonMaxOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  endDate?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  stardDate?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  year?: Maybe<SortOrder>;
 };
 
 export type SeasonMinAggregate = {
@@ -9966,14 +10917,41 @@ export type SeasonMinAggregate = {
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
   endDate?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
   stardDate?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   year?: Maybe<Scalars['Int']>;
 };
 
+export type SeasonMinOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  endDate?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  stardDate?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  year?: Maybe<SortOrder>;
+};
+
 export type SeasonOrderByInput = {
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  endDate?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  stardDate?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  year?: Maybe<SortOrder>;
+};
+
+export type SeasonOrderByWithAggregationInput = {
+  _avg?: Maybe<SeasonAvgOrderByAggregateInput>;
+  _count?: Maybe<SeasonCountOrderByAggregateInput>;
+  _max?: Maybe<SeasonMaxOrderByAggregateInput>;
+  _min?: Maybe<SeasonMinOrderByAggregateInput>;
+  _sum?: Maybe<SeasonSumOrderByAggregateInput>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
   endDate?: Maybe<SortOrder>;
@@ -10016,8 +10994,13 @@ export type SeasonScalarWhereWithAggregatesInput = {
 
 export type SeasonSumAggregate = {
   __typename?: 'SeasonSumAggregate';
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   year?: Maybe<Scalars['Int']>;
+};
+
+export type SeasonSumOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  year?: Maybe<SortOrder>;
 };
 
 export type SeasonUpdateInput = {
@@ -10102,10 +11085,17 @@ export type StartList = {
 
 export type StartListAvgAggregate = {
   __typename?: 'StartListAvgAggregate';
-  competitionId: Scalars['Float'];
-  competitorId: Scalars['Float'];
-  id: Scalars['Float'];
-  startNumber: Scalars['Float'];
+  competitionId?: Maybe<Scalars['Float']>;
+  competitorId?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  startNumber?: Maybe<Scalars['Float']>;
+};
+
+export type StartListAvgOrderByAggregateInput = {
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  startNumber?: Maybe<SortOrder>;
 };
 
 export type StartListCountAggregate = {
@@ -10113,10 +11103,19 @@ export type StartListCountAggregate = {
   _all: Scalars['Int'];
   competitionId: Scalars['Int'];
   competitorId: Scalars['Int'];
-  createdAt?: Maybe<Scalars['Int']>;
+  createdAt: Scalars['Int'];
   id: Scalars['Int'];
   startNumber: Scalars['Int'];
-  updatedAt?: Maybe<Scalars['Int']>;
+  updatedAt: Scalars['Int'];
+};
+
+export type StartListCountOrderByAggregateInput = {
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  startNumber?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type StartListCreateInput = {
@@ -10206,16 +11205,16 @@ export type StartListCreateWithoutCompetitorInput = {
 
 export type StartListGroupBy = {
   __typename?: 'StartListGroupBy';
-  avg?: Maybe<StartListAvgAggregate>;
+  _avg?: Maybe<StartListAvgAggregate>;
+  _count?: Maybe<StartListCountAggregate>;
+  _max?: Maybe<StartListMaxAggregate>;
+  _min?: Maybe<StartListMinAggregate>;
+  _sum?: Maybe<StartListSumAggregate>;
   competitionId: Scalars['Int'];
   competitorId: Scalars['Int'];
-  count?: Maybe<StartListCountAggregate>;
   createdAt: Scalars['DateTime'];
   id: Scalars['Int'];
-  max?: Maybe<StartListMaxAggregate>;
-  min?: Maybe<StartListMinAggregate>;
   startNumber: Scalars['Int'];
-  sum?: Maybe<StartListSumAggregate>;
   updatedAt: Scalars['DateTime'];
 };
 
@@ -10227,25 +11226,57 @@ export type StartListListRelationFilter = {
 
 export type StartListMaxAggregate = {
   __typename?: 'StartListMaxAggregate';
-  competitionId: Scalars['Int'];
-  competitorId: Scalars['Int'];
+  competitionId?: Maybe<Scalars['Int']>;
+  competitorId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
-  startNumber: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  startNumber?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type StartListMaxOrderByAggregateInput = {
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  startNumber?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type StartListMinAggregate = {
   __typename?: 'StartListMinAggregate';
-  competitionId: Scalars['Int'];
-  competitorId: Scalars['Int'];
+  competitionId?: Maybe<Scalars['Int']>;
+  competitorId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
-  startNumber: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
+  startNumber?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
+export type StartListMinOrderByAggregateInput = {
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  startNumber?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
 export type StartListOrderByInput = {
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  startNumber?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export type StartListOrderByWithAggregationInput = {
+  _avg?: Maybe<StartListAvgOrderByAggregateInput>;
+  _count?: Maybe<StartListCountOrderByAggregateInput>;
+  _max?: Maybe<StartListMaxOrderByAggregateInput>;
+  _min?: Maybe<StartListMinOrderByAggregateInput>;
+  _sum?: Maybe<StartListSumOrderByAggregateInput>;
   competitionId?: Maybe<SortOrder>;
   competitorId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
@@ -10289,10 +11320,17 @@ export type StartListScalarWhereWithAggregatesInput = {
 
 export type StartListSumAggregate = {
   __typename?: 'StartListSumAggregate';
-  competitionId: Scalars['Int'];
-  competitorId: Scalars['Int'];
-  id: Scalars['Int'];
-  startNumber: Scalars['Int'];
+  competitionId?: Maybe<Scalars['Int']>;
+  competitorId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  startNumber?: Maybe<Scalars['Int']>;
+};
+
+export type StartListSumOrderByAggregateInput = {
+  competitionId?: Maybe<SortOrder>;
+  competitorId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  startNumber?: Maybe<SortOrder>;
 };
 
 export type StartListUpdateInput = {
@@ -10442,8 +11480,10 @@ export type StringNullableFilter = {
 };
 
 export type StringNullableWithAggregatesFilter = {
+  _count?: Maybe<NestedIntNullableFilter>;
+  _max?: Maybe<NestedStringNullableFilter>;
+  _min?: Maybe<NestedStringNullableFilter>;
   contains?: Maybe<Scalars['String']>;
-  count?: Maybe<NestedIntNullableFilter>;
   endsWith?: Maybe<Scalars['String']>;
   equals?: Maybe<Scalars['String']>;
   gt?: Maybe<Scalars['String']>;
@@ -10451,8 +11491,6 @@ export type StringNullableWithAggregatesFilter = {
   in?: Maybe<Array<Scalars['String']>>;
   lt?: Maybe<Scalars['String']>;
   lte?: Maybe<Scalars['String']>;
-  max?: Maybe<NestedStringNullableFilter>;
-  min?: Maybe<NestedStringNullableFilter>;
   mode?: Maybe<QueryMode>;
   not?: Maybe<NestedStringNullableWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['String']>>;
@@ -10460,8 +11498,10 @@ export type StringNullableWithAggregatesFilter = {
 };
 
 export type StringWithAggregatesFilter = {
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedStringFilter>;
+  _min?: Maybe<NestedStringFilter>;
   contains?: Maybe<Scalars['String']>;
-  count?: Maybe<NestedIntFilter>;
   endsWith?: Maybe<Scalars['String']>;
   equals?: Maybe<Scalars['String']>;
   gt?: Maybe<Scalars['String']>;
@@ -10469,8 +11509,6 @@ export type StringWithAggregatesFilter = {
   in?: Maybe<Array<Scalars['String']>>;
   lt?: Maybe<Scalars['String']>;
   lte?: Maybe<Scalars['String']>;
-  max?: Maybe<NestedStringFilter>;
-  min?: Maybe<NestedStringFilter>;
   mode?: Maybe<QueryMode>;
   not?: Maybe<NestedStringWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['String']>>;
@@ -10554,23 +11592,41 @@ export type UserRoutesSetArgs = {
 
 export type UserAvgAggregate = {
   __typename?: 'UserAvgAggregate';
-  id: Scalars['Float'];
+  id?: Maybe<Scalars['Float']>;
   locationId?: Maybe<Scalars['Float']>;
+};
+
+export type UserAvgOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
 };
 
 export type UserCountAggregate = {
   __typename?: 'UserCountAggregate';
   _all: Scalars['Int'];
-  createdAt?: Maybe<Scalars['Int']>;
-  email?: Maybe<Scalars['Int']>;
-  firstName?: Maybe<Scalars['Int']>;
+  createdAt: Scalars['Int'];
+  email: Scalars['Int'];
+  firstName: Scalars['Int'];
   id: Scalars['Int'];
-  lastName?: Maybe<Scalars['Int']>;
-  locationId?: Maybe<Scalars['Int']>;
-  password?: Maybe<Scalars['Int']>;
-  publicId?: Maybe<Scalars['Int']>;
-  role?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['Int']>;
+  lastName: Scalars['Int'];
+  locationId: Scalars['Int'];
+  password: Scalars['Int'];
+  publicId: Scalars['Int'];
+  role: Scalars['Int'];
+  updatedAt: Scalars['Int'];
+};
+
+export type UserCountOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  email?: Maybe<SortOrder>;
+  firstName?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  lastName?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  password?: Maybe<SortOrder>;
+  publicId?: Maybe<SortOrder>;
+  role?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type UserCreateInput = {
@@ -10820,20 +11876,20 @@ export type UserCreateWithoutRoutesSetInput = {
 
 export type UserGroupBy = {
   __typename?: 'UserGroupBy';
-  avg?: Maybe<UserAvgAggregate>;
-  count?: Maybe<UserCountAggregate>;
+  _avg?: Maybe<UserAvgAggregate>;
+  _count?: Maybe<UserCountAggregate>;
+  _max?: Maybe<UserMaxAggregate>;
+  _min?: Maybe<UserMinAggregate>;
+  _sum?: Maybe<UserSumAggregate>;
   createdAt: Scalars['DateTime'];
   email: Scalars['String'];
   firstName: Scalars['String'];
   id: Scalars['Int'];
   lastName: Scalars['String'];
   locationId?: Maybe<Scalars['Int']>;
-  max?: Maybe<UserMaxAggregate>;
-  min?: Maybe<UserMinAggregate>;
   password: Scalars['String'];
   publicId: Scalars['String'];
   role: UserRole;
-  sum?: Maybe<UserSumAggregate>;
   updatedAt: Scalars['DateTime'];
 };
 
@@ -10854,13 +11910,26 @@ export type UserMaxAggregate = {
   createdAt?: Maybe<Scalars['DateTime']>;
   email?: Maybe<Scalars['String']>;
   firstName?: Maybe<Scalars['String']>;
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   lastName?: Maybe<Scalars['String']>;
   locationId?: Maybe<Scalars['Int']>;
   password?: Maybe<Scalars['String']>;
   publicId?: Maybe<Scalars['String']>;
   role?: Maybe<UserRole>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type UserMaxOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  email?: Maybe<SortOrder>;
+  firstName?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  lastName?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  password?: Maybe<SortOrder>;
+  publicId?: Maybe<SortOrder>;
+  role?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
 };
 
 export type UserMinAggregate = {
@@ -10868,7 +11937,7 @@ export type UserMinAggregate = {
   createdAt?: Maybe<Scalars['DateTime']>;
   email?: Maybe<Scalars['String']>;
   firstName?: Maybe<Scalars['String']>;
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   lastName?: Maybe<Scalars['String']>;
   locationId?: Maybe<Scalars['Int']>;
   password?: Maybe<Scalars['String']>;
@@ -10877,7 +11946,38 @@ export type UserMinAggregate = {
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
+export type UserMinOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  email?: Maybe<SortOrder>;
+  firstName?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  lastName?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  password?: Maybe<SortOrder>;
+  publicId?: Maybe<SortOrder>;
+  role?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
 export type UserOrderByInput = {
+  createdAt?: Maybe<SortOrder>;
+  email?: Maybe<SortOrder>;
+  firstName?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  lastName?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
+  password?: Maybe<SortOrder>;
+  publicId?: Maybe<SortOrder>;
+  role?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export type UserOrderByWithAggregationInput = {
+  _avg?: Maybe<UserAvgOrderByAggregateInput>;
+  _count?: Maybe<UserCountOrderByAggregateInput>;
+  _max?: Maybe<UserMaxOrderByAggregateInput>;
+  _min?: Maybe<UserMinOrderByAggregateInput>;
+  _sum?: Maybe<UserSumOrderByAggregateInput>;
   createdAt?: Maybe<SortOrder>;
   email?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
@@ -10949,8 +12049,13 @@ export type UserScalarWhereWithAggregatesInput = {
 
 export type UserSumAggregate = {
   __typename?: 'UserSumAggregate';
-  id: Scalars['Int'];
+  id?: Maybe<Scalars['Int']>;
   locationId?: Maybe<Scalars['Int']>;
+};
+
+export type UserSumOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+  locationId?: Maybe<SortOrder>;
 };
 
 export type UserUpdateInput = {
