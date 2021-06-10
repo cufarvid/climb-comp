@@ -74,3 +74,4 @@ Exports
  */
 export { getLeadResults } from './Lead';
 export { getSpeedResults } from './Speed';
+export { getBoulderRoundResults, getBoulderResults } from './Boulder';

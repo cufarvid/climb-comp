@@ -41,4 +41,6 @@ export {
   addRoundResults,
   getLeadResults,
   getSpeedResults,
+  getBoulderRoundResults,
+  getBoulderResults,
 } from './result';
