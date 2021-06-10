@@ -30,14 +30,23 @@ export const getBoulderRoundResults = (
         round: round,
       },
     },
-    count: {
+    // Count number of tops & zones
+    _count: {
       top: true,
       zone: true,
     },
-    sum: {
+    // Sum total number of attempts for tops & zones
+    _sum: {
       top: true,
       zone: true,
     },
+    // Order by number of tops & zones DESC, top & zone attempts ASC
+    orderBy: [
+      { _count: { top: 'desc' } },
+      { _count: { zone: 'desc' } },
+      { _sum: { top: 'asc' } },
+      { _sum: { zone: 'asc' } },
+    ],
   });
 };
 
@@ -61,8 +70,8 @@ const addBoulderRoundResults = (
     Prisma.ScoreBoulderGroupByOutputType,
     'competitorId'[]
   > & {
-    sum: TopZone;
-    count: TopZone;
+    _sum: TopZone;
+    _count: TopZone;
   })[],
   compRound: CompetitionRound,
 ): void => {
@@ -74,7 +83,7 @@ const addBoulderRoundResults = (
     const result = {
       rank: index + 1,
       name: compRound,
-      score: parseBoulderScore(field.count, field.sum),
+      score: parseBoulderScore(field._count, field._sum),
     };
 
     // Find competitor and append round ranking
@@ -99,6 +108,7 @@ export const getBoulderResults = async (
     options,
     Round.Qualification,
   );
+  console.log(qualification);
 
   const semiFinal = await getBoulderRoundResults(options, Round.SemiFinal);
   const final = await getBoulderRoundResults(options, Round.Final);
@@ -111,7 +121,7 @@ export const getBoulderResults = async (
       {
         rank: index + 1,
         name: 'Qualification',
-        score: parseBoulderScore(field.count, field.sum),
+        score: parseBoulderScore(field._count, field._sum),
       },
     ],
   }));
