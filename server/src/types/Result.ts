@@ -13,6 +13,12 @@ export class ResultInput {
   competitionType?: 'Lead' | 'Boulder' | 'Speed';
 }
 
+@InputType()
+export class LiveResultInput {
+  @Field()
+  competitionId: number;
+}
+
 @ObjectType()
 export class ResultRound {
   @Field()

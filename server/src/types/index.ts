@@ -7,7 +7,12 @@ import RegisterInput from './RegisterInput';
 import FindStartListInput from './Competitor';
 import UserInfo from './User';
 import { ScoreInput, ScoreOutput, ScoreBoulderData } from './Score';
-import { ResultInput, ResultOutput, ResultField } from './Result';
+import {
+  ResultInput,
+  ResultOutput,
+  ResultField,
+  LiveResultInput,
+} from './Result';
 
 export type CompetitionRound = 'Qualification' | 'Semi-Final' | 'Final';
 export type TopZone = { top: number; zone: number };
@@ -47,4 +52,5 @@ export {
   ResultInput,
   ResultOutput,
   ResultField,
+  LiveResultInput,
 };
