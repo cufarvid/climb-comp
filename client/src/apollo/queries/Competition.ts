@@ -5,8 +5,8 @@ import { gql } from '@apollo/client/core';
  * $date - optional param to limit startDate
  */
 export const LIST_COMPETITIONS = gql`
-  query ListCompetitions($date: DateTime) {
-    competitions(where: { startDate: { gte: $date } }) {
+  query ListCompetitions($date: DateTime, $take: Int = 4) {
+    competitions(where: { startDate: { gte: $date } }, take: $take) {
       id
       name
       startDate
