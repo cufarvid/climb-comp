@@ -9,6 +9,8 @@ export const ROUTE = {
   COMPETITIONS_ID: '/competitions/:id',
   CALENDAR:        '/calendar',
   RESULTS:         '/results',
+  RESULTS_ID:      '/results/:id',
+  RESULTS_LIVE:    '/results/live',
   ATHLETES:        '/athletes',
   DASHBOARD:       '/dashboard',
   SCORE:           '/dashboard/score',
