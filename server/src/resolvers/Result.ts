@@ -1,7 +1,7 @@
 import { Arg, Ctx, Query, Resolver } from 'type-graphql';
 import { ApolloError } from 'apollo-server-errors';
 
-import { Context, ResultInput, ResultOutput, LiveResultInput } from '../types';
+import { Context, ResultInput, ResultOutput, LiveResultOutput } from '../types';
 import {
   getBoulderResults,
   getLeadResults,
@@ -99,11 +99,10 @@ export class ResultResolver {
     }
   }
 
-  @Query(() => ResultOutput)
+  @Query(() => LiveResultOutput)
   async getLiveCompResults(
     @Ctx() { prisma, user }: Context,
-    @Arg('data') { competitionId }: LiveResultInput,
-  ): Promise<ResultOutput> {
+  ): Promise<LiveResultOutput> {
     const dateTime = new Date();
 
     const categoryRound = await prisma.categoryRound.findFirst({
@@ -125,7 +124,7 @@ export class ResultResolver {
           gte: dateTime,
         },
       },
-      include: { competition: { include: { compType: true } } },
+      include: { competition: { include: { compType: true } }, category: true },
     });
 
     if (!categoryRound)
@@ -133,12 +132,18 @@ export class ResultResolver {
 
     const context = { prisma, user };
     const data: ResultInput = {
-      competitionId,
+      competitionId: categoryRound.competitionId,
       categoryId: categoryRound.categoryId,
       competitionType: categoryRound.competition.compType
         .name as ResultInput['competitionType'],
     };
 
-    return this.getCompResults(context, data);
+    const results = await this.getCompResults(context, data);
+
+    return {
+      competition: categoryRound.competition,
+      category: categoryRound.category,
+      ...results,
+    };
   }
 }

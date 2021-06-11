@@ -4551,8 +4551,10 @@ input IntWithAggregatesFilter {
   notIn: [Int!]
 }
 
-input LiveResultInput {
-  competitionId: Float!
+type LiveResultOutput {
+  category: Category!
+  competition: Competition!
+  results: [ResultField!]!
 }
 
 type Location {
@@ -5572,7 +5574,7 @@ type Query {
   getCompResults(data: ResultInput!): ResultOutput!
   getCompetitorForScoring(data: FindStartListInput!): Competitor!
   getLeadCompResults(data: ResultInput!): ResultOutput!
-  getLiveCompResults(data: LiveResultInput!): ResultOutput!
+  getLiveCompResults: LiveResultOutput!
   getSpeedCompResults(data: ResultInput!): ResultOutput!
   grade(where: GradeWhereUniqueInput!): Grade
   grades(cursor: GradeWhereUniqueInput, distinct: [GradeScalarFieldEnum!], orderBy: [GradeOrderByInput!], skip: Int, take: Int, where: GradeWhereInput): [Grade!]!

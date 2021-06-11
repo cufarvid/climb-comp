@@ -11,7 +11,7 @@ import {
   ResultInput,
   ResultOutput,
   ResultField,
-  LiveResultInput,
+  LiveResultOutput,
 } from './Result';
 
 export type CompetitionRound = 'Qualification' | 'Semi-Final' | 'Final';
@@ -52,5 +52,5 @@ export {
   ResultInput,
   ResultOutput,
   ResultField,
-  LiveResultInput,
+  LiveResultOutput,
 };
