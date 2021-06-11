@@ -1,0 +1,3 @@
+INSERT INTO public."ScoreSpeed" (id, "createdAt", "updatedAt", time, "competitorId", "routeId", "commentId") VALUES (1, '2021-05-09 17:29:55.186', '2021-05-09 17:29:55.187', 12000, 1, 4, null);
+INSERT INTO public."ScoreSpeed" (id, "createdAt", "updatedAt", time, "competitorId", "routeId", "commentId") VALUES (2, '2021-05-09 17:45:32.410', '2021-05-09 17:45:32.411', 1000, 2, 5, null);
+INSERT INTO public."ScoreSpeed" (id, "createdAt", "updatedAt", time, "competitorId", "routeId", "commentId") VALUES (3, '2021-05-29 15:52:10.322', '2021-05-29 15:52:10.323', 2000, 1, 5, null);

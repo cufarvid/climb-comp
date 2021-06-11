@@ -1,1 +1,10 @@
-INSERT INTO public."Category" (id, name, description, "ageFrom", "ageTo") VALUES (1, 'U20', null, 20, 30);
+INSERT INTO public."Category" (id, name, description, "ageFrom", "ageTo") VALUES (1, 'U10', 'Male', 2010, 2011);
+INSERT INTO public."Category" (id, name, description, "ageFrom", "ageTo") VALUES (2, 'U12', 'Male', 2008, 2009);
+INSERT INTO public."Category" (id, name, description, "ageFrom", "ageTo") VALUES (3, 'U14', 'Male', 2006, 2007);
+INSERT INTO public."Category" (id, name, description, "ageFrom", "ageTo") VALUES (4, 'U16', 'Male', 2004, 2005);
+INSERT INTO public."Category" (id, name, description, "ageFrom", "ageTo") VALUES (5, 'U20', 'Male', 1900, 2003);
+INSERT INTO public."Category" (id, name, description, "ageFrom", "ageTo") VALUES (6, 'U10', 'Female', 2010, 2011);
+INSERT INTO public."Category" (id, name, description, "ageFrom", "ageTo") VALUES (7, 'U12', 'Female', 2008, 2009);
+INSERT INTO public."Category" (id, name, description, "ageFrom", "ageTo") VALUES (8, 'U14', 'Female', 2006, 2007);
+INSERT INTO public."Category" (id, name, description, "ageFrom", "ageTo") VALUES (9, 'U16', 'Female', 2004, 2005);
+INSERT INTO public."Category" (id, name, description, "ageFrom", "ageTo") VALUES (10, 'U20', 'Female', 1900, 2003);

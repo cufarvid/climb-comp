@@ -1,8 +1,9 @@
 import { History } from 'history';
-import { COLOR, REGEXP } from '../constants';
+import { COLOR, FORMAT, REGEXP } from '../constants';
 import { ColorVariant } from '../types';
 import { ApolloClient } from '@apollo/client';
 import { isLoggedInVar, loggedUserId, loggedUserInfo } from '../apollo/cache';
+import dayjs from 'dayjs';
 
 /**
  * Returns color codes for provided color variant
@@ -92,3 +93,23 @@ export const padNumberStart = (
 ): string => {
   return String(number).padStart(maxLength, fillString);
 };
+
+/**
+ * Formats date
+ * @param value Value
+ * @param format Date format
+ */
+export const formatDate = (
+  value: Date | string,
+  format = FORMAT.DATE,
+): string => dayjs(value).format(format);
+
+/**
+ * Formats date & time
+ * @param value Value
+ * @param format Date format
+ */
+export const formatDateTime = (
+  value: Date | string,
+  format = FORMAT.DATE_TIME,
+): string => dayjs(value).format(format);

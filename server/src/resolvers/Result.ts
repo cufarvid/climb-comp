@@ -1,7 +1,7 @@
 import { Arg, Ctx, Query, Resolver } from 'type-graphql';
 import { ApolloError } from 'apollo-server-errors';
 
-import { Context, ResultInput, ResultOutput } from '../types';
+import { Context, ResultInput, ResultOutput, LiveResultOutput } from '../types';
 import {
   getBoulderResults,
   getLeadResults,
@@ -97,5 +97,53 @@ export class ResultResolver {
       default:
         throw new ApolloError('Invalid competition type');
     }
+  }
+
+  @Query(() => LiveResultOutput)
+  async getLiveCompResults(
+    @Ctx() { prisma, user }: Context,
+  ): Promise<LiveResultOutput> {
+    const dateTime = new Date();
+
+    const categoryRound = await prisma.categoryRound.findFirst({
+      where: {
+        // Sort by competition start & end time
+        competition: {
+          startDate: {
+            lte: dateTime,
+          },
+          endDate: {
+            gte: dateTime,
+          },
+        },
+        // Sort by round start & end time
+        startDate: {
+          lte: dateTime,
+        },
+        endDate: {
+          gte: dateTime,
+        },
+      },
+      include: { competition: { include: { compType: true } }, category: true },
+    });
+
+    if (!categoryRound)
+      throw new ApolloError('No competitions/rounds currently live');
+
+    const context = { prisma, user };
+    const data: ResultInput = {
+      competitionId: categoryRound.competitionId,
+      categoryId: categoryRound.categoryId,
+      competitionType: categoryRound.competition.compType
+        .name as ResultInput['competitionType'],
+    };
+
+    const results = await this.getCompResults(context, data);
+
+    return {
+      competition: categoryRound.competition,
+      category: categoryRound.category,
+      ...results,
+    };
   }
 }
