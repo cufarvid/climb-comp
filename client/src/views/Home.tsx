@@ -5,10 +5,11 @@ import { Carousel, Empty } from 'antd';
 import styled from '@emotion/styled';
 import dayjs from 'dayjs';
 
-import { PageSection, CompetitionCard } from '../components';
 import { Query } from '../types/__generated__';
 import { LIST_COMPETITIONS } from '../apollo/queries';
 import { ROUTE } from '../constants';
+import { PageSection, CompetitionCard } from '../components';
+import { ResultsCompLive } from './index';
 
 const Home: FC = () => {
   const { data } = useQuery<Query>(LIST_COMPETITIONS, {
@@ -22,6 +23,8 @@ const Home: FC = () => {
         <CarouselPage>Page 2</CarouselPage>
         <CarouselPage>Page 3</CarouselPage>
       </Carousel>
+
+      {/* Upcoming competitions */}
       <PageSection
         title="Upcoming competitions"
         extra={<Link to={ROUTE.COMPETITIONS}>Show all</Link>}
@@ -34,6 +37,8 @@ const Home: FC = () => {
           <Empty />
         )}
       </PageSection>
+
+      {/* News */}
       <PageSection title="Latest news" variant={'dark'}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consectetur
         cum deserunt dignissimos distinctio dolorum eligendi esse nostrum odit,
@@ -43,15 +48,9 @@ const Home: FC = () => {
         magnam molestiae?
         <a href="#">More...</a>
       </PageSection>
-      <PageSection title="Latest results">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consectetur
-        cum deserunt dignissimos distinctio dolorum eligendi esse nostrum odit,
-        officia quibusdam quos repellat saepe sit soluta tempora totam ullam ut
-        voluptate voluptatum. Ad adipisci cum dolore incidunt ipsam nulla
-        perferendis sit tempore vero voluptas. Dolore eum excepturi facilis
-        magnam molestiae?
-        <Link to={ROUTE.RESULTS}>More...</Link>
-      </PageSection>
+
+      {/* Live Results - only visible if there is a competition in progress*/}
+      <ResultsCompLive />
     </>
   );
 };

@@ -26,3 +26,43 @@ export const COMP_RESULTS = gql`
     }
   }
 `;
+
+export const LIVE_COMP_RESULTS = gql`
+  query {
+    getLiveCompResults {
+      competition {
+        id
+        name
+        compType {
+          name
+        }
+      }
+      category {
+        name
+        description
+        ageFrom
+        ageTo
+      }
+      results {
+        rank
+        competitor {
+          lastName
+          firstName
+          location {
+            country {
+              name
+            }
+          }
+          club {
+            name
+          }
+        }
+        rounds {
+          name
+          rank
+          score
+        }
+      }
+    }
+  }
+`;
