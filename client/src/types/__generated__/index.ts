@@ -10782,7 +10782,7 @@ export type Season = {
   name: Scalars['String'];
   stardDate: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
-  year?: Maybe<Scalars['Int']>;
+  year: Scalars['Int'];
 };
 
 export type SeasonCompetitionsArgs = {
@@ -10837,7 +10837,7 @@ export type SeasonCreateInput = {
   name: Scalars['String'];
   stardDate: Scalars['DateTime'];
   updatedAt?: Maybe<Scalars['DateTime']>;
-  year?: Maybe<Scalars['Int']>;
+  year: Scalars['Int'];
 };
 
 export type SeasonCreateManyInput = {
@@ -10848,7 +10848,7 @@ export type SeasonCreateManyInput = {
   name: Scalars['String'];
   stardDate: Scalars['DateTime'];
   updatedAt?: Maybe<Scalars['DateTime']>;
-  year?: Maybe<Scalars['Int']>;
+  year: Scalars['Int'];
 };
 
 export type SeasonCreateNestedOneWithoutCompetitionsInput = {
@@ -10869,7 +10869,7 @@ export type SeasonCreateWithoutCompetitionsInput = {
   name: Scalars['String'];
   stardDate: Scalars['DateTime'];
   updatedAt?: Maybe<Scalars['DateTime']>;
-  year?: Maybe<Scalars['Int']>;
+  year: Scalars['Int'];
 };
 
 export type SeasonGroupBy = {
@@ -10886,7 +10886,7 @@ export type SeasonGroupBy = {
   name: Scalars['String'];
   stardDate: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
-  year?: Maybe<Scalars['Int']>;
+  year: Scalars['Int'];
 };
 
 export type SeasonMaxAggregate = {
@@ -10989,7 +10989,7 @@ export type SeasonScalarWhereWithAggregatesInput = {
   name?: Maybe<StringWithAggregatesFilter>;
   stardDate?: Maybe<DateTimeWithAggregatesFilter>;
   updatedAt?: Maybe<DateTimeWithAggregatesFilter>;
-  year?: Maybe<IntNullableWithAggregatesFilter>;
+  year?: Maybe<IntWithAggregatesFilter>;
 };
 
 export type SeasonSumAggregate = {
@@ -11011,7 +11011,7 @@ export type SeasonUpdateInput = {
   name?: Maybe<StringFieldUpdateOperationsInput>;
   stardDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  year?: Maybe<NullableIntFieldUpdateOperationsInput>;
+  year?: Maybe<IntFieldUpdateOperationsInput>;
 };
 
 export type SeasonUpdateManyMutationInput = {
@@ -11021,7 +11021,7 @@ export type SeasonUpdateManyMutationInput = {
   name?: Maybe<StringFieldUpdateOperationsInput>;
   stardDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  year?: Maybe<NullableIntFieldUpdateOperationsInput>;
+  year?: Maybe<IntFieldUpdateOperationsInput>;
 };
 
 export type SeasonUpdateOneRequiredWithoutCompetitionsInput = {
@@ -11039,7 +11039,7 @@ export type SeasonUpdateWithoutCompetitionsInput = {
   name?: Maybe<StringFieldUpdateOperationsInput>;
   stardDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  year?: Maybe<NullableIntFieldUpdateOperationsInput>;
+  year?: Maybe<IntFieldUpdateOperationsInput>;
 };
 
 export type SeasonUpsertWithoutCompetitionsInput = {
@@ -11059,7 +11059,7 @@ export type SeasonWhereInput = {
   name?: Maybe<StringFilter>;
   stardDate?: Maybe<DateTimeFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
-  year?: Maybe<IntNullableFilter>;
+  year?: Maybe<IntFilter>;
 };
 
 export type SeasonWhereUniqueInput = {

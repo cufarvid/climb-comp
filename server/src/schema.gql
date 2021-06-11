@@ -8905,7 +8905,7 @@ type Season {
   name: String!
   stardDate: DateTime!
   updatedAt: DateTime!
-  year: Int
+  year: Int!
 }
 
 type SeasonAvgAggregate {
@@ -8949,7 +8949,7 @@ input SeasonCreateInput {
   name: String!
   stardDate: DateTime!
   updatedAt: DateTime
-  year: Int
+  year: Int!
 }
 
 input SeasonCreateManyInput {
@@ -8960,7 +8960,7 @@ input SeasonCreateManyInput {
   name: String!
   stardDate: DateTime!
   updatedAt: DateTime
-  year: Int
+  year: Int!
 }
 
 input SeasonCreateNestedOneWithoutCompetitionsInput {
@@ -8981,7 +8981,7 @@ input SeasonCreateWithoutCompetitionsInput {
   name: String!
   stardDate: DateTime!
   updatedAt: DateTime
-  year: Int
+  year: Int!
 }
 
 type SeasonGroupBy {
@@ -8997,7 +8997,7 @@ type SeasonGroupBy {
   name: String!
   stardDate: DateTime!
   updatedAt: DateTime!
-  year: Int
+  year: Int!
 }
 
 type SeasonMaxAggregate {
@@ -9098,7 +9098,7 @@ input SeasonScalarWhereWithAggregatesInput {
   name: StringWithAggregatesFilter
   stardDate: DateTimeWithAggregatesFilter
   updatedAt: DateTimeWithAggregatesFilter
-  year: IntNullableWithAggregatesFilter
+  year: IntWithAggregatesFilter
 }
 
 type SeasonSumAggregate {
@@ -9119,7 +9119,7 @@ input SeasonUpdateInput {
   name: StringFieldUpdateOperationsInput
   stardDate: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  year: NullableIntFieldUpdateOperationsInput
+  year: IntFieldUpdateOperationsInput
 }
 
 input SeasonUpdateManyMutationInput {
@@ -9129,7 +9129,7 @@ input SeasonUpdateManyMutationInput {
   name: StringFieldUpdateOperationsInput
   stardDate: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  year: NullableIntFieldUpdateOperationsInput
+  year: IntFieldUpdateOperationsInput
 }
 
 input SeasonUpdateOneRequiredWithoutCompetitionsInput {
@@ -9147,7 +9147,7 @@ input SeasonUpdateWithoutCompetitionsInput {
   name: StringFieldUpdateOperationsInput
   stardDate: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  year: NullableIntFieldUpdateOperationsInput
+  year: IntFieldUpdateOperationsInput
 }
 
 input SeasonUpsertWithoutCompetitionsInput {
@@ -9167,7 +9167,7 @@ input SeasonWhereInput {
   name: StringFilter
   stardDate: DateTimeFilter
   updatedAt: DateTimeFilter
-  year: IntNullableFilter
+  year: IntFilter
 }
 
 input SeasonWhereUniqueInput {
