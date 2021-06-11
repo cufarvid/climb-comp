@@ -28,11 +28,7 @@ const Home: FC = () => {
       >
         {data?.competitions ? (
           data.competitions.map((comp, index) => (
-            <CompetitionCard
-              key={index}
-              competition={comp}
-              extra={{ path: `competitions/${comp.id}` }}
-            />
+            <CompetitionCard key={index} competition={comp} />
           ))
         ) : (
           <Empty />

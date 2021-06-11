@@ -5,17 +5,18 @@ import styled from '@emotion/styled';
 
 import { Competition } from '../types/__generated__';
 import { formatDateTime } from '../utils';
+import { ROUTE } from '../constants';
 
 interface CompetitionCardProps {
   competition: Competition;
-  extra?: { text?: string; path: string };
+  showExtra?: boolean;
 }
 
 const CompetitionCard: FC<CompetitionCardProps> = ({
   competition,
-  extra,
+  showExtra = true,
 }: CompetitionCardProps) => {
-  const { name, description, startDate, compType, address } = competition;
+  const { id, name, description, startDate, compType, address } = competition;
 
   const cardTitle: ReactNode = (
     <span>
@@ -23,8 +24,8 @@ const CompetitionCard: FC<CompetitionCardProps> = ({
     </span>
   );
 
-  const hyperExtra: ReactNode = extra ? (
-    <Link to={extra.path}>{extra.text || 'More'}</Link>
+  const hyperExtra: ReactNode = showExtra ? (
+    <Link to={`${ROUTE.COMPETITIONS}/${id}`}>More</Link>
   ) : null;
 
   return (
