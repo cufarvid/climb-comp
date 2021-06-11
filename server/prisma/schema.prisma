@@ -7,7 +7,7 @@ datasource db {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["orderByAggregateGroup"]
 }
 
@@ -53,13 +53,14 @@ model Grade {
 }
 
 model Category {
-  id          Int          @id @default(autoincrement())
-  name        String
-  description String?
-  ageFrom     Int
-  ageTo       Int
-  competitors Competitor[]
-  routes      Route[]
+  id            Int             @id @default(autoincrement())
+  name          String
+  description   String?
+  ageFrom       Int
+  ageTo         Int
+  competitors   Competitor[]
+  routes        Route[]
+  CategoryRound CategoryRound[]
 }
 
 model CompetitionType {
@@ -176,27 +177,28 @@ model Competitor {
 }
 
 model Competition {
-  id            Int             @id @default(autoincrement())
-  createdAt     DateTime        @default(now())
-  updatedAt     DateTime        @updatedAt
-  active        Boolean         @default(false)
-  name          String
-  description   String
-  startDate     DateTime
-  endDate       DateTime
-  address       String
-  location      Location        @relation(fields: [locationId], references: [id])
-  locationId    Int
-  club          Club            @relation(fields: [clubId], references: [id])
-  clubId        Int
-  compType      CompetitionType @relation(fields: [compTypeId], references: [id])
-  compTypeId    Int
-  season        Season          @relation(fields: [seasonId], references: [id])
-  seasonId      Int
-  startLists    StartList[]
-  results       Result[]
-  registrations Registration[]
-  routes        Route[]
+  id             Int             @id @default(autoincrement())
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  active         Boolean         @default(false)
+  name           String
+  description    String
+  startDate      DateTime
+  endDate        DateTime
+  address        String
+  location       Location        @relation(fields: [locationId], references: [id])
+  locationId     Int
+  club           Club            @relation(fields: [clubId], references: [id])
+  clubId         Int
+  compType       CompetitionType @relation(fields: [compTypeId], references: [id])
+  compTypeId     Int
+  season         Season          @relation(fields: [seasonId], references: [id])
+  seasonId       Int
+  startLists     StartList[]
+  results        Result[]
+  registrations  Registration[]
+  routes         Route[]
+  categoryRounds CategoryRound[]
 }
 
 model Route {
@@ -305,4 +307,17 @@ model Registration {
   registrantId  Int
   acceptor      User        @relation(name: "acceptor", fields: [acceptorId], references: [id])
   acceptorId    Int
+}
+
+model CategoryRound {
+  id            Int         @id @default(autoincrement())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  round         Round
+  startDate     DateTime
+  endDate       DateTime
+  competition   Competition @relation(fields: [competitionId], references: [id])
+  competitionId Int
+  category      Category    @relation(fields: [categoryId], references: [id])
+  categoryId    Int
 }
