@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Empty, Table } from 'antd';
 
 import { RESULT_COLUMNS } from '../../constants';
@@ -7,6 +7,8 @@ import { Category, ResultField } from '../../types/__generated__';
 import { PageSection } from '../index';
 
 interface Props {
+  title?: ReactNode;
+  pageSize?: number;
   category: Category | undefined;
   results: ResultField[];
   loading: boolean;
@@ -26,22 +28,29 @@ const resultsMapper = (field: ResultField): ResultRecord => {
   };
 };
 
-const LiveResult: FC<Props> = ({ category, results, loading }: Props) => {
+const LiveResult: FC<Props> = ({
+  title,
+  pageSize = 10,
+  category,
+  results,
+  loading,
+}: Props) => {
   const resultsParser = (results: ResultField[]): ResultRecord[] =>
     results.map(resultsMapper);
 
   if (!(category && results.length)) return <Empty />;
 
-  const title = `${category.name} - (${category.description}, ${category.ageFrom} - ${category.ageTo})`;
+  const categoryTitle = `${category.name} - (${category.description}, ${category.ageFrom} - ${category.ageTo})`;
 
   return (
-    <PageSection title={title}>
+    <PageSection title={title} subTitle={categoryTitle}>
       <Table
         columns={RESULT_COLUMNS}
         dataSource={resultsParser(results)}
         rowKey="rank"
         className="w-100"
         loading={loading}
+        pagination={{ pageSize }}
       />
     </PageSection>
   );

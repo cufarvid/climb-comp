@@ -7,7 +7,8 @@ import { ColorVariant } from '../types';
 import { colorFromVariant } from '../utils';
 
 interface PageSectionProps {
-  title?: string;
+  title?: ReactNode;
+  subTitle?: string;
   children: ReactNode | React.ReactChildren | React.ReactChildren[];
   extra?: ReactNode | React.ReactChildren;
   align?: RowProps['align'];
@@ -17,6 +18,7 @@ interface PageSectionProps {
 
 const PageSection: FC<PageSectionProps> = ({
   title,
+  subTitle,
   children,
   extra,
   align = 'middle',
@@ -40,6 +42,11 @@ const PageSection: FC<PageSectionProps> = ({
       {title && (
         <Row align={align} justify={justify}>
           <h1>{title}</h1>
+        </Row>
+      )}
+      {subTitle && (
+        <Row align={align} justify={justify}>
+          <h1>{subTitle}</h1>
         </Row>
       )}
       <Row align={align} justify={justify}>

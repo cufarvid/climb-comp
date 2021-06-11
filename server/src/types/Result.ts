@@ -1,5 +1,9 @@
 import { Field, InputType, ObjectType } from 'type-graphql';
-import { Competitor } from '@generated/type-graphql/models';
+import {
+  Competition,
+  Competitor,
+  Category,
+} from '@generated/type-graphql/models';
 
 @InputType()
 export class ResultInput {
@@ -41,4 +45,16 @@ export class ResultField {
 export class ResultOutput {
   @Field(() => [ResultField])
   results: ResultField[];
+}
+
+/*
+Live results
+ */
+@ObjectType()
+export class LiveResultOutput extends ResultOutput {
+  @Field()
+  competition: Competition;
+
+  @Field()
+  category: Category;
 }

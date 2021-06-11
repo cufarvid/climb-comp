@@ -1,0 +1,11 @@
+INSERT INTO public."ScoreLead" (id, "createdAt", "updatedAt", height, time, "competitorId", "routeId", "commentId") VALUES (1, '2021-05-02 16:39:16.764', '2021-05-09 17:30:31.137', '25+', 12000, 1, 4, null);
+INSERT INTO public."ScoreLead" (id, "createdAt", "updatedAt", height, time, "competitorId", "routeId", "commentId") VALUES (2, '2021-05-02 19:15:42.895', '2021-05-29 15:52:02.243', '20', 60000, 2, 4, null);
+INSERT INTO public."ScoreLead" (id, "createdAt", "updatedAt", height, time, "competitorId", "routeId", "commentId") VALUES (3, '2021-06-07 16:59:36.840', '2021-06-07 16:59:36.841', '30', 150000, 1, 6, null);
+INSERT INTO public."ScoreLead" (id, "createdAt", "updatedAt", height, time, "competitorId", "routeId", "commentId") VALUES (4, '2021-06-07 17:01:17.519', '2021-06-07 17:01:17.519', '30', 149000, 2, 6, null);
+INSERT INTO public."ScoreLead" (id, "createdAt", "updatedAt", height, time, "competitorId", "routeId", "commentId") VALUES (5, '2021-06-07 17:02:59.169', '2021-06-07 17:03:33.832', '20', 120000, 3, 6, null);
+INSERT INTO public."ScoreLead" (id, "createdAt", "updatedAt", height, time, "competitorId", "routeId", "commentId") VALUES (6, '2021-06-07 18:01:27.085', '2021-06-07 18:01:27.086', '33', 180000, 1, 7, null);
+INSERT INTO public."ScoreLead" (id, "createdAt", "updatedAt", height, time, "competitorId", "routeId", "commentId") VALUES (7, '2021-06-07 18:24:36.683', '2021-06-07 18:24:36.684', '35', 180000, 3, 7, null);
+INSERT INTO public."ScoreLead" (id, "createdAt", "updatedAt", height, time, "competitorId", "routeId", "commentId") VALUES (8, '2021-06-07 18:25:38.091', '2021-06-07 18:25:38.092', '37', 60000, 2, 7, null);
+INSERT INTO public."ScoreLead" (id, "createdAt", "updatedAt", height, time, "competitorId", "routeId", "commentId") VALUES (9, '2021-06-07 18:36:00.392', '2021-06-07 18:36:00.393', '40', 120000, 1, 8, null);
+INSERT INTO public."ScoreLead" (id, "createdAt", "updatedAt", height, time, "competitorId", "routeId", "commentId") VALUES (10, '2021-06-07 19:25:54.518', '2021-06-07 19:25:54.519', '35', 180000, 2, 8, null);
+INSERT INTO public."ScoreLead" (id, "createdAt", "updatedAt", height, time, "competitorId", "routeId", "commentId") VALUES (11, '2021-06-07 19:31:49.956', '2021-06-07 19:31:49.957', '50', 60000, 3, 8, null);
