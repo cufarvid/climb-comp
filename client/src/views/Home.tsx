@@ -1,12 +1,20 @@
 import React, { FC } from 'react';
-import { Carousel } from 'antd';
+import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { Carousel, Empty } from 'antd';
 import styled from '@emotion/styled';
+import dayjs from 'dayjs';
 
 import { PageSection, CompetitionCard } from '../components';
-
-import { LIST_COMPETITIONS } from '../constants';
+import { Query } from '../types/__generated__';
+import { LIST_COMPETITIONS } from '../apollo/queries';
+import { ROUTE } from '../constants';
 
 const Home: FC = () => {
+  const { data } = useQuery<Query>(LIST_COMPETITIONS, {
+    variables: { date: dayjs(new Date()).format() },
+  });
+
   return (
     <>
       <Carousel draggable>
@@ -16,22 +24,19 @@ const Home: FC = () => {
       </Carousel>
       <PageSection
         title="Upcoming competitions"
-        extra={
-          <a href="competitions">
-            <b>Show all</b>
-          </a>
-        }
+        extra={<Link to={ROUTE.COMPETITIONS}>Show all</Link>}
       >
-        {LIST_COMPETITIONS.map((comp, index) => (
-          <CompetitionCard
-            key={index}
-            title={comp.title}
-            compType={comp.compType}
-            startDate={comp.startDate}
-            location={comp.location}
-            extra={{ path: `competitions/${index}` }}
-          />
-        ))}
+        {data?.competitions ? (
+          data.competitions.map((comp, index) => (
+            <CompetitionCard
+              key={index}
+              competition={comp}
+              extra={{ path: `competitions/${comp.id}` }}
+            />
+          ))
+        ) : (
+          <Empty />
+        )}
       </PageSection>
       <PageSection title="Latest news" variant={'dark'}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consectetur
@@ -49,7 +54,7 @@ const Home: FC = () => {
         voluptate voluptatum. Ad adipisci cum dolore incidunt ipsam nulla
         perferendis sit tempore vero voluptas. Dolore eum excepturi facilis
         magnam molestiae?
-        <a href="results">More...</a>
+        <Link to={ROUTE.RESULTS}>More...</Link>
       </PageSection>
     </>
   );

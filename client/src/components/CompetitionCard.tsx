@@ -1,40 +1,38 @@
 import React, { FC, ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Col } from 'antd';
 import styled from '@emotion/styled';
 
+import { Competition } from '../types/__generated__';
+import { formatDateTime } from '../utils';
+
 interface CompetitionCardProps {
-  title: string;
-  compType: string;
-  startDate: Date;
-  location: string;
-  description?: string;
+  competition: Competition;
   extra?: { text?: string; path: string };
 }
 
 const CompetitionCard: FC<CompetitionCardProps> = ({
-  title,
-  compType,
-  startDate,
-  location,
-  description,
+  competition,
   extra,
 }: CompetitionCardProps) => {
+  const { name, description, startDate, compType, address } = competition;
+
   const cardTitle: ReactNode = (
     <span>
-      <b>{title}</b> - {compType}
+      <b>{name}</b> - {compType.name}
     </span>
   );
 
   const hyperExtra: ReactNode = extra ? (
-    <a href={extra.path}>{extra.text || 'More'}</a>
+    <Link to={extra.path}>{extra.text || 'More'}</Link>
   ) : null;
 
   return (
     <Col>
       <StyledCard title={cardTitle} extra={hyperExtra}>
         {description && <p>{description}</p>}
-        <p>{startDate.toLocaleString()}</p>
-        <p>{location}</p>
+        <p>{formatDateTime(startDate)}</p>
+        <p>{address}</p>
       </StyledCard>
     </Col>
   );
