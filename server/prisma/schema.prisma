@@ -112,7 +112,7 @@ model Season {
   updatedAt    DateTime      @updatedAt
   name         String
   description  String?
-  year         Int?
+  year         Int
   stardDate    DateTime
   endDate      DateTime
   competitions Competition[]
