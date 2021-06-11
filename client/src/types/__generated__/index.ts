@@ -4866,6 +4866,13 @@ export type IntWithAggregatesFilter = {
   notIn?: Maybe<Array<Scalars['Int']>>;
 };
 
+export type LiveResultOutput = {
+  __typename?: 'LiveResultOutput';
+  category: Category;
+  competition: Competition;
+  results: Array<ResultField>;
+};
+
 export type Location = {
   __typename?: 'Location';
   clubs: Array<Club>;
@@ -6609,6 +6616,7 @@ export type Query = {
   getCompResults: ResultOutput;
   getCompetitorForScoring: Competitor;
   getLeadCompResults: ResultOutput;
+  getLiveCompResults: LiveResultOutput;
   getSpeedCompResults: ResultOutput;
   grade?: Maybe<Grade>;
   grades: Array<Grade>;
