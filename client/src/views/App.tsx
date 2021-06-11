@@ -21,8 +21,26 @@ const App: FC = () => {
   const showDrawer = (): void => setDrawerVisible(true);
   const isDashboard: boolean = location.pathname.includes(ROUTE.DASHBOARD);
 
+  /**
+   * Updates current tab on location/route change
+   */
+  const handleLocationChange = (): void => {
+    const { pathname } = location;
+
+    // Get index of last / occurence
+    const lastIndex = pathname.lastIndexOf('/');
+
+    // If last occurrence is at index 0, then we are at the first level
+    // Else we substring the pathname to get the first part only
+    const current =
+      lastIndex === 0 ? pathname : pathname.substring(0, lastIndex);
+
+    // Set current tab
+    setCurrentTab(current);
+  };
+
   useEffect(() => {
-    setCurrentTab(location.pathname);
+    handleLocationChange();
   }, [location]);
 
   return (
