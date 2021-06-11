@@ -20,3 +20,34 @@ export const LIST_COMPETITIONS = gql`
     }
   }
 `;
+
+/**
+ * List competition
+ * $id - competition ID
+ */
+export const COMPETITION = gql`
+  query Competition($id: Int) {
+    competition(where: { id: $id }) {
+      id
+      name
+      startDate
+      endDate
+      address
+      compType {
+        name
+      }
+      location {
+        name
+        country {
+          name
+        }
+        region {
+          name
+        }
+      }
+      results {
+        id
+      }
+    }
+  }
+`;

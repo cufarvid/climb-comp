@@ -6,6 +6,7 @@ import Dashboard from './Dashboard';
 import Score from './dashboard/Score';
 import ScoreBoulder from './dashboard/ScoreBoulder';
 import Routes from './dashboard/Routes';
+import CompetitionDetail from './competitions/CompetitionDetail';
 
 export {
   Home,
@@ -16,4 +17,5 @@ export {
   Score,
   ScoreBoulder,
   Routes,
+  CompetitionDetail,
 };
