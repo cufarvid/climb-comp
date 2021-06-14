@@ -16,4 +16,5 @@ export const ROUTE = {
   SCORE:           '/dashboard/score',
   SCORE_ID:        '/dashboard/score/:id',
   ROUTES:          '/dashboard/routes',
+  UNAUTHORIZED:    '/unauthorized',
 };
