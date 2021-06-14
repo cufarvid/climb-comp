@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { Layout } from 'antd';
 import styled from '@emotion/styled';
 
-import { AuthGuard, BreadCrumbs, Sidebar } from '../components';
+import { BreadCrumbs, Sidebar } from '../components';
 import { COLOR, HEADER_HEIGHT } from '../constants';
 import { DashboardRoutes } from '../routes';
 
@@ -12,7 +12,6 @@ const Dashboard: FC = () => {
 
   return (
     <Layout>
-      <AuthGuard />
       <Sidebar />
       <StyledLayout>
         <Content>

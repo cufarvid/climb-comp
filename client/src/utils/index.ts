@@ -28,6 +28,14 @@ export const urlPathToArray = (path: string): string[] => {
 };
 
 /**
+ * Removes user data from local storage
+ */
+export const cleanLocalStorage = (): void => {
+  localStorage.removeItem('token');
+  localStorage.removeItem('publicId');
+};
+
+/**
  * Performs user logout and Apollo client cleanup
  * @param client
  * @param history
@@ -35,7 +43,7 @@ export const urlPathToArray = (path: string): string[] => {
  */
 export const userLogout = (
   client: ApolloClient<unknown>,
-  history: History,
+  history?: History,
   callback?: () => void,
 ): void => {
   // Since we're logging out, remove all traces of the current user from the cache.
@@ -43,8 +51,7 @@ export const userLogout = (
   client.cache.gc();
 
   // Remove user details from localStorage.
-  localStorage.removeItem('token');
-  localStorage.removeItem('publicId');
+  cleanLocalStorage();
 
   // Let other parts of the application that are relying on logged in
   // state know we're now logged out.
@@ -53,7 +60,7 @@ export const userLogout = (
   loggedUserInfo(null);
 
   // Redirect back to home page
-  history.push('/');
+  history?.push('/');
 
   // Execute callback
   callback?.();
@@ -113,3 +120,9 @@ export const formatDateTime = (
   value: Date | string,
   format = FORMAT.DATE_TIME,
 ): string => dayjs(value).format(format);
+
+/**
+ * Return jwt token stored in local storage
+ */
+export const localStorageToken = (): string =>
+  localStorage.getItem('token') ?? '';

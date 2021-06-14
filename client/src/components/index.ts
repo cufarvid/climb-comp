@@ -6,9 +6,10 @@ import UserInfo from './user/UserInfo';
 import UserDescription from './user/UserDescription';
 import Sidebar from './Sidebar';
 import BreadCrumbs from './BreadCrumbs';
-import AuthGuard from './AuthGuard';
+import AuthGuard from './auth/AuthGuard';
 import DescriptionItem from './DescriptionItem';
 import LiveResult from './result/LiveResult';
+import Unauthorized from './auth/Unauthorized';
 
 export {
   PageSection,
@@ -22,4 +23,5 @@ export {
   AuthGuard,
   DescriptionItem,
   LiveResult,
+  Unauthorized,
 };

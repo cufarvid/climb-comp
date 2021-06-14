@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom';
 import { useApolloClient, useLazyQuery, useReactiveVar } from '@apollo/client';
 import { message, Spin } from 'antd';
 
-import { userLogout } from '../utils';
-import { loggedUserInfo } from '../apollo/cache';
-import { USER_INFO } from '../apollo/queries';
+import { userLogout } from '../../utils';
+import { loggedUserInfo } from '../../apollo/cache';
+import { USER_INFO } from '../../apollo/queries';
 
 const AuthGuard: FC = () => {
   const client = useApolloClient();

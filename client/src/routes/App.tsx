@@ -11,6 +11,8 @@ import {
   ResultsCompFinal,
   ResultsCompLive,
 } from '../views';
+import { ProtectedRoute } from './index';
+import { Unauthorized } from '../components';
 
 const AppRoutes: FC = () => {
   return (
@@ -23,7 +25,9 @@ const AppRoutes: FC = () => {
         <Route path={ROUTE.RESULTS_LIVE} component={ResultsCompLive} />
         <Route path={ROUTE.RESULTS_ID} component={ResultsCompFinal} />
       </Switch>
-      <Route path={ROUTE.DASHBOARD} component={Dashboard} />
+      <ProtectedRoute path={ROUTE.DASHBOARD} component={Dashboard} />
+
+      <Route path={ROUTE.UNAUTHORIZED} component={Unauthorized} />
     </>
   );
 };
