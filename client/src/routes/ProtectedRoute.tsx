@@ -26,8 +26,6 @@ const ProtectedRoute: FC<ProtectedRouteProps> = ({
     return true;
   };
 
-  console.log(isAuthenticated());
-
   return isAuthenticated() ? (
     <Route {...routeProps} />
   ) : (

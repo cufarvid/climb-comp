@@ -108,7 +108,6 @@ export const getBoulderResults = async (
     options,
     Round.Qualification,
   );
-  console.log(qualification);
 
   const semiFinal = await getBoulderRoundResults(options, Round.SemiFinal);
   const final = await getBoulderRoundResults(options, Round.Final);
