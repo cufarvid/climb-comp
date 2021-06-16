@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useContext, useEffect, useState } from 'react';
 import { Button, Card, Divider, Form, InputNumber, message } from 'antd';
 import { generatePath, Route, useHistory } from 'react-router-dom';
 import { gql } from '@apollo/client/core';
@@ -13,7 +13,7 @@ import {
 } from '../../types/__generated__';
 import ScoreLead from './ScoreLead';
 import ScoreSpeed from './ScoreSpeed';
-import { useCurrentUser } from '../../hooks';
+import { DashboardContext } from '../../context';
 
 const COMPETITOR_SCORING = gql`
   query GetCompetitorForScoring($data: FindStartListInput!) {
@@ -42,7 +42,8 @@ const Score: FC = () => {
     onError: (error) => message.error(error.message),
   });
 
-  const { userInfo } = useCurrentUser();
+  // Get user info from context
+  const { userInfo } = useContext(DashboardContext);
   const history = useHistory();
 
   const onFinish = ({ startNumber }: { startNumber: number | undefined }) => {

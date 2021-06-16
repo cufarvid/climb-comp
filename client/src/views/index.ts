@@ -9,6 +9,9 @@ import Routes from './dashboard/Routes';
 import CompetitionDetail from './competitions/CompetitionDetail';
 import ResultsCompLive from './results/ResultsCompLive';
 import ResultsCompFinal from './results/ResultsCompFinal';
+import Users from './dashboard/Users';
+import Seasons from './dashboard/Seasons';
+import EditCompetitions from './dashboard/EditCompetitions';
 
 export {
   Home,
@@ -22,4 +25,7 @@ export {
   CompetitionDetail,
   ResultsCompLive,
   ResultsCompFinal,
+  EditCompetitions,
+  Users,
+  Seasons,
 };

@@ -3,25 +3,30 @@ import { useLocation } from 'react-router-dom';
 import { Layout } from 'antd';
 import styled from '@emotion/styled';
 
+import { DashboardContext } from '../context';
 import { BreadCrumbs, Sidebar } from '../components';
 import { COLOR, HEADER_HEIGHT } from '../constants';
 import { DashboardRoutes } from '../routes';
+import { useCurrentUser } from '../hooks';
 
 const Dashboard: FC = () => {
+  const { userInfo } = useCurrentUser();
   const location = useLocation();
 
   return (
-    <Layout>
-      <Sidebar />
-      <StyledLayout>
-        <Content>
-          <BreadCrumbs pathName={location.pathname} />
-          <Container>
-            <DashboardRoutes />
-          </Container>
-        </Content>
-      </StyledLayout>
-    </Layout>
+    <DashboardContext.Provider value={{ userInfo }}>
+      <Layout>
+        <Sidebar />
+        <StyledLayout>
+          <Content>
+            <BreadCrumbs pathName={location.pathname} />
+            <Container>
+              <DashboardRoutes />
+            </Container>
+          </Content>
+        </StyledLayout>
+      </Layout>
+    </DashboardContext.Provider>
   );
 };
 

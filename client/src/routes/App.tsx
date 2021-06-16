@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import { ROUTE } from '../constants';
 import {
   CompetitionDetail,
-  Competitions,
+  EditCompetitions,
   Dashboard,
   Home,
   Results,
@@ -18,7 +18,7 @@ const AppRoutes: FC = () => {
   return (
     <>
       <Route exact path={ROUTE.HOME} component={Home} />
-      <Route exact path={ROUTE.COMPETITIONS} component={Competitions} />
+      <Route exact path={ROUTE.COMPETITIONS} component={EditCompetitions} />
       <Route path={ROUTE.COMPETITIONS_ID} component={CompetitionDetail} />
       <Switch>
         <Route exact path={ROUTE.RESULTS} component={Results} />
