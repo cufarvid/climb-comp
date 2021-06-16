@@ -126,3 +126,8 @@ export const formatDateTime = (
  */
 export const localStorageToken = (): string =>
   localStorage.getItem('token') ?? '';
+
+/**
+ * Exports
+ */
+export * from './User';
