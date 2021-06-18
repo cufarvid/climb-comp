@@ -129,6 +129,8 @@ model User {
   firstName     String
   lastName      String
   role          UserRole       @default(USER)
+  club          Club?          @relation(fields: [clubId], references: [id])
+  clubId        Int?
   location      Location?      @relation(fields: [locationId], references: [id])
   locationId    Int?
   results       Result[]
@@ -150,6 +152,7 @@ model Club {
   locationId   Int
   competitors  Competitor[]
   competitions Competition[]
+  users        User[]
 }
 
 model Competitor {
