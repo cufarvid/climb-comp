@@ -1,14 +1,12 @@
 import React, { FC } from 'react';
-import { useQuery } from '@apollo/client';
 import { Alert, Row, Spin } from 'antd';
 
 import { UserDescription } from '../index';
 import UserRouteDescription from './UserRouteDescription';
-import { USER_INFO } from '../../apollo/queries';
-import { Query } from '../../types/__generated__';
+import { useCurrentUser } from '../../hooks';
 
 const UserInfo: FC = () => {
-  const { data, loading, error } = useQuery<Query>(USER_INFO);
+  const { userInfo, loading, error } = useCurrentUser();
 
   if (loading)
     return (
@@ -17,7 +15,7 @@ const UserInfo: FC = () => {
       </Row>
     );
 
-  if (error || !data?.contextUserInfo.user)
+  if (error || !userInfo?.user)
     return (
       <Alert
         message="Error"
@@ -26,16 +24,14 @@ const UserInfo: FC = () => {
       />
     );
 
-  const { user, route } = data.contextUserInfo;
-
   return (
     <>
-      <UserDescription user={user} />
+      <UserDescription user={userInfo.user} />
 
       <hr />
       <h3>Active route</h3>
-      {route ? (
-        <UserRouteDescription route={route} />
+      {userInfo.route ? (
+        <UserRouteDescription route={userInfo.route} />
       ) : (
         <div>No active route</div>
       )}
