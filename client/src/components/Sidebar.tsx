@@ -55,7 +55,7 @@ const Sidebar: FC = () => {
             </Menu.Item>
 
             {/* Competitions */}
-            <Menu.Item key={ROUTE.D_COMPETITIONS} disabled>
+            <Menu.Item key={ROUTE.D_COMPETITIONS}>
               <EnvironmentOutlined />
               <span>Competitions</span>
               <Link to={ROUTE.D_COMPETITIONS} />

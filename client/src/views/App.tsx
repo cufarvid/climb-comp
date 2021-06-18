@@ -22,7 +22,7 @@ const App: FC = () => {
   const isDashboard: boolean = location.pathname.includes(ROUTE.DASHBOARD);
 
   /**
-   * Updates current tab on location/route change
+   * Updates current tab on country/route change
    */
   const handleLocationChange = (): void => {
     const { pathname } = location;

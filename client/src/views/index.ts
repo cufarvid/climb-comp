@@ -11,7 +11,7 @@ import ResultsCompLive from './results/ResultsCompLive';
 import ResultsCompFinal from './results/ResultsCompFinal';
 import Users from './dashboard/Users';
 import Seasons from './dashboard/Seasons';
-import EditCompetitions from './dashboard/EditCompetitions';
+import ListCompetitions from './dashboard/ListCompetitions';
 
 export {
   Home,
@@ -25,7 +25,7 @@ export {
   CompetitionDetail,
   ResultsCompLive,
   ResultsCompFinal,
-  EditCompetitions,
+  ListCompetitions,
   Users,
   Seasons,
 };

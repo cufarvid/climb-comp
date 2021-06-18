@@ -4,7 +4,6 @@ export { HEADER_HEIGHT, FOOTER_HEIGHT } from './Layout';
 export { MESSAGE } from './Message';
 export { REGEXP } from './RegExp';
 export { RESULT_COLUMNS } from './Result';
-export { USER_COLUMNS } from './User';
 
 /**
  * Date & time formats
