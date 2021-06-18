@@ -61,7 +61,6 @@ export const USER_COLUMNS: ColumnsType<UserRow> = [
       return (
         <Space size="middle">
           <a>Edit</a>
-          <a>Delete</a>
         </Space>
       );
     },

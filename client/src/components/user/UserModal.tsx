@@ -1,20 +1,105 @@
 import React, { FC } from 'react';
-import { Form, Input, Modal, Select } from 'antd';
-import { UserRole } from '../../types/__generated__';
+import { useMutation } from '@apollo/client';
+import { Form, Input, message, Modal, Select } from 'antd';
+
+import {
+  Mutation,
+  MutationRegisterArgs,
+  MutationUpdateUserArgs,
+  RegisterInput,
+  User,
+  UserRole,
+} from '../../types/__generated__';
+import { USER_ADD, USER_UPDATE } from '../../apollo/mutations';
+import { ModalType } from '../../types';
 
 interface Props {
   visible: boolean;
   setVisible: (value: boolean) => void;
+  type: ModalType;
+  user?: User;
 }
 
-const UserModal: FC<Props> = ({ visible, setVisible }: Props) => {
+const UserModal: FC<Props> = ({ visible, setVisible, type, user }: Props) => {
+  /**
+   * Add user mutation
+   */
+  const [addUser] = useMutation<Mutation, MutationRegisterArgs>(USER_ADD, {
+    onCompleted: ({ register }) => {
+      if (register) {
+        setVisible(false);
+        void message.success('User successfully added');
+      }
+    },
+    onError: () => message.error('Error adding user'),
+  });
+
+  /**
+   * Edit user mutation
+   */
+  const [editUser] = useMutation<Mutation, MutationUpdateUserArgs>(
+    USER_UPDATE,
+    {
+      onCompleted: ({ updateUser }) => {
+        if (updateUser) {
+          setVisible(false);
+          void message.success('User successfully updated');
+        }
+      },
+      onError: () => message.error('Error updating user'),
+    },
+  );
+
+  const [form] = Form.useForm();
+
+  const onOk = async () => {
+    const { email, firstName, lastName, role }: RegisterInput =
+      await form.validateFields();
+    form.resetFields();
+
+    switch (type) {
+      case ModalType.ADD:
+        await addUser({
+          variables: {
+            credentials: {
+              email,
+              firstName,
+              lastName,
+              role,
+              password: email,
+            },
+          },
+        });
+        break;
+      case ModalType.EDIT:
+        if (!user) return;
+        await editUser({
+          variables: {
+            where: {
+              id: user.id,
+            },
+            data: {
+              email: { set: email },
+              firstName: { set: firstName },
+              lastName: { set: lastName },
+              role: { set: role },
+            },
+          },
+        });
+        break;
+    }
+  };
+
+  const title = `${type} user`;
+
   return (
     <Modal
-      title="New user"
+      title={title}
       visible={visible}
       onCancel={() => setVisible(false)}
+      onOk={onOk}
     >
-      <Form>
+      <Form form={form}>
         <Form.Item
           label="First name"
           name="firstName"
