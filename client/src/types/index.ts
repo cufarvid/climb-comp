@@ -21,3 +21,12 @@ export interface ResultRecord {
   semiFinal: string;
   final: string;
 }
+
+/*
+  Competition type
+ */
+export enum CompetitionType {
+  LEAD = 'Lead',
+  BOULDER = 'Boulder',
+  SPEED = 'Speed',
+}

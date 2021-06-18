@@ -3,3 +3,10 @@
 .w-100 {
   width: 100%;
 }
+
+/*
+Margin
+ */
+.mb-1 {
+  margin-bottom: 1rem;
+}

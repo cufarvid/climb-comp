@@ -4,14 +4,14 @@ import { Empty, message, Row, Select, Spin } from 'antd';
 
 import { CompetitionCard, PageSection } from '../components';
 import { Query, Season } from '../types/__generated__';
-import { LIST_SEASONS } from '../apollo/queries';
+import { LIST_SEASONS_COMPS } from '../apollo/queries';
 
 const Competitions: FC = () => {
   const [year, setYear] = useState<number | undefined>();
   const [seasons, setSeasons] = useState<Season[]>();
   const [filtered, setFiltered] = useState<Season[]>();
 
-  const { loading } = useQuery<Query>(LIST_SEASONS, {
+  const { loading } = useQuery<Query>(LIST_SEASONS_COMPS, {
     onCompleted: ({ seasons }) => {
       if (seasons) {
         setSeasons(seasons);

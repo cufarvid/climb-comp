@@ -1010,6 +1010,7 @@ export type Club = {
   locationId: Scalars['Int'];
   name: Scalars['String'];
   updatedAt: Scalars['DateTime'];
+  users: Array<User>;
 };
 
 export type ClubCompetitionsArgs = {
@@ -1028,6 +1029,15 @@ export type ClubCompetitorsArgs = {
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<CompetitorWhereInput>;
+};
+
+export type ClubUsersArgs = {
+  cursor?: Maybe<UserWhereUniqueInput>;
+  distinct?: Maybe<Array<UserScalarFieldEnum>>;
+  orderBy?: Maybe<Array<UserOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<UserWhereInput>;
 };
 
 export type ClubAvgAggregate = {
@@ -1072,6 +1082,7 @@ export type ClubCreateInput = {
   location: LocationCreateNestedOneWithoutClubsInput;
   name: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
+  users?: Maybe<UserCreateNestedManyWithoutClubInput>;
 };
 
 export type ClubCreateManyInput = {
@@ -1117,6 +1128,12 @@ export type ClubCreateNestedOneWithoutCompetitorsInput = {
   create?: Maybe<ClubCreateWithoutCompetitorsInput>;
 };
 
+export type ClubCreateNestedOneWithoutUsersInput = {
+  connect?: Maybe<ClubWhereUniqueInput>;
+  connectOrCreate?: Maybe<ClubCreateOrConnectWithoutUsersInput>;
+  create?: Maybe<ClubCreateWithoutUsersInput>;
+};
+
 export type ClubCreateOrConnectWithoutCompetitionsInput = {
   create: ClubCreateWithoutCompetitionsInput;
   where: ClubWhereUniqueInput;
@@ -1132,6 +1149,11 @@ export type ClubCreateOrConnectWithoutLocationInput = {
   where: ClubWhereUniqueInput;
 };
 
+export type ClubCreateOrConnectWithoutUsersInput = {
+  create: ClubCreateWithoutUsersInput;
+  where: ClubWhereUniqueInput;
+};
+
 export type ClubCreateWithoutCompetitionsInput = {
   address?: Maybe<Scalars['String']>;
   competitors?: Maybe<CompetitorCreateNestedManyWithoutClubInput>;
@@ -1140,6 +1162,7 @@ export type ClubCreateWithoutCompetitionsInput = {
   location: LocationCreateNestedOneWithoutClubsInput;
   name: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
+  users?: Maybe<UserCreateNestedManyWithoutClubInput>;
 };
 
 export type ClubCreateWithoutCompetitorsInput = {
@@ -1150,6 +1173,7 @@ export type ClubCreateWithoutCompetitorsInput = {
   location: LocationCreateNestedOneWithoutClubsInput;
   name: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
+  users?: Maybe<UserCreateNestedManyWithoutClubInput>;
 };
 
 export type ClubCreateWithoutLocationInput = {
@@ -1158,6 +1182,18 @@ export type ClubCreateWithoutLocationInput = {
   competitors?: Maybe<CompetitorCreateNestedManyWithoutClubInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
+  name: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  users?: Maybe<UserCreateNestedManyWithoutClubInput>;
+};
+
+export type ClubCreateWithoutUsersInput = {
+  address?: Maybe<Scalars['String']>;
+  competitions?: Maybe<CompetitionCreateNestedManyWithoutClubInput>;
+  competitors?: Maybe<CompetitorCreateNestedManyWithoutClubInput>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description?: Maybe<Scalars['String']>;
+  location: LocationCreateNestedOneWithoutClubsInput;
   name: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
@@ -1312,6 +1348,7 @@ export type ClubUpdateInput = {
   location?: Maybe<LocationUpdateOneRequiredWithoutClubsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  users?: Maybe<UserUpdateManyWithoutClubInput>;
 };
 
 export type ClubUpdateManyMutationInput = {
@@ -1357,6 +1394,16 @@ export type ClubUpdateOneRequiredWithoutCompetitorsInput = {
   upsert?: Maybe<ClubUpsertWithoutCompetitorsInput>;
 };
 
+export type ClubUpdateOneWithoutUsersInput = {
+  connect?: Maybe<ClubWhereUniqueInput>;
+  connectOrCreate?: Maybe<ClubCreateOrConnectWithoutUsersInput>;
+  create?: Maybe<ClubCreateWithoutUsersInput>;
+  delete?: Maybe<Scalars['Boolean']>;
+  disconnect?: Maybe<Scalars['Boolean']>;
+  update?: Maybe<ClubUpdateWithoutUsersInput>;
+  upsert?: Maybe<ClubUpsertWithoutUsersInput>;
+};
+
 export type ClubUpdateWithWhereUniqueWithoutLocationInput = {
   data: ClubUpdateWithoutLocationInput;
   where: ClubWhereUniqueInput;
@@ -1370,6 +1417,7 @@ export type ClubUpdateWithoutCompetitionsInput = {
   location?: Maybe<LocationUpdateOneRequiredWithoutClubsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  users?: Maybe<UserUpdateManyWithoutClubInput>;
 };
 
 export type ClubUpdateWithoutCompetitorsInput = {
@@ -1380,6 +1428,7 @@ export type ClubUpdateWithoutCompetitorsInput = {
   location?: Maybe<LocationUpdateOneRequiredWithoutClubsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  users?: Maybe<UserUpdateManyWithoutClubInput>;
 };
 
 export type ClubUpdateWithoutLocationInput = {
@@ -1388,6 +1437,18 @@ export type ClubUpdateWithoutLocationInput = {
   competitors?: Maybe<CompetitorUpdateManyWithoutClubInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<NullableStringFieldUpdateOperationsInput>;
+  name?: Maybe<StringFieldUpdateOperationsInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  users?: Maybe<UserUpdateManyWithoutClubInput>;
+};
+
+export type ClubUpdateWithoutUsersInput = {
+  address?: Maybe<NullableStringFieldUpdateOperationsInput>;
+  competitions?: Maybe<CompetitionUpdateManyWithoutClubInput>;
+  competitors?: Maybe<CompetitorUpdateManyWithoutClubInput>;
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  description?: Maybe<NullableStringFieldUpdateOperationsInput>;
+  location?: Maybe<LocationUpdateOneRequiredWithoutClubsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
@@ -1408,6 +1469,11 @@ export type ClubUpsertWithoutCompetitorsInput = {
   update: ClubUpdateWithoutCompetitorsInput;
 };
 
+export type ClubUpsertWithoutUsersInput = {
+  create: ClubCreateWithoutUsersInput;
+  update: ClubUpdateWithoutUsersInput;
+};
+
 export type ClubWhereInput = {
   AND?: Maybe<Array<ClubWhereInput>>;
   NOT?: Maybe<Array<ClubWhereInput>>;
@@ -1422,6 +1488,7 @@ export type ClubWhereInput = {
   locationId?: Maybe<IntFilter>;
   name?: Maybe<StringFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
+  users?: Maybe<UserListRelationFilter>;
 };
 
 export type ClubWhereUniqueInput = {
@@ -12193,6 +12260,8 @@ export type StringWithAggregatesFilter = {
 export type User = {
   __typename?: 'User';
   acceptances: Array<Registration>;
+  club?: Maybe<Club>;
+  clubId?: Maybe<Scalars['Int']>;
   comments: Array<Comment>;
   createdAt: Scalars['DateTime'];
   email: Scalars['String'];
@@ -12267,11 +12336,13 @@ export type UserRoutesSetArgs = {
 
 export type UserAvgAggregate = {
   __typename?: 'UserAvgAggregate';
+  clubId?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
   locationId?: Maybe<Scalars['Float']>;
 };
 
 export type UserAvgOrderByAggregateInput = {
+  clubId?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   locationId?: Maybe<SortOrder>;
 };
@@ -12279,6 +12350,7 @@ export type UserAvgOrderByAggregateInput = {
 export type UserCountAggregate = {
   __typename?: 'UserCountAggregate';
   _all: Scalars['Int'];
+  clubId: Scalars['Int'];
   createdAt: Scalars['Int'];
   email: Scalars['Int'];
   firstName: Scalars['Int'];
@@ -12292,6 +12364,7 @@ export type UserCountAggregate = {
 };
 
 export type UserCountOrderByAggregateInput = {
+  clubId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   email?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
@@ -12306,6 +12379,7 @@ export type UserCountOrderByAggregateInput = {
 
 export type UserCreateInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
+  club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
@@ -12322,7 +12396,26 @@ export type UserCreateInput = {
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
+export type UserCreateManyClubInput = {
+  createdAt?: Maybe<Scalars['DateTime']>;
+  email: Scalars['String'];
+  firstName: Scalars['String'];
+  id?: Maybe<Scalars['Int']>;
+  lastName: Scalars['String'];
+  locationId?: Maybe<Scalars['Int']>;
+  password: Scalars['String'];
+  publicId?: Maybe<Scalars['String']>;
+  role?: Maybe<UserRole>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type UserCreateManyClubInputEnvelope = {
+  data: Array<UserCreateManyClubInput>;
+  skipDuplicates?: Maybe<Scalars['Boolean']>;
+};
+
 export type UserCreateManyInput = {
+  clubId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
@@ -12336,6 +12429,7 @@ export type UserCreateManyInput = {
 };
 
 export type UserCreateManyLocationInput = {
+  clubId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
@@ -12350,6 +12444,13 @@ export type UserCreateManyLocationInput = {
 export type UserCreateManyLocationInputEnvelope = {
   data: Array<UserCreateManyLocationInput>;
   skipDuplicates?: Maybe<Scalars['Boolean']>;
+};
+
+export type UserCreateNestedManyWithoutClubInput = {
+  connect?: Maybe<Array<UserWhereUniqueInput>>;
+  connectOrCreate?: Maybe<Array<UserCreateOrConnectWithoutClubInput>>;
+  create?: Maybe<Array<UserCreateWithoutClubInput>>;
+  createMany?: Maybe<UserCreateManyClubInputEnvelope>;
 };
 
 export type UserCreateNestedManyWithoutLocationInput = {
@@ -12400,6 +12501,11 @@ export type UserCreateOrConnectWithoutAcceptancesInput = {
   where: UserWhereUniqueInput;
 };
 
+export type UserCreateOrConnectWithoutClubInput = {
+  create: UserCreateWithoutClubInput;
+  where: UserWhereUniqueInput;
+};
+
 export type UserCreateOrConnectWithoutCommentsInput = {
   create: UserCreateWithoutCommentsInput;
   where: UserWhereUniqueInput;
@@ -12431,6 +12537,25 @@ export type UserCreateOrConnectWithoutRoutesSetInput = {
 };
 
 export type UserCreateWithoutAcceptancesInput = {
+  club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
+  comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  email: Scalars['String'];
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  location?: Maybe<LocationCreateNestedOneWithoutUsersInput>;
+  password: Scalars['String'];
+  publicId?: Maybe<Scalars['String']>;
+  registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
+  results?: Maybe<ResultCreateNestedManyWithoutApprovedByInput>;
+  role?: Maybe<UserRole>;
+  routesJudged?: Maybe<RouteCreateNestedManyWithoutJudgeInput>;
+  routesSet?: Maybe<RouteCreateNestedManyWithoutSetterInput>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type UserCreateWithoutClubInput = {
+  acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
@@ -12449,6 +12574,7 @@ export type UserCreateWithoutAcceptancesInput = {
 
 export type UserCreateWithoutCommentsInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
+  club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
@@ -12466,6 +12592,7 @@ export type UserCreateWithoutCommentsInput = {
 
 export type UserCreateWithoutLocationInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
+  club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
@@ -12483,6 +12610,7 @@ export type UserCreateWithoutLocationInput = {
 
 export type UserCreateWithoutRegistrationsInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
+  club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
@@ -12500,6 +12628,7 @@ export type UserCreateWithoutRegistrationsInput = {
 
 export type UserCreateWithoutResultsInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
+  club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
@@ -12517,6 +12646,7 @@ export type UserCreateWithoutResultsInput = {
 
 export type UserCreateWithoutRoutesJudgedInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
+  club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
@@ -12534,6 +12664,7 @@ export type UserCreateWithoutRoutesJudgedInput = {
 
 export type UserCreateWithoutRoutesSetInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
+  club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
@@ -12556,6 +12687,7 @@ export type UserGroupBy = {
   _max?: Maybe<UserMaxAggregate>;
   _min?: Maybe<UserMinAggregate>;
   _sum?: Maybe<UserSumAggregate>;
+  clubId?: Maybe<Scalars['Int']>;
   createdAt: Scalars['DateTime'];
   email: Scalars['String'];
   firstName: Scalars['String'];
@@ -12582,6 +12714,7 @@ export type UserListRelationFilter = {
 
 export type UserMaxAggregate = {
   __typename?: 'UserMaxAggregate';
+  clubId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email?: Maybe<Scalars['String']>;
   firstName?: Maybe<Scalars['String']>;
@@ -12595,6 +12728,7 @@ export type UserMaxAggregate = {
 };
 
 export type UserMaxOrderByAggregateInput = {
+  clubId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   email?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
@@ -12609,6 +12743,7 @@ export type UserMaxOrderByAggregateInput = {
 
 export type UserMinAggregate = {
   __typename?: 'UserMinAggregate';
+  clubId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email?: Maybe<Scalars['String']>;
   firstName?: Maybe<Scalars['String']>;
@@ -12622,6 +12757,7 @@ export type UserMinAggregate = {
 };
 
 export type UserMinOrderByAggregateInput = {
+  clubId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   email?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
@@ -12635,6 +12771,7 @@ export type UserMinOrderByAggregateInput = {
 };
 
 export type UserOrderByInput = {
+  clubId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   email?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
@@ -12653,6 +12790,7 @@ export type UserOrderByWithAggregationInput = {
   _max?: Maybe<UserMaxOrderByAggregateInput>;
   _min?: Maybe<UserMinOrderByAggregateInput>;
   _sum?: Maybe<UserSumOrderByAggregateInput>;
+  clubId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   email?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
@@ -12678,6 +12816,7 @@ export enum UserRole {
 }
 
 export enum UserScalarFieldEnum {
+  ClubId = 'clubId',
   CreatedAt = 'createdAt',
   Email = 'email',
   FirstName = 'firstName',
@@ -12694,6 +12833,7 @@ export type UserScalarWhereInput = {
   AND?: Maybe<Array<UserScalarWhereInput>>;
   NOT?: Maybe<Array<UserScalarWhereInput>>;
   OR?: Maybe<Array<UserScalarWhereInput>>;
+  clubId?: Maybe<IntNullableFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   email?: Maybe<StringFilter>;
   firstName?: Maybe<StringFilter>;
@@ -12710,6 +12850,7 @@ export type UserScalarWhereWithAggregatesInput = {
   AND?: Maybe<Array<UserScalarWhereWithAggregatesInput>>;
   NOT?: Maybe<Array<UserScalarWhereWithAggregatesInput>>;
   OR?: Maybe<Array<UserScalarWhereWithAggregatesInput>>;
+  clubId?: Maybe<IntNullableWithAggregatesFilter>;
   createdAt?: Maybe<DateTimeWithAggregatesFilter>;
   email?: Maybe<StringWithAggregatesFilter>;
   firstName?: Maybe<StringWithAggregatesFilter>;
@@ -12724,17 +12865,20 @@ export type UserScalarWhereWithAggregatesInput = {
 
 export type UserSumAggregate = {
   __typename?: 'UserSumAggregate';
+  clubId?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['Int']>;
   locationId?: Maybe<Scalars['Int']>;
 };
 
 export type UserSumOrderByAggregateInput = {
+  clubId?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   locationId?: Maybe<SortOrder>;
 };
 
 export type UserUpdateInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
+  club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
@@ -12762,9 +12906,28 @@ export type UserUpdateManyMutationInput = {
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
 
+export type UserUpdateManyWithWhereWithoutClubInput = {
+  data: UserUpdateManyMutationInput;
+  where: UserScalarWhereInput;
+};
+
 export type UserUpdateManyWithWhereWithoutLocationInput = {
   data: UserUpdateManyMutationInput;
   where: UserScalarWhereInput;
+};
+
+export type UserUpdateManyWithoutClubInput = {
+  connect?: Maybe<Array<UserWhereUniqueInput>>;
+  connectOrCreate?: Maybe<Array<UserCreateOrConnectWithoutClubInput>>;
+  create?: Maybe<Array<UserCreateWithoutClubInput>>;
+  createMany?: Maybe<UserCreateManyClubInputEnvelope>;
+  delete?: Maybe<Array<UserWhereUniqueInput>>;
+  deleteMany?: Maybe<Array<UserScalarWhereInput>>;
+  disconnect?: Maybe<Array<UserWhereUniqueInput>>;
+  set?: Maybe<Array<UserWhereUniqueInput>>;
+  update?: Maybe<Array<UserUpdateWithWhereUniqueWithoutClubInput>>;
+  updateMany?: Maybe<Array<UserUpdateManyWithWhereWithoutClubInput>>;
+  upsert?: Maybe<Array<UserUpsertWithWhereUniqueWithoutClubInput>>;
 };
 
 export type UserUpdateManyWithoutLocationInput = {
@@ -12831,12 +12994,36 @@ export type UserUpdateOneWithoutCommentsInput = {
   upsert?: Maybe<UserUpsertWithoutCommentsInput>;
 };
 
+export type UserUpdateWithWhereUniqueWithoutClubInput = {
+  data: UserUpdateWithoutClubInput;
+  where: UserWhereUniqueInput;
+};
+
 export type UserUpdateWithWhereUniqueWithoutLocationInput = {
   data: UserUpdateWithoutLocationInput;
   where: UserWhereUniqueInput;
 };
 
 export type UserUpdateWithoutAcceptancesInput = {
+  club?: Maybe<ClubUpdateOneWithoutUsersInput>;
+  comments?: Maybe<CommentUpdateManyWithoutUserInput>;
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  email?: Maybe<StringFieldUpdateOperationsInput>;
+  firstName?: Maybe<StringFieldUpdateOperationsInput>;
+  lastName?: Maybe<StringFieldUpdateOperationsInput>;
+  location?: Maybe<LocationUpdateOneWithoutUsersInput>;
+  password?: Maybe<StringFieldUpdateOperationsInput>;
+  publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
+  results?: Maybe<ResultUpdateManyWithoutApprovedByInput>;
+  role?: Maybe<EnumUserRoleFieldUpdateOperationsInput>;
+  routesJudged?: Maybe<RouteUpdateManyWithoutJudgeInput>;
+  routesSet?: Maybe<RouteUpdateManyWithoutSetterInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type UserUpdateWithoutClubInput = {
+  acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
@@ -12855,6 +13042,7 @@ export type UserUpdateWithoutAcceptancesInput = {
 
 export type UserUpdateWithoutCommentsInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
+  club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
@@ -12872,6 +13060,7 @@ export type UserUpdateWithoutCommentsInput = {
 
 export type UserUpdateWithoutLocationInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
+  club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
@@ -12889,6 +13078,7 @@ export type UserUpdateWithoutLocationInput = {
 
 export type UserUpdateWithoutRegistrationsInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
+  club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
@@ -12906,6 +13096,7 @@ export type UserUpdateWithoutRegistrationsInput = {
 
 export type UserUpdateWithoutResultsInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
+  club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
@@ -12923,6 +13114,7 @@ export type UserUpdateWithoutResultsInput = {
 
 export type UserUpdateWithoutRoutesJudgedInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
+  club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
@@ -12940,6 +13132,7 @@ export type UserUpdateWithoutRoutesJudgedInput = {
 
 export type UserUpdateWithoutRoutesSetInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
+  club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
@@ -12953,6 +13146,12 @@ export type UserUpdateWithoutRoutesSetInput = {
   role?: Maybe<EnumUserRoleFieldUpdateOperationsInput>;
   routesJudged?: Maybe<RouteUpdateManyWithoutJudgeInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type UserUpsertWithWhereUniqueWithoutClubInput = {
+  create: UserCreateWithoutClubInput;
+  update: UserUpdateWithoutClubInput;
+  where: UserWhereUniqueInput;
 };
 
 export type UserUpsertWithWhereUniqueWithoutLocationInput = {
@@ -12996,6 +13195,8 @@ export type UserWhereInput = {
   NOT?: Maybe<Array<UserWhereInput>>;
   OR?: Maybe<Array<UserWhereInput>>;
   acceptances?: Maybe<RegistrationListRelationFilter>;
+  club?: Maybe<ClubRelationFilter>;
+  clubId?: Maybe<IntNullableFilter>;
   comments?: Maybe<CommentListRelationFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   email?: Maybe<StringFilter>;
