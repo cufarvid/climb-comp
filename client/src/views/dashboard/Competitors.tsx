@@ -15,6 +15,7 @@ const Competitors: FC = () => {
         Add new
       </Button>
       <Table
+        rowKey="id"
         columns={COMPETITOR_COLUMNS}
         dataSource={parseCompetitors(data?.competitors)}
         loading={loading}

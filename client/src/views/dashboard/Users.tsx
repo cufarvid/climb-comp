@@ -15,6 +15,7 @@ const Users: FC = () => {
         Add new
       </Button>
       <Table
+        rowKey="id"
         columns={USER_COLUMNS}
         dataSource={parseUsers(data?.users)}
         loading={loading}

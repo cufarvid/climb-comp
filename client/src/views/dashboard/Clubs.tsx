@@ -15,6 +15,7 @@ const Clubs: FC = () => {
         Add new
       </Button>
       <Table
+        rowKey="id"
         columns={CLUB_COLUMNS}
         dataSource={parseClubs(data?.clubs)}
         loading={loading}
