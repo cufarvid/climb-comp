@@ -69,14 +69,14 @@ const Sidebar: FC = () => {
             </Menu.Item>
 
             {/* Competitors */}
-            <Menu.Item key={ROUTE.D_COMPETITORS} disabled>
+            <Menu.Item key={ROUTE.D_COMPETITORS}>
               <UserOutlined />
               <span>Competitors</span>
               <Link to={ROUTE.D_COMPETITORS} />
             </Menu.Item>
 
             {/* Clubs */}
-            <Menu.Item key={ROUTE.D_CLUBS} disabled>
+            <Menu.Item key={ROUTE.D_CLUBS}>
               <TeamOutlined />
               <span>Clubs</span>
               <Link to={ROUTE.D_CLUBS} />

@@ -12,6 +12,8 @@ import ResultsCompFinal from './results/ResultsCompFinal';
 import Users from './dashboard/Users';
 import Seasons from './dashboard/Seasons';
 import ListCompetitions from './dashboard/ListCompetitions';
+import Competitors from './dashboard/Competitors';
+import Clubs from './dashboard/Clubs';
 
 export {
   Home,
@@ -28,4 +30,6 @@ export {
   ListCompetitions,
   Users,
   Seasons,
+  Competitors,
+  Clubs,
 };
