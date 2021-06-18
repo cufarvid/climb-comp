@@ -12,12 +12,12 @@ const DashboardRoutes: FC = () => {
     <>
       {/*Routes*/}
       <Route path={ROUTE.SCORE} component={Score} />
-      <Route path={ROUTE.ROUTES} component={Routes} />
+      <Route path={ROUTE.D_ROUTES} component={Routes} />
       {isAdministrator(userInfo?.user) && (
         <>
-          <Route path={ROUTE.USERS} component={Users} />
-          <Route path={ROUTE.DASH_COMPS} component={EditCompetitions} />
-          <Route path={ROUTE.SEASONS} component={Seasons} />
+          <Route path={ROUTE.D_USERS} component={Users} />
+          <Route path={ROUTE.D_COMPETITIONS} component={EditCompetitions} />
+          <Route path={ROUTE.D_SEASONS} component={Seasons} />
         </>
       )}
     </>

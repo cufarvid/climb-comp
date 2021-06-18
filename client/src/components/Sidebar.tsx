@@ -27,28 +27,28 @@ const Sidebar: FC = () => {
           <span>Score</span>
           <Link to={ROUTE.SCORE} />
         </Menu.Item>
-        <Menu.Item key={ROUTE.ROUTES}>
+        <Menu.Item key={ROUTE.D_ROUTES}>
           <UnorderedListOutlined />
           <span>Routes</span>
-          <Link to={ROUTE.ROUTES} />
+          <Link to={ROUTE.D_ROUTES} />
         </Menu.Item>
         {/* Administrator section */}
         {isAdministrator(userInfo?.user) && (
           <>
-            <Menu.Item key={ROUTE.USERS}>
+            <Menu.Item key={ROUTE.D_USERS}>
               <UnorderedListOutlined />
               <span>Users</span>
-              <Link to={ROUTE.USERS} />
+              <Link to={ROUTE.D_USERS} />
             </Menu.Item>
-            <Menu.Item key={ROUTE.DASH_COMPS}>
+            <Menu.Item key={ROUTE.D_COMPETITIONS}>
               <UnorderedListOutlined />
               <span>Competitions</span>
-              <Link to={ROUTE.DASH_COMPS} />
+              <Link to={ROUTE.D_COMPETITIONS} />
             </Menu.Item>
-            <Menu.Item key={ROUTE.SEASONS}>
+            <Menu.Item key={ROUTE.D_SEASONS}>
               <UnorderedListOutlined />
               <span>Seasons</span>
-              <Link to={ROUTE.SEASONS} />
+              <Link to={ROUTE.D_SEASONS} />
             </Menu.Item>
           </>
         )}
