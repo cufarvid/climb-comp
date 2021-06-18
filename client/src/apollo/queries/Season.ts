@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client/core';
 
-export const LIST_SEASONS = gql`
+export const LIST_SEASONS_COMPS = gql`
   query ListSeasons($year: Int) {
     seasons(where: { year: { equals: $year } }, orderBy: { year: desc }) {
       name
