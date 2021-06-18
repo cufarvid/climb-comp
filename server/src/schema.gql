@@ -917,6 +917,7 @@ type Club {
   locationId: Int!
   name: String!
   updatedAt: DateTime!
+  users(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): [User!]!
 }
 
 type ClubAvgAggregate {
@@ -959,6 +960,7 @@ input ClubCreateInput {
   location: LocationCreateNestedOneWithoutClubsInput!
   name: String!
   updatedAt: DateTime
+  users: UserCreateNestedManyWithoutClubInput
 }
 
 input ClubCreateManyInput {
@@ -1004,6 +1006,12 @@ input ClubCreateNestedOneWithoutCompetitorsInput {
   create: ClubCreateWithoutCompetitorsInput
 }
 
+input ClubCreateNestedOneWithoutUsersInput {
+  connect: ClubWhereUniqueInput
+  connectOrCreate: ClubCreateOrConnectWithoutUsersInput
+  create: ClubCreateWithoutUsersInput
+}
+
 input ClubCreateOrConnectWithoutCompetitionsInput {
   create: ClubCreateWithoutCompetitionsInput!
   where: ClubWhereUniqueInput!
@@ -1019,6 +1027,11 @@ input ClubCreateOrConnectWithoutLocationInput {
   where: ClubWhereUniqueInput!
 }
 
+input ClubCreateOrConnectWithoutUsersInput {
+  create: ClubCreateWithoutUsersInput!
+  where: ClubWhereUniqueInput!
+}
+
 input ClubCreateWithoutCompetitionsInput {
   address: String
   competitors: CompetitorCreateNestedManyWithoutClubInput
@@ -1027,6 +1040,7 @@ input ClubCreateWithoutCompetitionsInput {
   location: LocationCreateNestedOneWithoutClubsInput!
   name: String!
   updatedAt: DateTime
+  users: UserCreateNestedManyWithoutClubInput
 }
 
 input ClubCreateWithoutCompetitorsInput {
@@ -1037,6 +1051,7 @@ input ClubCreateWithoutCompetitorsInput {
   location: LocationCreateNestedOneWithoutClubsInput!
   name: String!
   updatedAt: DateTime
+  users: UserCreateNestedManyWithoutClubInput
 }
 
 input ClubCreateWithoutLocationInput {
@@ -1045,6 +1060,18 @@ input ClubCreateWithoutLocationInput {
   competitors: CompetitorCreateNestedManyWithoutClubInput
   createdAt: DateTime
   description: String
+  name: String!
+  updatedAt: DateTime
+  users: UserCreateNestedManyWithoutClubInput
+}
+
+input ClubCreateWithoutUsersInput {
+  address: String
+  competitions: CompetitionCreateNestedManyWithoutClubInput
+  competitors: CompetitorCreateNestedManyWithoutClubInput
+  createdAt: DateTime
+  description: String
+  location: LocationCreateNestedOneWithoutClubsInput!
   name: String!
   updatedAt: DateTime
 }
@@ -1195,6 +1222,7 @@ input ClubUpdateInput {
   location: LocationUpdateOneRequiredWithoutClubsInput
   name: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutClubInput
 }
 
 input ClubUpdateManyMutationInput {
@@ -1240,6 +1268,16 @@ input ClubUpdateOneRequiredWithoutCompetitorsInput {
   upsert: ClubUpsertWithoutCompetitorsInput
 }
 
+input ClubUpdateOneWithoutUsersInput {
+  connect: ClubWhereUniqueInput
+  connectOrCreate: ClubCreateOrConnectWithoutUsersInput
+  create: ClubCreateWithoutUsersInput
+  delete: Boolean
+  disconnect: Boolean
+  update: ClubUpdateWithoutUsersInput
+  upsert: ClubUpsertWithoutUsersInput
+}
+
 input ClubUpdateWithWhereUniqueWithoutLocationInput {
   data: ClubUpdateWithoutLocationInput!
   where: ClubWhereUniqueInput!
@@ -1253,6 +1291,7 @@ input ClubUpdateWithoutCompetitionsInput {
   location: LocationUpdateOneRequiredWithoutClubsInput
   name: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutClubInput
 }
 
 input ClubUpdateWithoutCompetitorsInput {
@@ -1263,6 +1302,7 @@ input ClubUpdateWithoutCompetitorsInput {
   location: LocationUpdateOneRequiredWithoutClubsInput
   name: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutClubInput
 }
 
 input ClubUpdateWithoutLocationInput {
@@ -1271,6 +1311,18 @@ input ClubUpdateWithoutLocationInput {
   competitors: CompetitorUpdateManyWithoutClubInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutClubInput
+}
+
+input ClubUpdateWithoutUsersInput {
+  address: NullableStringFieldUpdateOperationsInput
+  competitions: CompetitionUpdateManyWithoutClubInput
+  competitors: CompetitorUpdateManyWithoutClubInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  location: LocationUpdateOneRequiredWithoutClubsInput
   name: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -1291,6 +1343,11 @@ input ClubUpsertWithoutCompetitorsInput {
   update: ClubUpdateWithoutCompetitorsInput!
 }
 
+input ClubUpsertWithoutUsersInput {
+  create: ClubCreateWithoutUsersInput!
+  update: ClubUpdateWithoutUsersInput!
+}
+
 input ClubWhereInput {
   AND: [ClubWhereInput!]
   NOT: [ClubWhereInput!]
@@ -1305,6 +1362,7 @@ input ClubWhereInput {
   locationId: IntFilter
   name: StringFilter
   updatedAt: DateTimeFilter
+  users: UserListRelationFilter
 }
 
 input ClubWhereUniqueInput {
@@ -10168,6 +10226,8 @@ input StringWithAggregatesFilter {
 
 type User {
   acceptances(cursor: RegistrationWhereUniqueInput, distinct: [RegistrationScalarFieldEnum!], orderBy: [RegistrationOrderByInput!], skip: Int, take: Int, where: RegistrationWhereInput): [Registration!]!
+  club: Club
+  clubId: Int
   comments(cursor: CommentWhereUniqueInput, distinct: [CommentScalarFieldEnum!], orderBy: [CommentOrderByInput!], skip: Int, take: Int, where: CommentWhereInput): [Comment!]!
   createdAt: DateTime!
   email: String!
@@ -10187,17 +10247,20 @@ type User {
 }
 
 type UserAvgAggregate {
+  clubId: Float
   id: Float
   locationId: Float
 }
 
 input UserAvgOrderByAggregateInput {
+  clubId: SortOrder
   id: SortOrder
   locationId: SortOrder
 }
 
 type UserCountAggregate {
   _all: Int!
+  clubId: Int!
   createdAt: Int!
   email: Int!
   firstName: Int!
@@ -10211,6 +10274,7 @@ type UserCountAggregate {
 }
 
 input UserCountOrderByAggregateInput {
+  clubId: SortOrder
   createdAt: SortOrder
   email: SortOrder
   firstName: SortOrder
@@ -10225,6 +10289,7 @@ input UserCountOrderByAggregateInput {
 
 input UserCreateInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
+  club: ClubCreateNestedOneWithoutUsersInput
   comments: CommentCreateNestedManyWithoutUserInput
   createdAt: DateTime
   email: String!
@@ -10241,7 +10306,26 @@ input UserCreateInput {
   updatedAt: DateTime
 }
 
+input UserCreateManyClubInput {
+  createdAt: DateTime
+  email: String!
+  firstName: String!
+  id: Int
+  lastName: String!
+  locationId: Int
+  password: String!
+  publicId: String
+  role: UserRole
+  updatedAt: DateTime
+}
+
+input UserCreateManyClubInputEnvelope {
+  data: [UserCreateManyClubInput!]!
+  skipDuplicates: Boolean
+}
+
 input UserCreateManyInput {
+  clubId: Int
   createdAt: DateTime
   email: String!
   firstName: String!
@@ -10255,6 +10339,7 @@ input UserCreateManyInput {
 }
 
 input UserCreateManyLocationInput {
+  clubId: Int
   createdAt: DateTime
   email: String!
   firstName: String!
@@ -10269,6 +10354,13 @@ input UserCreateManyLocationInput {
 input UserCreateManyLocationInputEnvelope {
   data: [UserCreateManyLocationInput!]!
   skipDuplicates: Boolean
+}
+
+input UserCreateNestedManyWithoutClubInput {
+  connect: [UserWhereUniqueInput!]
+  connectOrCreate: [UserCreateOrConnectWithoutClubInput!]
+  create: [UserCreateWithoutClubInput!]
+  createMany: UserCreateManyClubInputEnvelope
 }
 
 input UserCreateNestedManyWithoutLocationInput {
@@ -10319,6 +10411,11 @@ input UserCreateOrConnectWithoutAcceptancesInput {
   where: UserWhereUniqueInput!
 }
 
+input UserCreateOrConnectWithoutClubInput {
+  create: UserCreateWithoutClubInput!
+  where: UserWhereUniqueInput!
+}
+
 input UserCreateOrConnectWithoutCommentsInput {
   create: UserCreateWithoutCommentsInput!
   where: UserWhereUniqueInput!
@@ -10350,6 +10447,25 @@ input UserCreateOrConnectWithoutRoutesSetInput {
 }
 
 input UserCreateWithoutAcceptancesInput {
+  club: ClubCreateNestedOneWithoutUsersInput
+  comments: CommentCreateNestedManyWithoutUserInput
+  createdAt: DateTime
+  email: String!
+  firstName: String!
+  lastName: String!
+  location: LocationCreateNestedOneWithoutUsersInput
+  password: String!
+  publicId: String
+  registrations: RegistrationCreateNestedManyWithoutRegistrantInput
+  results: ResultCreateNestedManyWithoutApprovedByInput
+  role: UserRole
+  routesJudged: RouteCreateNestedManyWithoutJudgeInput
+  routesSet: RouteCreateNestedManyWithoutSetterInput
+  updatedAt: DateTime
+}
+
+input UserCreateWithoutClubInput {
+  acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
   comments: CommentCreateNestedManyWithoutUserInput
   createdAt: DateTime
   email: String!
@@ -10368,6 +10484,7 @@ input UserCreateWithoutAcceptancesInput {
 
 input UserCreateWithoutCommentsInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
+  club: ClubCreateNestedOneWithoutUsersInput
   createdAt: DateTime
   email: String!
   firstName: String!
@@ -10385,6 +10502,7 @@ input UserCreateWithoutCommentsInput {
 
 input UserCreateWithoutLocationInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
+  club: ClubCreateNestedOneWithoutUsersInput
   comments: CommentCreateNestedManyWithoutUserInput
   createdAt: DateTime
   email: String!
@@ -10402,6 +10520,7 @@ input UserCreateWithoutLocationInput {
 
 input UserCreateWithoutRegistrationsInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
+  club: ClubCreateNestedOneWithoutUsersInput
   comments: CommentCreateNestedManyWithoutUserInput
   createdAt: DateTime
   email: String!
@@ -10419,6 +10538,7 @@ input UserCreateWithoutRegistrationsInput {
 
 input UserCreateWithoutResultsInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
+  club: ClubCreateNestedOneWithoutUsersInput
   comments: CommentCreateNestedManyWithoutUserInput
   createdAt: DateTime
   email: String!
@@ -10436,6 +10556,7 @@ input UserCreateWithoutResultsInput {
 
 input UserCreateWithoutRoutesJudgedInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
+  club: ClubCreateNestedOneWithoutUsersInput
   comments: CommentCreateNestedManyWithoutUserInput
   createdAt: DateTime
   email: String!
@@ -10453,6 +10574,7 @@ input UserCreateWithoutRoutesJudgedInput {
 
 input UserCreateWithoutRoutesSetInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
+  club: ClubCreateNestedOneWithoutUsersInput
   comments: CommentCreateNestedManyWithoutUserInput
   createdAt: DateTime
   email: String!
@@ -10474,6 +10596,7 @@ type UserGroupBy {
   _max: UserMaxAggregate
   _min: UserMinAggregate
   _sum: UserSumAggregate
+  clubId: Int
   createdAt: DateTime!
   email: String!
   firstName: String!
@@ -10498,6 +10621,7 @@ input UserListRelationFilter {
 }
 
 type UserMaxAggregate {
+  clubId: Int
   createdAt: DateTime
   email: String
   firstName: String
@@ -10511,6 +10635,7 @@ type UserMaxAggregate {
 }
 
 input UserMaxOrderByAggregateInput {
+  clubId: SortOrder
   createdAt: SortOrder
   email: SortOrder
   firstName: SortOrder
@@ -10524,6 +10649,7 @@ input UserMaxOrderByAggregateInput {
 }
 
 type UserMinAggregate {
+  clubId: Int
   createdAt: DateTime
   email: String
   firstName: String
@@ -10537,6 +10663,7 @@ type UserMinAggregate {
 }
 
 input UserMinOrderByAggregateInput {
+  clubId: SortOrder
   createdAt: SortOrder
   email: SortOrder
   firstName: SortOrder
@@ -10550,6 +10677,7 @@ input UserMinOrderByAggregateInput {
 }
 
 input UserOrderByInput {
+  clubId: SortOrder
   createdAt: SortOrder
   email: SortOrder
   firstName: SortOrder
@@ -10568,6 +10696,7 @@ input UserOrderByWithAggregationInput {
   _max: UserMaxOrderByAggregateInput
   _min: UserMinOrderByAggregateInput
   _sum: UserSumOrderByAggregateInput
+  clubId: SortOrder
   createdAt: SortOrder
   email: SortOrder
   firstName: SortOrder
@@ -10593,6 +10722,7 @@ enum UserRole {
 }
 
 enum UserScalarFieldEnum {
+  clubId
   createdAt
   email
   firstName
@@ -10609,6 +10739,7 @@ input UserScalarWhereInput {
   AND: [UserScalarWhereInput!]
   NOT: [UserScalarWhereInput!]
   OR: [UserScalarWhereInput!]
+  clubId: IntNullableFilter
   createdAt: DateTimeFilter
   email: StringFilter
   firstName: StringFilter
@@ -10625,6 +10756,7 @@ input UserScalarWhereWithAggregatesInput {
   AND: [UserScalarWhereWithAggregatesInput!]
   NOT: [UserScalarWhereWithAggregatesInput!]
   OR: [UserScalarWhereWithAggregatesInput!]
+  clubId: IntNullableWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
   email: StringWithAggregatesFilter
   firstName: StringWithAggregatesFilter
@@ -10638,17 +10770,20 @@ input UserScalarWhereWithAggregatesInput {
 }
 
 type UserSumAggregate {
+  clubId: Int
   id: Int
   locationId: Int
 }
 
 input UserSumOrderByAggregateInput {
+  clubId: SortOrder
   id: SortOrder
   locationId: SortOrder
 }
 
 input UserUpdateInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
+  club: ClubUpdateOneWithoutUsersInput
   comments: CommentUpdateManyWithoutUserInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
@@ -10676,9 +10811,28 @@ input UserUpdateManyMutationInput {
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
+input UserUpdateManyWithWhereWithoutClubInput {
+  data: UserUpdateManyMutationInput!
+  where: UserScalarWhereInput!
+}
+
 input UserUpdateManyWithWhereWithoutLocationInput {
   data: UserUpdateManyMutationInput!
   where: UserScalarWhereInput!
+}
+
+input UserUpdateManyWithoutClubInput {
+  connect: [UserWhereUniqueInput!]
+  connectOrCreate: [UserCreateOrConnectWithoutClubInput!]
+  create: [UserCreateWithoutClubInput!]
+  createMany: UserCreateManyClubInputEnvelope
+  delete: [UserWhereUniqueInput!]
+  deleteMany: [UserScalarWhereInput!]
+  disconnect: [UserWhereUniqueInput!]
+  set: [UserWhereUniqueInput!]
+  update: [UserUpdateWithWhereUniqueWithoutClubInput!]
+  updateMany: [UserUpdateManyWithWhereWithoutClubInput!]
+  upsert: [UserUpsertWithWhereUniqueWithoutClubInput!]
 }
 
 input UserUpdateManyWithoutLocationInput {
@@ -10745,12 +10899,36 @@ input UserUpdateOneWithoutCommentsInput {
   upsert: UserUpsertWithoutCommentsInput
 }
 
+input UserUpdateWithWhereUniqueWithoutClubInput {
+  data: UserUpdateWithoutClubInput!
+  where: UserWhereUniqueInput!
+}
+
 input UserUpdateWithWhereUniqueWithoutLocationInput {
   data: UserUpdateWithoutLocationInput!
   where: UserWhereUniqueInput!
 }
 
 input UserUpdateWithoutAcceptancesInput {
+  club: ClubUpdateOneWithoutUsersInput
+  comments: CommentUpdateManyWithoutUserInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  location: LocationUpdateOneWithoutUsersInput
+  password: StringFieldUpdateOperationsInput
+  publicId: StringFieldUpdateOperationsInput
+  registrations: RegistrationUpdateManyWithoutRegistrantInput
+  results: ResultUpdateManyWithoutApprovedByInput
+  role: EnumUserRoleFieldUpdateOperationsInput
+  routesJudged: RouteUpdateManyWithoutJudgeInput
+  routesSet: RouteUpdateManyWithoutSetterInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input UserUpdateWithoutClubInput {
+  acceptances: RegistrationUpdateManyWithoutAcceptorInput
   comments: CommentUpdateManyWithoutUserInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
@@ -10769,6 +10947,7 @@ input UserUpdateWithoutAcceptancesInput {
 
 input UserUpdateWithoutCommentsInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
+  club: ClubUpdateOneWithoutUsersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
@@ -10786,6 +10965,7 @@ input UserUpdateWithoutCommentsInput {
 
 input UserUpdateWithoutLocationInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
+  club: ClubUpdateOneWithoutUsersInput
   comments: CommentUpdateManyWithoutUserInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
@@ -10803,6 +10983,7 @@ input UserUpdateWithoutLocationInput {
 
 input UserUpdateWithoutRegistrationsInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
+  club: ClubUpdateOneWithoutUsersInput
   comments: CommentUpdateManyWithoutUserInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
@@ -10820,6 +11001,7 @@ input UserUpdateWithoutRegistrationsInput {
 
 input UserUpdateWithoutResultsInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
+  club: ClubUpdateOneWithoutUsersInput
   comments: CommentUpdateManyWithoutUserInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
@@ -10837,6 +11019,7 @@ input UserUpdateWithoutResultsInput {
 
 input UserUpdateWithoutRoutesJudgedInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
+  club: ClubUpdateOneWithoutUsersInput
   comments: CommentUpdateManyWithoutUserInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
@@ -10854,6 +11037,7 @@ input UserUpdateWithoutRoutesJudgedInput {
 
 input UserUpdateWithoutRoutesSetInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
+  club: ClubUpdateOneWithoutUsersInput
   comments: CommentUpdateManyWithoutUserInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
@@ -10867,6 +11051,12 @@ input UserUpdateWithoutRoutesSetInput {
   role: EnumUserRoleFieldUpdateOperationsInput
   routesJudged: RouteUpdateManyWithoutJudgeInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input UserUpsertWithWhereUniqueWithoutClubInput {
+  create: UserCreateWithoutClubInput!
+  update: UserUpdateWithoutClubInput!
+  where: UserWhereUniqueInput!
 }
 
 input UserUpsertWithWhereUniqueWithoutLocationInput {
@@ -10910,6 +11100,8 @@ input UserWhereInput {
   NOT: [UserWhereInput!]
   OR: [UserWhereInput!]
   acceptances: RegistrationListRelationFilter
+  club: ClubRelationFilter
+  clubId: IntNullableFilter
   comments: CommentListRelationFilter
   createdAt: DateTimeFilter
   email: StringFilter

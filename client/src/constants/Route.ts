@@ -12,9 +12,16 @@ export const ROUTE = {
   RESULTS_ID:      '/results/:id',
   RESULTS_LIVE:    '/results/live',
   ATHLETES:        '/athletes',
+  // Dashboard
   DASHBOARD:       '/dashboard',
   SCORE:           '/dashboard/score',
   SCORE_ID:        '/dashboard/score/:id',
-  ROUTES:          '/dashboard/routes',
+  D_ROUTES:        '/dashboard/routes',
+  D_USERS:         '/dashboard/users',
+  D_SEASONS:       '/dashboard/seasons',
+  D_COMPETITIONS:  '/dashboard/competitions',
+  D_CLUBS:         '/dashboard/clubs',
+  D_COMPETITORS:   '/dashboard/competitors',
+  // Auth
   UNAUTHORIZED:    '/unauthorized',
 };

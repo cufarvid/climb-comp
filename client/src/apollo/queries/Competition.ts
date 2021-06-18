@@ -16,6 +16,9 @@ export const LIST_COMPETITIONS = gql`
       }
       location {
         name
+        country {
+          name
+        }
       }
     }
   }
