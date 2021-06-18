@@ -20,3 +20,16 @@ export const LIST_SEASONS_COMPS = gql`
     }
   }
 `;
+
+export const LIST_SEASONS = gql`
+  query {
+    seasons {
+      id
+      name
+      stardDate
+      endDate
+      description
+      year
+    }
+  }
+`;

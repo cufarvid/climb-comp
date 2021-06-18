@@ -88,7 +88,7 @@ export const compTypeTagColor = (
 
 /**
  * Parses competitions array to competition table rows
- * @param competitions
+ * @param competitions Competitions array
  */
 export const parseCompetitions = (
   competitions: Competition[] | undefined,

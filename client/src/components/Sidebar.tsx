@@ -62,7 +62,7 @@ const Sidebar: FC = () => {
             </Menu.Item>
 
             {/* Seasons */}
-            <Menu.Item key={ROUTE.D_SEASONS} disabled>
+            <Menu.Item key={ROUTE.D_SEASONS}>
               <CalendarOutlined />
               <span>Seasons</span>
               <Link to={ROUTE.D_SEASONS} />
