@@ -4,3 +4,4 @@ export { LIST_COMPETITIONS } from './Competition';
 export { LIST_SEASONS_COMPS, LIST_SEASONS } from './Season';
 export { LIST_COMPETITORS } from './Competitor';
 export { LIST_CLUBS } from './Club';
+export { LIST_ROUTES } from './Route';

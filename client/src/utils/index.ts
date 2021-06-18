@@ -4,6 +4,7 @@ import { ColorVariant } from '../types';
 import { ApolloClient } from '@apollo/client';
 import { isLoggedInVar, loggedUserId, loggedUserInfo } from '../apollo/cache';
 import dayjs from 'dayjs';
+import { User } from '../types/__generated__';
 
 /**
  * Returns color codes for provided color variant
@@ -126,6 +127,9 @@ export const formatDateTime = (
  */
 export const localStorageToken = (): string =>
   localStorage.getItem('token') ?? '';
+
+export const userFullName = (user: User | undefined): string =>
+  user ? `${user.firstName} ${user.lastName}` : '';
 
 /**
  * Exports

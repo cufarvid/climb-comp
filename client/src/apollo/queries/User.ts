@@ -52,3 +52,10 @@ export const LIST_USERS = gql`
     }
   }
 `;
+
+export const F_USER_NAME = gql`
+  fragment UserName on User {
+    firstName
+    lastName
+  }
+`;
