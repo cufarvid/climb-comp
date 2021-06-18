@@ -4,7 +4,7 @@ import { F_USER_NAME } from './User';
 export const LIST_ROUTES = gql`
   ${F_USER_NAME}
   query {
-    routes {
+    routes(orderBy: [{ id: desc }, { categoryId: asc }]) {
       id
       name
       round
