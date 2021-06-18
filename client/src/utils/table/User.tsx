@@ -2,13 +2,21 @@ import React from 'react';
 import { Space, Tag, TagProps } from 'antd';
 import { ColumnsType } from 'antd/lib/table/interface';
 
-import { UserRecord } from '../types';
-import { UserRole } from '../types/__generated__';
+import { User, UserRole } from '../../types/__generated__';
+
+export interface UserRow {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  country: string;
+  role: UserRole;
+}
 
 /**
  * Users table column definition
  */
-export const USER_COLUMNS: ColumnsType<UserRecord> = [
+export const USER_COLUMNS: ColumnsType<UserRow> = [
   {
     title: 'ID',
     dataIndex: 'id',
@@ -75,4 +83,21 @@ export const userRoleTagColor = (role: UserRole): TagProps['color'] => {
     case UserRole.Administrator:
       return 'red';
   }
+};
+
+/**
+ * Parses users array to user table rows
+ * @param users
+ */
+export const parseUsers = (users: User[] | undefined): UserRow[] => {
+  if (!users) return [];
+
+  return users.map((user) => ({
+    id: user.id,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    email: user.email,
+    role: user.role,
+    country: user.location?.country.name ?? '',
+  }));
 };

@@ -2,26 +2,12 @@ import React, { FC } from 'react';
 import { useQuery } from '@apollo/client';
 import { Button, Table } from 'antd';
 
-import { Query, QueryUsersArgs, User } from '../../types/__generated__';
-import { UserRecord } from '../../types';
-import { USER_COLUMNS } from '../../constants';
+import { Query, QueryUsersArgs } from '../../types/__generated__';
 import { LIST_USERS } from '../../apollo/queries';
+import { parseUsers, USER_COLUMNS } from '../../utils';
 
 const Users: FC = () => {
   const { data, loading } = useQuery<Query, QueryUsersArgs>(LIST_USERS);
-
-  const parseUsers = (users: User[] | undefined): UserRecord[] => {
-    if (!users) return [];
-
-    return users.map((user) => ({
-      id: user.id,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      email: user.email,
-      role: user.role,
-      country: user.location?.country.name ?? '',
-    }));
-  };
 
   return (
     <>

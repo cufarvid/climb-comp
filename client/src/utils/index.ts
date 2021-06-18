@@ -131,3 +131,4 @@ export const localStorageToken = (): string =>
  * Exports
  */
 export * from './User';
+export * from './table/index';

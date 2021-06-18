@@ -1,5 +1,3 @@
-import { UserRole } from './__generated__';
-
 export type DictionaryOf<T> = {
   [key in string | number]: T;
 };
@@ -22,16 +20,4 @@ export interface ResultRecord {
   qualification: string;
   semiFinal: string;
   final: string;
-}
-
-/*
-  User
- */
-export interface UserRecord {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  country: string;
-  role: UserRole;
 }
