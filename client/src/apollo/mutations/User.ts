@@ -18,7 +18,7 @@ export const USER_ADD = gql`
 `;
 
 export const USER_UPDATE = gql`
-  mutation UserUpdate($data: UserUpdateInput, $where: UserWhereInput) {
+  mutation UserUpdate($data: UserUpdateInput!, $where: UserWhereUniqueInput!) {
     updateUser(data: $data, where: $where) {
       id
     }
