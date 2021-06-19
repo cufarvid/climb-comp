@@ -14,11 +14,11 @@ export const LIST_COMPETITIONS = gql`
       compType {
         name
       }
-      location {
+      country {
         name
-        country {
-          name
-        }
+      }
+      region {
+        name
       }
     }
   }
@@ -39,14 +39,11 @@ export const COMPETITION = gql`
       compType {
         name
       }
-      location {
+      country {
         name
-        country {
-          name
-        }
-        region {
-          name
-        }
+      }
+      region {
+        name
       }
       results {
         id

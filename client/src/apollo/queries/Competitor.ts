@@ -12,10 +12,8 @@ export const LIST_COMPETITORS = gql`
       club {
         name
       }
-      location {
-        country {
-          name
-        }
+      country {
+        name
       }
     }
   }

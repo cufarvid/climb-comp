@@ -6,10 +6,8 @@ export const LIST_CLUBS = gql`
       id
       name
       address
-      location {
-        country {
-          name
-        }
+      country {
+        name
       }
     }
   }

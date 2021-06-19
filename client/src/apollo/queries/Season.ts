@@ -13,9 +13,6 @@ export const LIST_SEASONS_COMPS = gql`
         compType {
           name
         }
-        location {
-          name
-        }
       }
     }
   }

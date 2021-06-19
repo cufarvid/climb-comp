@@ -8,10 +8,8 @@ export const COMP_RESULTS = gql`
         competitor {
           lastName
           firstName
-          location {
-            country {
-              name
-            }
+          country {
+            name
           }
           club {
             name
@@ -48,12 +46,10 @@ export const LIVE_COMP_RESULTS = gql`
         competitor {
           lastName
           firstName
-          location {
-            country {
-              name
-            }
-          }
           club {
+            name
+          }
+          country {
             name
           }
         }
