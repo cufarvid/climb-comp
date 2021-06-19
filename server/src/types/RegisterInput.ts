@@ -19,5 +19,8 @@ export default class RegisterInput implements Partial<User> {
   password: string;
 
   @Field({ nullable: true })
-  locationId?: number;
+  regionId?: number;
+
+  @Field({ nullable: true })
+  countryId?: number;
 }

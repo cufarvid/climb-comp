@@ -7802,11 +7802,12 @@ export type RegionWhereUniqueInput = {
 };
 
 export type RegisterInput = {
+  countryId?: Maybe<Scalars['Float']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
   lastName: Scalars['String'];
-  locationId?: Maybe<Scalars['Float']>;
   password: Scalars['String'];
+  regionId?: Maybe<Scalars['Float']>;
   role: UserRole;
 };
 
