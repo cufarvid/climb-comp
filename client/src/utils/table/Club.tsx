@@ -8,6 +8,7 @@ export interface ClubRow {
   name: string;
   address: string;
   country: string;
+  region: string;
 }
 
 /**
@@ -35,6 +36,11 @@ export const CLUB_COLUMNS: ColumnsType<ClubRow> = [
     key: 'country',
   },
   {
+    title: 'Region',
+    dataIndex: 'region',
+    key: 'region',
+  },
+  {
     title: 'Action',
     key: 'action',
     render: function SpaceRender(): JSX.Element {
@@ -59,5 +65,6 @@ export const parseClubs = (clubs: Club[] | undefined): ClubRow[] => {
     name: club.name,
     address: club.address ?? '',
     country: club.country?.name ?? '',
+    region: club.region?.name ?? '',
   }));
 };
