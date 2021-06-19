@@ -95,7 +95,7 @@ export const parseCompetitions = (
   competitions: Competition[] | undefined,
 ): CompetitionRow[] => {
   if (!competitions) return [];
-  console.log(competitions);
+
   return competitions.map((competition) => ({
     id: competition.id,
     name: competition.name,

@@ -2,7 +2,7 @@ import { History } from 'history';
 import { COLOR, FORMAT, REGEXP } from '../constants';
 import { ColorVariant } from '../types';
 import { ApolloClient } from '@apollo/client';
-import { isLoggedInVar, loggedUserId, loggedUserInfo } from '../apollo/cache';
+import { isLoggedInVar, loggedUserInfo } from '../apollo/cache';
 import dayjs from 'dayjs';
 import { User } from '../types/__generated__';
 
@@ -29,14 +29,6 @@ export const urlPathToArray = (path: string): string[] => {
 };
 
 /**
- * Removes user data from local storage
- */
-export const cleanLocalStorage = (): void => {
-  localStorage.removeItem('token');
-  localStorage.removeItem('publicId');
-};
-
-/**
  * Performs user logout and Apollo client cleanup
  * @param client
  * @param history
@@ -52,13 +44,12 @@ export const userLogout = (
   client.cache.gc();
 
   // Remove user details from localStorage.
-  cleanLocalStorage();
+  localStorage.removeItem('token');
 
   // Let other parts of the application that are relying on logged in
   // state know we're now logged out.
   isLoggedInVar(false);
-  loggedUserId(null);
-  loggedUserInfo(null);
+  loggedUserInfo(undefined);
 
   // Redirect back to home page
   history?.push('/');
