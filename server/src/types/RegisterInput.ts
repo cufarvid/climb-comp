@@ -1,5 +1,5 @@
 import { Field, InputType } from 'type-graphql';
-import { User } from '@generated/type-graphql';
+import { User, UserRole } from '@generated/type-graphql';
 
 @InputType()
 export default class RegisterInput implements Partial<User> {
@@ -11,6 +11,9 @@ export default class RegisterInput implements Partial<User> {
 
   @Field()
   lastName: string;
+
+  @Field(() => UserRole)
+  role: UserRole;
 
   @Field()
   password: string;

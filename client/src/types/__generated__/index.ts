@@ -7718,6 +7718,7 @@ export type RegisterInput = {
   lastName: Scalars['String'];
   locationId?: Maybe<Scalars['Float']>;
   password: Scalars['String'];
+  role: UserRole;
 };
 
 export type Registration = {

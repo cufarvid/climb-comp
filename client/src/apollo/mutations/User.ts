@@ -8,3 +8,19 @@ export const USER_LOGIN = gql`
     }
   }
 `;
+
+export const USER_ADD = gql`
+  mutation UserAdd($credentials: RegisterInput!) {
+    register(credentials: $credentials) {
+      id
+    }
+  }
+`;
+
+export const USER_UPDATE = gql`
+  mutation UserUpdate($data: UserUpdateInput!, $where: UserWhereUniqueInput!) {
+    updateUser(data: $data, where: $where) {
+      id
+    }
+  }
+`;

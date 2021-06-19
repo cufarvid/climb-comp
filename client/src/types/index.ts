@@ -4,6 +4,11 @@ export type DictionaryOf<T> = {
 
 export type ColorVariant = 'dark' | 'light';
 
+export enum ModalType {
+  ADD = 'Add',
+  EDIT = 'Edit',
+}
+
 /*
   Score
 */

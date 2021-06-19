@@ -48,6 +48,7 @@ export class UserResolver {
           firstName: registerInput.firstName,
           lastName: registerInput.lastName,
           email: registerInput.email,
+          role: registerInput.role,
           password: await bcrypt.hash(registerInput.password, 10),
           location: registerInput.locationId
             ? { connect: { id: registerInput.locationId } }

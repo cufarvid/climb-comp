@@ -8,13 +8,14 @@ import { parseRoutes, ROUTE_COLUMNS } from '../../utils';
 
 const Routes: FC = () => {
   const { data, loading } = useQuery<Query>(LIST_ROUTES);
-  console.log(data);
+
   return (
     <>
       <Button type="primary" className="mb-1">
         Add new
       </Button>
       <Table
+        rowKey="id"
         columns={ROUTE_COLUMNS}
         dataSource={parseRoutes(data?.routes)}
         loading={loading}

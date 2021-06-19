@@ -1,2 +1,2 @@
-export { USER_LOGIN } from './User';
-export { SCORE_BOULDER } from './Score';
+export * from './User';
+export * from './Score';
