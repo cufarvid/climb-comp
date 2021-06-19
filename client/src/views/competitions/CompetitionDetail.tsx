@@ -61,10 +61,10 @@ const CompetitionDetail: FC = () => {
             <b>{competition.address}</b>
           </Descriptions.Item>
           <Descriptions.Item label="Region">
-            <b>{competition.location.region.name}</b>
+            <b>{competition.region?.name ?? ''}</b>
           </Descriptions.Item>
           <Descriptions.Item label="Country">
-            <b>{competition.location.country.name}</b>
+            <b>{competition.country?.name ?? ''}</b>
           </Descriptions.Item>
         </Descriptions>
       </div>

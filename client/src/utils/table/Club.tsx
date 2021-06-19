@@ -58,6 +58,6 @@ export const parseClubs = (clubs: Club[] | undefined): ClubRow[] => {
     id: club.id,
     name: club.name,
     address: club.address ?? '',
-    country: club.location.country.name ?? '',
+    country: club.country?.name ?? '',
   }));
 };

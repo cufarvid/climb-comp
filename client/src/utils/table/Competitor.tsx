@@ -75,6 +75,6 @@ export const parseCompetitors = (
     lastName: competitior.lastName,
     category: competitior.category.name,
     club: competitior.club.name,
-    country: competitior.location.country.name ?? '',
+    country: competitior.country?.name ?? '',
   }));
 };

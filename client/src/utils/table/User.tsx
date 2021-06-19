@@ -101,6 +101,6 @@ export const parseUsers = (users: User[] | undefined): UserRow[] => {
     lastName: user.lastName,
     email: user.email,
     role: user.role,
-    country: user.location?.country.name ?? '',
+    country: user.country?.name ?? '',
   }));
 };

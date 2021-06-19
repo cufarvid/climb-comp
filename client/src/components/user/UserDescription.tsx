@@ -34,13 +34,13 @@ const UserDescription: FC<UserDescriptionProps> = ({
         <Col span={12}>
           <DescriptionItem
             title="Region"
-            content={user.location?.region?.name || MESSAGE.NO_DATA}
+            content={user.region?.name || MESSAGE.NO_DATA}
           />
         </Col>
         <Col span={12}>
           <DescriptionItem
             title="Country"
-            content={user.location?.country?.name || MESSAGE.NO_DATA}
+            content={user.country?.name || MESSAGE.NO_DATA}
           />
         </Col>
       </Row>

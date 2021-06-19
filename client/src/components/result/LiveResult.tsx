@@ -20,7 +20,7 @@ const resultsMapper = (field: ResultField): ResultRecord => {
   return {
     rank: rank,
     name: `${competitor.firstName} ${competitor.lastName}`,
-    country: competitor.location.country.name,
+    country: competitor.country?.name ?? '',
     club: competitor.club.name,
     qualification: rounds[0]?.score ?? '',
     semiFinal: rounds[1]?.score ?? '',

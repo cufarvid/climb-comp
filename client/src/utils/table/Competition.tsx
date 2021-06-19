@@ -101,6 +101,6 @@ export const parseCompetitions = (
     startDate: formatDateTime(competition.startDate),
     address: competition.address,
     compType: competition.compType.name,
-    country: competition.location.country.name ?? '',
+    country: competition.country?.name ?? '',
   }));
 };
