@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { Form, Input, message, Modal, Select } from 'antd';
 
@@ -7,17 +7,17 @@ import {
   MutationRegisterArgs,
   MutationUpdateUserArgs,
   RegisterInput,
-  User,
   UserRole,
 } from '../../types/__generated__';
 import { USER_ADD, USER_UPDATE } from '../../apollo/mutations';
 import { ModalType } from '../../types';
+import { UserRow } from '../../utils';
 
 interface Props {
   visible: boolean;
   setVisible: (value: boolean) => void;
   type: ModalType;
-  user?: User;
+  user?: UserRow;
 }
 
 const UserModal: FC<Props> = ({ visible, setVisible, type, user }: Props) => {
@@ -50,6 +50,9 @@ const UserModal: FC<Props> = ({ visible, setVisible, type, user }: Props) => {
     },
   );
 
+  /**
+   * Form object
+   */
   const [form] = Form.useForm();
 
   const onOk = async () => {
@@ -73,6 +76,7 @@ const UserModal: FC<Props> = ({ visible, setVisible, type, user }: Props) => {
         break;
       case ModalType.EDIT:
         if (!user) return;
+
         await editUser({
           variables: {
             where: {
@@ -90,15 +94,26 @@ const UserModal: FC<Props> = ({ visible, setVisible, type, user }: Props) => {
     }
   };
 
+  const onCancel = (): void => {
+    setVisible(false);
+    form.resetFields();
+  };
+
+  useEffect(() => {
+    // Update form fields after user change
+    form.setFields([
+      { name: 'firstName', value: user?.firstName },
+      { name: 'firstName', value: user?.firstName },
+      { name: 'lastName', value: user?.lastName },
+      { name: 'email', value: user?.email },
+      { name: 'role', value: user?.role },
+    ]);
+  }, [user]);
+
   const title = `${type} user`;
 
   return (
-    <Modal
-      title={title}
-      visible={visible}
-      onCancel={() => setVisible(false)}
-      onOk={onOk}
-    >
+    <Modal title={title} visible={visible} onCancel={onCancel} onOk={onOk}>
       <Form form={form}>
         <Form.Item
           label="First name"
@@ -139,7 +154,7 @@ const UserModal: FC<Props> = ({ visible, setVisible, type, user }: Props) => {
           ]}
         >
           <Select>
-            {Object.keys(UserRole).map((role) => (
+            {Object.values(UserRole).map((role) => (
               <Select.Option key={role} value={role}>
                 {role}
               </Select.Option>
