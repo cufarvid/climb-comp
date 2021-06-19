@@ -1,5 +1,7 @@
-import React, { FC, useContext } from 'react';
+import React, { FC } from 'react';
 import { Route } from 'react-router-dom';
+import { useReactiveVar } from '@apollo/client';
+
 import { ROUTE } from '../constants';
 import {
   Clubs,
@@ -11,10 +13,10 @@ import {
   Users,
 } from '../views';
 import { isAdministrator } from '../utils';
-import { DashboardContext } from '../context';
+import { loggedUserInfo } from '../apollo/cache';
 
 const DashboardRoutes: FC = () => {
-  const { userInfo } = useContext(DashboardContext);
+  const userInfo = useReactiveVar(loggedUserInfo);
 
   return (
     <>

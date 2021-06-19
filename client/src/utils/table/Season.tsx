@@ -3,6 +3,7 @@ import { Space } from 'antd';
 import { ColumnsType } from 'antd/lib/table/interface';
 import { Season } from '../../types/__generated__';
 import { formatDateTime } from '../index';
+import { MESSAGE } from '../../constants';
 
 export interface SeasonRow {
   id: number;
@@ -72,7 +73,7 @@ export const parseSeasons = (seasons: Season[] | undefined): SeasonRow[] => {
     name: season.name,
     startDate: formatDateTime(season.stardDate),
     endDate: formatDateTime(season.endDate),
-    description: season.description ?? '',
+    description: season.description || MESSAGE.NO_DATA,
     year: season.year,
   }));
 };

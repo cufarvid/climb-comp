@@ -1,13 +1,16 @@
+import React from 'react';
+import { Space } from 'antd';
+
 import { ColumnsType } from 'antd/lib/table/interface';
 import { Club } from '../../types/__generated__';
-import { Space } from 'antd';
-import React from 'react';
+import { MESSAGE } from '../../constants';
 
 export interface ClubRow {
   id: number;
   name: string;
   address: string;
   country: string;
+  region: string;
 }
 
 /**
@@ -35,6 +38,11 @@ export const CLUB_COLUMNS: ColumnsType<ClubRow> = [
     key: 'country',
   },
   {
+    title: 'Region',
+    dataIndex: 'region',
+    key: 'region',
+  },
+  {
     title: 'Action',
     key: 'action',
     render: function SpaceRender(): JSX.Element {
@@ -57,7 +65,8 @@ export const parseClubs = (clubs: Club[] | undefined): ClubRow[] => {
   return clubs.map((club) => ({
     id: club.id,
     name: club.name,
-    address: club.address ?? '',
-    country: club.location.country.name ?? '',
+    address: club.address || MESSAGE.NO_DATA,
+    country: club.country?.name || MESSAGE.NO_DATA,
+    region: club.region?.name || MESSAGE.NO_DATA,
   }));
 };
