@@ -3,6 +3,7 @@ import { ColumnsType } from 'antd/lib/table/interface';
 import { Space } from 'antd';
 
 import { Competitor } from '../../types/__generated__';
+import { MESSAGE } from '../../constants';
 
 export interface CompetitorRow {
   id: number;
@@ -69,12 +70,12 @@ export const parseCompetitors = (
 ): CompetitorRow[] => {
   if (!competitors) return [];
 
-  return competitors.map((competitior) => ({
-    id: competitior.id,
-    firstName: competitior.firstName,
-    lastName: competitior.lastName,
-    category: competitior.category.name,
-    club: competitior.club.name,
-    country: competitior.country?.name ?? '',
+  return competitors.map((competitor) => ({
+    id: competitor.id,
+    firstName: competitor.firstName,
+    lastName: competitor.lastName,
+    category: competitor.category.name,
+    club: competitor.club.name,
+    country: competitor.country?.name || MESSAGE.NO_DATA,
   }));
 };

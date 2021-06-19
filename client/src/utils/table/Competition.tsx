@@ -5,6 +5,7 @@ import { ColumnsType } from 'antd/lib/table/interface';
 import { Competition } from '../../types/__generated__';
 import { CompetitionType } from '../../types';
 import { formatDateTime } from '../index';
+import { MESSAGE } from '../../constants';
 
 export interface CompetitionRow {
   id: number;
@@ -101,6 +102,6 @@ export const parseCompetitions = (
     startDate: formatDateTime(competition.startDate),
     address: competition.address,
     compType: competition.compType.name,
-    country: competition.country?.name ?? '',
+    country: competition.country?.name || MESSAGE.NO_DATA,
   }));
 };

@@ -7,6 +7,7 @@ import { Competition, Query } from '../../types/__generated__';
 import { COMPETITION } from '../../apollo/queries/Competition';
 import { PageSection } from '../../components';
 import { formatDateTime } from '../../utils';
+import { MESSAGE } from '../../constants';
 
 const CompetitionDetail: FC = () => {
   const [competition, setCompetition] = useState<Competition>();
@@ -61,10 +62,10 @@ const CompetitionDetail: FC = () => {
             <b>{competition.address}</b>
           </Descriptions.Item>
           <Descriptions.Item label="Region">
-            <b>{competition.region?.name ?? ''}</b>
+            <b>{competition.region?.name || MESSAGE.NO_DATA}</b>
           </Descriptions.Item>
           <Descriptions.Item label="Country">
-            <b>{competition.country?.name ?? ''}</b>
+            <b>{competition.country?.name || MESSAGE.NO_DATA}</b>
           </Descriptions.Item>
         </Descriptions>
       </div>

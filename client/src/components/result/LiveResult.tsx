@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import { Empty, Table } from 'antd';
 
-import { RESULT_COLUMNS } from '../../constants';
+import { MESSAGE, RESULT_COLUMNS } from '../../constants';
 import { ResultRecord } from '../../types';
 import { Category, ResultField } from '../../types/__generated__';
 import { PageSection } from '../index';
@@ -20,11 +20,11 @@ const resultsMapper = (field: ResultField): ResultRecord => {
   return {
     rank: rank,
     name: `${competitor.firstName} ${competitor.lastName}`,
-    country: competitor.country?.name ?? '',
+    country: competitor.country?.name || MESSAGE.NO_DATA,
     club: competitor.club.name,
-    qualification: rounds[0]?.score ?? '',
-    semiFinal: rounds[1]?.score ?? '',
-    final: rounds[2]?.score ?? '',
+    qualification: rounds[0]?.score || MESSAGE.NO_DATA,
+    semiFinal: rounds[1]?.score || MESSAGE.NO_DATA,
+    final: rounds[2]?.score || MESSAGE.NO_DATA,
   };
 };
 
