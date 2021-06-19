@@ -53,14 +53,14 @@ model Grade {
 }
 
 model Category {
-  id            Int             @id @default(autoincrement())
-  name          String
-  description   String?
-  ageFrom       Int
-  ageTo         Int
-  competitors   Competitor[]
-  routes        Route[]
-  CategoryRound CategoryRound[]
+  id             Int             @id @default(autoincrement())
+  name           String
+  description    String?
+  ageFrom        Int
+  ageTo          Int
+  competitors    Competitor[]
+  routes         Route[]
+  categoryRounds CategoryRound[]
 }
 
 model CompetitionType {
@@ -71,24 +71,17 @@ model CompetitionType {
 }
 
 model Country {
-  id        Int        @id @default(autoincrement())
-  name      String
-  locations Location[]
+  id           Int           @id @default(autoincrement())
+  name         String
+  users        User[]
+  clubs        Club[]
+  competitors  Competitor[]
+  competitions Competition[]
 }
 
 model Region {
-  id        Int        @id @default(autoincrement())
-  name      String
-  locations Location[]
-}
-
-model Location {
   id           Int           @id @default(autoincrement())
-  name         String?
-  country      Country       @relation(fields: [countryId], references: [id])
-  countryId    Int
-  region       Region        @relation(fields: [regionId], references: [id])
-  regionId     Int
+  name         String
   users        User[]
   clubs        Club[]
   competitors  Competitor[]
@@ -131,8 +124,10 @@ model User {
   role          UserRole       @default(USER)
   club          Club?          @relation(fields: [clubId], references: [id])
   clubId        Int?
-  location      Location?      @relation(fields: [locationId], references: [id])
-  locationId    Int?
+  country       Country?       @relation(fields: [countryId], references: [id])
+  countryId     Int?
+  region        Region?        @relation(fields: [regionId], references: [id])
+  regionId      Int?
   results       Result[]
   registrations Registration[] @relation("registrant")
   acceptances   Registration[] @relation("acceptor")
@@ -148,8 +143,10 @@ model Club {
   name         String
   description  String?
   address      String?
-  location     Location      @relation(fields: [locationId], references: [id])
-  locationId   Int
+  country      Country?      @relation(fields: [countryId], references: [id])
+  countryId    Int?
+  region       Region?       @relation(fields: [regionId], references: [id])
+  regionId     Int?
   competitors  Competitor[]
   competitions Competition[]
   users        User[]
@@ -169,8 +166,10 @@ model Competitor {
   club          Club           @relation(fields: [clubId], references: [id])
   clubId        Int
   address       String?
-  location      Location       @relation(fields: [locationId], references: [id])
-  locationId    Int
+  country       Country?       @relation(fields: [countryId], references: [id])
+  countryId     Int?
+  region        Region?        @relation(fields: [regionId], references: [id])
+  regionId      Int?
   scoresBoulder ScoreBoulder[]
   scoresLead    ScoreLead[]
   scoresSpeed   ScoreSpeed[]
@@ -189,8 +188,10 @@ model Competition {
   startDate      DateTime
   endDate        DateTime
   address        String
-  location       Location        @relation(fields: [locationId], references: [id])
-  locationId     Int
+  country        Country?        @relation(fields: [countryId], references: [id])
+  countryId      Int?
+  region         Region?         @relation(fields: [regionId], references: [id])
+  regionId       Int?
   club           Club            @relation(fields: [clubId], references: [id])
   clubId         Int
   compType       CompetitionType @relation(fields: [compTypeId], references: [id])

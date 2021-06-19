@@ -3,7 +3,7 @@ import { Button, Checkbox, Form, Input, message } from 'antd';
 import { useMutation } from '@apollo/client';
 
 import { USER_LOGIN } from '../apollo/mutations';
-import { isLoggedInVar, loggedUserId } from '../apollo/cache';
+import { isLoggedInVar } from '../apollo/cache';
 import { MESSAGE, ROUTE } from '../constants';
 import { useHistory } from 'react-router-dom';
 
@@ -28,7 +28,6 @@ const LoginForm: FC<LoginFormProps> = ({ callback }: LoginFormProps) => {
         localStorage.setItem('token', login.token);
         localStorage.setItem('publicId', login.publicId);
 
-        loggedUserId(login.publicId);
         isLoggedInVar(true);
 
         message.success(MESSAGE.LOGIN_SUCCESS).then();

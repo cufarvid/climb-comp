@@ -1,5 +1,6 @@
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useReactiveVar } from '@apollo/client';
 import { Layout, Menu } from 'antd';
 import {
   CalendarOutlined,
@@ -13,11 +14,11 @@ import {
 
 import { ROUTE } from '../constants';
 import { isAdministrator } from '../utils';
-import { DashboardContext } from '../context';
+import { loggedUserInfo } from '../apollo/cache';
 
 const Sidebar: FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const { userInfo } = useContext(DashboardContext);
+  const userInfo = useReactiveVar(loggedUserInfo);
 
   const onCollapse = (): void => setCollapsed((prevState) => !prevState);
 

@@ -8,13 +8,11 @@ export const USER_INFO = gql`
         firstName
         lastName
         role
-        location {
-          region {
-            name
-          }
-          country {
-            name
-          }
+        country {
+          name
+        }
+        region {
+          name
         }
       }
       route {
@@ -38,24 +36,18 @@ export const USER_INFO = gql`
 
 export const LIST_USERS = gql`
   query {
-    users {
+    users(orderBy: [{ id: desc }]) {
       id
       firstName
       lastName
       email
       role
-      location {
-        country {
-          name
-        }
+      country {
+        name
+      }
+      region {
+        name
       }
     }
-  }
-`;
-
-export const F_USER_NAME = gql`
-  fragment UserName on User {
-    firstName
-    lastName
   }
 `;

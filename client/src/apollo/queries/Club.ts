@@ -2,14 +2,15 @@ import { gql } from '@apollo/client/core';
 
 export const LIST_CLUBS = gql`
   query {
-    clubs {
+    clubs(orderBy: [{ id: desc }]) {
       id
       name
       address
-      location {
-        country {
-          name
-        }
+      country {
+        name
+      }
+      region {
+        name
       }
     }
   }

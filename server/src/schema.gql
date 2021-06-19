@@ -79,14 +79,6 @@ type AggregateGrade {
   _sum: GradeSumAggregate
 }
 
-type AggregateLocation {
-  _avg: LocationAvgAggregate
-  _count: LocationCountAggregate
-  _max: LocationMaxAggregate
-  _min: LocationMinAggregate
-  _sum: LocationSumAggregate
-}
-
 type AggregateRegion {
   _avg: RegionAvgAggregate
   _count: RegionCountAggregate
@@ -185,9 +177,9 @@ input BoolWithAggregatesFilter {
 }
 
 type Category {
-  CategoryRound(cursor: CategoryRoundWhereUniqueInput, distinct: [CategoryRoundScalarFieldEnum!], orderBy: [CategoryRoundOrderByInput!], skip: Int, take: Int, where: CategoryRoundWhereInput): [CategoryRound!]!
   ageFrom: Int!
   ageTo: Int!
+  categoryRounds(cursor: CategoryRoundWhereUniqueInput, distinct: [CategoryRoundScalarFieldEnum!], orderBy: [CategoryRoundOrderByInput!], skip: Int, take: Int, where: CategoryRoundWhereInput): [CategoryRound!]!
   competitors(cursor: CompetitorWhereUniqueInput, distinct: [CompetitorScalarFieldEnum!], orderBy: [CompetitorOrderByInput!], skip: Int, take: Int, where: CompetitorWhereInput): [Competitor!]!
   description: String
   id: Int!
@@ -225,9 +217,9 @@ input CategoryCountOrderByAggregateInput {
 }
 
 input CategoryCreateInput {
-  CategoryRound: CategoryRoundCreateNestedManyWithoutCategoryInput
   ageFrom: Int!
   ageTo: Int!
+  categoryRounds: CategoryRoundCreateNestedManyWithoutCategoryInput
   competitors: CompetitorCreateNestedManyWithoutCategoryInput
   description: String
   name: String!
@@ -242,10 +234,10 @@ input CategoryCreateManyInput {
   name: String!
 }
 
-input CategoryCreateNestedOneWithoutCategoryRoundInput {
+input CategoryCreateNestedOneWithoutCategoryRoundsInput {
   connect: CategoryWhereUniqueInput
-  connectOrCreate: CategoryCreateOrConnectWithoutCategoryRoundInput
-  create: CategoryCreateWithoutCategoryRoundInput
+  connectOrCreate: CategoryCreateOrConnectWithoutCategoryRoundsInput
+  create: CategoryCreateWithoutCategoryRoundsInput
 }
 
 input CategoryCreateNestedOneWithoutCompetitorsInput {
@@ -260,8 +252,8 @@ input CategoryCreateNestedOneWithoutRoutesInput {
   create: CategoryCreateWithoutRoutesInput
 }
 
-input CategoryCreateOrConnectWithoutCategoryRoundInput {
-  create: CategoryCreateWithoutCategoryRoundInput!
+input CategoryCreateOrConnectWithoutCategoryRoundsInput {
+  create: CategoryCreateWithoutCategoryRoundsInput!
   where: CategoryWhereUniqueInput!
 }
 
@@ -275,7 +267,7 @@ input CategoryCreateOrConnectWithoutRoutesInput {
   where: CategoryWhereUniqueInput!
 }
 
-input CategoryCreateWithoutCategoryRoundInput {
+input CategoryCreateWithoutCategoryRoundsInput {
   ageFrom: Int!
   ageTo: Int!
   competitors: CompetitorCreateNestedManyWithoutCategoryInput
@@ -285,18 +277,18 @@ input CategoryCreateWithoutCategoryRoundInput {
 }
 
 input CategoryCreateWithoutCompetitorsInput {
-  CategoryRound: CategoryRoundCreateNestedManyWithoutCategoryInput
   ageFrom: Int!
   ageTo: Int!
+  categoryRounds: CategoryRoundCreateNestedManyWithoutCategoryInput
   description: String
   name: String!
   routes: RouteCreateNestedManyWithoutCategoryInput
 }
 
 input CategoryCreateWithoutRoutesInput {
-  CategoryRound: CategoryRoundCreateNestedManyWithoutCategoryInput
   ageFrom: Int!
   ageTo: Int!
+  categoryRounds: CategoryRoundCreateNestedManyWithoutCategoryInput
   competitors: CompetitorCreateNestedManyWithoutCategoryInput
   description: String
   name: String!
@@ -422,7 +414,7 @@ input CategoryRoundCountOrderByAggregateInput {
 }
 
 input CategoryRoundCreateInput {
-  category: CategoryCreateNestedOneWithoutCategoryRoundInput!
+  category: CategoryCreateNestedOneWithoutCategoryRoundsInput!
   competition: CompetitionCreateNestedOneWithoutCategoryRoundsInput!
   createdAt: DateTime
   endDate: DateTime!
@@ -506,7 +498,7 @@ input CategoryRoundCreateWithoutCategoryInput {
 }
 
 input CategoryRoundCreateWithoutCompetitionInput {
-  category: CategoryCreateNestedOneWithoutCategoryRoundInput!
+  category: CategoryCreateNestedOneWithoutCategoryRoundsInput!
   createdAt: DateTime
   endDate: DateTime!
   round: Round!
@@ -659,7 +651,7 @@ input CategoryRoundSumOrderByAggregateInput {
 }
 
 input CategoryRoundUpdateInput {
-  category: CategoryUpdateOneRequiredWithoutCategoryRoundInput
+  category: CategoryUpdateOneRequiredWithoutCategoryRoundsInput
   competition: CompetitionUpdateOneRequiredWithoutCategoryRoundsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   endDate: DateTimeFieldUpdateOperationsInput
@@ -734,7 +726,7 @@ input CategoryRoundUpdateWithoutCategoryInput {
 }
 
 input CategoryRoundUpdateWithoutCompetitionInput {
-  category: CategoryUpdateOneRequiredWithoutCategoryRoundInput
+  category: CategoryUpdateOneRequiredWithoutCategoryRoundsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   endDate: DateTimeFieldUpdateOperationsInput
   round: EnumRoundFieldUpdateOperationsInput
@@ -806,9 +798,9 @@ input CategorySumOrderByAggregateInput {
 }
 
 input CategoryUpdateInput {
-  CategoryRound: CategoryRoundUpdateManyWithoutCategoryInput
   ageFrom: IntFieldUpdateOperationsInput
   ageTo: IntFieldUpdateOperationsInput
+  categoryRounds: CategoryRoundUpdateManyWithoutCategoryInput
   competitors: CompetitorUpdateManyWithoutCategoryInput
   description: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
@@ -822,12 +814,12 @@ input CategoryUpdateManyMutationInput {
   name: StringFieldUpdateOperationsInput
 }
 
-input CategoryUpdateOneRequiredWithoutCategoryRoundInput {
+input CategoryUpdateOneRequiredWithoutCategoryRoundsInput {
   connect: CategoryWhereUniqueInput
-  connectOrCreate: CategoryCreateOrConnectWithoutCategoryRoundInput
-  create: CategoryCreateWithoutCategoryRoundInput
-  update: CategoryUpdateWithoutCategoryRoundInput
-  upsert: CategoryUpsertWithoutCategoryRoundInput
+  connectOrCreate: CategoryCreateOrConnectWithoutCategoryRoundsInput
+  create: CategoryCreateWithoutCategoryRoundsInput
+  update: CategoryUpdateWithoutCategoryRoundsInput
+  upsert: CategoryUpsertWithoutCategoryRoundsInput
 }
 
 input CategoryUpdateOneRequiredWithoutCompetitorsInput {
@@ -846,7 +838,7 @@ input CategoryUpdateOneRequiredWithoutRoutesInput {
   upsert: CategoryUpsertWithoutRoutesInput
 }
 
-input CategoryUpdateWithoutCategoryRoundInput {
+input CategoryUpdateWithoutCategoryRoundsInput {
   ageFrom: IntFieldUpdateOperationsInput
   ageTo: IntFieldUpdateOperationsInput
   competitors: CompetitorUpdateManyWithoutCategoryInput
@@ -856,26 +848,26 @@ input CategoryUpdateWithoutCategoryRoundInput {
 }
 
 input CategoryUpdateWithoutCompetitorsInput {
-  CategoryRound: CategoryRoundUpdateManyWithoutCategoryInput
   ageFrom: IntFieldUpdateOperationsInput
   ageTo: IntFieldUpdateOperationsInput
+  categoryRounds: CategoryRoundUpdateManyWithoutCategoryInput
   description: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   routes: RouteUpdateManyWithoutCategoryInput
 }
 
 input CategoryUpdateWithoutRoutesInput {
-  CategoryRound: CategoryRoundUpdateManyWithoutCategoryInput
   ageFrom: IntFieldUpdateOperationsInput
   ageTo: IntFieldUpdateOperationsInput
+  categoryRounds: CategoryRoundUpdateManyWithoutCategoryInput
   competitors: CompetitorUpdateManyWithoutCategoryInput
   description: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
 }
 
-input CategoryUpsertWithoutCategoryRoundInput {
-  create: CategoryCreateWithoutCategoryRoundInput!
-  update: CategoryUpdateWithoutCategoryRoundInput!
+input CategoryUpsertWithoutCategoryRoundsInput {
+  create: CategoryCreateWithoutCategoryRoundsInput!
+  update: CategoryUpdateWithoutCategoryRoundsInput!
 }
 
 input CategoryUpsertWithoutCompetitorsInput {
@@ -890,11 +882,11 @@ input CategoryUpsertWithoutRoutesInput {
 
 input CategoryWhereInput {
   AND: [CategoryWhereInput!]
-  CategoryRound: CategoryRoundListRelationFilter
   NOT: [CategoryWhereInput!]
   OR: [CategoryWhereInput!]
   ageFrom: IntFilter
   ageTo: IntFilter
+  categoryRounds: CategoryRoundListRelationFilter
   competitors: CompetitorListRelationFilter
   description: StringNullableFilter
   id: IntFilter
@@ -910,44 +902,50 @@ type Club {
   address: String
   competitions(cursor: CompetitionWhereUniqueInput, distinct: [CompetitionScalarFieldEnum!], orderBy: [CompetitionOrderByInput!], skip: Int, take: Int, where: CompetitionWhereInput): [Competition!]!
   competitors(cursor: CompetitorWhereUniqueInput, distinct: [CompetitorScalarFieldEnum!], orderBy: [CompetitorOrderByInput!], skip: Int, take: Int, where: CompetitorWhereInput): [Competitor!]!
+  country: Country
+  countryId: Int
   createdAt: DateTime!
   description: String
   id: Int!
-  location: Location!
-  locationId: Int!
   name: String!
+  region: Region
+  regionId: Int
   updatedAt: DateTime!
   users(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): [User!]!
 }
 
 type ClubAvgAggregate {
+  countryId: Float
   id: Float
-  locationId: Float
+  regionId: Float
 }
 
 input ClubAvgOrderByAggregateInput {
+  countryId: SortOrder
   id: SortOrder
-  locationId: SortOrder
+  regionId: SortOrder
 }
 
 type ClubCountAggregate {
   _all: Int!
   address: Int!
+  countryId: Int!
   createdAt: Int!
   description: Int!
   id: Int!
-  locationId: Int!
   name: Int!
+  regionId: Int!
   updatedAt: Int!
 }
 
 input ClubCountOrderByAggregateInput {
   address: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
   id: SortOrder
-  locationId: SortOrder
   name: SortOrder
+  regionId: SortOrder
   updatedAt: SortOrder
 }
 
@@ -955,43 +953,68 @@ input ClubCreateInput {
   address: String
   competitions: CompetitionCreateNestedManyWithoutClubInput
   competitors: CompetitorCreateNestedManyWithoutClubInput
+  country: CountryCreateNestedOneWithoutClubsInput
   createdAt: DateTime
   description: String
-  location: LocationCreateNestedOneWithoutClubsInput!
   name: String!
+  region: RegionCreateNestedOneWithoutClubsInput
   updatedAt: DateTime
   users: UserCreateNestedManyWithoutClubInput
 }
 
-input ClubCreateManyInput {
-  address: String
-  createdAt: DateTime
-  description: String
-  id: Int
-  locationId: Int!
-  name: String!
-  updatedAt: DateTime
-}
-
-input ClubCreateManyLocationInput {
+input ClubCreateManyCountryInput {
   address: String
   createdAt: DateTime
   description: String
   id: Int
   name: String!
+  regionId: Int
   updatedAt: DateTime
 }
 
-input ClubCreateManyLocationInputEnvelope {
-  data: [ClubCreateManyLocationInput!]!
+input ClubCreateManyCountryInputEnvelope {
+  data: [ClubCreateManyCountryInput!]!
   skipDuplicates: Boolean
 }
 
-input ClubCreateNestedManyWithoutLocationInput {
+input ClubCreateManyInput {
+  address: String
+  countryId: Int
+  createdAt: DateTime
+  description: String
+  id: Int
+  name: String!
+  regionId: Int
+  updatedAt: DateTime
+}
+
+input ClubCreateManyRegionInput {
+  address: String
+  countryId: Int
+  createdAt: DateTime
+  description: String
+  id: Int
+  name: String!
+  updatedAt: DateTime
+}
+
+input ClubCreateManyRegionInputEnvelope {
+  data: [ClubCreateManyRegionInput!]!
+  skipDuplicates: Boolean
+}
+
+input ClubCreateNestedManyWithoutCountryInput {
   connect: [ClubWhereUniqueInput!]
-  connectOrCreate: [ClubCreateOrConnectWithoutLocationInput!]
-  create: [ClubCreateWithoutLocationInput!]
-  createMany: ClubCreateManyLocationInputEnvelope
+  connectOrCreate: [ClubCreateOrConnectWithoutCountryInput!]
+  create: [ClubCreateWithoutCountryInput!]
+  createMany: ClubCreateManyCountryInputEnvelope
+}
+
+input ClubCreateNestedManyWithoutRegionInput {
+  connect: [ClubWhereUniqueInput!]
+  connectOrCreate: [ClubCreateOrConnectWithoutRegionInput!]
+  create: [ClubCreateWithoutRegionInput!]
+  createMany: ClubCreateManyRegionInputEnvelope
 }
 
 input ClubCreateNestedOneWithoutCompetitionsInput {
@@ -1022,8 +1045,13 @@ input ClubCreateOrConnectWithoutCompetitorsInput {
   where: ClubWhereUniqueInput!
 }
 
-input ClubCreateOrConnectWithoutLocationInput {
-  create: ClubCreateWithoutLocationInput!
+input ClubCreateOrConnectWithoutCountryInput {
+  create: ClubCreateWithoutCountryInput!
+  where: ClubWhereUniqueInput!
+}
+
+input ClubCreateOrConnectWithoutRegionInput {
+  create: ClubCreateWithoutRegionInput!
   where: ClubWhereUniqueInput!
 }
 
@@ -1035,10 +1063,11 @@ input ClubCreateOrConnectWithoutUsersInput {
 input ClubCreateWithoutCompetitionsInput {
   address: String
   competitors: CompetitorCreateNestedManyWithoutClubInput
+  country: CountryCreateNestedOneWithoutClubsInput
   createdAt: DateTime
   description: String
-  location: LocationCreateNestedOneWithoutClubsInput!
   name: String!
+  region: RegionCreateNestedOneWithoutClubsInput
   updatedAt: DateTime
   users: UserCreateNestedManyWithoutClubInput
 }
@@ -1046,18 +1075,32 @@ input ClubCreateWithoutCompetitionsInput {
 input ClubCreateWithoutCompetitorsInput {
   address: String
   competitions: CompetitionCreateNestedManyWithoutClubInput
+  country: CountryCreateNestedOneWithoutClubsInput
   createdAt: DateTime
   description: String
-  location: LocationCreateNestedOneWithoutClubsInput!
   name: String!
+  region: RegionCreateNestedOneWithoutClubsInput
   updatedAt: DateTime
   users: UserCreateNestedManyWithoutClubInput
 }
 
-input ClubCreateWithoutLocationInput {
+input ClubCreateWithoutCountryInput {
   address: String
   competitions: CompetitionCreateNestedManyWithoutClubInput
   competitors: CompetitorCreateNestedManyWithoutClubInput
+  createdAt: DateTime
+  description: String
+  name: String!
+  region: RegionCreateNestedOneWithoutClubsInput
+  updatedAt: DateTime
+  users: UserCreateNestedManyWithoutClubInput
+}
+
+input ClubCreateWithoutRegionInput {
+  address: String
+  competitions: CompetitionCreateNestedManyWithoutClubInput
+  competitors: CompetitorCreateNestedManyWithoutClubInput
+  country: CountryCreateNestedOneWithoutClubsInput
   createdAt: DateTime
   description: String
   name: String!
@@ -1069,10 +1112,11 @@ input ClubCreateWithoutUsersInput {
   address: String
   competitions: CompetitionCreateNestedManyWithoutClubInput
   competitors: CompetitorCreateNestedManyWithoutClubInput
+  country: CountryCreateNestedOneWithoutClubsInput
   createdAt: DateTime
   description: String
-  location: LocationCreateNestedOneWithoutClubsInput!
   name: String!
+  region: RegionCreateNestedOneWithoutClubsInput
   updatedAt: DateTime
 }
 
@@ -1083,11 +1127,12 @@ type ClubGroupBy {
   _min: ClubMinAggregate
   _sum: ClubSumAggregate
   address: String
+  countryId: Int
   createdAt: DateTime!
   description: String
   id: Int!
-  locationId: Int!
   name: String!
+  regionId: Int
   updatedAt: DateTime!
 }
 
@@ -1099,51 +1144,56 @@ input ClubListRelationFilter {
 
 type ClubMaxAggregate {
   address: String
+  countryId: Int
   createdAt: DateTime
   description: String
   id: Int
-  locationId: Int
   name: String
+  regionId: Int
   updatedAt: DateTime
 }
 
 input ClubMaxOrderByAggregateInput {
   address: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
   id: SortOrder
-  locationId: SortOrder
   name: SortOrder
+  regionId: SortOrder
   updatedAt: SortOrder
 }
 
 type ClubMinAggregate {
   address: String
+  countryId: Int
   createdAt: DateTime
   description: String
   id: Int
-  locationId: Int
   name: String
+  regionId: Int
   updatedAt: DateTime
 }
 
 input ClubMinOrderByAggregateInput {
   address: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
   id: SortOrder
-  locationId: SortOrder
   name: SortOrder
+  regionId: SortOrder
   updatedAt: SortOrder
 }
 
 input ClubOrderByInput {
   address: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
   id: SortOrder
-  locationId: SortOrder
   name: SortOrder
+  regionId: SortOrder
   updatedAt: SortOrder
 }
 
@@ -1154,11 +1204,12 @@ input ClubOrderByWithAggregationInput {
   _min: ClubMinOrderByAggregateInput
   _sum: ClubSumOrderByAggregateInput
   address: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
   id: SortOrder
-  locationId: SortOrder
   name: SortOrder
+  regionId: SortOrder
   updatedAt: SortOrder
 }
 
@@ -1169,11 +1220,12 @@ input ClubRelationFilter {
 
 enum ClubScalarFieldEnum {
   address
+  countryId
   createdAt
   description
   id
-  locationId
   name
+  regionId
   updatedAt
 }
 
@@ -1182,11 +1234,12 @@ input ClubScalarWhereInput {
   NOT: [ClubScalarWhereInput!]
   OR: [ClubScalarWhereInput!]
   address: StringNullableFilter
+  countryId: IntNullableFilter
   createdAt: DateTimeFilter
   description: StringNullableFilter
   id: IntFilter
-  locationId: IntFilter
   name: StringFilter
+  regionId: IntNullableFilter
   updatedAt: DateTimeFilter
 }
 
@@ -1195,32 +1248,36 @@ input ClubScalarWhereWithAggregatesInput {
   NOT: [ClubScalarWhereWithAggregatesInput!]
   OR: [ClubScalarWhereWithAggregatesInput!]
   address: StringNullableWithAggregatesFilter
+  countryId: IntNullableWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
   description: StringNullableWithAggregatesFilter
   id: IntWithAggregatesFilter
-  locationId: IntWithAggregatesFilter
   name: StringWithAggregatesFilter
+  regionId: IntNullableWithAggregatesFilter
   updatedAt: DateTimeWithAggregatesFilter
 }
 
 type ClubSumAggregate {
+  countryId: Int
   id: Int
-  locationId: Int
+  regionId: Int
 }
 
 input ClubSumOrderByAggregateInput {
+  countryId: SortOrder
   id: SortOrder
-  locationId: SortOrder
+  regionId: SortOrder
 }
 
 input ClubUpdateInput {
   address: NullableStringFieldUpdateOperationsInput
   competitions: CompetitionUpdateManyWithoutClubInput
   competitors: CompetitorUpdateManyWithoutClubInput
+  country: CountryUpdateOneWithoutClubsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutClubsInput
   name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutClubsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   users: UserUpdateManyWithoutClubInput
 }
@@ -1233,23 +1290,42 @@ input ClubUpdateManyMutationInput {
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input ClubUpdateManyWithWhereWithoutLocationInput {
+input ClubUpdateManyWithWhereWithoutCountryInput {
   data: ClubUpdateManyMutationInput!
   where: ClubScalarWhereInput!
 }
 
-input ClubUpdateManyWithoutLocationInput {
+input ClubUpdateManyWithWhereWithoutRegionInput {
+  data: ClubUpdateManyMutationInput!
+  where: ClubScalarWhereInput!
+}
+
+input ClubUpdateManyWithoutCountryInput {
   connect: [ClubWhereUniqueInput!]
-  connectOrCreate: [ClubCreateOrConnectWithoutLocationInput!]
-  create: [ClubCreateWithoutLocationInput!]
-  createMany: ClubCreateManyLocationInputEnvelope
+  connectOrCreate: [ClubCreateOrConnectWithoutCountryInput!]
+  create: [ClubCreateWithoutCountryInput!]
+  createMany: ClubCreateManyCountryInputEnvelope
   delete: [ClubWhereUniqueInput!]
   deleteMany: [ClubScalarWhereInput!]
   disconnect: [ClubWhereUniqueInput!]
   set: [ClubWhereUniqueInput!]
-  update: [ClubUpdateWithWhereUniqueWithoutLocationInput!]
-  updateMany: [ClubUpdateManyWithWhereWithoutLocationInput!]
-  upsert: [ClubUpsertWithWhereUniqueWithoutLocationInput!]
+  update: [ClubUpdateWithWhereUniqueWithoutCountryInput!]
+  updateMany: [ClubUpdateManyWithWhereWithoutCountryInput!]
+  upsert: [ClubUpsertWithWhereUniqueWithoutCountryInput!]
+}
+
+input ClubUpdateManyWithoutRegionInput {
+  connect: [ClubWhereUniqueInput!]
+  connectOrCreate: [ClubCreateOrConnectWithoutRegionInput!]
+  create: [ClubCreateWithoutRegionInput!]
+  createMany: ClubCreateManyRegionInputEnvelope
+  delete: [ClubWhereUniqueInput!]
+  deleteMany: [ClubScalarWhereInput!]
+  disconnect: [ClubWhereUniqueInput!]
+  set: [ClubWhereUniqueInput!]
+  update: [ClubUpdateWithWhereUniqueWithoutRegionInput!]
+  updateMany: [ClubUpdateManyWithWhereWithoutRegionInput!]
+  upsert: [ClubUpsertWithWhereUniqueWithoutRegionInput!]
 }
 
 input ClubUpdateOneRequiredWithoutCompetitionsInput {
@@ -1278,18 +1354,24 @@ input ClubUpdateOneWithoutUsersInput {
   upsert: ClubUpsertWithoutUsersInput
 }
 
-input ClubUpdateWithWhereUniqueWithoutLocationInput {
-  data: ClubUpdateWithoutLocationInput!
+input ClubUpdateWithWhereUniqueWithoutCountryInput {
+  data: ClubUpdateWithoutCountryInput!
+  where: ClubWhereUniqueInput!
+}
+
+input ClubUpdateWithWhereUniqueWithoutRegionInput {
+  data: ClubUpdateWithoutRegionInput!
   where: ClubWhereUniqueInput!
 }
 
 input ClubUpdateWithoutCompetitionsInput {
   address: NullableStringFieldUpdateOperationsInput
   competitors: CompetitorUpdateManyWithoutClubInput
+  country: CountryUpdateOneWithoutClubsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutClubsInput
   name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutClubsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   users: UserUpdateManyWithoutClubInput
 }
@@ -1297,18 +1379,32 @@ input ClubUpdateWithoutCompetitionsInput {
 input ClubUpdateWithoutCompetitorsInput {
   address: NullableStringFieldUpdateOperationsInput
   competitions: CompetitionUpdateManyWithoutClubInput
+  country: CountryUpdateOneWithoutClubsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutClubsInput
   name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutClubsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   users: UserUpdateManyWithoutClubInput
 }
 
-input ClubUpdateWithoutLocationInput {
+input ClubUpdateWithoutCountryInput {
   address: NullableStringFieldUpdateOperationsInput
   competitions: CompetitionUpdateManyWithoutClubInput
   competitors: CompetitorUpdateManyWithoutClubInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutClubsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutClubInput
+}
+
+input ClubUpdateWithoutRegionInput {
+  address: NullableStringFieldUpdateOperationsInput
+  competitions: CompetitionUpdateManyWithoutClubInput
+  competitors: CompetitorUpdateManyWithoutClubInput
+  country: CountryUpdateOneWithoutClubsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
@@ -1320,16 +1416,23 @@ input ClubUpdateWithoutUsersInput {
   address: NullableStringFieldUpdateOperationsInput
   competitions: CompetitionUpdateManyWithoutClubInput
   competitors: CompetitorUpdateManyWithoutClubInput
+  country: CountryUpdateOneWithoutClubsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutClubsInput
   name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutClubsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input ClubUpsertWithWhereUniqueWithoutLocationInput {
-  create: ClubCreateWithoutLocationInput!
-  update: ClubUpdateWithoutLocationInput!
+input ClubUpsertWithWhereUniqueWithoutCountryInput {
+  create: ClubCreateWithoutCountryInput!
+  update: ClubUpdateWithoutCountryInput!
+  where: ClubWhereUniqueInput!
+}
+
+input ClubUpsertWithWhereUniqueWithoutRegionInput {
+  create: ClubCreateWithoutRegionInput!
+  update: ClubUpdateWithoutRegionInput!
   where: ClubWhereUniqueInput!
 }
 
@@ -1355,12 +1458,14 @@ input ClubWhereInput {
   address: StringNullableFilter
   competitions: CompetitionListRelationFilter
   competitors: CompetitorListRelationFilter
+  country: CountryRelationFilter
+  countryId: IntNullableFilter
   createdAt: DateTimeFilter
   description: StringNullableFilter
   id: IntFilter
-  location: LocationRelationFilter
-  locationId: IntFilter
   name: StringFilter
+  region: RegionRelationFilter
+  regionId: IntNullableFilter
   updatedAt: DateTimeFilter
   users: UserListRelationFilter
 }
@@ -1790,13 +1895,15 @@ type Competition {
   clubId: Int!
   compType: CompetitionType!
   compTypeId: Int!
+  country: Country
+  countryId: Int
   createdAt: DateTime!
   description: String!
   endDate: DateTime!
   id: Int!
-  location: Location!
-  locationId: Int!
   name: String!
+  region: Region
+  regionId: Int
   registrations(cursor: RegistrationWhereUniqueInput, distinct: [RegistrationScalarFieldEnum!], orderBy: [RegistrationOrderByInput!], skip: Int, take: Int, where: RegistrationWhereInput): [Registration!]!
   results(cursor: ResultWhereUniqueInput, distinct: [ResultScalarFieldEnum!], orderBy: [ResultOrderByInput!], skip: Int, take: Int, where: ResultWhereInput): [Result!]!
   routes(cursor: RouteWhereUniqueInput, distinct: [RouteScalarFieldEnum!], orderBy: [RouteOrderByInput!], skip: Int, take: Int, where: RouteWhereInput): [Route!]!
@@ -1810,16 +1917,18 @@ type Competition {
 type CompetitionAvgAggregate {
   clubId: Float
   compTypeId: Float
+  countryId: Float
   id: Float
-  locationId: Float
+  regionId: Float
   seasonId: Float
 }
 
 input CompetitionAvgOrderByAggregateInput {
   clubId: SortOrder
   compTypeId: SortOrder
+  countryId: SortOrder
   id: SortOrder
-  locationId: SortOrder
+  regionId: SortOrder
   seasonId: SortOrder
 }
 
@@ -1829,12 +1938,13 @@ type CompetitionCountAggregate {
   address: Int!
   clubId: Int!
   compTypeId: Int!
+  countryId: Int!
   createdAt: Int!
   description: Int!
   endDate: Int!
   id: Int!
-  locationId: Int!
   name: Int!
+  regionId: Int!
   seasonId: Int!
   startDate: Int!
   updatedAt: Int!
@@ -1845,12 +1955,13 @@ input CompetitionCountOrderByAggregateInput {
   address: SortOrder
   clubId: SortOrder
   compTypeId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
   endDate: SortOrder
   id: SortOrder
-  locationId: SortOrder
   name: SortOrder
+  regionId: SortOrder
   seasonId: SortOrder
   startDate: SortOrder
   updatedAt: SortOrder
@@ -1862,11 +1973,12 @@ input CompetitionCreateInput {
   categoryRounds: CategoryRoundCreateNestedManyWithoutCompetitionInput
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
+  country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
   endDate: DateTime!
-  location: LocationCreateNestedOneWithoutCompetitionsInput!
   name: String!
+  region: RegionCreateNestedOneWithoutCompetitionsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitionInput
   results: ResultCreateNestedManyWithoutCompetitionInput
   routes: RouteCreateNestedManyWithoutCompetitionInput
@@ -1880,12 +1992,13 @@ input CompetitionCreateManyClubInput {
   active: Boolean
   address: String!
   compTypeId: Int!
+  countryId: Int
   createdAt: DateTime
   description: String!
   endDate: DateTime!
   id: Int
-  locationId: Int!
   name: String!
+  regionId: Int
   seasonId: Int!
   startDate: DateTime!
   updatedAt: DateTime
@@ -1900,12 +2013,13 @@ input CompetitionCreateManyCompTypeInput {
   active: Boolean
   address: String!
   clubId: Int!
+  countryId: Int
   createdAt: DateTime
   description: String!
   endDate: DateTime!
   id: Int
-  locationId: Int!
   name: String!
+  regionId: Int
   seasonId: Int!
   startDate: DateTime!
   updatedAt: DateTime
@@ -1916,27 +2030,50 @@ input CompetitionCreateManyCompTypeInputEnvelope {
   skipDuplicates: Boolean
 }
 
+input CompetitionCreateManyCountryInput {
+  active: Boolean
+  address: String!
+  clubId: Int!
+  compTypeId: Int!
+  createdAt: DateTime
+  description: String!
+  endDate: DateTime!
+  id: Int
+  name: String!
+  regionId: Int
+  seasonId: Int!
+  startDate: DateTime!
+  updatedAt: DateTime
+}
+
+input CompetitionCreateManyCountryInputEnvelope {
+  data: [CompetitionCreateManyCountryInput!]!
+  skipDuplicates: Boolean
+}
+
 input CompetitionCreateManyInput {
   active: Boolean
   address: String!
   clubId: Int!
   compTypeId: Int!
+  countryId: Int
   createdAt: DateTime
   description: String!
   endDate: DateTime!
   id: Int
-  locationId: Int!
   name: String!
+  regionId: Int
   seasonId: Int!
   startDate: DateTime!
   updatedAt: DateTime
 }
 
-input CompetitionCreateManyLocationInput {
+input CompetitionCreateManyRegionInput {
   active: Boolean
   address: String!
   clubId: Int!
   compTypeId: Int!
+  countryId: Int
   createdAt: DateTime
   description: String!
   endDate: DateTime!
@@ -1947,8 +2084,8 @@ input CompetitionCreateManyLocationInput {
   updatedAt: DateTime
 }
 
-input CompetitionCreateManyLocationInputEnvelope {
-  data: [CompetitionCreateManyLocationInput!]!
+input CompetitionCreateManyRegionInputEnvelope {
+  data: [CompetitionCreateManyRegionInput!]!
   skipDuplicates: Boolean
 }
 
@@ -1957,12 +2094,13 @@ input CompetitionCreateManySeasonInput {
   address: String!
   clubId: Int!
   compTypeId: Int!
+  countryId: Int
   createdAt: DateTime
   description: String!
   endDate: DateTime!
   id: Int
-  locationId: Int!
   name: String!
+  regionId: Int
   startDate: DateTime!
   updatedAt: DateTime
 }
@@ -1986,11 +2124,18 @@ input CompetitionCreateNestedManyWithoutCompTypeInput {
   createMany: CompetitionCreateManyCompTypeInputEnvelope
 }
 
-input CompetitionCreateNestedManyWithoutLocationInput {
+input CompetitionCreateNestedManyWithoutCountryInput {
   connect: [CompetitionWhereUniqueInput!]
-  connectOrCreate: [CompetitionCreateOrConnectWithoutLocationInput!]
-  create: [CompetitionCreateWithoutLocationInput!]
-  createMany: CompetitionCreateManyLocationInputEnvelope
+  connectOrCreate: [CompetitionCreateOrConnectWithoutCountryInput!]
+  create: [CompetitionCreateWithoutCountryInput!]
+  createMany: CompetitionCreateManyCountryInputEnvelope
+}
+
+input CompetitionCreateNestedManyWithoutRegionInput {
+  connect: [CompetitionWhereUniqueInput!]
+  connectOrCreate: [CompetitionCreateOrConnectWithoutRegionInput!]
+  create: [CompetitionCreateWithoutRegionInput!]
+  createMany: CompetitionCreateManyRegionInputEnvelope
 }
 
 input CompetitionCreateNestedManyWithoutSeasonInput {
@@ -2045,8 +2190,13 @@ input CompetitionCreateOrConnectWithoutCompTypeInput {
   where: CompetitionWhereUniqueInput!
 }
 
-input CompetitionCreateOrConnectWithoutLocationInput {
-  create: CompetitionCreateWithoutLocationInput!
+input CompetitionCreateOrConnectWithoutCountryInput {
+  create: CompetitionCreateWithoutCountryInput!
+  where: CompetitionWhereUniqueInput!
+}
+
+input CompetitionCreateOrConnectWithoutRegionInput {
+  create: CompetitionCreateWithoutRegionInput!
   where: CompetitionWhereUniqueInput!
 }
 
@@ -2080,11 +2230,12 @@ input CompetitionCreateWithoutCategoryRoundsInput {
   address: String!
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
+  country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
   endDate: DateTime!
-  location: LocationCreateNestedOneWithoutCompetitionsInput!
   name: String!
+  region: RegionCreateNestedOneWithoutCompetitionsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitionInput
   results: ResultCreateNestedManyWithoutCompetitionInput
   routes: RouteCreateNestedManyWithoutCompetitionInput
@@ -2099,11 +2250,12 @@ input CompetitionCreateWithoutClubInput {
   address: String!
   categoryRounds: CategoryRoundCreateNestedManyWithoutCompetitionInput
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
+  country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
   endDate: DateTime!
-  location: LocationCreateNestedOneWithoutCompetitionsInput!
   name: String!
+  region: RegionCreateNestedOneWithoutCompetitionsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitionInput
   results: ResultCreateNestedManyWithoutCompetitionInput
   routes: RouteCreateNestedManyWithoutCompetitionInput
@@ -2118,11 +2270,12 @@ input CompetitionCreateWithoutCompTypeInput {
   address: String!
   categoryRounds: CategoryRoundCreateNestedManyWithoutCompetitionInput
   club: ClubCreateNestedOneWithoutCompetitionsInput!
+  country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
   endDate: DateTime!
-  location: LocationCreateNestedOneWithoutCompetitionsInput!
   name: String!
+  region: RegionCreateNestedOneWithoutCompetitionsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitionInput
   results: ResultCreateNestedManyWithoutCompetitionInput
   routes: RouteCreateNestedManyWithoutCompetitionInput
@@ -2132,12 +2285,33 @@ input CompetitionCreateWithoutCompTypeInput {
   updatedAt: DateTime
 }
 
-input CompetitionCreateWithoutLocationInput {
+input CompetitionCreateWithoutCountryInput {
   active: Boolean
   address: String!
   categoryRounds: CategoryRoundCreateNestedManyWithoutCompetitionInput
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
+  createdAt: DateTime
+  description: String!
+  endDate: DateTime!
+  name: String!
+  region: RegionCreateNestedOneWithoutCompetitionsInput
+  registrations: RegistrationCreateNestedManyWithoutCompetitionInput
+  results: ResultCreateNestedManyWithoutCompetitionInput
+  routes: RouteCreateNestedManyWithoutCompetitionInput
+  season: SeasonCreateNestedOneWithoutCompetitionsInput!
+  startDate: DateTime!
+  startLists: StartListCreateNestedManyWithoutCompetitionInput
+  updatedAt: DateTime
+}
+
+input CompetitionCreateWithoutRegionInput {
+  active: Boolean
+  address: String!
+  categoryRounds: CategoryRoundCreateNestedManyWithoutCompetitionInput
+  club: ClubCreateNestedOneWithoutCompetitionsInput!
+  compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
+  country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
   endDate: DateTime!
@@ -2157,11 +2331,12 @@ input CompetitionCreateWithoutRegistrationsInput {
   categoryRounds: CategoryRoundCreateNestedManyWithoutCompetitionInput
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
+  country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
   endDate: DateTime!
-  location: LocationCreateNestedOneWithoutCompetitionsInput!
   name: String!
+  region: RegionCreateNestedOneWithoutCompetitionsInput
   results: ResultCreateNestedManyWithoutCompetitionInput
   routes: RouteCreateNestedManyWithoutCompetitionInput
   season: SeasonCreateNestedOneWithoutCompetitionsInput!
@@ -2176,11 +2351,12 @@ input CompetitionCreateWithoutResultsInput {
   categoryRounds: CategoryRoundCreateNestedManyWithoutCompetitionInput
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
+  country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
   endDate: DateTime!
-  location: LocationCreateNestedOneWithoutCompetitionsInput!
   name: String!
+  region: RegionCreateNestedOneWithoutCompetitionsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitionInput
   routes: RouteCreateNestedManyWithoutCompetitionInput
   season: SeasonCreateNestedOneWithoutCompetitionsInput!
@@ -2195,11 +2371,12 @@ input CompetitionCreateWithoutRoutesInput {
   categoryRounds: CategoryRoundCreateNestedManyWithoutCompetitionInput
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
+  country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
   endDate: DateTime!
-  location: LocationCreateNestedOneWithoutCompetitionsInput!
   name: String!
+  region: RegionCreateNestedOneWithoutCompetitionsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitionInput
   results: ResultCreateNestedManyWithoutCompetitionInput
   season: SeasonCreateNestedOneWithoutCompetitionsInput!
@@ -2214,11 +2391,12 @@ input CompetitionCreateWithoutSeasonInput {
   categoryRounds: CategoryRoundCreateNestedManyWithoutCompetitionInput
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
+  country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
   endDate: DateTime!
-  location: LocationCreateNestedOneWithoutCompetitionsInput!
   name: String!
+  region: RegionCreateNestedOneWithoutCompetitionsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitionInput
   results: ResultCreateNestedManyWithoutCompetitionInput
   routes: RouteCreateNestedManyWithoutCompetitionInput
@@ -2233,11 +2411,12 @@ input CompetitionCreateWithoutStartListsInput {
   categoryRounds: CategoryRoundCreateNestedManyWithoutCompetitionInput
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
+  country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
   endDate: DateTime!
-  location: LocationCreateNestedOneWithoutCompetitionsInput!
   name: String!
+  region: RegionCreateNestedOneWithoutCompetitionsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitionInput
   results: ResultCreateNestedManyWithoutCompetitionInput
   routes: RouteCreateNestedManyWithoutCompetitionInput
@@ -2256,12 +2435,13 @@ type CompetitionGroupBy {
   address: String!
   clubId: Int!
   compTypeId: Int!
+  countryId: Int
   createdAt: DateTime!
   description: String!
   endDate: DateTime!
   id: Int!
-  locationId: Int!
   name: String!
+  regionId: Int
   seasonId: Int!
   startDate: DateTime!
   updatedAt: DateTime!
@@ -2278,12 +2458,13 @@ type CompetitionMaxAggregate {
   address: String
   clubId: Int
   compTypeId: Int
+  countryId: Int
   createdAt: DateTime
   description: String
   endDate: DateTime
   id: Int
-  locationId: Int
   name: String
+  regionId: Int
   seasonId: Int
   startDate: DateTime
   updatedAt: DateTime
@@ -2294,12 +2475,13 @@ input CompetitionMaxOrderByAggregateInput {
   address: SortOrder
   clubId: SortOrder
   compTypeId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
   endDate: SortOrder
   id: SortOrder
-  locationId: SortOrder
   name: SortOrder
+  regionId: SortOrder
   seasonId: SortOrder
   startDate: SortOrder
   updatedAt: SortOrder
@@ -2310,12 +2492,13 @@ type CompetitionMinAggregate {
   address: String
   clubId: Int
   compTypeId: Int
+  countryId: Int
   createdAt: DateTime
   description: String
   endDate: DateTime
   id: Int
-  locationId: Int
   name: String
+  regionId: Int
   seasonId: Int
   startDate: DateTime
   updatedAt: DateTime
@@ -2326,12 +2509,13 @@ input CompetitionMinOrderByAggregateInput {
   address: SortOrder
   clubId: SortOrder
   compTypeId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
   endDate: SortOrder
   id: SortOrder
-  locationId: SortOrder
   name: SortOrder
+  regionId: SortOrder
   seasonId: SortOrder
   startDate: SortOrder
   updatedAt: SortOrder
@@ -2342,12 +2526,13 @@ input CompetitionOrderByInput {
   address: SortOrder
   clubId: SortOrder
   compTypeId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
   endDate: SortOrder
   id: SortOrder
-  locationId: SortOrder
   name: SortOrder
+  regionId: SortOrder
   seasonId: SortOrder
   startDate: SortOrder
   updatedAt: SortOrder
@@ -2363,12 +2548,13 @@ input CompetitionOrderByWithAggregationInput {
   address: SortOrder
   clubId: SortOrder
   compTypeId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
   endDate: SortOrder
   id: SortOrder
-  locationId: SortOrder
   name: SortOrder
+  regionId: SortOrder
   seasonId: SortOrder
   startDate: SortOrder
   updatedAt: SortOrder
@@ -2384,12 +2570,13 @@ enum CompetitionScalarFieldEnum {
   address
   clubId
   compTypeId
+  countryId
   createdAt
   description
   endDate
   id
-  locationId
   name
+  regionId
   seasonId
   startDate
   updatedAt
@@ -2403,12 +2590,13 @@ input CompetitionScalarWhereInput {
   address: StringFilter
   clubId: IntFilter
   compTypeId: IntFilter
+  countryId: IntNullableFilter
   createdAt: DateTimeFilter
   description: StringFilter
   endDate: DateTimeFilter
   id: IntFilter
-  locationId: IntFilter
   name: StringFilter
+  regionId: IntNullableFilter
   seasonId: IntFilter
   startDate: DateTimeFilter
   updatedAt: DateTimeFilter
@@ -2422,12 +2610,13 @@ input CompetitionScalarWhereWithAggregatesInput {
   address: StringWithAggregatesFilter
   clubId: IntWithAggregatesFilter
   compTypeId: IntWithAggregatesFilter
+  countryId: IntNullableWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
   description: StringWithAggregatesFilter
   endDate: DateTimeWithAggregatesFilter
   id: IntWithAggregatesFilter
-  locationId: IntWithAggregatesFilter
   name: StringWithAggregatesFilter
+  regionId: IntNullableWithAggregatesFilter
   seasonId: IntWithAggregatesFilter
   startDate: DateTimeWithAggregatesFilter
   updatedAt: DateTimeWithAggregatesFilter
@@ -2436,16 +2625,18 @@ input CompetitionScalarWhereWithAggregatesInput {
 type CompetitionSumAggregate {
   clubId: Int
   compTypeId: Int
+  countryId: Int
   id: Int
-  locationId: Int
+  regionId: Int
   seasonId: Int
 }
 
 input CompetitionSumOrderByAggregateInput {
   clubId: SortOrder
   compTypeId: SortOrder
+  countryId: SortOrder
   id: SortOrder
-  locationId: SortOrder
+  regionId: SortOrder
   seasonId: SortOrder
 }
 
@@ -2634,11 +2825,12 @@ input CompetitionUpdateInput {
   categoryRounds: CategoryRoundUpdateManyWithoutCompetitionInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
+  country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
   endDate: DateTimeFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitionsInput
   name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitionsInput
   registrations: RegistrationUpdateManyWithoutCompetitionInput
   results: ResultUpdateManyWithoutCompetitionInput
   routes: RouteUpdateManyWithoutCompetitionInput
@@ -2669,7 +2861,12 @@ input CompetitionUpdateManyWithWhereWithoutCompTypeInput {
   where: CompetitionScalarWhereInput!
 }
 
-input CompetitionUpdateManyWithWhereWithoutLocationInput {
+input CompetitionUpdateManyWithWhereWithoutCountryInput {
+  data: CompetitionUpdateManyMutationInput!
+  where: CompetitionScalarWhereInput!
+}
+
+input CompetitionUpdateManyWithWhereWithoutRegionInput {
   data: CompetitionUpdateManyMutationInput!
   where: CompetitionScalarWhereInput!
 }
@@ -2707,18 +2904,32 @@ input CompetitionUpdateManyWithoutCompTypeInput {
   upsert: [CompetitionUpsertWithWhereUniqueWithoutCompTypeInput!]
 }
 
-input CompetitionUpdateManyWithoutLocationInput {
+input CompetitionUpdateManyWithoutCountryInput {
   connect: [CompetitionWhereUniqueInput!]
-  connectOrCreate: [CompetitionCreateOrConnectWithoutLocationInput!]
-  create: [CompetitionCreateWithoutLocationInput!]
-  createMany: CompetitionCreateManyLocationInputEnvelope
+  connectOrCreate: [CompetitionCreateOrConnectWithoutCountryInput!]
+  create: [CompetitionCreateWithoutCountryInput!]
+  createMany: CompetitionCreateManyCountryInputEnvelope
   delete: [CompetitionWhereUniqueInput!]
   deleteMany: [CompetitionScalarWhereInput!]
   disconnect: [CompetitionWhereUniqueInput!]
   set: [CompetitionWhereUniqueInput!]
-  update: [CompetitionUpdateWithWhereUniqueWithoutLocationInput!]
-  updateMany: [CompetitionUpdateManyWithWhereWithoutLocationInput!]
-  upsert: [CompetitionUpsertWithWhereUniqueWithoutLocationInput!]
+  update: [CompetitionUpdateWithWhereUniqueWithoutCountryInput!]
+  updateMany: [CompetitionUpdateManyWithWhereWithoutCountryInput!]
+  upsert: [CompetitionUpsertWithWhereUniqueWithoutCountryInput!]
+}
+
+input CompetitionUpdateManyWithoutRegionInput {
+  connect: [CompetitionWhereUniqueInput!]
+  connectOrCreate: [CompetitionCreateOrConnectWithoutRegionInput!]
+  create: [CompetitionCreateWithoutRegionInput!]
+  createMany: CompetitionCreateManyRegionInputEnvelope
+  delete: [CompetitionWhereUniqueInput!]
+  deleteMany: [CompetitionScalarWhereInput!]
+  disconnect: [CompetitionWhereUniqueInput!]
+  set: [CompetitionWhereUniqueInput!]
+  update: [CompetitionUpdateWithWhereUniqueWithoutRegionInput!]
+  updateMany: [CompetitionUpdateManyWithWhereWithoutRegionInput!]
+  upsert: [CompetitionUpsertWithWhereUniqueWithoutRegionInput!]
 }
 
 input CompetitionUpdateManyWithoutSeasonInput {
@@ -2785,8 +2996,13 @@ input CompetitionUpdateWithWhereUniqueWithoutCompTypeInput {
   where: CompetitionWhereUniqueInput!
 }
 
-input CompetitionUpdateWithWhereUniqueWithoutLocationInput {
-  data: CompetitionUpdateWithoutLocationInput!
+input CompetitionUpdateWithWhereUniqueWithoutCountryInput {
+  data: CompetitionUpdateWithoutCountryInput!
+  where: CompetitionWhereUniqueInput!
+}
+
+input CompetitionUpdateWithWhereUniqueWithoutRegionInput {
+  data: CompetitionUpdateWithoutRegionInput!
   where: CompetitionWhereUniqueInput!
 }
 
@@ -2800,11 +3016,12 @@ input CompetitionUpdateWithoutCategoryRoundsInput {
   address: StringFieldUpdateOperationsInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
+  country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
   endDate: DateTimeFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitionsInput
   name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitionsInput
   registrations: RegistrationUpdateManyWithoutCompetitionInput
   results: ResultUpdateManyWithoutCompetitionInput
   routes: RouteUpdateManyWithoutCompetitionInput
@@ -2819,11 +3036,12 @@ input CompetitionUpdateWithoutClubInput {
   address: StringFieldUpdateOperationsInput
   categoryRounds: CategoryRoundUpdateManyWithoutCompetitionInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
+  country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
   endDate: DateTimeFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitionsInput
   name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitionsInput
   registrations: RegistrationUpdateManyWithoutCompetitionInput
   results: ResultUpdateManyWithoutCompetitionInput
   routes: RouteUpdateManyWithoutCompetitionInput
@@ -2838,11 +3056,12 @@ input CompetitionUpdateWithoutCompTypeInput {
   address: StringFieldUpdateOperationsInput
   categoryRounds: CategoryRoundUpdateManyWithoutCompetitionInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
+  country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
   endDate: DateTimeFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitionsInput
   name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitionsInput
   registrations: RegistrationUpdateManyWithoutCompetitionInput
   results: ResultUpdateManyWithoutCompetitionInput
   routes: RouteUpdateManyWithoutCompetitionInput
@@ -2852,12 +3071,33 @@ input CompetitionUpdateWithoutCompTypeInput {
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input CompetitionUpdateWithoutLocationInput {
+input CompetitionUpdateWithoutCountryInput {
   active: BoolFieldUpdateOperationsInput
   address: StringFieldUpdateOperationsInput
   categoryRounds: CategoryRoundUpdateManyWithoutCompetitionInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: StringFieldUpdateOperationsInput
+  endDate: DateTimeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitionsInput
+  registrations: RegistrationUpdateManyWithoutCompetitionInput
+  results: ResultUpdateManyWithoutCompetitionInput
+  routes: RouteUpdateManyWithoutCompetitionInput
+  season: SeasonUpdateOneRequiredWithoutCompetitionsInput
+  startDate: DateTimeFieldUpdateOperationsInput
+  startLists: StartListUpdateManyWithoutCompetitionInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CompetitionUpdateWithoutRegionInput {
+  active: BoolFieldUpdateOperationsInput
+  address: StringFieldUpdateOperationsInput
+  categoryRounds: CategoryRoundUpdateManyWithoutCompetitionInput
+  club: ClubUpdateOneRequiredWithoutCompetitionsInput
+  compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
+  country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
   endDate: DateTimeFieldUpdateOperationsInput
@@ -2877,11 +3117,12 @@ input CompetitionUpdateWithoutRegistrationsInput {
   categoryRounds: CategoryRoundUpdateManyWithoutCompetitionInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
+  country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
   endDate: DateTimeFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitionsInput
   name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitionsInput
   results: ResultUpdateManyWithoutCompetitionInput
   routes: RouteUpdateManyWithoutCompetitionInput
   season: SeasonUpdateOneRequiredWithoutCompetitionsInput
@@ -2896,11 +3137,12 @@ input CompetitionUpdateWithoutResultsInput {
   categoryRounds: CategoryRoundUpdateManyWithoutCompetitionInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
+  country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
   endDate: DateTimeFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitionsInput
   name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitionsInput
   registrations: RegistrationUpdateManyWithoutCompetitionInput
   routes: RouteUpdateManyWithoutCompetitionInput
   season: SeasonUpdateOneRequiredWithoutCompetitionsInput
@@ -2915,11 +3157,12 @@ input CompetitionUpdateWithoutRoutesInput {
   categoryRounds: CategoryRoundUpdateManyWithoutCompetitionInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
+  country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
   endDate: DateTimeFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitionsInput
   name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitionsInput
   registrations: RegistrationUpdateManyWithoutCompetitionInput
   results: ResultUpdateManyWithoutCompetitionInput
   season: SeasonUpdateOneRequiredWithoutCompetitionsInput
@@ -2934,11 +3177,12 @@ input CompetitionUpdateWithoutSeasonInput {
   categoryRounds: CategoryRoundUpdateManyWithoutCompetitionInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
+  country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
   endDate: DateTimeFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitionsInput
   name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitionsInput
   registrations: RegistrationUpdateManyWithoutCompetitionInput
   results: ResultUpdateManyWithoutCompetitionInput
   routes: RouteUpdateManyWithoutCompetitionInput
@@ -2953,11 +3197,12 @@ input CompetitionUpdateWithoutStartListsInput {
   categoryRounds: CategoryRoundUpdateManyWithoutCompetitionInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
+  country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
   endDate: DateTimeFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitionsInput
   name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitionsInput
   registrations: RegistrationUpdateManyWithoutCompetitionInput
   results: ResultUpdateManyWithoutCompetitionInput
   routes: RouteUpdateManyWithoutCompetitionInput
@@ -2978,9 +3223,15 @@ input CompetitionUpsertWithWhereUniqueWithoutCompTypeInput {
   where: CompetitionWhereUniqueInput!
 }
 
-input CompetitionUpsertWithWhereUniqueWithoutLocationInput {
-  create: CompetitionCreateWithoutLocationInput!
-  update: CompetitionUpdateWithoutLocationInput!
+input CompetitionUpsertWithWhereUniqueWithoutCountryInput {
+  create: CompetitionCreateWithoutCountryInput!
+  update: CompetitionUpdateWithoutCountryInput!
+  where: CompetitionWhereUniqueInput!
+}
+
+input CompetitionUpsertWithWhereUniqueWithoutRegionInput {
+  create: CompetitionCreateWithoutRegionInput!
+  update: CompetitionUpdateWithoutRegionInput!
   where: CompetitionWhereUniqueInput!
 }
 
@@ -3026,13 +3277,15 @@ input CompetitionWhereInput {
   clubId: IntFilter
   compType: CompetitionTypeRelationFilter
   compTypeId: IntFilter
+  country: CountryRelationFilter
+  countryId: IntNullableFilter
   createdAt: DateTimeFilter
   description: StringFilter
   endDate: DateTimeFilter
   id: IntFilter
-  location: LocationRelationFilter
-  locationId: IntFilter
   name: StringFilter
+  region: RegionRelationFilter
+  regionId: IntNullableFilter
   registrations: RegistrationListRelationFilter
   results: ResultListRelationFilter
   routes: RouteListRelationFilter
@@ -3054,14 +3307,16 @@ type Competitor {
   categoryId: Int!
   club: Club!
   clubId: Int!
+  country: Country
+  countryId: Int
   createdAt: DateTime!
   firstName: String!
   gender: Gender!
   id: Int!
   lastName: String!
-  location: Location!
-  locationId: Int!
   publicId: String!
+  region: Region
+  regionId: Int
   registrations(cursor: RegistrationWhereUniqueInput, distinct: [RegistrationScalarFieldEnum!], orderBy: [RegistrationOrderByInput!], skip: Int, take: Int, where: RegistrationWhereInput): [Registration!]!
   results(cursor: ResultWhereUniqueInput, distinct: [ResultScalarFieldEnum!], orderBy: [ResultOrderByInput!], skip: Int, take: Int, where: ResultWhereInput): [Result!]!
   scoresBoulder(cursor: ScoreBoulderWhereUniqueInput, distinct: [ScoreBoulderScalarFieldEnum!], orderBy: [ScoreBoulderOrderByInput!], skip: Int, take: Int, where: ScoreBoulderWhereInput): [ScoreBoulder!]!
@@ -3074,15 +3329,17 @@ type Competitor {
 type CompetitorAvgAggregate {
   categoryId: Float
   clubId: Float
+  countryId: Float
   id: Float
-  locationId: Float
+  regionId: Float
 }
 
 input CompetitorAvgOrderByAggregateInput {
   categoryId: SortOrder
   clubId: SortOrder
+  countryId: SortOrder
   id: SortOrder
-  locationId: SortOrder
+  regionId: SortOrder
 }
 
 type CompetitorCountAggregate {
@@ -3091,13 +3348,14 @@ type CompetitorCountAggregate {
   birthDate: Int!
   categoryId: Int!
   clubId: Int!
+  countryId: Int!
   createdAt: Int!
   firstName: Int!
   gender: Int!
   id: Int!
   lastName: Int!
-  locationId: Int!
   publicId: Int!
+  regionId: Int!
   updatedAt: Int!
 }
 
@@ -3106,13 +3364,14 @@ input CompetitorCountOrderByAggregateInput {
   birthDate: SortOrder
   categoryId: SortOrder
   clubId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   firstName: SortOrder
   gender: SortOrder
   id: SortOrder
   lastName: SortOrder
-  locationId: SortOrder
   publicId: SortOrder
+  regionId: SortOrder
   updatedAt: SortOrder
 }
 
@@ -3121,12 +3380,13 @@ input CompetitorCreateInput {
   birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
+  country: CountryCreateNestedOneWithoutCompetitorsInput
   createdAt: DateTime
   firstName: String!
   gender: Gender!
   lastName: String!
-  location: LocationCreateNestedOneWithoutCompetitorsInput!
   publicId: String
+  region: RegionCreateNestedOneWithoutCompetitorsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitorInput
   results: ResultCreateNestedManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderCreateNestedManyWithoutCompetitorInput
@@ -3140,13 +3400,14 @@ input CompetitorCreateManyCategoryInput {
   address: String
   birthDate: DateTime
   clubId: Int!
+  countryId: Int
   createdAt: DateTime
   firstName: String!
   gender: Gender!
   id: Int
   lastName: String!
-  locationId: Int!
   publicId: String
+  regionId: Int
   updatedAt: DateTime
 }
 
@@ -3159,13 +3420,14 @@ input CompetitorCreateManyClubInput {
   address: String
   birthDate: DateTime
   categoryId: Int!
+  countryId: Int
   createdAt: DateTime
   firstName: String!
   gender: Gender!
   id: Int
   lastName: String!
-  locationId: Int!
   publicId: String
+  regionId: Int
   updatedAt: DateTime
 }
 
@@ -3174,26 +3436,48 @@ input CompetitorCreateManyClubInputEnvelope {
   skipDuplicates: Boolean
 }
 
+input CompetitorCreateManyCountryInput {
+  address: String
+  birthDate: DateTime
+  categoryId: Int!
+  clubId: Int!
+  createdAt: DateTime
+  firstName: String!
+  gender: Gender!
+  id: Int
+  lastName: String!
+  publicId: String
+  regionId: Int
+  updatedAt: DateTime
+}
+
+input CompetitorCreateManyCountryInputEnvelope {
+  data: [CompetitorCreateManyCountryInput!]!
+  skipDuplicates: Boolean
+}
+
 input CompetitorCreateManyInput {
   address: String
   birthDate: DateTime
   categoryId: Int!
   clubId: Int!
+  countryId: Int
   createdAt: DateTime
   firstName: String!
   gender: Gender!
   id: Int
   lastName: String!
-  locationId: Int!
   publicId: String
+  regionId: Int
   updatedAt: DateTime
 }
 
-input CompetitorCreateManyLocationInput {
+input CompetitorCreateManyRegionInput {
   address: String
   birthDate: DateTime
   categoryId: Int!
   clubId: Int!
+  countryId: Int
   createdAt: DateTime
   firstName: String!
   gender: Gender!
@@ -3203,8 +3487,8 @@ input CompetitorCreateManyLocationInput {
   updatedAt: DateTime
 }
 
-input CompetitorCreateManyLocationInputEnvelope {
-  data: [CompetitorCreateManyLocationInput!]!
+input CompetitorCreateManyRegionInputEnvelope {
+  data: [CompetitorCreateManyRegionInput!]!
   skipDuplicates: Boolean
 }
 
@@ -3222,11 +3506,18 @@ input CompetitorCreateNestedManyWithoutClubInput {
   createMany: CompetitorCreateManyClubInputEnvelope
 }
 
-input CompetitorCreateNestedManyWithoutLocationInput {
+input CompetitorCreateNestedManyWithoutCountryInput {
   connect: [CompetitorWhereUniqueInput!]
-  connectOrCreate: [CompetitorCreateOrConnectWithoutLocationInput!]
-  create: [CompetitorCreateWithoutLocationInput!]
-  createMany: CompetitorCreateManyLocationInputEnvelope
+  connectOrCreate: [CompetitorCreateOrConnectWithoutCountryInput!]
+  create: [CompetitorCreateWithoutCountryInput!]
+  createMany: CompetitorCreateManyCountryInputEnvelope
+}
+
+input CompetitorCreateNestedManyWithoutRegionInput {
+  connect: [CompetitorWhereUniqueInput!]
+  connectOrCreate: [CompetitorCreateOrConnectWithoutRegionInput!]
+  create: [CompetitorCreateWithoutRegionInput!]
+  createMany: CompetitorCreateManyRegionInputEnvelope
 }
 
 input CompetitorCreateNestedOneWithoutRegistrationsInput {
@@ -3275,8 +3566,13 @@ input CompetitorCreateOrConnectWithoutClubInput {
   where: CompetitorWhereUniqueInput!
 }
 
-input CompetitorCreateOrConnectWithoutLocationInput {
-  create: CompetitorCreateWithoutLocationInput!
+input CompetitorCreateOrConnectWithoutCountryInput {
+  create: CompetitorCreateWithoutCountryInput!
+  where: CompetitorWhereUniqueInput!
+}
+
+input CompetitorCreateOrConnectWithoutRegionInput {
+  create: CompetitorCreateWithoutRegionInput!
   where: CompetitorWhereUniqueInput!
 }
 
@@ -3314,12 +3610,13 @@ input CompetitorCreateWithoutCategoryInput {
   address: String
   birthDate: DateTime
   club: ClubCreateNestedOneWithoutCompetitorsInput!
+  country: CountryCreateNestedOneWithoutCompetitorsInput
   createdAt: DateTime
   firstName: String!
   gender: Gender!
   lastName: String!
-  location: LocationCreateNestedOneWithoutCompetitorsInput!
   publicId: String
+  region: RegionCreateNestedOneWithoutCompetitorsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitorInput
   results: ResultCreateNestedManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderCreateNestedManyWithoutCompetitorInput
@@ -3333,12 +3630,13 @@ input CompetitorCreateWithoutClubInput {
   address: String
   birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
+  country: CountryCreateNestedOneWithoutCompetitorsInput
   createdAt: DateTime
   firstName: String!
   gender: Gender!
   lastName: String!
-  location: LocationCreateNestedOneWithoutCompetitorsInput!
   publicId: String
+  region: RegionCreateNestedOneWithoutCompetitorsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitorInput
   results: ResultCreateNestedManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderCreateNestedManyWithoutCompetitorInput
@@ -3348,11 +3646,32 @@ input CompetitorCreateWithoutClubInput {
   updatedAt: DateTime
 }
 
-input CompetitorCreateWithoutLocationInput {
+input CompetitorCreateWithoutCountryInput {
   address: String
   birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
+  createdAt: DateTime
+  firstName: String!
+  gender: Gender!
+  lastName: String!
+  publicId: String
+  region: RegionCreateNestedOneWithoutCompetitorsInput
+  registrations: RegistrationCreateNestedManyWithoutCompetitorInput
+  results: ResultCreateNestedManyWithoutCompetitorInput
+  scoresBoulder: ScoreBoulderCreateNestedManyWithoutCompetitorInput
+  scoresLead: ScoreLeadCreateNestedManyWithoutCompetitorInput
+  scoresSpeed: ScoreSpeedCreateNestedManyWithoutCompetitorInput
+  startLists: StartListCreateNestedManyWithoutCompetitorInput
+  updatedAt: DateTime
+}
+
+input CompetitorCreateWithoutRegionInput {
+  address: String
+  birthDate: DateTime
+  category: CategoryCreateNestedOneWithoutCompetitorsInput!
+  club: ClubCreateNestedOneWithoutCompetitorsInput!
+  country: CountryCreateNestedOneWithoutCompetitorsInput
   createdAt: DateTime
   firstName: String!
   gender: Gender!
@@ -3372,12 +3691,13 @@ input CompetitorCreateWithoutRegistrationsInput {
   birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
+  country: CountryCreateNestedOneWithoutCompetitorsInput
   createdAt: DateTime
   firstName: String!
   gender: Gender!
   lastName: String!
-  location: LocationCreateNestedOneWithoutCompetitorsInput!
   publicId: String
+  region: RegionCreateNestedOneWithoutCompetitorsInput
   results: ResultCreateNestedManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderCreateNestedManyWithoutCompetitorInput
   scoresLead: ScoreLeadCreateNestedManyWithoutCompetitorInput
@@ -3391,12 +3711,13 @@ input CompetitorCreateWithoutResultsInput {
   birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
+  country: CountryCreateNestedOneWithoutCompetitorsInput
   createdAt: DateTime
   firstName: String!
   gender: Gender!
   lastName: String!
-  location: LocationCreateNestedOneWithoutCompetitorsInput!
   publicId: String
+  region: RegionCreateNestedOneWithoutCompetitorsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderCreateNestedManyWithoutCompetitorInput
   scoresLead: ScoreLeadCreateNestedManyWithoutCompetitorInput
@@ -3410,12 +3731,13 @@ input CompetitorCreateWithoutScoresBoulderInput {
   birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
+  country: CountryCreateNestedOneWithoutCompetitorsInput
   createdAt: DateTime
   firstName: String!
   gender: Gender!
   lastName: String!
-  location: LocationCreateNestedOneWithoutCompetitorsInput!
   publicId: String
+  region: RegionCreateNestedOneWithoutCompetitorsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitorInput
   results: ResultCreateNestedManyWithoutCompetitorInput
   scoresLead: ScoreLeadCreateNestedManyWithoutCompetitorInput
@@ -3429,12 +3751,13 @@ input CompetitorCreateWithoutScoresLeadInput {
   birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
+  country: CountryCreateNestedOneWithoutCompetitorsInput
   createdAt: DateTime
   firstName: String!
   gender: Gender!
   lastName: String!
-  location: LocationCreateNestedOneWithoutCompetitorsInput!
   publicId: String
+  region: RegionCreateNestedOneWithoutCompetitorsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitorInput
   results: ResultCreateNestedManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderCreateNestedManyWithoutCompetitorInput
@@ -3448,12 +3771,13 @@ input CompetitorCreateWithoutScoresSpeedInput {
   birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
+  country: CountryCreateNestedOneWithoutCompetitorsInput
   createdAt: DateTime
   firstName: String!
   gender: Gender!
   lastName: String!
-  location: LocationCreateNestedOneWithoutCompetitorsInput!
   publicId: String
+  region: RegionCreateNestedOneWithoutCompetitorsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitorInput
   results: ResultCreateNestedManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderCreateNestedManyWithoutCompetitorInput
@@ -3467,12 +3791,13 @@ input CompetitorCreateWithoutStartListsInput {
   birthDate: DateTime
   category: CategoryCreateNestedOneWithoutCompetitorsInput!
   club: ClubCreateNestedOneWithoutCompetitorsInput!
+  country: CountryCreateNestedOneWithoutCompetitorsInput
   createdAt: DateTime
   firstName: String!
   gender: Gender!
   lastName: String!
-  location: LocationCreateNestedOneWithoutCompetitorsInput!
   publicId: String
+  region: RegionCreateNestedOneWithoutCompetitorsInput
   registrations: RegistrationCreateNestedManyWithoutCompetitorInput
   results: ResultCreateNestedManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderCreateNestedManyWithoutCompetitorInput
@@ -3491,13 +3816,14 @@ type CompetitorGroupBy {
   birthDate: DateTime
   categoryId: Int!
   clubId: Int!
+  countryId: Int
   createdAt: DateTime!
   firstName: String!
   gender: Gender!
   id: Int!
   lastName: String!
-  locationId: Int!
   publicId: String!
+  regionId: Int
   updatedAt: DateTime!
 }
 
@@ -3512,13 +3838,14 @@ type CompetitorMaxAggregate {
   birthDate: DateTime
   categoryId: Int
   clubId: Int
+  countryId: Int
   createdAt: DateTime
   firstName: String
   gender: Gender
   id: Int
   lastName: String
-  locationId: Int
   publicId: String
+  regionId: Int
   updatedAt: DateTime
 }
 
@@ -3527,13 +3854,14 @@ input CompetitorMaxOrderByAggregateInput {
   birthDate: SortOrder
   categoryId: SortOrder
   clubId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   firstName: SortOrder
   gender: SortOrder
   id: SortOrder
   lastName: SortOrder
-  locationId: SortOrder
   publicId: SortOrder
+  regionId: SortOrder
   updatedAt: SortOrder
 }
 
@@ -3542,13 +3870,14 @@ type CompetitorMinAggregate {
   birthDate: DateTime
   categoryId: Int
   clubId: Int
+  countryId: Int
   createdAt: DateTime
   firstName: String
   gender: Gender
   id: Int
   lastName: String
-  locationId: Int
   publicId: String
+  regionId: Int
   updatedAt: DateTime
 }
 
@@ -3557,13 +3886,14 @@ input CompetitorMinOrderByAggregateInput {
   birthDate: SortOrder
   categoryId: SortOrder
   clubId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   firstName: SortOrder
   gender: SortOrder
   id: SortOrder
   lastName: SortOrder
-  locationId: SortOrder
   publicId: SortOrder
+  regionId: SortOrder
   updatedAt: SortOrder
 }
 
@@ -3572,13 +3902,14 @@ input CompetitorOrderByInput {
   birthDate: SortOrder
   categoryId: SortOrder
   clubId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   firstName: SortOrder
   gender: SortOrder
   id: SortOrder
   lastName: SortOrder
-  locationId: SortOrder
   publicId: SortOrder
+  regionId: SortOrder
   updatedAt: SortOrder
 }
 
@@ -3592,13 +3923,14 @@ input CompetitorOrderByWithAggregationInput {
   birthDate: SortOrder
   categoryId: SortOrder
   clubId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   firstName: SortOrder
   gender: SortOrder
   id: SortOrder
   lastName: SortOrder
-  locationId: SortOrder
   publicId: SortOrder
+  regionId: SortOrder
   updatedAt: SortOrder
 }
 
@@ -3612,13 +3944,14 @@ enum CompetitorScalarFieldEnum {
   birthDate
   categoryId
   clubId
+  countryId
   createdAt
   firstName
   gender
   id
   lastName
-  locationId
   publicId
+  regionId
   updatedAt
 }
 
@@ -3630,13 +3963,14 @@ input CompetitorScalarWhereInput {
   birthDate: DateTimeNullableFilter
   categoryId: IntFilter
   clubId: IntFilter
+  countryId: IntNullableFilter
   createdAt: DateTimeFilter
   firstName: StringFilter
   gender: EnumGenderFilter
   id: IntFilter
   lastName: StringFilter
-  locationId: IntFilter
   publicId: StringFilter
+  regionId: IntNullableFilter
   updatedAt: DateTimeFilter
 }
 
@@ -3648,28 +3982,31 @@ input CompetitorScalarWhereWithAggregatesInput {
   birthDate: DateTimeNullableWithAggregatesFilter
   categoryId: IntWithAggregatesFilter
   clubId: IntWithAggregatesFilter
+  countryId: IntNullableWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
   firstName: StringWithAggregatesFilter
   gender: EnumGenderWithAggregatesFilter
   id: IntWithAggregatesFilter
   lastName: StringWithAggregatesFilter
-  locationId: IntWithAggregatesFilter
   publicId: StringWithAggregatesFilter
+  regionId: IntNullableWithAggregatesFilter
   updatedAt: DateTimeWithAggregatesFilter
 }
 
 type CompetitorSumAggregate {
   categoryId: Int
   clubId: Int
+  countryId: Int
   id: Int
-  locationId: Int
+  regionId: Int
 }
 
 input CompetitorSumOrderByAggregateInput {
   categoryId: SortOrder
   clubId: SortOrder
+  countryId: SortOrder
   id: SortOrder
-  locationId: SortOrder
+  regionId: SortOrder
 }
 
 input CompetitorUpdateInput {
@@ -3677,12 +4014,13 @@ input CompetitorUpdateInput {
   birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
+  country: CountryUpdateOneWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   gender: EnumGenderFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitorsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitorsInput
   registrations: RegistrationUpdateManyWithoutCompetitorInput
   results: ResultUpdateManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderUpdateManyWithoutCompetitorInput
@@ -3713,7 +4051,12 @@ input CompetitorUpdateManyWithWhereWithoutClubInput {
   where: CompetitorScalarWhereInput!
 }
 
-input CompetitorUpdateManyWithWhereWithoutLocationInput {
+input CompetitorUpdateManyWithWhereWithoutCountryInput {
+  data: CompetitorUpdateManyMutationInput!
+  where: CompetitorScalarWhereInput!
+}
+
+input CompetitorUpdateManyWithWhereWithoutRegionInput {
   data: CompetitorUpdateManyMutationInput!
   where: CompetitorScalarWhereInput!
 }
@@ -3746,18 +4089,32 @@ input CompetitorUpdateManyWithoutClubInput {
   upsert: [CompetitorUpsertWithWhereUniqueWithoutClubInput!]
 }
 
-input CompetitorUpdateManyWithoutLocationInput {
+input CompetitorUpdateManyWithoutCountryInput {
   connect: [CompetitorWhereUniqueInput!]
-  connectOrCreate: [CompetitorCreateOrConnectWithoutLocationInput!]
-  create: [CompetitorCreateWithoutLocationInput!]
-  createMany: CompetitorCreateManyLocationInputEnvelope
+  connectOrCreate: [CompetitorCreateOrConnectWithoutCountryInput!]
+  create: [CompetitorCreateWithoutCountryInput!]
+  createMany: CompetitorCreateManyCountryInputEnvelope
   delete: [CompetitorWhereUniqueInput!]
   deleteMany: [CompetitorScalarWhereInput!]
   disconnect: [CompetitorWhereUniqueInput!]
   set: [CompetitorWhereUniqueInput!]
-  update: [CompetitorUpdateWithWhereUniqueWithoutLocationInput!]
-  updateMany: [CompetitorUpdateManyWithWhereWithoutLocationInput!]
-  upsert: [CompetitorUpsertWithWhereUniqueWithoutLocationInput!]
+  update: [CompetitorUpdateWithWhereUniqueWithoutCountryInput!]
+  updateMany: [CompetitorUpdateManyWithWhereWithoutCountryInput!]
+  upsert: [CompetitorUpsertWithWhereUniqueWithoutCountryInput!]
+}
+
+input CompetitorUpdateManyWithoutRegionInput {
+  connect: [CompetitorWhereUniqueInput!]
+  connectOrCreate: [CompetitorCreateOrConnectWithoutRegionInput!]
+  create: [CompetitorCreateWithoutRegionInput!]
+  createMany: CompetitorCreateManyRegionInputEnvelope
+  delete: [CompetitorWhereUniqueInput!]
+  deleteMany: [CompetitorScalarWhereInput!]
+  disconnect: [CompetitorWhereUniqueInput!]
+  set: [CompetitorWhereUniqueInput!]
+  update: [CompetitorUpdateWithWhereUniqueWithoutRegionInput!]
+  updateMany: [CompetitorUpdateManyWithWhereWithoutRegionInput!]
+  upsert: [CompetitorUpsertWithWhereUniqueWithoutRegionInput!]
 }
 
 input CompetitorUpdateOneRequiredWithoutRegistrationsInput {
@@ -3818,8 +4175,13 @@ input CompetitorUpdateWithWhereUniqueWithoutClubInput {
   where: CompetitorWhereUniqueInput!
 }
 
-input CompetitorUpdateWithWhereUniqueWithoutLocationInput {
-  data: CompetitorUpdateWithoutLocationInput!
+input CompetitorUpdateWithWhereUniqueWithoutCountryInput {
+  data: CompetitorUpdateWithoutCountryInput!
+  where: CompetitorWhereUniqueInput!
+}
+
+input CompetitorUpdateWithWhereUniqueWithoutRegionInput {
+  data: CompetitorUpdateWithoutRegionInput!
   where: CompetitorWhereUniqueInput!
 }
 
@@ -3827,12 +4189,13 @@ input CompetitorUpdateWithoutCategoryInput {
   address: NullableStringFieldUpdateOperationsInput
   birthDate: NullableDateTimeFieldUpdateOperationsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
+  country: CountryUpdateOneWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   gender: EnumGenderFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitorsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitorsInput
   registrations: RegistrationUpdateManyWithoutCompetitorInput
   results: ResultUpdateManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderUpdateManyWithoutCompetitorInput
@@ -3846,12 +4209,13 @@ input CompetitorUpdateWithoutClubInput {
   address: NullableStringFieldUpdateOperationsInput
   birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
+  country: CountryUpdateOneWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   gender: EnumGenderFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitorsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitorsInput
   registrations: RegistrationUpdateManyWithoutCompetitorInput
   results: ResultUpdateManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderUpdateManyWithoutCompetitorInput
@@ -3861,11 +4225,32 @@ input CompetitorUpdateWithoutClubInput {
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input CompetitorUpdateWithoutLocationInput {
+input CompetitorUpdateWithoutCountryInput {
   address: NullableStringFieldUpdateOperationsInput
   birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  gender: EnumGenderFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitorsInput
+  registrations: RegistrationUpdateManyWithoutCompetitorInput
+  results: ResultUpdateManyWithoutCompetitorInput
+  scoresBoulder: ScoreBoulderUpdateManyWithoutCompetitorInput
+  scoresLead: ScoreLeadUpdateManyWithoutCompetitorInput
+  scoresSpeed: ScoreSpeedUpdateManyWithoutCompetitorInput
+  startLists: StartListUpdateManyWithoutCompetitorInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CompetitorUpdateWithoutRegionInput {
+  address: NullableStringFieldUpdateOperationsInput
+  birthDate: NullableDateTimeFieldUpdateOperationsInput
+  category: CategoryUpdateOneRequiredWithoutCompetitorsInput
+  club: ClubUpdateOneRequiredWithoutCompetitorsInput
+  country: CountryUpdateOneWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   gender: EnumGenderFieldUpdateOperationsInput
@@ -3885,12 +4270,13 @@ input CompetitorUpdateWithoutRegistrationsInput {
   birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
+  country: CountryUpdateOneWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   gender: EnumGenderFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitorsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitorsInput
   results: ResultUpdateManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderUpdateManyWithoutCompetitorInput
   scoresLead: ScoreLeadUpdateManyWithoutCompetitorInput
@@ -3904,12 +4290,13 @@ input CompetitorUpdateWithoutResultsInput {
   birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
+  country: CountryUpdateOneWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   gender: EnumGenderFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitorsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitorsInput
   registrations: RegistrationUpdateManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderUpdateManyWithoutCompetitorInput
   scoresLead: ScoreLeadUpdateManyWithoutCompetitorInput
@@ -3923,12 +4310,13 @@ input CompetitorUpdateWithoutScoresBoulderInput {
   birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
+  country: CountryUpdateOneWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   gender: EnumGenderFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitorsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitorsInput
   registrations: RegistrationUpdateManyWithoutCompetitorInput
   results: ResultUpdateManyWithoutCompetitorInput
   scoresLead: ScoreLeadUpdateManyWithoutCompetitorInput
@@ -3942,12 +4330,13 @@ input CompetitorUpdateWithoutScoresLeadInput {
   birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
+  country: CountryUpdateOneWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   gender: EnumGenderFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitorsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitorsInput
   registrations: RegistrationUpdateManyWithoutCompetitorInput
   results: ResultUpdateManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderUpdateManyWithoutCompetitorInput
@@ -3961,12 +4350,13 @@ input CompetitorUpdateWithoutScoresSpeedInput {
   birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
+  country: CountryUpdateOneWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   gender: EnumGenderFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitorsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitorsInput
   registrations: RegistrationUpdateManyWithoutCompetitorInput
   results: ResultUpdateManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderUpdateManyWithoutCompetitorInput
@@ -3980,12 +4370,13 @@ input CompetitorUpdateWithoutStartListsInput {
   birthDate: NullableDateTimeFieldUpdateOperationsInput
   category: CategoryUpdateOneRequiredWithoutCompetitorsInput
   club: ClubUpdateOneRequiredWithoutCompetitorsInput
+  country: CountryUpdateOneWithoutCompetitorsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   gender: EnumGenderFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneRequiredWithoutCompetitorsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitorsInput
   registrations: RegistrationUpdateManyWithoutCompetitorInput
   results: ResultUpdateManyWithoutCompetitorInput
   scoresBoulder: ScoreBoulderUpdateManyWithoutCompetitorInput
@@ -4006,9 +4397,15 @@ input CompetitorUpsertWithWhereUniqueWithoutClubInput {
   where: CompetitorWhereUniqueInput!
 }
 
-input CompetitorUpsertWithWhereUniqueWithoutLocationInput {
-  create: CompetitorCreateWithoutLocationInput!
-  update: CompetitorUpdateWithoutLocationInput!
+input CompetitorUpsertWithWhereUniqueWithoutCountryInput {
+  create: CompetitorCreateWithoutCountryInput!
+  update: CompetitorUpdateWithoutCountryInput!
+  where: CompetitorWhereUniqueInput!
+}
+
+input CompetitorUpsertWithWhereUniqueWithoutRegionInput {
+  create: CompetitorCreateWithoutRegionInput!
+  update: CompetitorUpdateWithoutRegionInput!
   where: CompetitorWhereUniqueInput!
 }
 
@@ -4052,14 +4449,16 @@ input CompetitorWhereInput {
   categoryId: IntFilter
   club: ClubRelationFilter
   clubId: IntFilter
+  country: CountryRelationFilter
+  countryId: IntNullableFilter
   createdAt: DateTimeFilter
   firstName: StringFilter
   gender: EnumGenderFilter
   id: IntFilter
   lastName: StringFilter
-  location: LocationRelationFilter
-  locationId: IntFilter
   publicId: StringFilter
+  region: RegionRelationFilter
+  regionId: IntNullableFilter
   registrations: RegistrationListRelationFilter
   results: ResultListRelationFilter
   scoresBoulder: ScoreBoulderListRelationFilter
@@ -4075,9 +4474,12 @@ input CompetitorWhereUniqueInput {
 }
 
 type Country {
+  clubs(cursor: ClubWhereUniqueInput, distinct: [ClubScalarFieldEnum!], orderBy: [ClubOrderByInput!], skip: Int, take: Int, where: ClubWhereInput): [Club!]!
+  competitions(cursor: CompetitionWhereUniqueInput, distinct: [CompetitionScalarFieldEnum!], orderBy: [CompetitionOrderByInput!], skip: Int, take: Int, where: CompetitionWhereInput): [Competition!]!
+  competitors(cursor: CompetitorWhereUniqueInput, distinct: [CompetitorScalarFieldEnum!], orderBy: [CompetitorOrderByInput!], skip: Int, take: Int, where: CompetitorWhereInput): [Competitor!]!
   id: Int!
-  locations(cursor: LocationWhereUniqueInput, distinct: [LocationScalarFieldEnum!], orderBy: [LocationOrderByInput!], skip: Int, take: Int, where: LocationWhereInput): [Location!]!
   name: String!
+  users(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): [User!]!
 }
 
 type CountryAvgAggregate {
@@ -4100,8 +4502,11 @@ input CountryCountOrderByAggregateInput {
 }
 
 input CountryCreateInput {
-  locations: LocationCreateNestedManyWithoutCountryInput
+  clubs: ClubCreateNestedManyWithoutCountryInput
+  competitions: CompetitionCreateNestedManyWithoutCountryInput
+  competitors: CompetitorCreateNestedManyWithoutCountryInput
   name: String!
+  users: UserCreateNestedManyWithoutCountryInput
 }
 
 input CountryCreateManyInput {
@@ -4109,18 +4514,75 @@ input CountryCreateManyInput {
   name: String!
 }
 
-input CountryCreateNestedOneWithoutLocationsInput {
+input CountryCreateNestedOneWithoutClubsInput {
   connect: CountryWhereUniqueInput
-  connectOrCreate: CountryCreateOrConnectWithoutLocationsInput
-  create: CountryCreateWithoutLocationsInput
+  connectOrCreate: CountryCreateOrConnectWithoutClubsInput
+  create: CountryCreateWithoutClubsInput
 }
 
-input CountryCreateOrConnectWithoutLocationsInput {
-  create: CountryCreateWithoutLocationsInput!
+input CountryCreateNestedOneWithoutCompetitionsInput {
+  connect: CountryWhereUniqueInput
+  connectOrCreate: CountryCreateOrConnectWithoutCompetitionsInput
+  create: CountryCreateWithoutCompetitionsInput
+}
+
+input CountryCreateNestedOneWithoutCompetitorsInput {
+  connect: CountryWhereUniqueInput
+  connectOrCreate: CountryCreateOrConnectWithoutCompetitorsInput
+  create: CountryCreateWithoutCompetitorsInput
+}
+
+input CountryCreateNestedOneWithoutUsersInput {
+  connect: CountryWhereUniqueInput
+  connectOrCreate: CountryCreateOrConnectWithoutUsersInput
+  create: CountryCreateWithoutUsersInput
+}
+
+input CountryCreateOrConnectWithoutClubsInput {
+  create: CountryCreateWithoutClubsInput!
   where: CountryWhereUniqueInput!
 }
 
-input CountryCreateWithoutLocationsInput {
+input CountryCreateOrConnectWithoutCompetitionsInput {
+  create: CountryCreateWithoutCompetitionsInput!
+  where: CountryWhereUniqueInput!
+}
+
+input CountryCreateOrConnectWithoutCompetitorsInput {
+  create: CountryCreateWithoutCompetitorsInput!
+  where: CountryWhereUniqueInput!
+}
+
+input CountryCreateOrConnectWithoutUsersInput {
+  create: CountryCreateWithoutUsersInput!
+  where: CountryWhereUniqueInput!
+}
+
+input CountryCreateWithoutClubsInput {
+  competitions: CompetitionCreateNestedManyWithoutCountryInput
+  competitors: CompetitorCreateNestedManyWithoutCountryInput
+  name: String!
+  users: UserCreateNestedManyWithoutCountryInput
+}
+
+input CountryCreateWithoutCompetitionsInput {
+  clubs: ClubCreateNestedManyWithoutCountryInput
+  competitors: CompetitorCreateNestedManyWithoutCountryInput
+  name: String!
+  users: UserCreateNestedManyWithoutCountryInput
+}
+
+input CountryCreateWithoutCompetitorsInput {
+  clubs: ClubCreateNestedManyWithoutCountryInput
+  competitions: CompetitionCreateNestedManyWithoutCountryInput
+  name: String!
+  users: UserCreateNestedManyWithoutCountryInput
+}
+
+input CountryCreateWithoutUsersInput {
+  clubs: ClubCreateNestedManyWithoutCountryInput
+  competitions: CompetitionCreateNestedManyWithoutCountryInput
+  competitors: CompetitorCreateNestedManyWithoutCountryInput
   name: String!
 }
 
@@ -4196,38 +4658,115 @@ input CountrySumOrderByAggregateInput {
 }
 
 input CountryUpdateInput {
-  locations: LocationUpdateManyWithoutCountryInput
+  clubs: ClubUpdateManyWithoutCountryInput
+  competitions: CompetitionUpdateManyWithoutCountryInput
+  competitors: CompetitorUpdateManyWithoutCountryInput
   name: StringFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutCountryInput
 }
 
 input CountryUpdateManyMutationInput {
   name: StringFieldUpdateOperationsInput
 }
 
-input CountryUpdateOneRequiredWithoutLocationsInput {
+input CountryUpdateOneWithoutClubsInput {
   connect: CountryWhereUniqueInput
-  connectOrCreate: CountryCreateOrConnectWithoutLocationsInput
-  create: CountryCreateWithoutLocationsInput
-  update: CountryUpdateWithoutLocationsInput
-  upsert: CountryUpsertWithoutLocationsInput
+  connectOrCreate: CountryCreateOrConnectWithoutClubsInput
+  create: CountryCreateWithoutClubsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: CountryUpdateWithoutClubsInput
+  upsert: CountryUpsertWithoutClubsInput
 }
 
-input CountryUpdateWithoutLocationsInput {
+input CountryUpdateOneWithoutCompetitionsInput {
+  connect: CountryWhereUniqueInput
+  connectOrCreate: CountryCreateOrConnectWithoutCompetitionsInput
+  create: CountryCreateWithoutCompetitionsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: CountryUpdateWithoutCompetitionsInput
+  upsert: CountryUpsertWithoutCompetitionsInput
+}
+
+input CountryUpdateOneWithoutCompetitorsInput {
+  connect: CountryWhereUniqueInput
+  connectOrCreate: CountryCreateOrConnectWithoutCompetitorsInput
+  create: CountryCreateWithoutCompetitorsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: CountryUpdateWithoutCompetitorsInput
+  upsert: CountryUpsertWithoutCompetitorsInput
+}
+
+input CountryUpdateOneWithoutUsersInput {
+  connect: CountryWhereUniqueInput
+  connectOrCreate: CountryCreateOrConnectWithoutUsersInput
+  create: CountryCreateWithoutUsersInput
+  delete: Boolean
+  disconnect: Boolean
+  update: CountryUpdateWithoutUsersInput
+  upsert: CountryUpsertWithoutUsersInput
+}
+
+input CountryUpdateWithoutClubsInput {
+  competitions: CompetitionUpdateManyWithoutCountryInput
+  competitors: CompetitorUpdateManyWithoutCountryInput
+  name: StringFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutCountryInput
+}
+
+input CountryUpdateWithoutCompetitionsInput {
+  clubs: ClubUpdateManyWithoutCountryInput
+  competitors: CompetitorUpdateManyWithoutCountryInput
+  name: StringFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutCountryInput
+}
+
+input CountryUpdateWithoutCompetitorsInput {
+  clubs: ClubUpdateManyWithoutCountryInput
+  competitions: CompetitionUpdateManyWithoutCountryInput
+  name: StringFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutCountryInput
+}
+
+input CountryUpdateWithoutUsersInput {
+  clubs: ClubUpdateManyWithoutCountryInput
+  competitions: CompetitionUpdateManyWithoutCountryInput
+  competitors: CompetitorUpdateManyWithoutCountryInput
   name: StringFieldUpdateOperationsInput
 }
 
-input CountryUpsertWithoutLocationsInput {
-  create: CountryCreateWithoutLocationsInput!
-  update: CountryUpdateWithoutLocationsInput!
+input CountryUpsertWithoutClubsInput {
+  create: CountryCreateWithoutClubsInput!
+  update: CountryUpdateWithoutClubsInput!
+}
+
+input CountryUpsertWithoutCompetitionsInput {
+  create: CountryCreateWithoutCompetitionsInput!
+  update: CountryUpdateWithoutCompetitionsInput!
+}
+
+input CountryUpsertWithoutCompetitorsInput {
+  create: CountryCreateWithoutCompetitorsInput!
+  update: CountryUpdateWithoutCompetitorsInput!
+}
+
+input CountryUpsertWithoutUsersInput {
+  create: CountryCreateWithoutUsersInput!
+  update: CountryUpdateWithoutUsersInput!
 }
 
 input CountryWhereInput {
   AND: [CountryWhereInput!]
   NOT: [CountryWhereInput!]
   OR: [CountryWhereInput!]
+  clubs: ClubListRelationFilter
+  competitions: CompetitionListRelationFilter
+  competitors: CompetitorListRelationFilter
   id: IntFilter
-  locations: LocationListRelationFilter
   name: StringFilter
+  users: UserListRelationFilter
 }
 
 input CountryWhereUniqueInput {
@@ -4615,518 +5154,6 @@ type LiveResultOutput {
   results: [ResultField!]!
 }
 
-type Location {
-  clubs(cursor: ClubWhereUniqueInput, distinct: [ClubScalarFieldEnum!], orderBy: [ClubOrderByInput!], skip: Int, take: Int, where: ClubWhereInput): [Club!]!
-  competitions(cursor: CompetitionWhereUniqueInput, distinct: [CompetitionScalarFieldEnum!], orderBy: [CompetitionOrderByInput!], skip: Int, take: Int, where: CompetitionWhereInput): [Competition!]!
-  competitors(cursor: CompetitorWhereUniqueInput, distinct: [CompetitorScalarFieldEnum!], orderBy: [CompetitorOrderByInput!], skip: Int, take: Int, where: CompetitorWhereInput): [Competitor!]!
-  country: Country!
-  countryId: Int!
-  id: Int!
-  name: String
-  region: Region!
-  regionId: Int!
-  users(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): [User!]!
-}
-
-type LocationAvgAggregate {
-  countryId: Float
-  id: Float
-  regionId: Float
-}
-
-input LocationAvgOrderByAggregateInput {
-  countryId: SortOrder
-  id: SortOrder
-  regionId: SortOrder
-}
-
-type LocationCountAggregate {
-  _all: Int!
-  countryId: Int!
-  id: Int!
-  name: Int!
-  regionId: Int!
-}
-
-input LocationCountOrderByAggregateInput {
-  countryId: SortOrder
-  id: SortOrder
-  name: SortOrder
-  regionId: SortOrder
-}
-
-input LocationCreateInput {
-  clubs: ClubCreateNestedManyWithoutLocationInput
-  competitions: CompetitionCreateNestedManyWithoutLocationInput
-  competitors: CompetitorCreateNestedManyWithoutLocationInput
-  country: CountryCreateNestedOneWithoutLocationsInput!
-  name: String
-  region: RegionCreateNestedOneWithoutLocationsInput!
-  users: UserCreateNestedManyWithoutLocationInput
-}
-
-input LocationCreateManyCountryInput {
-  id: Int
-  name: String
-  regionId: Int!
-}
-
-input LocationCreateManyCountryInputEnvelope {
-  data: [LocationCreateManyCountryInput!]!
-  skipDuplicates: Boolean
-}
-
-input LocationCreateManyInput {
-  countryId: Int!
-  id: Int
-  name: String
-  regionId: Int!
-}
-
-input LocationCreateManyRegionInput {
-  countryId: Int!
-  id: Int
-  name: String
-}
-
-input LocationCreateManyRegionInputEnvelope {
-  data: [LocationCreateManyRegionInput!]!
-  skipDuplicates: Boolean
-}
-
-input LocationCreateNestedManyWithoutCountryInput {
-  connect: [LocationWhereUniqueInput!]
-  connectOrCreate: [LocationCreateOrConnectWithoutCountryInput!]
-  create: [LocationCreateWithoutCountryInput!]
-  createMany: LocationCreateManyCountryInputEnvelope
-}
-
-input LocationCreateNestedManyWithoutRegionInput {
-  connect: [LocationWhereUniqueInput!]
-  connectOrCreate: [LocationCreateOrConnectWithoutRegionInput!]
-  create: [LocationCreateWithoutRegionInput!]
-  createMany: LocationCreateManyRegionInputEnvelope
-}
-
-input LocationCreateNestedOneWithoutClubsInput {
-  connect: LocationWhereUniqueInput
-  connectOrCreate: LocationCreateOrConnectWithoutClubsInput
-  create: LocationCreateWithoutClubsInput
-}
-
-input LocationCreateNestedOneWithoutCompetitionsInput {
-  connect: LocationWhereUniqueInput
-  connectOrCreate: LocationCreateOrConnectWithoutCompetitionsInput
-  create: LocationCreateWithoutCompetitionsInput
-}
-
-input LocationCreateNestedOneWithoutCompetitorsInput {
-  connect: LocationWhereUniqueInput
-  connectOrCreate: LocationCreateOrConnectWithoutCompetitorsInput
-  create: LocationCreateWithoutCompetitorsInput
-}
-
-input LocationCreateNestedOneWithoutUsersInput {
-  connect: LocationWhereUniqueInput
-  connectOrCreate: LocationCreateOrConnectWithoutUsersInput
-  create: LocationCreateWithoutUsersInput
-}
-
-input LocationCreateOrConnectWithoutClubsInput {
-  create: LocationCreateWithoutClubsInput!
-  where: LocationWhereUniqueInput!
-}
-
-input LocationCreateOrConnectWithoutCompetitionsInput {
-  create: LocationCreateWithoutCompetitionsInput!
-  where: LocationWhereUniqueInput!
-}
-
-input LocationCreateOrConnectWithoutCompetitorsInput {
-  create: LocationCreateWithoutCompetitorsInput!
-  where: LocationWhereUniqueInput!
-}
-
-input LocationCreateOrConnectWithoutCountryInput {
-  create: LocationCreateWithoutCountryInput!
-  where: LocationWhereUniqueInput!
-}
-
-input LocationCreateOrConnectWithoutRegionInput {
-  create: LocationCreateWithoutRegionInput!
-  where: LocationWhereUniqueInput!
-}
-
-input LocationCreateOrConnectWithoutUsersInput {
-  create: LocationCreateWithoutUsersInput!
-  where: LocationWhereUniqueInput!
-}
-
-input LocationCreateWithoutClubsInput {
-  competitions: CompetitionCreateNestedManyWithoutLocationInput
-  competitors: CompetitorCreateNestedManyWithoutLocationInput
-  country: CountryCreateNestedOneWithoutLocationsInput!
-  name: String
-  region: RegionCreateNestedOneWithoutLocationsInput!
-  users: UserCreateNestedManyWithoutLocationInput
-}
-
-input LocationCreateWithoutCompetitionsInput {
-  clubs: ClubCreateNestedManyWithoutLocationInput
-  competitors: CompetitorCreateNestedManyWithoutLocationInput
-  country: CountryCreateNestedOneWithoutLocationsInput!
-  name: String
-  region: RegionCreateNestedOneWithoutLocationsInput!
-  users: UserCreateNestedManyWithoutLocationInput
-}
-
-input LocationCreateWithoutCompetitorsInput {
-  clubs: ClubCreateNestedManyWithoutLocationInput
-  competitions: CompetitionCreateNestedManyWithoutLocationInput
-  country: CountryCreateNestedOneWithoutLocationsInput!
-  name: String
-  region: RegionCreateNestedOneWithoutLocationsInput!
-  users: UserCreateNestedManyWithoutLocationInput
-}
-
-input LocationCreateWithoutCountryInput {
-  clubs: ClubCreateNestedManyWithoutLocationInput
-  competitions: CompetitionCreateNestedManyWithoutLocationInput
-  competitors: CompetitorCreateNestedManyWithoutLocationInput
-  name: String
-  region: RegionCreateNestedOneWithoutLocationsInput!
-  users: UserCreateNestedManyWithoutLocationInput
-}
-
-input LocationCreateWithoutRegionInput {
-  clubs: ClubCreateNestedManyWithoutLocationInput
-  competitions: CompetitionCreateNestedManyWithoutLocationInput
-  competitors: CompetitorCreateNestedManyWithoutLocationInput
-  country: CountryCreateNestedOneWithoutLocationsInput!
-  name: String
-  users: UserCreateNestedManyWithoutLocationInput
-}
-
-input LocationCreateWithoutUsersInput {
-  clubs: ClubCreateNestedManyWithoutLocationInput
-  competitions: CompetitionCreateNestedManyWithoutLocationInput
-  competitors: CompetitorCreateNestedManyWithoutLocationInput
-  country: CountryCreateNestedOneWithoutLocationsInput!
-  name: String
-  region: RegionCreateNestedOneWithoutLocationsInput!
-}
-
-type LocationGroupBy {
-  _avg: LocationAvgAggregate
-  _count: LocationCountAggregate
-  _max: LocationMaxAggregate
-  _min: LocationMinAggregate
-  _sum: LocationSumAggregate
-  countryId: Int!
-  id: Int!
-  name: String
-  regionId: Int!
-}
-
-input LocationListRelationFilter {
-  every: LocationWhereInput
-  none: LocationWhereInput
-  some: LocationWhereInput
-}
-
-type LocationMaxAggregate {
-  countryId: Int
-  id: Int
-  name: String
-  regionId: Int
-}
-
-input LocationMaxOrderByAggregateInput {
-  countryId: SortOrder
-  id: SortOrder
-  name: SortOrder
-  regionId: SortOrder
-}
-
-type LocationMinAggregate {
-  countryId: Int
-  id: Int
-  name: String
-  regionId: Int
-}
-
-input LocationMinOrderByAggregateInput {
-  countryId: SortOrder
-  id: SortOrder
-  name: SortOrder
-  regionId: SortOrder
-}
-
-input LocationOrderByInput {
-  countryId: SortOrder
-  id: SortOrder
-  name: SortOrder
-  regionId: SortOrder
-}
-
-input LocationOrderByWithAggregationInput {
-  _avg: LocationAvgOrderByAggregateInput
-  _count: LocationCountOrderByAggregateInput
-  _max: LocationMaxOrderByAggregateInput
-  _min: LocationMinOrderByAggregateInput
-  _sum: LocationSumOrderByAggregateInput
-  countryId: SortOrder
-  id: SortOrder
-  name: SortOrder
-  regionId: SortOrder
-}
-
-input LocationRelationFilter {
-  is: LocationWhereInput
-  isNot: LocationWhereInput
-}
-
-enum LocationScalarFieldEnum {
-  countryId
-  id
-  name
-  regionId
-}
-
-input LocationScalarWhereInput {
-  AND: [LocationScalarWhereInput!]
-  NOT: [LocationScalarWhereInput!]
-  OR: [LocationScalarWhereInput!]
-  countryId: IntFilter
-  id: IntFilter
-  name: StringNullableFilter
-  regionId: IntFilter
-}
-
-input LocationScalarWhereWithAggregatesInput {
-  AND: [LocationScalarWhereWithAggregatesInput!]
-  NOT: [LocationScalarWhereWithAggregatesInput!]
-  OR: [LocationScalarWhereWithAggregatesInput!]
-  countryId: IntWithAggregatesFilter
-  id: IntWithAggregatesFilter
-  name: StringNullableWithAggregatesFilter
-  regionId: IntWithAggregatesFilter
-}
-
-type LocationSumAggregate {
-  countryId: Int
-  id: Int
-  regionId: Int
-}
-
-input LocationSumOrderByAggregateInput {
-  countryId: SortOrder
-  id: SortOrder
-  regionId: SortOrder
-}
-
-input LocationUpdateInput {
-  clubs: ClubUpdateManyWithoutLocationInput
-  competitions: CompetitionUpdateManyWithoutLocationInput
-  competitors: CompetitorUpdateManyWithoutLocationInput
-  country: CountryUpdateOneRequiredWithoutLocationsInput
-  name: NullableStringFieldUpdateOperationsInput
-  region: RegionUpdateOneRequiredWithoutLocationsInput
-  users: UserUpdateManyWithoutLocationInput
-}
-
-input LocationUpdateManyMutationInput {
-  name: NullableStringFieldUpdateOperationsInput
-}
-
-input LocationUpdateManyWithWhereWithoutCountryInput {
-  data: LocationUpdateManyMutationInput!
-  where: LocationScalarWhereInput!
-}
-
-input LocationUpdateManyWithWhereWithoutRegionInput {
-  data: LocationUpdateManyMutationInput!
-  where: LocationScalarWhereInput!
-}
-
-input LocationUpdateManyWithoutCountryInput {
-  connect: [LocationWhereUniqueInput!]
-  connectOrCreate: [LocationCreateOrConnectWithoutCountryInput!]
-  create: [LocationCreateWithoutCountryInput!]
-  createMany: LocationCreateManyCountryInputEnvelope
-  delete: [LocationWhereUniqueInput!]
-  deleteMany: [LocationScalarWhereInput!]
-  disconnect: [LocationWhereUniqueInput!]
-  set: [LocationWhereUniqueInput!]
-  update: [LocationUpdateWithWhereUniqueWithoutCountryInput!]
-  updateMany: [LocationUpdateManyWithWhereWithoutCountryInput!]
-  upsert: [LocationUpsertWithWhereUniqueWithoutCountryInput!]
-}
-
-input LocationUpdateManyWithoutRegionInput {
-  connect: [LocationWhereUniqueInput!]
-  connectOrCreate: [LocationCreateOrConnectWithoutRegionInput!]
-  create: [LocationCreateWithoutRegionInput!]
-  createMany: LocationCreateManyRegionInputEnvelope
-  delete: [LocationWhereUniqueInput!]
-  deleteMany: [LocationScalarWhereInput!]
-  disconnect: [LocationWhereUniqueInput!]
-  set: [LocationWhereUniqueInput!]
-  update: [LocationUpdateWithWhereUniqueWithoutRegionInput!]
-  updateMany: [LocationUpdateManyWithWhereWithoutRegionInput!]
-  upsert: [LocationUpsertWithWhereUniqueWithoutRegionInput!]
-}
-
-input LocationUpdateOneRequiredWithoutClubsInput {
-  connect: LocationWhereUniqueInput
-  connectOrCreate: LocationCreateOrConnectWithoutClubsInput
-  create: LocationCreateWithoutClubsInput
-  update: LocationUpdateWithoutClubsInput
-  upsert: LocationUpsertWithoutClubsInput
-}
-
-input LocationUpdateOneRequiredWithoutCompetitionsInput {
-  connect: LocationWhereUniqueInput
-  connectOrCreate: LocationCreateOrConnectWithoutCompetitionsInput
-  create: LocationCreateWithoutCompetitionsInput
-  update: LocationUpdateWithoutCompetitionsInput
-  upsert: LocationUpsertWithoutCompetitionsInput
-}
-
-input LocationUpdateOneRequiredWithoutCompetitorsInput {
-  connect: LocationWhereUniqueInput
-  connectOrCreate: LocationCreateOrConnectWithoutCompetitorsInput
-  create: LocationCreateWithoutCompetitorsInput
-  update: LocationUpdateWithoutCompetitorsInput
-  upsert: LocationUpsertWithoutCompetitorsInput
-}
-
-input LocationUpdateOneWithoutUsersInput {
-  connect: LocationWhereUniqueInput
-  connectOrCreate: LocationCreateOrConnectWithoutUsersInput
-  create: LocationCreateWithoutUsersInput
-  delete: Boolean
-  disconnect: Boolean
-  update: LocationUpdateWithoutUsersInput
-  upsert: LocationUpsertWithoutUsersInput
-}
-
-input LocationUpdateWithWhereUniqueWithoutCountryInput {
-  data: LocationUpdateWithoutCountryInput!
-  where: LocationWhereUniqueInput!
-}
-
-input LocationUpdateWithWhereUniqueWithoutRegionInput {
-  data: LocationUpdateWithoutRegionInput!
-  where: LocationWhereUniqueInput!
-}
-
-input LocationUpdateWithoutClubsInput {
-  competitions: CompetitionUpdateManyWithoutLocationInput
-  competitors: CompetitorUpdateManyWithoutLocationInput
-  country: CountryUpdateOneRequiredWithoutLocationsInput
-  name: NullableStringFieldUpdateOperationsInput
-  region: RegionUpdateOneRequiredWithoutLocationsInput
-  users: UserUpdateManyWithoutLocationInput
-}
-
-input LocationUpdateWithoutCompetitionsInput {
-  clubs: ClubUpdateManyWithoutLocationInput
-  competitors: CompetitorUpdateManyWithoutLocationInput
-  country: CountryUpdateOneRequiredWithoutLocationsInput
-  name: NullableStringFieldUpdateOperationsInput
-  region: RegionUpdateOneRequiredWithoutLocationsInput
-  users: UserUpdateManyWithoutLocationInput
-}
-
-input LocationUpdateWithoutCompetitorsInput {
-  clubs: ClubUpdateManyWithoutLocationInput
-  competitions: CompetitionUpdateManyWithoutLocationInput
-  country: CountryUpdateOneRequiredWithoutLocationsInput
-  name: NullableStringFieldUpdateOperationsInput
-  region: RegionUpdateOneRequiredWithoutLocationsInput
-  users: UserUpdateManyWithoutLocationInput
-}
-
-input LocationUpdateWithoutCountryInput {
-  clubs: ClubUpdateManyWithoutLocationInput
-  competitions: CompetitionUpdateManyWithoutLocationInput
-  competitors: CompetitorUpdateManyWithoutLocationInput
-  name: NullableStringFieldUpdateOperationsInput
-  region: RegionUpdateOneRequiredWithoutLocationsInput
-  users: UserUpdateManyWithoutLocationInput
-}
-
-input LocationUpdateWithoutRegionInput {
-  clubs: ClubUpdateManyWithoutLocationInput
-  competitions: CompetitionUpdateManyWithoutLocationInput
-  competitors: CompetitorUpdateManyWithoutLocationInput
-  country: CountryUpdateOneRequiredWithoutLocationsInput
-  name: NullableStringFieldUpdateOperationsInput
-  users: UserUpdateManyWithoutLocationInput
-}
-
-input LocationUpdateWithoutUsersInput {
-  clubs: ClubUpdateManyWithoutLocationInput
-  competitions: CompetitionUpdateManyWithoutLocationInput
-  competitors: CompetitorUpdateManyWithoutLocationInput
-  country: CountryUpdateOneRequiredWithoutLocationsInput
-  name: NullableStringFieldUpdateOperationsInput
-  region: RegionUpdateOneRequiredWithoutLocationsInput
-}
-
-input LocationUpsertWithWhereUniqueWithoutCountryInput {
-  create: LocationCreateWithoutCountryInput!
-  update: LocationUpdateWithoutCountryInput!
-  where: LocationWhereUniqueInput!
-}
-
-input LocationUpsertWithWhereUniqueWithoutRegionInput {
-  create: LocationCreateWithoutRegionInput!
-  update: LocationUpdateWithoutRegionInput!
-  where: LocationWhereUniqueInput!
-}
-
-input LocationUpsertWithoutClubsInput {
-  create: LocationCreateWithoutClubsInput!
-  update: LocationUpdateWithoutClubsInput!
-}
-
-input LocationUpsertWithoutCompetitionsInput {
-  create: LocationCreateWithoutCompetitionsInput!
-  update: LocationUpdateWithoutCompetitionsInput!
-}
-
-input LocationUpsertWithoutCompetitorsInput {
-  create: LocationCreateWithoutCompetitorsInput!
-  update: LocationUpdateWithoutCompetitorsInput!
-}
-
-input LocationUpsertWithoutUsersInput {
-  create: LocationCreateWithoutUsersInput!
-  update: LocationUpdateWithoutUsersInput!
-}
-
-input LocationWhereInput {
-  AND: [LocationWhereInput!]
-  NOT: [LocationWhereInput!]
-  OR: [LocationWhereInput!]
-  clubs: ClubListRelationFilter
-  competitions: CompetitionListRelationFilter
-  competitors: CompetitorListRelationFilter
-  country: CountryRelationFilter
-  countryId: IntFilter
-  id: IntFilter
-  name: StringNullableFilter
-  region: RegionRelationFilter
-  regionId: IntFilter
-  users: UserListRelationFilter
-}
-
-input LocationWhereUniqueInput {
-  id: Int
-}
-
 input LoginInput {
   email: String!
   password: String!
@@ -5147,7 +5174,6 @@ type Mutation {
   createCompetitor(data: CompetitorCreateInput!): Competitor!
   createCountry(data: CountryCreateInput!): Country!
   createGrade(data: GradeCreateInput!): Grade!
-  createLocation(data: LocationCreateInput!): Location!
   createManyCategory(data: [CategoryCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyCategoryRound(data: [CategoryRoundCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyClub(data: [ClubCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
@@ -5157,7 +5183,6 @@ type Mutation {
   createManyCompetitor(data: [CompetitorCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyCountry(data: [CountryCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyGrade(data: [GradeCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
-  createManyLocation(data: [LocationCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyRegion(data: [RegionCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyRegistration(data: [RegistrationCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyResult(data: [ResultCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
@@ -5187,7 +5212,6 @@ type Mutation {
   deleteCompetitor(where: CompetitorWhereUniqueInput!): Competitor
   deleteCountry(where: CountryWhereUniqueInput!): Country
   deleteGrade(where: GradeWhereUniqueInput!): Grade
-  deleteLocation(where: LocationWhereUniqueInput!): Location
   deleteManyCategory(where: CategoryWhereInput): AffectedRowsOutput!
   deleteManyCategoryRound(where: CategoryRoundWhereInput): AffectedRowsOutput!
   deleteManyClub(where: ClubWhereInput): AffectedRowsOutput!
@@ -5197,7 +5221,6 @@ type Mutation {
   deleteManyCompetitor(where: CompetitorWhereInput): AffectedRowsOutput!
   deleteManyCountry(where: CountryWhereInput): AffectedRowsOutput!
   deleteManyGrade(where: GradeWhereInput): AffectedRowsOutput!
-  deleteManyLocation(where: LocationWhereInput): AffectedRowsOutput!
   deleteManyRegion(where: RegionWhereInput): AffectedRowsOutput!
   deleteManyRegistration(where: RegistrationWhereInput): AffectedRowsOutput!
   deleteManyResult(where: ResultWhereInput): AffectedRowsOutput!
@@ -5232,7 +5255,6 @@ type Mutation {
   updateCompetitor(data: CompetitorUpdateInput!, where: CompetitorWhereUniqueInput!): Competitor
   updateCountry(data: CountryUpdateInput!, where: CountryWhereUniqueInput!): Country
   updateGrade(data: GradeUpdateInput!, where: GradeWhereUniqueInput!): Grade
-  updateLocation(data: LocationUpdateInput!, where: LocationWhereUniqueInput!): Location
   updateManyCategory(data: CategoryUpdateManyMutationInput!, where: CategoryWhereInput): AffectedRowsOutput!
   updateManyCategoryRound(data: CategoryRoundUpdateManyMutationInput!, where: CategoryRoundWhereInput): AffectedRowsOutput!
   updateManyClub(data: ClubUpdateManyMutationInput!, where: ClubWhereInput): AffectedRowsOutput!
@@ -5242,7 +5264,6 @@ type Mutation {
   updateManyCompetitor(data: CompetitorUpdateManyMutationInput!, where: CompetitorWhereInput): AffectedRowsOutput!
   updateManyCountry(data: CountryUpdateManyMutationInput!, where: CountryWhereInput): AffectedRowsOutput!
   updateManyGrade(data: GradeUpdateManyMutationInput!, where: GradeWhereInput): AffectedRowsOutput!
-  updateManyLocation(data: LocationUpdateManyMutationInput!, where: LocationWhereInput): AffectedRowsOutput!
   updateManyRegion(data: RegionUpdateManyMutationInput!, where: RegionWhereInput): AffectedRowsOutput!
   updateManyRegistration(data: RegistrationUpdateManyMutationInput!, where: RegistrationWhereInput): AffectedRowsOutput!
   updateManyResult(data: ResultUpdateManyMutationInput!, where: ResultWhereInput): AffectedRowsOutput!
@@ -5272,7 +5293,6 @@ type Mutation {
   upsertCompetitor(create: CompetitorCreateInput!, update: CompetitorUpdateInput!, where: CompetitorWhereUniqueInput!): Competitor!
   upsertCountry(create: CountryCreateInput!, update: CountryUpdateInput!, where: CountryWhereUniqueInput!): Country!
   upsertGrade(create: GradeCreateInput!, update: GradeUpdateInput!, where: GradeWhereUniqueInput!): Grade!
-  upsertLocation(create: LocationCreateInput!, update: LocationUpdateInput!, where: LocationWhereUniqueInput!): Location!
   upsertRegion(create: RegionCreateInput!, update: RegionUpdateInput!, where: RegionWhereUniqueInput!): Region!
   upsertRegistration(create: RegistrationCreateInput!, update: RegistrationUpdateInput!, where: RegistrationWhereUniqueInput!): Registration!
   upsertResult(create: ResultCreateInput!, update: ResultUpdateInput!, where: ResultWhereUniqueInput!): Result!
@@ -5580,7 +5600,6 @@ type Query {
   aggregateCompetitor(cursor: CompetitorWhereUniqueInput, orderBy: [CompetitorOrderByInput!], skip: Int, take: Int, where: CompetitorWhereInput): AggregateCompetitor!
   aggregateCountry(cursor: CountryWhereUniqueInput, orderBy: [CountryOrderByInput!], skip: Int, take: Int, where: CountryWhereInput): AggregateCountry!
   aggregateGrade(cursor: GradeWhereUniqueInput, orderBy: [GradeOrderByInput!], skip: Int, take: Int, where: GradeWhereInput): AggregateGrade!
-  aggregateLocation(cursor: LocationWhereUniqueInput, orderBy: [LocationOrderByInput!], skip: Int, take: Int, where: LocationWhereInput): AggregateLocation!
   aggregateRegion(cursor: RegionWhereUniqueInput, orderBy: [RegionOrderByInput!], skip: Int, take: Int, where: RegionWhereInput): AggregateRegion!
   aggregateRegistration(cursor: RegistrationWhereUniqueInput, orderBy: [RegistrationOrderByInput!], skip: Int, take: Int, where: RegistrationWhereInput): AggregateRegistration!
   aggregateResult(cursor: ResultWhereUniqueInput, orderBy: [ResultOrderByInput!], skip: Int, take: Int, where: ResultWhereInput): AggregateResult!
@@ -5617,7 +5636,6 @@ type Query {
   findFirstCompetitor(cursor: CompetitorWhereUniqueInput, distinct: [CompetitorScalarFieldEnum!], orderBy: [CompetitorOrderByInput!], skip: Int, take: Int, where: CompetitorWhereInput): Competitor
   findFirstCountry(cursor: CountryWhereUniqueInput, distinct: [CountryScalarFieldEnum!], orderBy: [CountryOrderByInput!], skip: Int, take: Int, where: CountryWhereInput): Country
   findFirstGrade(cursor: GradeWhereUniqueInput, distinct: [GradeScalarFieldEnum!], orderBy: [GradeOrderByInput!], skip: Int, take: Int, where: GradeWhereInput): Grade
-  findFirstLocation(cursor: LocationWhereUniqueInput, distinct: [LocationScalarFieldEnum!], orderBy: [LocationOrderByInput!], skip: Int, take: Int, where: LocationWhereInput): Location
   findFirstRegion(cursor: RegionWhereUniqueInput, distinct: [RegionScalarFieldEnum!], orderBy: [RegionOrderByInput!], skip: Int, take: Int, where: RegionWhereInput): Region
   findFirstRegistration(cursor: RegistrationWhereUniqueInput, distinct: [RegistrationScalarFieldEnum!], orderBy: [RegistrationOrderByInput!], skip: Int, take: Int, where: RegistrationWhereInput): Registration
   findFirstResult(cursor: ResultWhereUniqueInput, distinct: [ResultScalarFieldEnum!], orderBy: [ResultOrderByInput!], skip: Int, take: Int, where: ResultWhereInput): Result
@@ -5645,7 +5663,6 @@ type Query {
   groupByCompetitor(by: [CompetitorScalarFieldEnum!]!, having: CompetitorScalarWhereWithAggregatesInput, orderBy: [CompetitorOrderByWithAggregationInput!], skip: Int, take: Int, where: CompetitorWhereInput): [CompetitorGroupBy!]!
   groupByCountry(by: [CountryScalarFieldEnum!]!, having: CountryScalarWhereWithAggregatesInput, orderBy: [CountryOrderByWithAggregationInput!], skip: Int, take: Int, where: CountryWhereInput): [CountryGroupBy!]!
   groupByGrade(by: [GradeScalarFieldEnum!]!, having: GradeScalarWhereWithAggregatesInput, orderBy: [GradeOrderByWithAggregationInput!], skip: Int, take: Int, where: GradeWhereInput): [GradeGroupBy!]!
-  groupByLocation(by: [LocationScalarFieldEnum!]!, having: LocationScalarWhereWithAggregatesInput, orderBy: [LocationOrderByWithAggregationInput!], skip: Int, take: Int, where: LocationWhereInput): [LocationGroupBy!]!
   groupByRegion(by: [RegionScalarFieldEnum!]!, having: RegionScalarWhereWithAggregatesInput, orderBy: [RegionOrderByWithAggregationInput!], skip: Int, take: Int, where: RegionWhereInput): [RegionGroupBy!]!
   groupByRegistration(by: [RegistrationScalarFieldEnum!]!, having: RegistrationScalarWhereWithAggregatesInput, orderBy: [RegistrationOrderByWithAggregationInput!], skip: Int, take: Int, where: RegistrationWhereInput): [RegistrationGroupBy!]!
   groupByResult(by: [ResultScalarFieldEnum!]!, having: ResultScalarWhereWithAggregatesInput, orderBy: [ResultOrderByWithAggregationInput!], skip: Int, take: Int, where: ResultWhereInput): [ResultGroupBy!]!
@@ -5656,8 +5673,6 @@ type Query {
   groupBySeason(by: [SeasonScalarFieldEnum!]!, having: SeasonScalarWhereWithAggregatesInput, orderBy: [SeasonOrderByWithAggregationInput!], skip: Int, take: Int, where: SeasonWhereInput): [SeasonGroupBy!]!
   groupByStartList(by: [StartListScalarFieldEnum!]!, having: StartListScalarWhereWithAggregatesInput, orderBy: [StartListOrderByWithAggregationInput!], skip: Int, take: Int, where: StartListWhereInput): [StartListGroupBy!]!
   groupByUser(by: [UserScalarFieldEnum!]!, having: UserScalarWhereWithAggregatesInput, orderBy: [UserOrderByWithAggregationInput!], skip: Int, take: Int, where: UserWhereInput): [UserGroupBy!]!
-  location(where: LocationWhereUniqueInput!): Location
-  locations(cursor: LocationWhereUniqueInput, distinct: [LocationScalarFieldEnum!], orderBy: [LocationOrderByInput!], skip: Int, take: Int, where: LocationWhereInput): [Location!]!
   region(where: RegionWhereUniqueInput!): Region
   regions(cursor: RegionWhereUniqueInput, distinct: [RegionScalarFieldEnum!], orderBy: [RegionOrderByInput!], skip: Int, take: Int, where: RegionWhereInput): [Region!]!
   registration(where: RegistrationWhereUniqueInput!): Registration
@@ -5686,9 +5701,12 @@ enum QueryMode {
 }
 
 type Region {
+  clubs(cursor: ClubWhereUniqueInput, distinct: [ClubScalarFieldEnum!], orderBy: [ClubOrderByInput!], skip: Int, take: Int, where: ClubWhereInput): [Club!]!
+  competitions(cursor: CompetitionWhereUniqueInput, distinct: [CompetitionScalarFieldEnum!], orderBy: [CompetitionOrderByInput!], skip: Int, take: Int, where: CompetitionWhereInput): [Competition!]!
+  competitors(cursor: CompetitorWhereUniqueInput, distinct: [CompetitorScalarFieldEnum!], orderBy: [CompetitorOrderByInput!], skip: Int, take: Int, where: CompetitorWhereInput): [Competitor!]!
   id: Int!
-  locations(cursor: LocationWhereUniqueInput, distinct: [LocationScalarFieldEnum!], orderBy: [LocationOrderByInput!], skip: Int, take: Int, where: LocationWhereInput): [Location!]!
   name: String!
+  users(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): [User!]!
 }
 
 type RegionAvgAggregate {
@@ -5711,8 +5729,11 @@ input RegionCountOrderByAggregateInput {
 }
 
 input RegionCreateInput {
-  locations: LocationCreateNestedManyWithoutRegionInput
+  clubs: ClubCreateNestedManyWithoutRegionInput
+  competitions: CompetitionCreateNestedManyWithoutRegionInput
+  competitors: CompetitorCreateNestedManyWithoutRegionInput
   name: String!
+  users: UserCreateNestedManyWithoutRegionInput
 }
 
 input RegionCreateManyInput {
@@ -5720,18 +5741,75 @@ input RegionCreateManyInput {
   name: String!
 }
 
-input RegionCreateNestedOneWithoutLocationsInput {
+input RegionCreateNestedOneWithoutClubsInput {
   connect: RegionWhereUniqueInput
-  connectOrCreate: RegionCreateOrConnectWithoutLocationsInput
-  create: RegionCreateWithoutLocationsInput
+  connectOrCreate: RegionCreateOrConnectWithoutClubsInput
+  create: RegionCreateWithoutClubsInput
 }
 
-input RegionCreateOrConnectWithoutLocationsInput {
-  create: RegionCreateWithoutLocationsInput!
+input RegionCreateNestedOneWithoutCompetitionsInput {
+  connect: RegionWhereUniqueInput
+  connectOrCreate: RegionCreateOrConnectWithoutCompetitionsInput
+  create: RegionCreateWithoutCompetitionsInput
+}
+
+input RegionCreateNestedOneWithoutCompetitorsInput {
+  connect: RegionWhereUniqueInput
+  connectOrCreate: RegionCreateOrConnectWithoutCompetitorsInput
+  create: RegionCreateWithoutCompetitorsInput
+}
+
+input RegionCreateNestedOneWithoutUsersInput {
+  connect: RegionWhereUniqueInput
+  connectOrCreate: RegionCreateOrConnectWithoutUsersInput
+  create: RegionCreateWithoutUsersInput
+}
+
+input RegionCreateOrConnectWithoutClubsInput {
+  create: RegionCreateWithoutClubsInput!
   where: RegionWhereUniqueInput!
 }
 
-input RegionCreateWithoutLocationsInput {
+input RegionCreateOrConnectWithoutCompetitionsInput {
+  create: RegionCreateWithoutCompetitionsInput!
+  where: RegionWhereUniqueInput!
+}
+
+input RegionCreateOrConnectWithoutCompetitorsInput {
+  create: RegionCreateWithoutCompetitorsInput!
+  where: RegionWhereUniqueInput!
+}
+
+input RegionCreateOrConnectWithoutUsersInput {
+  create: RegionCreateWithoutUsersInput!
+  where: RegionWhereUniqueInput!
+}
+
+input RegionCreateWithoutClubsInput {
+  competitions: CompetitionCreateNestedManyWithoutRegionInput
+  competitors: CompetitorCreateNestedManyWithoutRegionInput
+  name: String!
+  users: UserCreateNestedManyWithoutRegionInput
+}
+
+input RegionCreateWithoutCompetitionsInput {
+  clubs: ClubCreateNestedManyWithoutRegionInput
+  competitors: CompetitorCreateNestedManyWithoutRegionInput
+  name: String!
+  users: UserCreateNestedManyWithoutRegionInput
+}
+
+input RegionCreateWithoutCompetitorsInput {
+  clubs: ClubCreateNestedManyWithoutRegionInput
+  competitions: CompetitionCreateNestedManyWithoutRegionInput
+  name: String!
+  users: UserCreateNestedManyWithoutRegionInput
+}
+
+input RegionCreateWithoutUsersInput {
+  clubs: ClubCreateNestedManyWithoutRegionInput
+  competitions: CompetitionCreateNestedManyWithoutRegionInput
+  competitors: CompetitorCreateNestedManyWithoutRegionInput
   name: String!
 }
 
@@ -5807,38 +5885,115 @@ input RegionSumOrderByAggregateInput {
 }
 
 input RegionUpdateInput {
-  locations: LocationUpdateManyWithoutRegionInput
+  clubs: ClubUpdateManyWithoutRegionInput
+  competitions: CompetitionUpdateManyWithoutRegionInput
+  competitors: CompetitorUpdateManyWithoutRegionInput
   name: StringFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutRegionInput
 }
 
 input RegionUpdateManyMutationInput {
   name: StringFieldUpdateOperationsInput
 }
 
-input RegionUpdateOneRequiredWithoutLocationsInput {
+input RegionUpdateOneWithoutClubsInput {
   connect: RegionWhereUniqueInput
-  connectOrCreate: RegionCreateOrConnectWithoutLocationsInput
-  create: RegionCreateWithoutLocationsInput
-  update: RegionUpdateWithoutLocationsInput
-  upsert: RegionUpsertWithoutLocationsInput
+  connectOrCreate: RegionCreateOrConnectWithoutClubsInput
+  create: RegionCreateWithoutClubsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: RegionUpdateWithoutClubsInput
+  upsert: RegionUpsertWithoutClubsInput
 }
 
-input RegionUpdateWithoutLocationsInput {
+input RegionUpdateOneWithoutCompetitionsInput {
+  connect: RegionWhereUniqueInput
+  connectOrCreate: RegionCreateOrConnectWithoutCompetitionsInput
+  create: RegionCreateWithoutCompetitionsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: RegionUpdateWithoutCompetitionsInput
+  upsert: RegionUpsertWithoutCompetitionsInput
+}
+
+input RegionUpdateOneWithoutCompetitorsInput {
+  connect: RegionWhereUniqueInput
+  connectOrCreate: RegionCreateOrConnectWithoutCompetitorsInput
+  create: RegionCreateWithoutCompetitorsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: RegionUpdateWithoutCompetitorsInput
+  upsert: RegionUpsertWithoutCompetitorsInput
+}
+
+input RegionUpdateOneWithoutUsersInput {
+  connect: RegionWhereUniqueInput
+  connectOrCreate: RegionCreateOrConnectWithoutUsersInput
+  create: RegionCreateWithoutUsersInput
+  delete: Boolean
+  disconnect: Boolean
+  update: RegionUpdateWithoutUsersInput
+  upsert: RegionUpsertWithoutUsersInput
+}
+
+input RegionUpdateWithoutClubsInput {
+  competitions: CompetitionUpdateManyWithoutRegionInput
+  competitors: CompetitorUpdateManyWithoutRegionInput
+  name: StringFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutRegionInput
+}
+
+input RegionUpdateWithoutCompetitionsInput {
+  clubs: ClubUpdateManyWithoutRegionInput
+  competitors: CompetitorUpdateManyWithoutRegionInput
+  name: StringFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutRegionInput
+}
+
+input RegionUpdateWithoutCompetitorsInput {
+  clubs: ClubUpdateManyWithoutRegionInput
+  competitions: CompetitionUpdateManyWithoutRegionInput
+  name: StringFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutRegionInput
+}
+
+input RegionUpdateWithoutUsersInput {
+  clubs: ClubUpdateManyWithoutRegionInput
+  competitions: CompetitionUpdateManyWithoutRegionInput
+  competitors: CompetitorUpdateManyWithoutRegionInput
   name: StringFieldUpdateOperationsInput
 }
 
-input RegionUpsertWithoutLocationsInput {
-  create: RegionCreateWithoutLocationsInput!
-  update: RegionUpdateWithoutLocationsInput!
+input RegionUpsertWithoutClubsInput {
+  create: RegionCreateWithoutClubsInput!
+  update: RegionUpdateWithoutClubsInput!
+}
+
+input RegionUpsertWithoutCompetitionsInput {
+  create: RegionCreateWithoutCompetitionsInput!
+  update: RegionUpdateWithoutCompetitionsInput!
+}
+
+input RegionUpsertWithoutCompetitorsInput {
+  create: RegionCreateWithoutCompetitorsInput!
+  update: RegionUpdateWithoutCompetitorsInput!
+}
+
+input RegionUpsertWithoutUsersInput {
+  create: RegionCreateWithoutUsersInput!
+  update: RegionUpdateWithoutUsersInput!
 }
 
 input RegionWhereInput {
   AND: [RegionWhereInput!]
   NOT: [RegionWhereInput!]
   OR: [RegionWhereInput!]
+  clubs: ClubListRelationFilter
+  competitions: CompetitionListRelationFilter
+  competitors: CompetitorListRelationFilter
   id: IntFilter
-  locations: LocationListRelationFilter
   name: StringFilter
+  users: UserListRelationFilter
 }
 
 input RegionWhereUniqueInput {
@@ -10230,15 +10385,17 @@ type User {
   club: Club
   clubId: Int
   comments(cursor: CommentWhereUniqueInput, distinct: [CommentScalarFieldEnum!], orderBy: [CommentOrderByInput!], skip: Int, take: Int, where: CommentWhereInput): [Comment!]!
+  country: Country
+  countryId: Int
   createdAt: DateTime!
   email: String!
   firstName: String!
   id: Int!
   lastName: String!
-  location: Location
-  locationId: Int
   password: String!
   publicId: String!
+  region: Region
+  regionId: Int
   registrations(cursor: RegistrationWhereUniqueInput, distinct: [RegistrationScalarFieldEnum!], orderBy: [RegistrationOrderByInput!], skip: Int, take: Int, where: RegistrationWhereInput): [Registration!]!
   results(cursor: ResultWhereUniqueInput, distinct: [ResultScalarFieldEnum!], orderBy: [ResultOrderByInput!], skip: Int, take: Int, where: ResultWhereInput): [Result!]!
   role: UserRole!
@@ -10249,41 +10406,45 @@ type User {
 
 type UserAvgAggregate {
   clubId: Float
+  countryId: Float
   id: Float
-  locationId: Float
+  regionId: Float
 }
 
 input UserAvgOrderByAggregateInput {
   clubId: SortOrder
+  countryId: SortOrder
   id: SortOrder
-  locationId: SortOrder
+  regionId: SortOrder
 }
 
 type UserCountAggregate {
   _all: Int!
   clubId: Int!
+  countryId: Int!
   createdAt: Int!
   email: Int!
   firstName: Int!
   id: Int!
   lastName: Int!
-  locationId: Int!
   password: Int!
   publicId: Int!
+  regionId: Int!
   role: Int!
   updatedAt: Int!
 }
 
 input UserCountOrderByAggregateInput {
   clubId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   email: SortOrder
   firstName: SortOrder
   id: SortOrder
   lastName: SortOrder
-  locationId: SortOrder
   password: SortOrder
   publicId: SortOrder
+  regionId: SortOrder
   role: SortOrder
   updatedAt: SortOrder
 }
@@ -10292,13 +10453,14 @@ input UserCreateInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
   club: ClubCreateNestedOneWithoutUsersInput
   comments: CommentCreateNestedManyWithoutUserInput
+  country: CountryCreateNestedOneWithoutUsersInput
   createdAt: DateTime
   email: String!
   firstName: String!
   lastName: String!
-  location: LocationCreateNestedOneWithoutUsersInput
   password: String!
   publicId: String
+  region: RegionCreateNestedOneWithoutUsersInput
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   results: ResultCreateNestedManyWithoutApprovedByInput
   role: UserRole
@@ -10308,14 +10470,15 @@ input UserCreateInput {
 }
 
 input UserCreateManyClubInput {
+  countryId: Int
   createdAt: DateTime
   email: String!
   firstName: String!
   id: Int
   lastName: String!
-  locationId: Int
   password: String!
   publicId: String
+  regionId: Int
   role: UserRole
   updatedAt: DateTime
 }
@@ -10325,22 +10488,43 @@ input UserCreateManyClubInputEnvelope {
   skipDuplicates: Boolean
 }
 
+input UserCreateManyCountryInput {
+  clubId: Int
+  createdAt: DateTime
+  email: String!
+  firstName: String!
+  id: Int
+  lastName: String!
+  password: String!
+  publicId: String
+  regionId: Int
+  role: UserRole
+  updatedAt: DateTime
+}
+
+input UserCreateManyCountryInputEnvelope {
+  data: [UserCreateManyCountryInput!]!
+  skipDuplicates: Boolean
+}
+
 input UserCreateManyInput {
   clubId: Int
+  countryId: Int
   createdAt: DateTime
   email: String!
   firstName: String!
   id: Int
   lastName: String!
-  locationId: Int
   password: String!
   publicId: String
+  regionId: Int
   role: UserRole
   updatedAt: DateTime
 }
 
-input UserCreateManyLocationInput {
+input UserCreateManyRegionInput {
   clubId: Int
+  countryId: Int
   createdAt: DateTime
   email: String!
   firstName: String!
@@ -10352,8 +10536,8 @@ input UserCreateManyLocationInput {
   updatedAt: DateTime
 }
 
-input UserCreateManyLocationInputEnvelope {
-  data: [UserCreateManyLocationInput!]!
+input UserCreateManyRegionInputEnvelope {
+  data: [UserCreateManyRegionInput!]!
   skipDuplicates: Boolean
 }
 
@@ -10364,11 +10548,18 @@ input UserCreateNestedManyWithoutClubInput {
   createMany: UserCreateManyClubInputEnvelope
 }
 
-input UserCreateNestedManyWithoutLocationInput {
+input UserCreateNestedManyWithoutCountryInput {
   connect: [UserWhereUniqueInput!]
-  connectOrCreate: [UserCreateOrConnectWithoutLocationInput!]
-  create: [UserCreateWithoutLocationInput!]
-  createMany: UserCreateManyLocationInputEnvelope
+  connectOrCreate: [UserCreateOrConnectWithoutCountryInput!]
+  create: [UserCreateWithoutCountryInput!]
+  createMany: UserCreateManyCountryInputEnvelope
+}
+
+input UserCreateNestedManyWithoutRegionInput {
+  connect: [UserWhereUniqueInput!]
+  connectOrCreate: [UserCreateOrConnectWithoutRegionInput!]
+  create: [UserCreateWithoutRegionInput!]
+  createMany: UserCreateManyRegionInputEnvelope
 }
 
 input UserCreateNestedOneWithoutAcceptancesInput {
@@ -10422,8 +10613,13 @@ input UserCreateOrConnectWithoutCommentsInput {
   where: UserWhereUniqueInput!
 }
 
-input UserCreateOrConnectWithoutLocationInput {
-  create: UserCreateWithoutLocationInput!
+input UserCreateOrConnectWithoutCountryInput {
+  create: UserCreateWithoutCountryInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateOrConnectWithoutRegionInput {
+  create: UserCreateWithoutRegionInput!
   where: UserWhereUniqueInput!
 }
 
@@ -10450,13 +10646,14 @@ input UserCreateOrConnectWithoutRoutesSetInput {
 input UserCreateWithoutAcceptancesInput {
   club: ClubCreateNestedOneWithoutUsersInput
   comments: CommentCreateNestedManyWithoutUserInput
+  country: CountryCreateNestedOneWithoutUsersInput
   createdAt: DateTime
   email: String!
   firstName: String!
   lastName: String!
-  location: LocationCreateNestedOneWithoutUsersInput
   password: String!
   publicId: String
+  region: RegionCreateNestedOneWithoutUsersInput
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   results: ResultCreateNestedManyWithoutApprovedByInput
   role: UserRole
@@ -10468,13 +10665,14 @@ input UserCreateWithoutAcceptancesInput {
 input UserCreateWithoutClubInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
   comments: CommentCreateNestedManyWithoutUserInput
+  country: CountryCreateNestedOneWithoutUsersInput
   createdAt: DateTime
   email: String!
   firstName: String!
   lastName: String!
-  location: LocationCreateNestedOneWithoutUsersInput
   password: String!
   publicId: String
+  region: RegionCreateNestedOneWithoutUsersInput
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   results: ResultCreateNestedManyWithoutApprovedByInput
   role: UserRole
@@ -10486,13 +10684,14 @@ input UserCreateWithoutClubInput {
 input UserCreateWithoutCommentsInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
   club: ClubCreateNestedOneWithoutUsersInput
+  country: CountryCreateNestedOneWithoutUsersInput
   createdAt: DateTime
   email: String!
   firstName: String!
   lastName: String!
-  location: LocationCreateNestedOneWithoutUsersInput
   password: String!
   publicId: String
+  region: RegionCreateNestedOneWithoutUsersInput
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   results: ResultCreateNestedManyWithoutApprovedByInput
   role: UserRole
@@ -10501,10 +10700,30 @@ input UserCreateWithoutCommentsInput {
   updatedAt: DateTime
 }
 
-input UserCreateWithoutLocationInput {
+input UserCreateWithoutCountryInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
   club: ClubCreateNestedOneWithoutUsersInput
   comments: CommentCreateNestedManyWithoutUserInput
+  createdAt: DateTime
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  publicId: String
+  region: RegionCreateNestedOneWithoutUsersInput
+  registrations: RegistrationCreateNestedManyWithoutRegistrantInput
+  results: ResultCreateNestedManyWithoutApprovedByInput
+  role: UserRole
+  routesJudged: RouteCreateNestedManyWithoutJudgeInput
+  routesSet: RouteCreateNestedManyWithoutSetterInput
+  updatedAt: DateTime
+}
+
+input UserCreateWithoutRegionInput {
+  acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
+  club: ClubCreateNestedOneWithoutUsersInput
+  comments: CommentCreateNestedManyWithoutUserInput
+  country: CountryCreateNestedOneWithoutUsersInput
   createdAt: DateTime
   email: String!
   firstName: String!
@@ -10523,13 +10742,14 @@ input UserCreateWithoutRegistrationsInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
   club: ClubCreateNestedOneWithoutUsersInput
   comments: CommentCreateNestedManyWithoutUserInput
+  country: CountryCreateNestedOneWithoutUsersInput
   createdAt: DateTime
   email: String!
   firstName: String!
   lastName: String!
-  location: LocationCreateNestedOneWithoutUsersInput
   password: String!
   publicId: String
+  region: RegionCreateNestedOneWithoutUsersInput
   results: ResultCreateNestedManyWithoutApprovedByInput
   role: UserRole
   routesJudged: RouteCreateNestedManyWithoutJudgeInput
@@ -10541,13 +10761,14 @@ input UserCreateWithoutResultsInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
   club: ClubCreateNestedOneWithoutUsersInput
   comments: CommentCreateNestedManyWithoutUserInput
+  country: CountryCreateNestedOneWithoutUsersInput
   createdAt: DateTime
   email: String!
   firstName: String!
   lastName: String!
-  location: LocationCreateNestedOneWithoutUsersInput
   password: String!
   publicId: String
+  region: RegionCreateNestedOneWithoutUsersInput
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   role: UserRole
   routesJudged: RouteCreateNestedManyWithoutJudgeInput
@@ -10559,13 +10780,14 @@ input UserCreateWithoutRoutesJudgedInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
   club: ClubCreateNestedOneWithoutUsersInput
   comments: CommentCreateNestedManyWithoutUserInput
+  country: CountryCreateNestedOneWithoutUsersInput
   createdAt: DateTime
   email: String!
   firstName: String!
   lastName: String!
-  location: LocationCreateNestedOneWithoutUsersInput
   password: String!
   publicId: String
+  region: RegionCreateNestedOneWithoutUsersInput
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   results: ResultCreateNestedManyWithoutApprovedByInput
   role: UserRole
@@ -10577,13 +10799,14 @@ input UserCreateWithoutRoutesSetInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
   club: ClubCreateNestedOneWithoutUsersInput
   comments: CommentCreateNestedManyWithoutUserInput
+  country: CountryCreateNestedOneWithoutUsersInput
   createdAt: DateTime
   email: String!
   firstName: String!
   lastName: String!
-  location: LocationCreateNestedOneWithoutUsersInput
   password: String!
   publicId: String
+  region: RegionCreateNestedOneWithoutUsersInput
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   results: ResultCreateNestedManyWithoutApprovedByInput
   role: UserRole
@@ -10598,14 +10821,15 @@ type UserGroupBy {
   _min: UserMinAggregate
   _sum: UserSumAggregate
   clubId: Int
+  countryId: Int
   createdAt: DateTime!
   email: String!
   firstName: String!
   id: Int!
   lastName: String!
-  locationId: Int
   password: String!
   publicId: String!
+  regionId: Int
   role: UserRole!
   updatedAt: DateTime!
 }
@@ -10623,70 +10847,75 @@ input UserListRelationFilter {
 
 type UserMaxAggregate {
   clubId: Int
+  countryId: Int
   createdAt: DateTime
   email: String
   firstName: String
   id: Int
   lastName: String
-  locationId: Int
   password: String
   publicId: String
+  regionId: Int
   role: UserRole
   updatedAt: DateTime
 }
 
 input UserMaxOrderByAggregateInput {
   clubId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   email: SortOrder
   firstName: SortOrder
   id: SortOrder
   lastName: SortOrder
-  locationId: SortOrder
   password: SortOrder
   publicId: SortOrder
+  regionId: SortOrder
   role: SortOrder
   updatedAt: SortOrder
 }
 
 type UserMinAggregate {
   clubId: Int
+  countryId: Int
   createdAt: DateTime
   email: String
   firstName: String
   id: Int
   lastName: String
-  locationId: Int
   password: String
   publicId: String
+  regionId: Int
   role: UserRole
   updatedAt: DateTime
 }
 
 input UserMinOrderByAggregateInput {
   clubId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   email: SortOrder
   firstName: SortOrder
   id: SortOrder
   lastName: SortOrder
-  locationId: SortOrder
   password: SortOrder
   publicId: SortOrder
+  regionId: SortOrder
   role: SortOrder
   updatedAt: SortOrder
 }
 
 input UserOrderByInput {
   clubId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   email: SortOrder
   firstName: SortOrder
   id: SortOrder
   lastName: SortOrder
-  locationId: SortOrder
   password: SortOrder
   publicId: SortOrder
+  regionId: SortOrder
   role: SortOrder
   updatedAt: SortOrder
 }
@@ -10698,14 +10927,15 @@ input UserOrderByWithAggregationInput {
   _min: UserMinOrderByAggregateInput
   _sum: UserSumOrderByAggregateInput
   clubId: SortOrder
+  countryId: SortOrder
   createdAt: SortOrder
   email: SortOrder
   firstName: SortOrder
   id: SortOrder
   lastName: SortOrder
-  locationId: SortOrder
   password: SortOrder
   publicId: SortOrder
+  regionId: SortOrder
   role: SortOrder
   updatedAt: SortOrder
 }
@@ -10724,14 +10954,15 @@ enum UserRole {
 
 enum UserScalarFieldEnum {
   clubId
+  countryId
   createdAt
   email
   firstName
   id
   lastName
-  locationId
   password
   publicId
+  regionId
   role
   updatedAt
 }
@@ -10741,14 +10972,15 @@ input UserScalarWhereInput {
   NOT: [UserScalarWhereInput!]
   OR: [UserScalarWhereInput!]
   clubId: IntNullableFilter
+  countryId: IntNullableFilter
   createdAt: DateTimeFilter
   email: StringFilter
   firstName: StringFilter
   id: IntFilter
   lastName: StringFilter
-  locationId: IntNullableFilter
   password: StringFilter
   publicId: StringFilter
+  regionId: IntNullableFilter
   role: EnumUserRoleFilter
   updatedAt: DateTimeFilter
 }
@@ -10758,41 +10990,45 @@ input UserScalarWhereWithAggregatesInput {
   NOT: [UserScalarWhereWithAggregatesInput!]
   OR: [UserScalarWhereWithAggregatesInput!]
   clubId: IntNullableWithAggregatesFilter
+  countryId: IntNullableWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
   email: StringWithAggregatesFilter
   firstName: StringWithAggregatesFilter
   id: IntWithAggregatesFilter
   lastName: StringWithAggregatesFilter
-  locationId: IntNullableWithAggregatesFilter
   password: StringWithAggregatesFilter
   publicId: StringWithAggregatesFilter
+  regionId: IntNullableWithAggregatesFilter
   role: EnumUserRoleWithAggregatesFilter
   updatedAt: DateTimeWithAggregatesFilter
 }
 
 type UserSumAggregate {
   clubId: Int
+  countryId: Int
   id: Int
-  locationId: Int
+  regionId: Int
 }
 
 input UserSumOrderByAggregateInput {
   clubId: SortOrder
+  countryId: SortOrder
   id: SortOrder
-  locationId: SortOrder
+  regionId: SortOrder
 }
 
 input UserUpdateInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
   club: ClubUpdateOneWithoutUsersInput
   comments: CommentUpdateManyWithoutUserInput
+  country: CountryUpdateOneWithoutUsersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutUsersInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   results: ResultUpdateManyWithoutApprovedByInput
   role: EnumUserRoleFieldUpdateOperationsInput
@@ -10817,7 +11053,12 @@ input UserUpdateManyWithWhereWithoutClubInput {
   where: UserScalarWhereInput!
 }
 
-input UserUpdateManyWithWhereWithoutLocationInput {
+input UserUpdateManyWithWhereWithoutCountryInput {
+  data: UserUpdateManyMutationInput!
+  where: UserScalarWhereInput!
+}
+
+input UserUpdateManyWithWhereWithoutRegionInput {
   data: UserUpdateManyMutationInput!
   where: UserScalarWhereInput!
 }
@@ -10836,18 +11077,32 @@ input UserUpdateManyWithoutClubInput {
   upsert: [UserUpsertWithWhereUniqueWithoutClubInput!]
 }
 
-input UserUpdateManyWithoutLocationInput {
+input UserUpdateManyWithoutCountryInput {
   connect: [UserWhereUniqueInput!]
-  connectOrCreate: [UserCreateOrConnectWithoutLocationInput!]
-  create: [UserCreateWithoutLocationInput!]
-  createMany: UserCreateManyLocationInputEnvelope
+  connectOrCreate: [UserCreateOrConnectWithoutCountryInput!]
+  create: [UserCreateWithoutCountryInput!]
+  createMany: UserCreateManyCountryInputEnvelope
   delete: [UserWhereUniqueInput!]
   deleteMany: [UserScalarWhereInput!]
   disconnect: [UserWhereUniqueInput!]
   set: [UserWhereUniqueInput!]
-  update: [UserUpdateWithWhereUniqueWithoutLocationInput!]
-  updateMany: [UserUpdateManyWithWhereWithoutLocationInput!]
-  upsert: [UserUpsertWithWhereUniqueWithoutLocationInput!]
+  update: [UserUpdateWithWhereUniqueWithoutCountryInput!]
+  updateMany: [UserUpdateManyWithWhereWithoutCountryInput!]
+  upsert: [UserUpsertWithWhereUniqueWithoutCountryInput!]
+}
+
+input UserUpdateManyWithoutRegionInput {
+  connect: [UserWhereUniqueInput!]
+  connectOrCreate: [UserCreateOrConnectWithoutRegionInput!]
+  create: [UserCreateWithoutRegionInput!]
+  createMany: UserCreateManyRegionInputEnvelope
+  delete: [UserWhereUniqueInput!]
+  deleteMany: [UserScalarWhereInput!]
+  disconnect: [UserWhereUniqueInput!]
+  set: [UserWhereUniqueInput!]
+  update: [UserUpdateWithWhereUniqueWithoutRegionInput!]
+  updateMany: [UserUpdateManyWithWhereWithoutRegionInput!]
+  upsert: [UserUpsertWithWhereUniqueWithoutRegionInput!]
 }
 
 input UserUpdateOneRequiredWithoutAcceptancesInput {
@@ -10905,21 +11160,27 @@ input UserUpdateWithWhereUniqueWithoutClubInput {
   where: UserWhereUniqueInput!
 }
 
-input UserUpdateWithWhereUniqueWithoutLocationInput {
-  data: UserUpdateWithoutLocationInput!
+input UserUpdateWithWhereUniqueWithoutCountryInput {
+  data: UserUpdateWithoutCountryInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserUpdateWithWhereUniqueWithoutRegionInput {
+  data: UserUpdateWithoutRegionInput!
   where: UserWhereUniqueInput!
 }
 
 input UserUpdateWithoutAcceptancesInput {
   club: ClubUpdateOneWithoutUsersInput
   comments: CommentUpdateManyWithoutUserInput
+  country: CountryUpdateOneWithoutUsersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutUsersInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   results: ResultUpdateManyWithoutApprovedByInput
   role: EnumUserRoleFieldUpdateOperationsInput
@@ -10931,13 +11192,14 @@ input UserUpdateWithoutAcceptancesInput {
 input UserUpdateWithoutClubInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
   comments: CommentUpdateManyWithoutUserInput
+  country: CountryUpdateOneWithoutUsersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutUsersInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   results: ResultUpdateManyWithoutApprovedByInput
   role: EnumUserRoleFieldUpdateOperationsInput
@@ -10949,13 +11211,14 @@ input UserUpdateWithoutClubInput {
 input UserUpdateWithoutCommentsInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
   club: ClubUpdateOneWithoutUsersInput
+  country: CountryUpdateOneWithoutUsersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutUsersInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   results: ResultUpdateManyWithoutApprovedByInput
   role: EnumUserRoleFieldUpdateOperationsInput
@@ -10964,10 +11227,30 @@ input UserUpdateWithoutCommentsInput {
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input UserUpdateWithoutLocationInput {
+input UserUpdateWithoutCountryInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
   club: ClubUpdateOneWithoutUsersInput
   comments: CommentUpdateManyWithoutUserInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutUsersInput
+  registrations: RegistrationUpdateManyWithoutRegistrantInput
+  results: ResultUpdateManyWithoutApprovedByInput
+  role: EnumUserRoleFieldUpdateOperationsInput
+  routesJudged: RouteUpdateManyWithoutJudgeInput
+  routesSet: RouteUpdateManyWithoutSetterInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input UserUpdateWithoutRegionInput {
+  acceptances: RegistrationUpdateManyWithoutAcceptorInput
+  club: ClubUpdateOneWithoutUsersInput
+  comments: CommentUpdateManyWithoutUserInput
+  country: CountryUpdateOneWithoutUsersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
@@ -10986,13 +11269,14 @@ input UserUpdateWithoutRegistrationsInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
   club: ClubUpdateOneWithoutUsersInput
   comments: CommentUpdateManyWithoutUserInput
+  country: CountryUpdateOneWithoutUsersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutUsersInput
   results: ResultUpdateManyWithoutApprovedByInput
   role: EnumUserRoleFieldUpdateOperationsInput
   routesJudged: RouteUpdateManyWithoutJudgeInput
@@ -11004,13 +11288,14 @@ input UserUpdateWithoutResultsInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
   club: ClubUpdateOneWithoutUsersInput
   comments: CommentUpdateManyWithoutUserInput
+  country: CountryUpdateOneWithoutUsersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutUsersInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   role: EnumUserRoleFieldUpdateOperationsInput
   routesJudged: RouteUpdateManyWithoutJudgeInput
@@ -11022,13 +11307,14 @@ input UserUpdateWithoutRoutesJudgedInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
   club: ClubUpdateOneWithoutUsersInput
   comments: CommentUpdateManyWithoutUserInput
+  country: CountryUpdateOneWithoutUsersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutUsersInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   results: ResultUpdateManyWithoutApprovedByInput
   role: EnumUserRoleFieldUpdateOperationsInput
@@ -11040,13 +11326,14 @@ input UserUpdateWithoutRoutesSetInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
   club: ClubUpdateOneWithoutUsersInput
   comments: CommentUpdateManyWithoutUserInput
+  country: CountryUpdateOneWithoutUsersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
-  location: LocationUpdateOneWithoutUsersInput
   password: StringFieldUpdateOperationsInput
   publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutUsersInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   results: ResultUpdateManyWithoutApprovedByInput
   role: EnumUserRoleFieldUpdateOperationsInput
@@ -11060,9 +11347,15 @@ input UserUpsertWithWhereUniqueWithoutClubInput {
   where: UserWhereUniqueInput!
 }
 
-input UserUpsertWithWhereUniqueWithoutLocationInput {
-  create: UserCreateWithoutLocationInput!
-  update: UserUpdateWithoutLocationInput!
+input UserUpsertWithWhereUniqueWithoutCountryInput {
+  create: UserCreateWithoutCountryInput!
+  update: UserUpdateWithoutCountryInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserUpsertWithWhereUniqueWithoutRegionInput {
+  create: UserCreateWithoutRegionInput!
+  update: UserUpdateWithoutRegionInput!
   where: UserWhereUniqueInput!
 }
 
@@ -11104,15 +11397,17 @@ input UserWhereInput {
   club: ClubRelationFilter
   clubId: IntNullableFilter
   comments: CommentListRelationFilter
+  country: CountryRelationFilter
+  countryId: IntNullableFilter
   createdAt: DateTimeFilter
   email: StringFilter
   firstName: StringFilter
   id: IntFilter
   lastName: StringFilter
-  location: LocationRelationFilter
-  locationId: IntNullableFilter
   password: StringFilter
   publicId: StringFilter
+  region: RegionRelationFilter
+  regionId: IntNullableFilter
   registrations: RegistrationListRelationFilter
   results: ResultListRelationFilter
   role: EnumUserRoleFilter

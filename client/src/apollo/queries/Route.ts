@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client/core';
-import { F_USER_NAME } from './User';
+import { F_USER_NAME } from '../fragments';
 
 export const LIST_ROUTES = gql`
   ${F_USER_NAME}

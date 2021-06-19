@@ -13,9 +13,6 @@ export const LIST_SEASONS_COMPS = gql`
         compType {
           name
         }
-        location {
-          name
-        }
       }
     }
   }
@@ -23,7 +20,7 @@ export const LIST_SEASONS_COMPS = gql`
 
 export const LIST_SEASONS = gql`
   query {
-    seasons {
+    seasons(orderBy: [{ id: desc }]) {
       id
       name
       stardDate

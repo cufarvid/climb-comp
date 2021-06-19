@@ -1,8 +1,8 @@
-import React, { FC, useContext, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Button, Card, Divider, Form, InputNumber, message } from 'antd';
 import { generatePath, Route, useHistory } from 'react-router-dom';
 import { gql } from '@apollo/client/core';
-import { useLazyQuery } from '@apollo/client';
+import { useLazyQuery, useReactiveVar } from '@apollo/client';
 
 import { ScoreBoulder } from '../index';
 import { ROUTE } from '../../constants';
@@ -13,7 +13,7 @@ import {
 } from '../../types/__generated__';
 import ScoreLead from './ScoreLead';
 import ScoreSpeed from './ScoreSpeed';
-import { DashboardContext } from '../../context';
+import { loggedUserInfo } from '../../apollo/cache';
 
 const COMPETITOR_SCORING = gql`
   query GetCompetitorForScoring($data: FindStartListInput!) {
@@ -42,8 +42,7 @@ const Score: FC = () => {
     onError: (error) => message.error(error.message),
   });
 
-  // Get user info from context
-  const { userInfo } = useContext(DashboardContext);
+  const userInfo = useReactiveVar(loggedUserInfo);
   const history = useHistory();
 
   const onFinish = ({ startNumber }: { startNumber: number | undefined }) => {

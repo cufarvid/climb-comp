@@ -103,15 +103,6 @@ export type AggregateGrade = {
   _sum?: Maybe<GradeSumAggregate>;
 };
 
-export type AggregateLocation = {
-  __typename?: 'AggregateLocation';
-  _avg?: Maybe<LocationAvgAggregate>;
-  _count?: Maybe<LocationCountAggregate>;
-  _max?: Maybe<LocationMaxAggregate>;
-  _min?: Maybe<LocationMinAggregate>;
-  _sum?: Maybe<LocationSumAggregate>;
-};
-
 export type AggregateRegion = {
   __typename?: 'AggregateRegion';
   _avg?: Maybe<RegionAvgAggregate>;
@@ -221,9 +212,9 @@ export type BoolWithAggregatesFilter = {
 
 export type Category = {
   __typename?: 'Category';
-  CategoryRound: Array<CategoryRound>;
   ageFrom: Scalars['Int'];
   ageTo: Scalars['Int'];
+  categoryRounds: Array<CategoryRound>;
   competitors: Array<Competitor>;
   description?: Maybe<Scalars['String']>;
   id: Scalars['Int'];
@@ -231,7 +222,7 @@ export type Category = {
   routes: Array<Route>;
 };
 
-export type CategoryCategoryRoundArgs = {
+export type CategoryCategoryRoundsArgs = {
   cursor?: Maybe<CategoryRoundWhereUniqueInput>;
   distinct?: Maybe<Array<CategoryRoundScalarFieldEnum>>;
   orderBy?: Maybe<Array<CategoryRoundOrderByInput>>;
@@ -290,9 +281,9 @@ export type CategoryCountOrderByAggregateInput = {
 };
 
 export type CategoryCreateInput = {
-  CategoryRound?: Maybe<CategoryRoundCreateNestedManyWithoutCategoryInput>;
   ageFrom: Scalars['Int'];
   ageTo: Scalars['Int'];
+  categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCategoryInput>;
   competitors?: Maybe<CompetitorCreateNestedManyWithoutCategoryInput>;
   description?: Maybe<Scalars['String']>;
   name: Scalars['String'];
@@ -307,10 +298,10 @@ export type CategoryCreateManyInput = {
   name: Scalars['String'];
 };
 
-export type CategoryCreateNestedOneWithoutCategoryRoundInput = {
+export type CategoryCreateNestedOneWithoutCategoryRoundsInput = {
   connect?: Maybe<CategoryWhereUniqueInput>;
-  connectOrCreate?: Maybe<CategoryCreateOrConnectWithoutCategoryRoundInput>;
-  create?: Maybe<CategoryCreateWithoutCategoryRoundInput>;
+  connectOrCreate?: Maybe<CategoryCreateOrConnectWithoutCategoryRoundsInput>;
+  create?: Maybe<CategoryCreateWithoutCategoryRoundsInput>;
 };
 
 export type CategoryCreateNestedOneWithoutCompetitorsInput = {
@@ -325,8 +316,8 @@ export type CategoryCreateNestedOneWithoutRoutesInput = {
   create?: Maybe<CategoryCreateWithoutRoutesInput>;
 };
 
-export type CategoryCreateOrConnectWithoutCategoryRoundInput = {
-  create: CategoryCreateWithoutCategoryRoundInput;
+export type CategoryCreateOrConnectWithoutCategoryRoundsInput = {
+  create: CategoryCreateWithoutCategoryRoundsInput;
   where: CategoryWhereUniqueInput;
 };
 
@@ -340,7 +331,7 @@ export type CategoryCreateOrConnectWithoutRoutesInput = {
   where: CategoryWhereUniqueInput;
 };
 
-export type CategoryCreateWithoutCategoryRoundInput = {
+export type CategoryCreateWithoutCategoryRoundsInput = {
   ageFrom: Scalars['Int'];
   ageTo: Scalars['Int'];
   competitors?: Maybe<CompetitorCreateNestedManyWithoutCategoryInput>;
@@ -350,18 +341,18 @@ export type CategoryCreateWithoutCategoryRoundInput = {
 };
 
 export type CategoryCreateWithoutCompetitorsInput = {
-  CategoryRound?: Maybe<CategoryRoundCreateNestedManyWithoutCategoryInput>;
   ageFrom: Scalars['Int'];
   ageTo: Scalars['Int'];
+  categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCategoryInput>;
   description?: Maybe<Scalars['String']>;
   name: Scalars['String'];
   routes?: Maybe<RouteCreateNestedManyWithoutCategoryInput>;
 };
 
 export type CategoryCreateWithoutRoutesInput = {
-  CategoryRound?: Maybe<CategoryRoundCreateNestedManyWithoutCategoryInput>;
   ageFrom: Scalars['Int'];
   ageTo: Scalars['Int'];
+  categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCategoryInput>;
   competitors?: Maybe<CompetitorCreateNestedManyWithoutCategoryInput>;
   description?: Maybe<Scalars['String']>;
   name: Scalars['String'];
@@ -493,7 +484,7 @@ export type CategoryRoundCountOrderByAggregateInput = {
 };
 
 export type CategoryRoundCreateInput = {
-  category: CategoryCreateNestedOneWithoutCategoryRoundInput;
+  category: CategoryCreateNestedOneWithoutCategoryRoundsInput;
   competition: CompetitionCreateNestedOneWithoutCategoryRoundsInput;
   createdAt?: Maybe<Scalars['DateTime']>;
   endDate: Scalars['DateTime'];
@@ -581,7 +572,7 @@ export type CategoryRoundCreateWithoutCategoryInput = {
 };
 
 export type CategoryRoundCreateWithoutCompetitionInput = {
-  category: CategoryCreateNestedOneWithoutCategoryRoundInput;
+  category: CategoryCreateNestedOneWithoutCategoryRoundsInput;
   createdAt?: Maybe<Scalars['DateTime']>;
   endDate: Scalars['DateTime'];
   round: Round;
@@ -738,7 +729,7 @@ export type CategoryRoundSumOrderByAggregateInput = {
 };
 
 export type CategoryRoundUpdateInput = {
-  category?: Maybe<CategoryUpdateOneRequiredWithoutCategoryRoundInput>;
+  category?: Maybe<CategoryUpdateOneRequiredWithoutCategoryRoundsInput>;
   competition?: Maybe<CompetitionUpdateOneRequiredWithoutCategoryRoundsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -825,7 +816,7 @@ export type CategoryRoundUpdateWithoutCategoryInput = {
 };
 
 export type CategoryRoundUpdateWithoutCompetitionInput = {
-  category?: Maybe<CategoryUpdateOneRequiredWithoutCategoryRoundInput>;
+  category?: Maybe<CategoryUpdateOneRequiredWithoutCategoryRoundsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
   round?: Maybe<EnumRoundFieldUpdateOperationsInput>;
@@ -898,9 +889,9 @@ export type CategorySumOrderByAggregateInput = {
 };
 
 export type CategoryUpdateInput = {
-  CategoryRound?: Maybe<CategoryRoundUpdateManyWithoutCategoryInput>;
   ageFrom?: Maybe<IntFieldUpdateOperationsInput>;
   ageTo?: Maybe<IntFieldUpdateOperationsInput>;
+  categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCategoryInput>;
   competitors?: Maybe<CompetitorUpdateManyWithoutCategoryInput>;
   description?: Maybe<NullableStringFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
@@ -914,12 +905,12 @@ export type CategoryUpdateManyMutationInput = {
   name?: Maybe<StringFieldUpdateOperationsInput>;
 };
 
-export type CategoryUpdateOneRequiredWithoutCategoryRoundInput = {
+export type CategoryUpdateOneRequiredWithoutCategoryRoundsInput = {
   connect?: Maybe<CategoryWhereUniqueInput>;
-  connectOrCreate?: Maybe<CategoryCreateOrConnectWithoutCategoryRoundInput>;
-  create?: Maybe<CategoryCreateWithoutCategoryRoundInput>;
-  update?: Maybe<CategoryUpdateWithoutCategoryRoundInput>;
-  upsert?: Maybe<CategoryUpsertWithoutCategoryRoundInput>;
+  connectOrCreate?: Maybe<CategoryCreateOrConnectWithoutCategoryRoundsInput>;
+  create?: Maybe<CategoryCreateWithoutCategoryRoundsInput>;
+  update?: Maybe<CategoryUpdateWithoutCategoryRoundsInput>;
+  upsert?: Maybe<CategoryUpsertWithoutCategoryRoundsInput>;
 };
 
 export type CategoryUpdateOneRequiredWithoutCompetitorsInput = {
@@ -938,7 +929,7 @@ export type CategoryUpdateOneRequiredWithoutRoutesInput = {
   upsert?: Maybe<CategoryUpsertWithoutRoutesInput>;
 };
 
-export type CategoryUpdateWithoutCategoryRoundInput = {
+export type CategoryUpdateWithoutCategoryRoundsInput = {
   ageFrom?: Maybe<IntFieldUpdateOperationsInput>;
   ageTo?: Maybe<IntFieldUpdateOperationsInput>;
   competitors?: Maybe<CompetitorUpdateManyWithoutCategoryInput>;
@@ -948,26 +939,26 @@ export type CategoryUpdateWithoutCategoryRoundInput = {
 };
 
 export type CategoryUpdateWithoutCompetitorsInput = {
-  CategoryRound?: Maybe<CategoryRoundUpdateManyWithoutCategoryInput>;
   ageFrom?: Maybe<IntFieldUpdateOperationsInput>;
   ageTo?: Maybe<IntFieldUpdateOperationsInput>;
+  categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCategoryInput>;
   description?: Maybe<NullableStringFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   routes?: Maybe<RouteUpdateManyWithoutCategoryInput>;
 };
 
 export type CategoryUpdateWithoutRoutesInput = {
-  CategoryRound?: Maybe<CategoryRoundUpdateManyWithoutCategoryInput>;
   ageFrom?: Maybe<IntFieldUpdateOperationsInput>;
   ageTo?: Maybe<IntFieldUpdateOperationsInput>;
+  categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCategoryInput>;
   competitors?: Maybe<CompetitorUpdateManyWithoutCategoryInput>;
   description?: Maybe<NullableStringFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
 };
 
-export type CategoryUpsertWithoutCategoryRoundInput = {
-  create: CategoryCreateWithoutCategoryRoundInput;
-  update: CategoryUpdateWithoutCategoryRoundInput;
+export type CategoryUpsertWithoutCategoryRoundsInput = {
+  create: CategoryCreateWithoutCategoryRoundsInput;
+  update: CategoryUpdateWithoutCategoryRoundsInput;
 };
 
 export type CategoryUpsertWithoutCompetitorsInput = {
@@ -982,11 +973,11 @@ export type CategoryUpsertWithoutRoutesInput = {
 
 export type CategoryWhereInput = {
   AND?: Maybe<Array<CategoryWhereInput>>;
-  CategoryRound?: Maybe<CategoryRoundListRelationFilter>;
   NOT?: Maybe<Array<CategoryWhereInput>>;
   OR?: Maybe<Array<CategoryWhereInput>>;
   ageFrom?: Maybe<IntFilter>;
   ageTo?: Maybe<IntFilter>;
+  categoryRounds?: Maybe<CategoryRoundListRelationFilter>;
   competitors?: Maybe<CompetitorListRelationFilter>;
   description?: Maybe<StringNullableFilter>;
   id?: Maybe<IntFilter>;
@@ -1003,12 +994,14 @@ export type Club = {
   address?: Maybe<Scalars['String']>;
   competitions: Array<Competition>;
   competitors: Array<Competitor>;
+  country?: Maybe<Country>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt: Scalars['DateTime'];
   description?: Maybe<Scalars['String']>;
   id: Scalars['Int'];
-  location: Location;
-  locationId: Scalars['Int'];
   name: Scalars['String'];
+  region?: Maybe<Region>;
+  regionId?: Maybe<Scalars['Int']>;
   updatedAt: Scalars['DateTime'];
   users: Array<User>;
 };
@@ -1042,34 +1035,38 @@ export type ClubUsersArgs = {
 
 export type ClubAvgAggregate = {
   __typename?: 'ClubAvgAggregate';
+  countryId?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
-  locationId?: Maybe<Scalars['Float']>;
+  regionId?: Maybe<Scalars['Float']>;
 };
 
 export type ClubAvgOrderByAggregateInput = {
+  countryId?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
 };
 
 export type ClubCountAggregate = {
   __typename?: 'ClubCountAggregate';
   _all: Scalars['Int'];
   address: Scalars['Int'];
+  countryId: Scalars['Int'];
   createdAt: Scalars['Int'];
   description: Scalars['Int'];
   id: Scalars['Int'];
-  locationId: Scalars['Int'];
   name: Scalars['Int'];
+  regionId: Scalars['Int'];
   updatedAt: Scalars['Int'];
 };
 
 export type ClubCountOrderByAggregateInput = {
   address?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
 
@@ -1077,43 +1074,68 @@ export type ClubCreateInput = {
   address?: Maybe<Scalars['String']>;
   competitions?: Maybe<CompetitionCreateNestedManyWithoutClubInput>;
   competitors?: Maybe<CompetitorCreateNestedManyWithoutClubInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutClubsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
-  location: LocationCreateNestedOneWithoutClubsInput;
   name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutClubsInput>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   users?: Maybe<UserCreateNestedManyWithoutClubInput>;
 };
 
-export type ClubCreateManyInput = {
-  address?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['DateTime']>;
-  description?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['Int']>;
-  locationId: Scalars['Int'];
-  name: Scalars['String'];
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-export type ClubCreateManyLocationInput = {
+export type ClubCreateManyCountryInput = {
   address?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
   name: Scalars['String'];
+  regionId?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type ClubCreateManyLocationInputEnvelope = {
-  data: Array<ClubCreateManyLocationInput>;
+export type ClubCreateManyCountryInputEnvelope = {
+  data: Array<ClubCreateManyCountryInput>;
   skipDuplicates?: Maybe<Scalars['Boolean']>;
 };
 
-export type ClubCreateNestedManyWithoutLocationInput = {
+export type ClubCreateManyInput = {
+  address?: Maybe<Scalars['String']>;
+  countryId?: Maybe<Scalars['Int']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  name: Scalars['String'];
+  regionId?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ClubCreateManyRegionInput = {
+  address?: Maybe<Scalars['String']>;
+  countryId?: Maybe<Scalars['Int']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  name: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ClubCreateManyRegionInputEnvelope = {
+  data: Array<ClubCreateManyRegionInput>;
+  skipDuplicates?: Maybe<Scalars['Boolean']>;
+};
+
+export type ClubCreateNestedManyWithoutCountryInput = {
   connect?: Maybe<Array<ClubWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<ClubCreateOrConnectWithoutLocationInput>>;
-  create?: Maybe<Array<ClubCreateWithoutLocationInput>>;
-  createMany?: Maybe<ClubCreateManyLocationInputEnvelope>;
+  connectOrCreate?: Maybe<Array<ClubCreateOrConnectWithoutCountryInput>>;
+  create?: Maybe<Array<ClubCreateWithoutCountryInput>>;
+  createMany?: Maybe<ClubCreateManyCountryInputEnvelope>;
+};
+
+export type ClubCreateNestedManyWithoutRegionInput = {
+  connect?: Maybe<Array<ClubWhereUniqueInput>>;
+  connectOrCreate?: Maybe<Array<ClubCreateOrConnectWithoutRegionInput>>;
+  create?: Maybe<Array<ClubCreateWithoutRegionInput>>;
+  createMany?: Maybe<ClubCreateManyRegionInputEnvelope>;
 };
 
 export type ClubCreateNestedOneWithoutCompetitionsInput = {
@@ -1144,8 +1166,13 @@ export type ClubCreateOrConnectWithoutCompetitorsInput = {
   where: ClubWhereUniqueInput;
 };
 
-export type ClubCreateOrConnectWithoutLocationInput = {
-  create: ClubCreateWithoutLocationInput;
+export type ClubCreateOrConnectWithoutCountryInput = {
+  create: ClubCreateWithoutCountryInput;
+  where: ClubWhereUniqueInput;
+};
+
+export type ClubCreateOrConnectWithoutRegionInput = {
+  create: ClubCreateWithoutRegionInput;
   where: ClubWhereUniqueInput;
 };
 
@@ -1157,10 +1184,11 @@ export type ClubCreateOrConnectWithoutUsersInput = {
 export type ClubCreateWithoutCompetitionsInput = {
   address?: Maybe<Scalars['String']>;
   competitors?: Maybe<CompetitorCreateNestedManyWithoutClubInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutClubsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
-  location: LocationCreateNestedOneWithoutClubsInput;
   name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutClubsInput>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   users?: Maybe<UserCreateNestedManyWithoutClubInput>;
 };
@@ -1168,18 +1196,32 @@ export type ClubCreateWithoutCompetitionsInput = {
 export type ClubCreateWithoutCompetitorsInput = {
   address?: Maybe<Scalars['String']>;
   competitions?: Maybe<CompetitionCreateNestedManyWithoutClubInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutClubsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
-  location: LocationCreateNestedOneWithoutClubsInput;
   name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutClubsInput>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   users?: Maybe<UserCreateNestedManyWithoutClubInput>;
 };
 
-export type ClubCreateWithoutLocationInput = {
+export type ClubCreateWithoutCountryInput = {
   address?: Maybe<Scalars['String']>;
   competitions?: Maybe<CompetitionCreateNestedManyWithoutClubInput>;
   competitors?: Maybe<CompetitorCreateNestedManyWithoutClubInput>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description?: Maybe<Scalars['String']>;
+  name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutClubsInput>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  users?: Maybe<UserCreateNestedManyWithoutClubInput>;
+};
+
+export type ClubCreateWithoutRegionInput = {
+  address?: Maybe<Scalars['String']>;
+  competitions?: Maybe<CompetitionCreateNestedManyWithoutClubInput>;
+  competitors?: Maybe<CompetitorCreateNestedManyWithoutClubInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutClubsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
   name: Scalars['String'];
@@ -1191,10 +1233,11 @@ export type ClubCreateWithoutUsersInput = {
   address?: Maybe<Scalars['String']>;
   competitions?: Maybe<CompetitionCreateNestedManyWithoutClubInput>;
   competitors?: Maybe<CompetitorCreateNestedManyWithoutClubInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutClubsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
-  location: LocationCreateNestedOneWithoutClubsInput;
   name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutClubsInput>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -1206,11 +1249,12 @@ export type ClubGroupBy = {
   _min?: Maybe<ClubMinAggregate>;
   _sum?: Maybe<ClubSumAggregate>;
   address?: Maybe<Scalars['String']>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt: Scalars['DateTime'];
   description?: Maybe<Scalars['String']>;
   id: Scalars['Int'];
-  locationId: Scalars['Int'];
   name: Scalars['String'];
+  regionId?: Maybe<Scalars['Int']>;
   updatedAt: Scalars['DateTime'];
 };
 
@@ -1223,52 +1267,57 @@ export type ClubListRelationFilter = {
 export type ClubMaxAggregate = {
   __typename?: 'ClubMaxAggregate';
   address?: Maybe<Scalars['String']>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
-  locationId?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type ClubMaxOrderByAggregateInput = {
   address?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
 
 export type ClubMinAggregate = {
   __typename?: 'ClubMinAggregate';
   address?: Maybe<Scalars['String']>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
-  locationId?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type ClubMinOrderByAggregateInput = {
   address?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
 
 export type ClubOrderByInput = {
   address?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
 
@@ -1279,11 +1328,12 @@ export type ClubOrderByWithAggregationInput = {
   _min?: Maybe<ClubMinOrderByAggregateInput>;
   _sum?: Maybe<ClubSumOrderByAggregateInput>;
   address?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
 
@@ -1294,11 +1344,12 @@ export type ClubRelationFilter = {
 
 export enum ClubScalarFieldEnum {
   Address = 'address',
+  CountryId = 'countryId',
   CreatedAt = 'createdAt',
   Description = 'description',
   Id = 'id',
-  LocationId = 'locationId',
   Name = 'name',
+  RegionId = 'regionId',
   UpdatedAt = 'updatedAt',
 }
 
@@ -1307,11 +1358,12 @@ export type ClubScalarWhereInput = {
   NOT?: Maybe<Array<ClubScalarWhereInput>>;
   OR?: Maybe<Array<ClubScalarWhereInput>>;
   address?: Maybe<StringNullableFilter>;
+  countryId?: Maybe<IntNullableFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   description?: Maybe<StringNullableFilter>;
   id?: Maybe<IntFilter>;
-  locationId?: Maybe<IntFilter>;
   name?: Maybe<StringFilter>;
+  regionId?: Maybe<IntNullableFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
 };
 
@@ -1320,33 +1372,37 @@ export type ClubScalarWhereWithAggregatesInput = {
   NOT?: Maybe<Array<ClubScalarWhereWithAggregatesInput>>;
   OR?: Maybe<Array<ClubScalarWhereWithAggregatesInput>>;
   address?: Maybe<StringNullableWithAggregatesFilter>;
+  countryId?: Maybe<IntNullableWithAggregatesFilter>;
   createdAt?: Maybe<DateTimeWithAggregatesFilter>;
   description?: Maybe<StringNullableWithAggregatesFilter>;
   id?: Maybe<IntWithAggregatesFilter>;
-  locationId?: Maybe<IntWithAggregatesFilter>;
   name?: Maybe<StringWithAggregatesFilter>;
+  regionId?: Maybe<IntNullableWithAggregatesFilter>;
   updatedAt?: Maybe<DateTimeWithAggregatesFilter>;
 };
 
 export type ClubSumAggregate = {
   __typename?: 'ClubSumAggregate';
+  countryId?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['Int']>;
-  locationId?: Maybe<Scalars['Int']>;
+  regionId?: Maybe<Scalars['Int']>;
 };
 
 export type ClubSumOrderByAggregateInput = {
+  countryId?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
 };
 
 export type ClubUpdateInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
   competitions?: Maybe<CompetitionUpdateManyWithoutClubInput>;
   competitors?: Maybe<CompetitorUpdateManyWithoutClubInput>;
+  country?: Maybe<CountryUpdateOneWithoutClubsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutClubsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutClubsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   users?: Maybe<UserUpdateManyWithoutClubInput>;
 };
@@ -1359,23 +1415,42 @@ export type ClubUpdateManyMutationInput = {
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type ClubUpdateManyWithWhereWithoutLocationInput = {
+export type ClubUpdateManyWithWhereWithoutCountryInput = {
   data: ClubUpdateManyMutationInput;
   where: ClubScalarWhereInput;
 };
 
-export type ClubUpdateManyWithoutLocationInput = {
+export type ClubUpdateManyWithWhereWithoutRegionInput = {
+  data: ClubUpdateManyMutationInput;
+  where: ClubScalarWhereInput;
+};
+
+export type ClubUpdateManyWithoutCountryInput = {
   connect?: Maybe<Array<ClubWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<ClubCreateOrConnectWithoutLocationInput>>;
-  create?: Maybe<Array<ClubCreateWithoutLocationInput>>;
-  createMany?: Maybe<ClubCreateManyLocationInputEnvelope>;
+  connectOrCreate?: Maybe<Array<ClubCreateOrConnectWithoutCountryInput>>;
+  create?: Maybe<Array<ClubCreateWithoutCountryInput>>;
+  createMany?: Maybe<ClubCreateManyCountryInputEnvelope>;
   delete?: Maybe<Array<ClubWhereUniqueInput>>;
   deleteMany?: Maybe<Array<ClubScalarWhereInput>>;
   disconnect?: Maybe<Array<ClubWhereUniqueInput>>;
   set?: Maybe<Array<ClubWhereUniqueInput>>;
-  update?: Maybe<Array<ClubUpdateWithWhereUniqueWithoutLocationInput>>;
-  updateMany?: Maybe<Array<ClubUpdateManyWithWhereWithoutLocationInput>>;
-  upsert?: Maybe<Array<ClubUpsertWithWhereUniqueWithoutLocationInput>>;
+  update?: Maybe<Array<ClubUpdateWithWhereUniqueWithoutCountryInput>>;
+  updateMany?: Maybe<Array<ClubUpdateManyWithWhereWithoutCountryInput>>;
+  upsert?: Maybe<Array<ClubUpsertWithWhereUniqueWithoutCountryInput>>;
+};
+
+export type ClubUpdateManyWithoutRegionInput = {
+  connect?: Maybe<Array<ClubWhereUniqueInput>>;
+  connectOrCreate?: Maybe<Array<ClubCreateOrConnectWithoutRegionInput>>;
+  create?: Maybe<Array<ClubCreateWithoutRegionInput>>;
+  createMany?: Maybe<ClubCreateManyRegionInputEnvelope>;
+  delete?: Maybe<Array<ClubWhereUniqueInput>>;
+  deleteMany?: Maybe<Array<ClubScalarWhereInput>>;
+  disconnect?: Maybe<Array<ClubWhereUniqueInput>>;
+  set?: Maybe<Array<ClubWhereUniqueInput>>;
+  update?: Maybe<Array<ClubUpdateWithWhereUniqueWithoutRegionInput>>;
+  updateMany?: Maybe<Array<ClubUpdateManyWithWhereWithoutRegionInput>>;
+  upsert?: Maybe<Array<ClubUpsertWithWhereUniqueWithoutRegionInput>>;
 };
 
 export type ClubUpdateOneRequiredWithoutCompetitionsInput = {
@@ -1404,18 +1479,24 @@ export type ClubUpdateOneWithoutUsersInput = {
   upsert?: Maybe<ClubUpsertWithoutUsersInput>;
 };
 
-export type ClubUpdateWithWhereUniqueWithoutLocationInput = {
-  data: ClubUpdateWithoutLocationInput;
+export type ClubUpdateWithWhereUniqueWithoutCountryInput = {
+  data: ClubUpdateWithoutCountryInput;
+  where: ClubWhereUniqueInput;
+};
+
+export type ClubUpdateWithWhereUniqueWithoutRegionInput = {
+  data: ClubUpdateWithoutRegionInput;
   where: ClubWhereUniqueInput;
 };
 
 export type ClubUpdateWithoutCompetitionsInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
   competitors?: Maybe<CompetitorUpdateManyWithoutClubInput>;
+  country?: Maybe<CountryUpdateOneWithoutClubsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutClubsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutClubsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   users?: Maybe<UserUpdateManyWithoutClubInput>;
 };
@@ -1423,18 +1504,32 @@ export type ClubUpdateWithoutCompetitionsInput = {
 export type ClubUpdateWithoutCompetitorsInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
   competitions?: Maybe<CompetitionUpdateManyWithoutClubInput>;
+  country?: Maybe<CountryUpdateOneWithoutClubsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutClubsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutClubsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   users?: Maybe<UserUpdateManyWithoutClubInput>;
 };
 
-export type ClubUpdateWithoutLocationInput = {
+export type ClubUpdateWithoutCountryInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
   competitions?: Maybe<CompetitionUpdateManyWithoutClubInput>;
   competitors?: Maybe<CompetitorUpdateManyWithoutClubInput>;
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  description?: Maybe<NullableStringFieldUpdateOperationsInput>;
+  name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutClubsInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  users?: Maybe<UserUpdateManyWithoutClubInput>;
+};
+
+export type ClubUpdateWithoutRegionInput = {
+  address?: Maybe<NullableStringFieldUpdateOperationsInput>;
+  competitions?: Maybe<CompetitionUpdateManyWithoutClubInput>;
+  competitors?: Maybe<CompetitorUpdateManyWithoutClubInput>;
+  country?: Maybe<CountryUpdateOneWithoutClubsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<NullableStringFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
@@ -1446,16 +1541,23 @@ export type ClubUpdateWithoutUsersInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
   competitions?: Maybe<CompetitionUpdateManyWithoutClubInput>;
   competitors?: Maybe<CompetitorUpdateManyWithoutClubInput>;
+  country?: Maybe<CountryUpdateOneWithoutClubsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutClubsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutClubsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type ClubUpsertWithWhereUniqueWithoutLocationInput = {
-  create: ClubCreateWithoutLocationInput;
-  update: ClubUpdateWithoutLocationInput;
+export type ClubUpsertWithWhereUniqueWithoutCountryInput = {
+  create: ClubCreateWithoutCountryInput;
+  update: ClubUpdateWithoutCountryInput;
+  where: ClubWhereUniqueInput;
+};
+
+export type ClubUpsertWithWhereUniqueWithoutRegionInput = {
+  create: ClubCreateWithoutRegionInput;
+  update: ClubUpdateWithoutRegionInput;
   where: ClubWhereUniqueInput;
 };
 
@@ -1481,12 +1583,14 @@ export type ClubWhereInput = {
   address?: Maybe<StringNullableFilter>;
   competitions?: Maybe<CompetitionListRelationFilter>;
   competitors?: Maybe<CompetitorListRelationFilter>;
+  country?: Maybe<CountryRelationFilter>;
+  countryId?: Maybe<IntNullableFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   description?: Maybe<StringNullableFilter>;
   id?: Maybe<IntFilter>;
-  location?: Maybe<LocationRelationFilter>;
-  locationId?: Maybe<IntFilter>;
   name?: Maybe<StringFilter>;
+  region?: Maybe<RegionRelationFilter>;
+  regionId?: Maybe<IntNullableFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
   users?: Maybe<UserListRelationFilter>;
 };
@@ -1951,13 +2055,15 @@ export type Competition = {
   clubId: Scalars['Int'];
   compType: CompetitionType;
   compTypeId: Scalars['Int'];
+  country?: Maybe<Country>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt: Scalars['DateTime'];
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
   id: Scalars['Int'];
-  location: Location;
-  locationId: Scalars['Int'];
   name: Scalars['String'];
+  region?: Maybe<Region>;
+  regionId?: Maybe<Scalars['Int']>;
   registrations: Array<Registration>;
   results: Array<Result>;
   routes: Array<Route>;
@@ -2017,16 +2123,18 @@ export type CompetitionAvgAggregate = {
   __typename?: 'CompetitionAvgAggregate';
   clubId?: Maybe<Scalars['Float']>;
   compTypeId?: Maybe<Scalars['Float']>;
+  countryId?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
-  locationId?: Maybe<Scalars['Float']>;
+  regionId?: Maybe<Scalars['Float']>;
   seasonId?: Maybe<Scalars['Float']>;
 };
 
 export type CompetitionAvgOrderByAggregateInput = {
   clubId?: Maybe<SortOrder>;
   compTypeId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   seasonId?: Maybe<SortOrder>;
 };
 
@@ -2037,12 +2145,13 @@ export type CompetitionCountAggregate = {
   address: Scalars['Int'];
   clubId: Scalars['Int'];
   compTypeId: Scalars['Int'];
+  countryId: Scalars['Int'];
   createdAt: Scalars['Int'];
   description: Scalars['Int'];
   endDate: Scalars['Int'];
   id: Scalars['Int'];
-  locationId: Scalars['Int'];
   name: Scalars['Int'];
+  regionId: Scalars['Int'];
   seasonId: Scalars['Int'];
   startDate: Scalars['Int'];
   updatedAt: Scalars['Int'];
@@ -2053,12 +2162,13 @@ export type CompetitionCountOrderByAggregateInput = {
   address?: Maybe<SortOrder>;
   clubId?: Maybe<SortOrder>;
   compTypeId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
   endDate?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   seasonId?: Maybe<SortOrder>;
   startDate?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
@@ -2070,11 +2180,12 @@ export type CompetitionCreateInput = {
   categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCompetitionInput>;
   club: ClubCreateNestedOneWithoutCompetitionsInput;
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
-  location: LocationCreateNestedOneWithoutCompetitionsInput;
   name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitionInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitionInput>;
   routes?: Maybe<RouteCreateNestedManyWithoutCompetitionInput>;
@@ -2088,12 +2199,13 @@ export type CompetitionCreateManyClubInput = {
   active?: Maybe<Scalars['Boolean']>;
   address: Scalars['String'];
   compTypeId: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
   id?: Maybe<Scalars['Int']>;
-  locationId: Scalars['Int'];
   name: Scalars['String'];
+  regionId?: Maybe<Scalars['Int']>;
   seasonId: Scalars['Int'];
   startDate: Scalars['DateTime'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -2108,12 +2220,13 @@ export type CompetitionCreateManyCompTypeInput = {
   active?: Maybe<Scalars['Boolean']>;
   address: Scalars['String'];
   clubId: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
   id?: Maybe<Scalars['Int']>;
-  locationId: Scalars['Int'];
   name: Scalars['String'];
+  regionId?: Maybe<Scalars['Int']>;
   seasonId: Scalars['Int'];
   startDate: Scalars['DateTime'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -2124,27 +2237,50 @@ export type CompetitionCreateManyCompTypeInputEnvelope = {
   skipDuplicates?: Maybe<Scalars['Boolean']>;
 };
 
+export type CompetitionCreateManyCountryInput = {
+  active?: Maybe<Scalars['Boolean']>;
+  address: Scalars['String'];
+  clubId: Scalars['Int'];
+  compTypeId: Scalars['Int'];
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description: Scalars['String'];
+  endDate: Scalars['DateTime'];
+  id?: Maybe<Scalars['Int']>;
+  name: Scalars['String'];
+  regionId?: Maybe<Scalars['Int']>;
+  seasonId: Scalars['Int'];
+  startDate: Scalars['DateTime'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type CompetitionCreateManyCountryInputEnvelope = {
+  data: Array<CompetitionCreateManyCountryInput>;
+  skipDuplicates?: Maybe<Scalars['Boolean']>;
+};
+
 export type CompetitionCreateManyInput = {
   active?: Maybe<Scalars['Boolean']>;
   address: Scalars['String'];
   clubId: Scalars['Int'];
   compTypeId: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
   id?: Maybe<Scalars['Int']>;
-  locationId: Scalars['Int'];
   name: Scalars['String'];
+  regionId?: Maybe<Scalars['Int']>;
   seasonId: Scalars['Int'];
   startDate: Scalars['DateTime'];
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type CompetitionCreateManyLocationInput = {
+export type CompetitionCreateManyRegionInput = {
   active?: Maybe<Scalars['Boolean']>;
   address: Scalars['String'];
   clubId: Scalars['Int'];
   compTypeId: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
@@ -2155,8 +2291,8 @@ export type CompetitionCreateManyLocationInput = {
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type CompetitionCreateManyLocationInputEnvelope = {
-  data: Array<CompetitionCreateManyLocationInput>;
+export type CompetitionCreateManyRegionInputEnvelope = {
+  data: Array<CompetitionCreateManyRegionInput>;
   skipDuplicates?: Maybe<Scalars['Boolean']>;
 };
 
@@ -2165,12 +2301,13 @@ export type CompetitionCreateManySeasonInput = {
   address: Scalars['String'];
   clubId: Scalars['Int'];
   compTypeId: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
   id?: Maybe<Scalars['Int']>;
-  locationId: Scalars['Int'];
   name: Scalars['String'];
+  regionId?: Maybe<Scalars['Int']>;
   startDate: Scalars['DateTime'];
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
@@ -2196,13 +2333,18 @@ export type CompetitionCreateNestedManyWithoutCompTypeInput = {
   createMany?: Maybe<CompetitionCreateManyCompTypeInputEnvelope>;
 };
 
-export type CompetitionCreateNestedManyWithoutLocationInput = {
+export type CompetitionCreateNestedManyWithoutCountryInput = {
   connect?: Maybe<Array<CompetitionWhereUniqueInput>>;
-  connectOrCreate?: Maybe<
-    Array<CompetitionCreateOrConnectWithoutLocationInput>
-  >;
-  create?: Maybe<Array<CompetitionCreateWithoutLocationInput>>;
-  createMany?: Maybe<CompetitionCreateManyLocationInputEnvelope>;
+  connectOrCreate?: Maybe<Array<CompetitionCreateOrConnectWithoutCountryInput>>;
+  create?: Maybe<Array<CompetitionCreateWithoutCountryInput>>;
+  createMany?: Maybe<CompetitionCreateManyCountryInputEnvelope>;
+};
+
+export type CompetitionCreateNestedManyWithoutRegionInput = {
+  connect?: Maybe<Array<CompetitionWhereUniqueInput>>;
+  connectOrCreate?: Maybe<Array<CompetitionCreateOrConnectWithoutRegionInput>>;
+  create?: Maybe<Array<CompetitionCreateWithoutRegionInput>>;
+  createMany?: Maybe<CompetitionCreateManyRegionInputEnvelope>;
 };
 
 export type CompetitionCreateNestedManyWithoutSeasonInput = {
@@ -2257,8 +2399,13 @@ export type CompetitionCreateOrConnectWithoutCompTypeInput = {
   where: CompetitionWhereUniqueInput;
 };
 
-export type CompetitionCreateOrConnectWithoutLocationInput = {
-  create: CompetitionCreateWithoutLocationInput;
+export type CompetitionCreateOrConnectWithoutCountryInput = {
+  create: CompetitionCreateWithoutCountryInput;
+  where: CompetitionWhereUniqueInput;
+};
+
+export type CompetitionCreateOrConnectWithoutRegionInput = {
+  create: CompetitionCreateWithoutRegionInput;
   where: CompetitionWhereUniqueInput;
 };
 
@@ -2292,11 +2439,12 @@ export type CompetitionCreateWithoutCategoryRoundsInput = {
   address: Scalars['String'];
   club: ClubCreateNestedOneWithoutCompetitionsInput;
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
-  location: LocationCreateNestedOneWithoutCompetitionsInput;
   name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitionInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitionInput>;
   routes?: Maybe<RouteCreateNestedManyWithoutCompetitionInput>;
@@ -2311,11 +2459,12 @@ export type CompetitionCreateWithoutClubInput = {
   address: Scalars['String'];
   categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCompetitionInput>;
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
-  location: LocationCreateNestedOneWithoutCompetitionsInput;
   name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitionInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitionInput>;
   routes?: Maybe<RouteCreateNestedManyWithoutCompetitionInput>;
@@ -2330,11 +2479,12 @@ export type CompetitionCreateWithoutCompTypeInput = {
   address: Scalars['String'];
   categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCompetitionInput>;
   club: ClubCreateNestedOneWithoutCompetitionsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
-  location: LocationCreateNestedOneWithoutCompetitionsInput;
   name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitionInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitionInput>;
   routes?: Maybe<RouteCreateNestedManyWithoutCompetitionInput>;
@@ -2344,12 +2494,33 @@ export type CompetitionCreateWithoutCompTypeInput = {
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type CompetitionCreateWithoutLocationInput = {
+export type CompetitionCreateWithoutCountryInput = {
   active?: Maybe<Scalars['Boolean']>;
   address: Scalars['String'];
   categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCompetitionInput>;
   club: ClubCreateNestedOneWithoutCompetitionsInput;
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description: Scalars['String'];
+  endDate: Scalars['DateTime'];
+  name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
+  registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitionInput>;
+  results?: Maybe<ResultCreateNestedManyWithoutCompetitionInput>;
+  routes?: Maybe<RouteCreateNestedManyWithoutCompetitionInput>;
+  season: SeasonCreateNestedOneWithoutCompetitionsInput;
+  startDate: Scalars['DateTime'];
+  startLists?: Maybe<StartListCreateNestedManyWithoutCompetitionInput>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type CompetitionCreateWithoutRegionInput = {
+  active?: Maybe<Scalars['Boolean']>;
+  address: Scalars['String'];
+  categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCompetitionInput>;
+  club: ClubCreateNestedOneWithoutCompetitionsInput;
+  compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
@@ -2369,11 +2540,12 @@ export type CompetitionCreateWithoutRegistrationsInput = {
   categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCompetitionInput>;
   club: ClubCreateNestedOneWithoutCompetitionsInput;
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
-  location: LocationCreateNestedOneWithoutCompetitionsInput;
   name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitionInput>;
   routes?: Maybe<RouteCreateNestedManyWithoutCompetitionInput>;
   season: SeasonCreateNestedOneWithoutCompetitionsInput;
@@ -2388,11 +2560,12 @@ export type CompetitionCreateWithoutResultsInput = {
   categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCompetitionInput>;
   club: ClubCreateNestedOneWithoutCompetitionsInput;
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
-  location: LocationCreateNestedOneWithoutCompetitionsInput;
   name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitionInput>;
   routes?: Maybe<RouteCreateNestedManyWithoutCompetitionInput>;
   season: SeasonCreateNestedOneWithoutCompetitionsInput;
@@ -2407,11 +2580,12 @@ export type CompetitionCreateWithoutRoutesInput = {
   categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCompetitionInput>;
   club: ClubCreateNestedOneWithoutCompetitionsInput;
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
-  location: LocationCreateNestedOneWithoutCompetitionsInput;
   name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitionInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitionInput>;
   season: SeasonCreateNestedOneWithoutCompetitionsInput;
@@ -2426,11 +2600,12 @@ export type CompetitionCreateWithoutSeasonInput = {
   categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCompetitionInput>;
   club: ClubCreateNestedOneWithoutCompetitionsInput;
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
-  location: LocationCreateNestedOneWithoutCompetitionsInput;
   name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitionInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitionInput>;
   routes?: Maybe<RouteCreateNestedManyWithoutCompetitionInput>;
@@ -2445,11 +2620,12 @@ export type CompetitionCreateWithoutStartListsInput = {
   categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCompetitionInput>;
   club: ClubCreateNestedOneWithoutCompetitionsInput;
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
-  location: LocationCreateNestedOneWithoutCompetitionsInput;
   name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitionInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitionInput>;
   routes?: Maybe<RouteCreateNestedManyWithoutCompetitionInput>;
@@ -2469,12 +2645,13 @@ export type CompetitionGroupBy = {
   address: Scalars['String'];
   clubId: Scalars['Int'];
   compTypeId: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
   createdAt: Scalars['DateTime'];
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
   id: Scalars['Int'];
-  locationId: Scalars['Int'];
   name: Scalars['String'];
+  regionId?: Maybe<Scalars['Int']>;
   seasonId: Scalars['Int'];
   startDate: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
@@ -2492,12 +2669,13 @@ export type CompetitionMaxAggregate = {
   address?: Maybe<Scalars['String']>;
   clubId?: Maybe<Scalars['Int']>;
   compTypeId?: Maybe<Scalars['Int']>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
   endDate?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['Int']>;
-  locationId?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
   seasonId?: Maybe<Scalars['Int']>;
   startDate?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -2508,12 +2686,13 @@ export type CompetitionMaxOrderByAggregateInput = {
   address?: Maybe<SortOrder>;
   clubId?: Maybe<SortOrder>;
   compTypeId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
   endDate?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   seasonId?: Maybe<SortOrder>;
   startDate?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
@@ -2525,12 +2704,13 @@ export type CompetitionMinAggregate = {
   address?: Maybe<Scalars['String']>;
   clubId?: Maybe<Scalars['Int']>;
   compTypeId?: Maybe<Scalars['Int']>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
   endDate?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['Int']>;
-  locationId?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
   seasonId?: Maybe<Scalars['Int']>;
   startDate?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -2541,12 +2721,13 @@ export type CompetitionMinOrderByAggregateInput = {
   address?: Maybe<SortOrder>;
   clubId?: Maybe<SortOrder>;
   compTypeId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
   endDate?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   seasonId?: Maybe<SortOrder>;
   startDate?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
@@ -2557,12 +2738,13 @@ export type CompetitionOrderByInput = {
   address?: Maybe<SortOrder>;
   clubId?: Maybe<SortOrder>;
   compTypeId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
   endDate?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   seasonId?: Maybe<SortOrder>;
   startDate?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
@@ -2578,12 +2760,13 @@ export type CompetitionOrderByWithAggregationInput = {
   address?: Maybe<SortOrder>;
   clubId?: Maybe<SortOrder>;
   compTypeId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
   endDate?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   seasonId?: Maybe<SortOrder>;
   startDate?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
@@ -2599,12 +2782,13 @@ export enum CompetitionScalarFieldEnum {
   Address = 'address',
   ClubId = 'clubId',
   CompTypeId = 'compTypeId',
+  CountryId = 'countryId',
   CreatedAt = 'createdAt',
   Description = 'description',
   EndDate = 'endDate',
   Id = 'id',
-  LocationId = 'locationId',
   Name = 'name',
+  RegionId = 'regionId',
   SeasonId = 'seasonId',
   StartDate = 'startDate',
   UpdatedAt = 'updatedAt',
@@ -2618,12 +2802,13 @@ export type CompetitionScalarWhereInput = {
   address?: Maybe<StringFilter>;
   clubId?: Maybe<IntFilter>;
   compTypeId?: Maybe<IntFilter>;
+  countryId?: Maybe<IntNullableFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   description?: Maybe<StringFilter>;
   endDate?: Maybe<DateTimeFilter>;
   id?: Maybe<IntFilter>;
-  locationId?: Maybe<IntFilter>;
   name?: Maybe<StringFilter>;
+  regionId?: Maybe<IntNullableFilter>;
   seasonId?: Maybe<IntFilter>;
   startDate?: Maybe<DateTimeFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
@@ -2637,12 +2822,13 @@ export type CompetitionScalarWhereWithAggregatesInput = {
   address?: Maybe<StringWithAggregatesFilter>;
   clubId?: Maybe<IntWithAggregatesFilter>;
   compTypeId?: Maybe<IntWithAggregatesFilter>;
+  countryId?: Maybe<IntNullableWithAggregatesFilter>;
   createdAt?: Maybe<DateTimeWithAggregatesFilter>;
   description?: Maybe<StringWithAggregatesFilter>;
   endDate?: Maybe<DateTimeWithAggregatesFilter>;
   id?: Maybe<IntWithAggregatesFilter>;
-  locationId?: Maybe<IntWithAggregatesFilter>;
   name?: Maybe<StringWithAggregatesFilter>;
+  regionId?: Maybe<IntNullableWithAggregatesFilter>;
   seasonId?: Maybe<IntWithAggregatesFilter>;
   startDate?: Maybe<DateTimeWithAggregatesFilter>;
   updatedAt?: Maybe<DateTimeWithAggregatesFilter>;
@@ -2652,16 +2838,18 @@ export type CompetitionSumAggregate = {
   __typename?: 'CompetitionSumAggregate';
   clubId?: Maybe<Scalars['Int']>;
   compTypeId?: Maybe<Scalars['Int']>;
+  countryId?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['Int']>;
-  locationId?: Maybe<Scalars['Int']>;
+  regionId?: Maybe<Scalars['Int']>;
   seasonId?: Maybe<Scalars['Int']>;
 };
 
 export type CompetitionSumOrderByAggregateInput = {
   clubId?: Maybe<SortOrder>;
   compTypeId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   seasonId?: Maybe<SortOrder>;
 };
 
@@ -2866,11 +3054,12 @@ export type CompetitionUpdateInput = {
   categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCompetitionInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitionsInput>;
   compType?: Maybe<CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitionsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitionInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitionInput>;
   routes?: Maybe<RouteUpdateManyWithoutCompetitionInput>;
@@ -2901,7 +3090,12 @@ export type CompetitionUpdateManyWithWhereWithoutCompTypeInput = {
   where: CompetitionScalarWhereInput;
 };
 
-export type CompetitionUpdateManyWithWhereWithoutLocationInput = {
+export type CompetitionUpdateManyWithWhereWithoutCountryInput = {
+  data: CompetitionUpdateManyMutationInput;
+  where: CompetitionScalarWhereInput;
+};
+
+export type CompetitionUpdateManyWithWhereWithoutRegionInput = {
   data: CompetitionUpdateManyMutationInput;
   where: CompetitionScalarWhereInput;
 };
@@ -2941,20 +3135,32 @@ export type CompetitionUpdateManyWithoutCompTypeInput = {
   upsert?: Maybe<Array<CompetitionUpsertWithWhereUniqueWithoutCompTypeInput>>;
 };
 
-export type CompetitionUpdateManyWithoutLocationInput = {
+export type CompetitionUpdateManyWithoutCountryInput = {
   connect?: Maybe<Array<CompetitionWhereUniqueInput>>;
-  connectOrCreate?: Maybe<
-    Array<CompetitionCreateOrConnectWithoutLocationInput>
-  >;
-  create?: Maybe<Array<CompetitionCreateWithoutLocationInput>>;
-  createMany?: Maybe<CompetitionCreateManyLocationInputEnvelope>;
+  connectOrCreate?: Maybe<Array<CompetitionCreateOrConnectWithoutCountryInput>>;
+  create?: Maybe<Array<CompetitionCreateWithoutCountryInput>>;
+  createMany?: Maybe<CompetitionCreateManyCountryInputEnvelope>;
   delete?: Maybe<Array<CompetitionWhereUniqueInput>>;
   deleteMany?: Maybe<Array<CompetitionScalarWhereInput>>;
   disconnect?: Maybe<Array<CompetitionWhereUniqueInput>>;
   set?: Maybe<Array<CompetitionWhereUniqueInput>>;
-  update?: Maybe<Array<CompetitionUpdateWithWhereUniqueWithoutLocationInput>>;
-  updateMany?: Maybe<Array<CompetitionUpdateManyWithWhereWithoutLocationInput>>;
-  upsert?: Maybe<Array<CompetitionUpsertWithWhereUniqueWithoutLocationInput>>;
+  update?: Maybe<Array<CompetitionUpdateWithWhereUniqueWithoutCountryInput>>;
+  updateMany?: Maybe<Array<CompetitionUpdateManyWithWhereWithoutCountryInput>>;
+  upsert?: Maybe<Array<CompetitionUpsertWithWhereUniqueWithoutCountryInput>>;
+};
+
+export type CompetitionUpdateManyWithoutRegionInput = {
+  connect?: Maybe<Array<CompetitionWhereUniqueInput>>;
+  connectOrCreate?: Maybe<Array<CompetitionCreateOrConnectWithoutRegionInput>>;
+  create?: Maybe<Array<CompetitionCreateWithoutRegionInput>>;
+  createMany?: Maybe<CompetitionCreateManyRegionInputEnvelope>;
+  delete?: Maybe<Array<CompetitionWhereUniqueInput>>;
+  deleteMany?: Maybe<Array<CompetitionScalarWhereInput>>;
+  disconnect?: Maybe<Array<CompetitionWhereUniqueInput>>;
+  set?: Maybe<Array<CompetitionWhereUniqueInput>>;
+  update?: Maybe<Array<CompetitionUpdateWithWhereUniqueWithoutRegionInput>>;
+  updateMany?: Maybe<Array<CompetitionUpdateManyWithWhereWithoutRegionInput>>;
+  upsert?: Maybe<Array<CompetitionUpsertWithWhereUniqueWithoutRegionInput>>;
 };
 
 export type CompetitionUpdateManyWithoutSeasonInput = {
@@ -3021,8 +3227,13 @@ export type CompetitionUpdateWithWhereUniqueWithoutCompTypeInput = {
   where: CompetitionWhereUniqueInput;
 };
 
-export type CompetitionUpdateWithWhereUniqueWithoutLocationInput = {
-  data: CompetitionUpdateWithoutLocationInput;
+export type CompetitionUpdateWithWhereUniqueWithoutCountryInput = {
+  data: CompetitionUpdateWithoutCountryInput;
+  where: CompetitionWhereUniqueInput;
+};
+
+export type CompetitionUpdateWithWhereUniqueWithoutRegionInput = {
+  data: CompetitionUpdateWithoutRegionInput;
   where: CompetitionWhereUniqueInput;
 };
 
@@ -3036,11 +3247,12 @@ export type CompetitionUpdateWithoutCategoryRoundsInput = {
   address?: Maybe<StringFieldUpdateOperationsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitionsInput>;
   compType?: Maybe<CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitionsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitionInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitionInput>;
   routes?: Maybe<RouteUpdateManyWithoutCompetitionInput>;
@@ -3055,11 +3267,12 @@ export type CompetitionUpdateWithoutClubInput = {
   address?: Maybe<StringFieldUpdateOperationsInput>;
   categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCompetitionInput>;
   compType?: Maybe<CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitionsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitionInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitionInput>;
   routes?: Maybe<RouteUpdateManyWithoutCompetitionInput>;
@@ -3074,11 +3287,12 @@ export type CompetitionUpdateWithoutCompTypeInput = {
   address?: Maybe<StringFieldUpdateOperationsInput>;
   categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCompetitionInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitionsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitionsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitionInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitionInput>;
   routes?: Maybe<RouteUpdateManyWithoutCompetitionInput>;
@@ -3088,12 +3302,33 @@ export type CompetitionUpdateWithoutCompTypeInput = {
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type CompetitionUpdateWithoutLocationInput = {
+export type CompetitionUpdateWithoutCountryInput = {
   active?: Maybe<BoolFieldUpdateOperationsInput>;
   address?: Maybe<StringFieldUpdateOperationsInput>;
   categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCompetitionInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitionsInput>;
   compType?: Maybe<CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput>;
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  description?: Maybe<StringFieldUpdateOperationsInput>;
+  endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
+  registrations?: Maybe<RegistrationUpdateManyWithoutCompetitionInput>;
+  results?: Maybe<ResultUpdateManyWithoutCompetitionInput>;
+  routes?: Maybe<RouteUpdateManyWithoutCompetitionInput>;
+  season?: Maybe<SeasonUpdateOneRequiredWithoutCompetitionsInput>;
+  startDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  startLists?: Maybe<StartListUpdateManyWithoutCompetitionInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type CompetitionUpdateWithoutRegionInput = {
+  active?: Maybe<BoolFieldUpdateOperationsInput>;
+  address?: Maybe<StringFieldUpdateOperationsInput>;
+  categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCompetitionInput>;
+  club?: Maybe<ClubUpdateOneRequiredWithoutCompetitionsInput>;
+  compType?: Maybe<CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -3113,11 +3348,12 @@ export type CompetitionUpdateWithoutRegistrationsInput = {
   categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCompetitionInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitionsInput>;
   compType?: Maybe<CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitionsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitionInput>;
   routes?: Maybe<RouteUpdateManyWithoutCompetitionInput>;
   season?: Maybe<SeasonUpdateOneRequiredWithoutCompetitionsInput>;
@@ -3132,11 +3368,12 @@ export type CompetitionUpdateWithoutResultsInput = {
   categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCompetitionInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitionsInput>;
   compType?: Maybe<CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitionsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitionInput>;
   routes?: Maybe<RouteUpdateManyWithoutCompetitionInput>;
   season?: Maybe<SeasonUpdateOneRequiredWithoutCompetitionsInput>;
@@ -3151,11 +3388,12 @@ export type CompetitionUpdateWithoutRoutesInput = {
   categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCompetitionInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitionsInput>;
   compType?: Maybe<CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitionsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitionInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitionInput>;
   season?: Maybe<SeasonUpdateOneRequiredWithoutCompetitionsInput>;
@@ -3170,11 +3408,12 @@ export type CompetitionUpdateWithoutSeasonInput = {
   categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCompetitionInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitionsInput>;
   compType?: Maybe<CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitionsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitionInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitionInput>;
   routes?: Maybe<RouteUpdateManyWithoutCompetitionInput>;
@@ -3189,11 +3428,12 @@ export type CompetitionUpdateWithoutStartListsInput = {
   categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCompetitionInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitionsInput>;
   compType?: Maybe<CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitionsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitionInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitionInput>;
   routes?: Maybe<RouteUpdateManyWithoutCompetitionInput>;
@@ -3214,9 +3454,15 @@ export type CompetitionUpsertWithWhereUniqueWithoutCompTypeInput = {
   where: CompetitionWhereUniqueInput;
 };
 
-export type CompetitionUpsertWithWhereUniqueWithoutLocationInput = {
-  create: CompetitionCreateWithoutLocationInput;
-  update: CompetitionUpdateWithoutLocationInput;
+export type CompetitionUpsertWithWhereUniqueWithoutCountryInput = {
+  create: CompetitionCreateWithoutCountryInput;
+  update: CompetitionUpdateWithoutCountryInput;
+  where: CompetitionWhereUniqueInput;
+};
+
+export type CompetitionUpsertWithWhereUniqueWithoutRegionInput = {
+  create: CompetitionCreateWithoutRegionInput;
+  update: CompetitionUpdateWithoutRegionInput;
   where: CompetitionWhereUniqueInput;
 };
 
@@ -3262,13 +3508,15 @@ export type CompetitionWhereInput = {
   clubId?: Maybe<IntFilter>;
   compType?: Maybe<CompetitionTypeRelationFilter>;
   compTypeId?: Maybe<IntFilter>;
+  country?: Maybe<CountryRelationFilter>;
+  countryId?: Maybe<IntNullableFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   description?: Maybe<StringFilter>;
   endDate?: Maybe<DateTimeFilter>;
   id?: Maybe<IntFilter>;
-  location?: Maybe<LocationRelationFilter>;
-  locationId?: Maybe<IntFilter>;
   name?: Maybe<StringFilter>;
+  region?: Maybe<RegionRelationFilter>;
+  regionId?: Maybe<IntNullableFilter>;
   registrations?: Maybe<RegistrationListRelationFilter>;
   results?: Maybe<ResultListRelationFilter>;
   routes?: Maybe<RouteListRelationFilter>;
@@ -3291,14 +3539,16 @@ export type Competitor = {
   categoryId: Scalars['Int'];
   club: Club;
   clubId: Scalars['Int'];
+  country?: Maybe<Country>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt: Scalars['DateTime'];
   firstName: Scalars['String'];
   gender: Gender;
   id: Scalars['Int'];
   lastName: Scalars['String'];
-  location: Location;
-  locationId: Scalars['Int'];
   publicId: Scalars['String'];
+  region?: Maybe<Region>;
+  regionId?: Maybe<Scalars['Int']>;
   registrations: Array<Registration>;
   results: Array<Result>;
   scoresBoulder: Array<ScoreBoulder>;
@@ -3366,15 +3616,17 @@ export type CompetitorAvgAggregate = {
   __typename?: 'CompetitorAvgAggregate';
   categoryId?: Maybe<Scalars['Float']>;
   clubId?: Maybe<Scalars['Float']>;
+  countryId?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
-  locationId?: Maybe<Scalars['Float']>;
+  regionId?: Maybe<Scalars['Float']>;
 };
 
 export type CompetitorAvgOrderByAggregateInput = {
   categoryId?: Maybe<SortOrder>;
   clubId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
 };
 
 export type CompetitorCountAggregate = {
@@ -3384,13 +3636,14 @@ export type CompetitorCountAggregate = {
   birthDate: Scalars['Int'];
   categoryId: Scalars['Int'];
   clubId: Scalars['Int'];
+  countryId: Scalars['Int'];
   createdAt: Scalars['Int'];
   firstName: Scalars['Int'];
   gender: Scalars['Int'];
   id: Scalars['Int'];
   lastName: Scalars['Int'];
-  locationId: Scalars['Int'];
   publicId: Scalars['Int'];
+  regionId: Scalars['Int'];
   updatedAt: Scalars['Int'];
 };
 
@@ -3399,13 +3652,14 @@ export type CompetitorCountOrderByAggregateInput = {
   birthDate?: Maybe<SortOrder>;
   categoryId?: Maybe<SortOrder>;
   clubId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
   gender?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   lastName?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   publicId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
 
@@ -3414,12 +3668,13 @@ export type CompetitorCreateInput = {
   birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitorsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   gender: Gender;
   lastName: Scalars['String'];
-  location: LocationCreateNestedOneWithoutCompetitorsInput;
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitorInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutCompetitorInput>;
@@ -3433,13 +3688,14 @@ export type CompetitorCreateManyCategoryInput = {
   address?: Maybe<Scalars['String']>;
   birthDate?: Maybe<Scalars['DateTime']>;
   clubId: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   gender: Gender;
   id?: Maybe<Scalars['Int']>;
   lastName: Scalars['String'];
-  locationId: Scalars['Int'];
   publicId?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -3452,13 +3708,14 @@ export type CompetitorCreateManyClubInput = {
   address?: Maybe<Scalars['String']>;
   birthDate?: Maybe<Scalars['DateTime']>;
   categoryId: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   gender: Gender;
   id?: Maybe<Scalars['Int']>;
   lastName: Scalars['String'];
-  locationId: Scalars['Int'];
   publicId?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -3467,26 +3724,48 @@ export type CompetitorCreateManyClubInputEnvelope = {
   skipDuplicates?: Maybe<Scalars['Boolean']>;
 };
 
+export type CompetitorCreateManyCountryInput = {
+  address?: Maybe<Scalars['String']>;
+  birthDate?: Maybe<Scalars['DateTime']>;
+  categoryId: Scalars['Int'];
+  clubId: Scalars['Int'];
+  createdAt?: Maybe<Scalars['DateTime']>;
+  firstName: Scalars['String'];
+  gender: Gender;
+  id?: Maybe<Scalars['Int']>;
+  lastName: Scalars['String'];
+  publicId?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type CompetitorCreateManyCountryInputEnvelope = {
+  data: Array<CompetitorCreateManyCountryInput>;
+  skipDuplicates?: Maybe<Scalars['Boolean']>;
+};
+
 export type CompetitorCreateManyInput = {
   address?: Maybe<Scalars['String']>;
   birthDate?: Maybe<Scalars['DateTime']>;
   categoryId: Scalars['Int'];
   clubId: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   gender: Gender;
   id?: Maybe<Scalars['Int']>;
   lastName: Scalars['String'];
-  locationId: Scalars['Int'];
   publicId?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type CompetitorCreateManyLocationInput = {
+export type CompetitorCreateManyRegionInput = {
   address?: Maybe<Scalars['String']>;
   birthDate?: Maybe<Scalars['DateTime']>;
   categoryId: Scalars['Int'];
   clubId: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   gender: Gender;
@@ -3496,8 +3775,8 @@ export type CompetitorCreateManyLocationInput = {
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type CompetitorCreateManyLocationInputEnvelope = {
-  data: Array<CompetitorCreateManyLocationInput>;
+export type CompetitorCreateManyRegionInputEnvelope = {
+  data: Array<CompetitorCreateManyRegionInput>;
   skipDuplicates?: Maybe<Scalars['Boolean']>;
 };
 
@@ -3515,11 +3794,18 @@ export type CompetitorCreateNestedManyWithoutClubInput = {
   createMany?: Maybe<CompetitorCreateManyClubInputEnvelope>;
 };
 
-export type CompetitorCreateNestedManyWithoutLocationInput = {
+export type CompetitorCreateNestedManyWithoutCountryInput = {
   connect?: Maybe<Array<CompetitorWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<CompetitorCreateOrConnectWithoutLocationInput>>;
-  create?: Maybe<Array<CompetitorCreateWithoutLocationInput>>;
-  createMany?: Maybe<CompetitorCreateManyLocationInputEnvelope>;
+  connectOrCreate?: Maybe<Array<CompetitorCreateOrConnectWithoutCountryInput>>;
+  create?: Maybe<Array<CompetitorCreateWithoutCountryInput>>;
+  createMany?: Maybe<CompetitorCreateManyCountryInputEnvelope>;
+};
+
+export type CompetitorCreateNestedManyWithoutRegionInput = {
+  connect?: Maybe<Array<CompetitorWhereUniqueInput>>;
+  connectOrCreate?: Maybe<Array<CompetitorCreateOrConnectWithoutRegionInput>>;
+  create?: Maybe<Array<CompetitorCreateWithoutRegionInput>>;
+  createMany?: Maybe<CompetitorCreateManyRegionInputEnvelope>;
 };
 
 export type CompetitorCreateNestedOneWithoutRegistrationsInput = {
@@ -3568,8 +3854,13 @@ export type CompetitorCreateOrConnectWithoutClubInput = {
   where: CompetitorWhereUniqueInput;
 };
 
-export type CompetitorCreateOrConnectWithoutLocationInput = {
-  create: CompetitorCreateWithoutLocationInput;
+export type CompetitorCreateOrConnectWithoutCountryInput = {
+  create: CompetitorCreateWithoutCountryInput;
+  where: CompetitorWhereUniqueInput;
+};
+
+export type CompetitorCreateOrConnectWithoutRegionInput = {
+  create: CompetitorCreateWithoutRegionInput;
   where: CompetitorWhereUniqueInput;
 };
 
@@ -3607,12 +3898,13 @@ export type CompetitorCreateWithoutCategoryInput = {
   address?: Maybe<Scalars['String']>;
   birthDate?: Maybe<Scalars['DateTime']>;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitorsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   gender: Gender;
   lastName: Scalars['String'];
-  location: LocationCreateNestedOneWithoutCompetitorsInput;
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitorInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutCompetitorInput>;
@@ -3626,12 +3918,13 @@ export type CompetitorCreateWithoutClubInput = {
   address?: Maybe<Scalars['String']>;
   birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitorsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   gender: Gender;
   lastName: Scalars['String'];
-  location: LocationCreateNestedOneWithoutCompetitorsInput;
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitorInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutCompetitorInput>;
@@ -3641,11 +3934,32 @@ export type CompetitorCreateWithoutClubInput = {
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type CompetitorCreateWithoutLocationInput = {
+export type CompetitorCreateWithoutCountryInput = {
   address?: Maybe<Scalars['String']>;
   birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  firstName: Scalars['String'];
+  gender: Gender;
+  lastName: Scalars['String'];
+  publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitorsInput>;
+  registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitorInput>;
+  results?: Maybe<ResultCreateNestedManyWithoutCompetitorInput>;
+  scoresBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutCompetitorInput>;
+  scoresLead?: Maybe<ScoreLeadCreateNestedManyWithoutCompetitorInput>;
+  scoresSpeed?: Maybe<ScoreSpeedCreateNestedManyWithoutCompetitorInput>;
+  startLists?: Maybe<StartListCreateNestedManyWithoutCompetitorInput>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type CompetitorCreateWithoutRegionInput = {
+  address?: Maybe<Scalars['String']>;
+  birthDate?: Maybe<Scalars['DateTime']>;
+  category: CategoryCreateNestedOneWithoutCompetitorsInput;
+  club: ClubCreateNestedOneWithoutCompetitorsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitorsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   gender: Gender;
@@ -3665,12 +3979,13 @@ export type CompetitorCreateWithoutRegistrationsInput = {
   birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitorsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   gender: Gender;
   lastName: Scalars['String'];
-  location: LocationCreateNestedOneWithoutCompetitorsInput;
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitorsInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutCompetitorInput>;
   scoresLead?: Maybe<ScoreLeadCreateNestedManyWithoutCompetitorInput>;
@@ -3684,12 +3999,13 @@ export type CompetitorCreateWithoutResultsInput = {
   birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitorsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   gender: Gender;
   lastName: Scalars['String'];
-  location: LocationCreateNestedOneWithoutCompetitorsInput;
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutCompetitorInput>;
   scoresLead?: Maybe<ScoreLeadCreateNestedManyWithoutCompetitorInput>;
@@ -3703,12 +4019,13 @@ export type CompetitorCreateWithoutScoresBoulderInput = {
   birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitorsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   gender: Gender;
   lastName: Scalars['String'];
-  location: LocationCreateNestedOneWithoutCompetitorsInput;
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitorInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitorInput>;
   scoresLead?: Maybe<ScoreLeadCreateNestedManyWithoutCompetitorInput>;
@@ -3722,12 +4039,13 @@ export type CompetitorCreateWithoutScoresLeadInput = {
   birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitorsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   gender: Gender;
   lastName: Scalars['String'];
-  location: LocationCreateNestedOneWithoutCompetitorsInput;
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitorInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutCompetitorInput>;
@@ -3741,12 +4059,13 @@ export type CompetitorCreateWithoutScoresSpeedInput = {
   birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitorsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   gender: Gender;
   lastName: Scalars['String'];
-  location: LocationCreateNestedOneWithoutCompetitorsInput;
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitorInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutCompetitorInput>;
@@ -3760,12 +4079,13 @@ export type CompetitorCreateWithoutStartListsInput = {
   birthDate?: Maybe<Scalars['DateTime']>;
   category: CategoryCreateNestedOneWithoutCompetitorsInput;
   club: ClubCreateNestedOneWithoutCompetitorsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitorsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   gender: Gender;
   lastName: Scalars['String'];
-  location: LocationCreateNestedOneWithoutCompetitorsInput;
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitorInput>;
   results?: Maybe<ResultCreateNestedManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderCreateNestedManyWithoutCompetitorInput>;
@@ -3785,13 +4105,14 @@ export type CompetitorGroupBy = {
   birthDate?: Maybe<Scalars['DateTime']>;
   categoryId: Scalars['Int'];
   clubId: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
   createdAt: Scalars['DateTime'];
   firstName: Scalars['String'];
   gender: Gender;
   id: Scalars['Int'];
   lastName: Scalars['String'];
-  locationId: Scalars['Int'];
   publicId: Scalars['String'];
+  regionId?: Maybe<Scalars['Int']>;
   updatedAt: Scalars['DateTime'];
 };
 
@@ -3807,13 +4128,14 @@ export type CompetitorMaxAggregate = {
   birthDate?: Maybe<Scalars['DateTime']>;
   categoryId?: Maybe<Scalars['Int']>;
   clubId?: Maybe<Scalars['Int']>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName?: Maybe<Scalars['String']>;
   gender?: Maybe<Gender>;
   id?: Maybe<Scalars['Int']>;
   lastName?: Maybe<Scalars['String']>;
-  locationId?: Maybe<Scalars['Int']>;
   publicId?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -3822,13 +4144,14 @@ export type CompetitorMaxOrderByAggregateInput = {
   birthDate?: Maybe<SortOrder>;
   categoryId?: Maybe<SortOrder>;
   clubId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
   gender?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   lastName?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   publicId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
 
@@ -3838,13 +4161,14 @@ export type CompetitorMinAggregate = {
   birthDate?: Maybe<Scalars['DateTime']>;
   categoryId?: Maybe<Scalars['Int']>;
   clubId?: Maybe<Scalars['Int']>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   firstName?: Maybe<Scalars['String']>;
   gender?: Maybe<Gender>;
   id?: Maybe<Scalars['Int']>;
   lastName?: Maybe<Scalars['String']>;
-  locationId?: Maybe<Scalars['Int']>;
   publicId?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -3853,13 +4177,14 @@ export type CompetitorMinOrderByAggregateInput = {
   birthDate?: Maybe<SortOrder>;
   categoryId?: Maybe<SortOrder>;
   clubId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
   gender?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   lastName?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   publicId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
 
@@ -3868,13 +4193,14 @@ export type CompetitorOrderByInput = {
   birthDate?: Maybe<SortOrder>;
   categoryId?: Maybe<SortOrder>;
   clubId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
   gender?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   lastName?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   publicId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
 
@@ -3888,13 +4214,14 @@ export type CompetitorOrderByWithAggregationInput = {
   birthDate?: Maybe<SortOrder>;
   categoryId?: Maybe<SortOrder>;
   clubId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
   gender?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   lastName?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   publicId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
 
@@ -3908,13 +4235,14 @@ export enum CompetitorScalarFieldEnum {
   BirthDate = 'birthDate',
   CategoryId = 'categoryId',
   ClubId = 'clubId',
+  CountryId = 'countryId',
   CreatedAt = 'createdAt',
   FirstName = 'firstName',
   Gender = 'gender',
   Id = 'id',
   LastName = 'lastName',
-  LocationId = 'locationId',
   PublicId = 'publicId',
+  RegionId = 'regionId',
   UpdatedAt = 'updatedAt',
 }
 
@@ -3926,13 +4254,14 @@ export type CompetitorScalarWhereInput = {
   birthDate?: Maybe<DateTimeNullableFilter>;
   categoryId?: Maybe<IntFilter>;
   clubId?: Maybe<IntFilter>;
+  countryId?: Maybe<IntNullableFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   firstName?: Maybe<StringFilter>;
   gender?: Maybe<EnumGenderFilter>;
   id?: Maybe<IntFilter>;
   lastName?: Maybe<StringFilter>;
-  locationId?: Maybe<IntFilter>;
   publicId?: Maybe<StringFilter>;
+  regionId?: Maybe<IntNullableFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
 };
 
@@ -3944,13 +4273,14 @@ export type CompetitorScalarWhereWithAggregatesInput = {
   birthDate?: Maybe<DateTimeNullableWithAggregatesFilter>;
   categoryId?: Maybe<IntWithAggregatesFilter>;
   clubId?: Maybe<IntWithAggregatesFilter>;
+  countryId?: Maybe<IntNullableWithAggregatesFilter>;
   createdAt?: Maybe<DateTimeWithAggregatesFilter>;
   firstName?: Maybe<StringWithAggregatesFilter>;
   gender?: Maybe<EnumGenderWithAggregatesFilter>;
   id?: Maybe<IntWithAggregatesFilter>;
   lastName?: Maybe<StringWithAggregatesFilter>;
-  locationId?: Maybe<IntWithAggregatesFilter>;
   publicId?: Maybe<StringWithAggregatesFilter>;
+  regionId?: Maybe<IntNullableWithAggregatesFilter>;
   updatedAt?: Maybe<DateTimeWithAggregatesFilter>;
 };
 
@@ -3958,15 +4288,17 @@ export type CompetitorSumAggregate = {
   __typename?: 'CompetitorSumAggregate';
   categoryId?: Maybe<Scalars['Int']>;
   clubId?: Maybe<Scalars['Int']>;
+  countryId?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['Int']>;
-  locationId?: Maybe<Scalars['Int']>;
+  regionId?: Maybe<Scalars['Int']>;
 };
 
 export type CompetitorSumOrderByAggregateInput = {
   categoryId?: Maybe<SortOrder>;
   clubId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
 };
 
 export type CompetitorUpdateInput = {
@@ -3974,12 +4306,13 @@ export type CompetitorUpdateInput = {
   birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   gender?: Maybe<EnumGenderFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitorsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitorInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderUpdateManyWithoutCompetitorInput>;
@@ -4010,7 +4343,12 @@ export type CompetitorUpdateManyWithWhereWithoutClubInput = {
   where: CompetitorScalarWhereInput;
 };
 
-export type CompetitorUpdateManyWithWhereWithoutLocationInput = {
+export type CompetitorUpdateManyWithWhereWithoutCountryInput = {
+  data: CompetitorUpdateManyMutationInput;
+  where: CompetitorScalarWhereInput;
+};
+
+export type CompetitorUpdateManyWithWhereWithoutRegionInput = {
   data: CompetitorUpdateManyMutationInput;
   where: CompetitorScalarWhereInput;
 };
@@ -4043,18 +4381,32 @@ export type CompetitorUpdateManyWithoutClubInput = {
   upsert?: Maybe<Array<CompetitorUpsertWithWhereUniqueWithoutClubInput>>;
 };
 
-export type CompetitorUpdateManyWithoutLocationInput = {
+export type CompetitorUpdateManyWithoutCountryInput = {
   connect?: Maybe<Array<CompetitorWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<CompetitorCreateOrConnectWithoutLocationInput>>;
-  create?: Maybe<Array<CompetitorCreateWithoutLocationInput>>;
-  createMany?: Maybe<CompetitorCreateManyLocationInputEnvelope>;
+  connectOrCreate?: Maybe<Array<CompetitorCreateOrConnectWithoutCountryInput>>;
+  create?: Maybe<Array<CompetitorCreateWithoutCountryInput>>;
+  createMany?: Maybe<CompetitorCreateManyCountryInputEnvelope>;
   delete?: Maybe<Array<CompetitorWhereUniqueInput>>;
   deleteMany?: Maybe<Array<CompetitorScalarWhereInput>>;
   disconnect?: Maybe<Array<CompetitorWhereUniqueInput>>;
   set?: Maybe<Array<CompetitorWhereUniqueInput>>;
-  update?: Maybe<Array<CompetitorUpdateWithWhereUniqueWithoutLocationInput>>;
-  updateMany?: Maybe<Array<CompetitorUpdateManyWithWhereWithoutLocationInput>>;
-  upsert?: Maybe<Array<CompetitorUpsertWithWhereUniqueWithoutLocationInput>>;
+  update?: Maybe<Array<CompetitorUpdateWithWhereUniqueWithoutCountryInput>>;
+  updateMany?: Maybe<Array<CompetitorUpdateManyWithWhereWithoutCountryInput>>;
+  upsert?: Maybe<Array<CompetitorUpsertWithWhereUniqueWithoutCountryInput>>;
+};
+
+export type CompetitorUpdateManyWithoutRegionInput = {
+  connect?: Maybe<Array<CompetitorWhereUniqueInput>>;
+  connectOrCreate?: Maybe<Array<CompetitorCreateOrConnectWithoutRegionInput>>;
+  create?: Maybe<Array<CompetitorCreateWithoutRegionInput>>;
+  createMany?: Maybe<CompetitorCreateManyRegionInputEnvelope>;
+  delete?: Maybe<Array<CompetitorWhereUniqueInput>>;
+  deleteMany?: Maybe<Array<CompetitorScalarWhereInput>>;
+  disconnect?: Maybe<Array<CompetitorWhereUniqueInput>>;
+  set?: Maybe<Array<CompetitorWhereUniqueInput>>;
+  update?: Maybe<Array<CompetitorUpdateWithWhereUniqueWithoutRegionInput>>;
+  updateMany?: Maybe<Array<CompetitorUpdateManyWithWhereWithoutRegionInput>>;
+  upsert?: Maybe<Array<CompetitorUpsertWithWhereUniqueWithoutRegionInput>>;
 };
 
 export type CompetitorUpdateOneRequiredWithoutRegistrationsInput = {
@@ -4115,8 +4467,13 @@ export type CompetitorUpdateWithWhereUniqueWithoutClubInput = {
   where: CompetitorWhereUniqueInput;
 };
 
-export type CompetitorUpdateWithWhereUniqueWithoutLocationInput = {
-  data: CompetitorUpdateWithoutLocationInput;
+export type CompetitorUpdateWithWhereUniqueWithoutCountryInput = {
+  data: CompetitorUpdateWithoutCountryInput;
+  where: CompetitorWhereUniqueInput;
+};
+
+export type CompetitorUpdateWithWhereUniqueWithoutRegionInput = {
+  data: CompetitorUpdateWithoutRegionInput;
   where: CompetitorWhereUniqueInput;
 };
 
@@ -4124,12 +4481,13 @@ export type CompetitorUpdateWithoutCategoryInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
   birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   gender?: Maybe<EnumGenderFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitorsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitorInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderUpdateManyWithoutCompetitorInput>;
@@ -4143,12 +4501,13 @@ export type CompetitorUpdateWithoutClubInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
   birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   gender?: Maybe<EnumGenderFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitorsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitorInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderUpdateManyWithoutCompetitorInput>;
@@ -4158,11 +4517,32 @@ export type CompetitorUpdateWithoutClubInput = {
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type CompetitorUpdateWithoutLocationInput = {
+export type CompetitorUpdateWithoutCountryInput = {
   address?: Maybe<NullableStringFieldUpdateOperationsInput>;
   birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  firstName?: Maybe<StringFieldUpdateOperationsInput>;
+  gender?: Maybe<EnumGenderFieldUpdateOperationsInput>;
+  lastName?: Maybe<StringFieldUpdateOperationsInput>;
+  publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitorsInput>;
+  registrations?: Maybe<RegistrationUpdateManyWithoutCompetitorInput>;
+  results?: Maybe<ResultUpdateManyWithoutCompetitorInput>;
+  scoresBoulder?: Maybe<ScoreBoulderUpdateManyWithoutCompetitorInput>;
+  scoresLead?: Maybe<ScoreLeadUpdateManyWithoutCompetitorInput>;
+  scoresSpeed?: Maybe<ScoreSpeedUpdateManyWithoutCompetitorInput>;
+  startLists?: Maybe<StartListUpdateManyWithoutCompetitorInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type CompetitorUpdateWithoutRegionInput = {
+  address?: Maybe<NullableStringFieldUpdateOperationsInput>;
+  birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
+  category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
+  club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   gender?: Maybe<EnumGenderFieldUpdateOperationsInput>;
@@ -4182,12 +4562,13 @@ export type CompetitorUpdateWithoutRegistrationsInput = {
   birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   gender?: Maybe<EnumGenderFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitorsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitorsInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderUpdateManyWithoutCompetitorInput>;
   scoresLead?: Maybe<ScoreLeadUpdateManyWithoutCompetitorInput>;
@@ -4201,12 +4582,13 @@ export type CompetitorUpdateWithoutResultsInput = {
   birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   gender?: Maybe<EnumGenderFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitorsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderUpdateManyWithoutCompetitorInput>;
   scoresLead?: Maybe<ScoreLeadUpdateManyWithoutCompetitorInput>;
@@ -4220,12 +4602,13 @@ export type CompetitorUpdateWithoutScoresBoulderInput = {
   birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   gender?: Maybe<EnumGenderFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitorsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitorInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitorInput>;
   scoresLead?: Maybe<ScoreLeadUpdateManyWithoutCompetitorInput>;
@@ -4239,12 +4622,13 @@ export type CompetitorUpdateWithoutScoresLeadInput = {
   birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   gender?: Maybe<EnumGenderFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitorsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitorInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderUpdateManyWithoutCompetitorInput>;
@@ -4258,12 +4642,13 @@ export type CompetitorUpdateWithoutScoresSpeedInput = {
   birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   gender?: Maybe<EnumGenderFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitorsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitorInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderUpdateManyWithoutCompetitorInput>;
@@ -4277,12 +4662,13 @@ export type CompetitorUpdateWithoutStartListsInput = {
   birthDate?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
   category?: Maybe<CategoryUpdateOneRequiredWithoutCompetitorsInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitorsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitorsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   gender?: Maybe<EnumGenderFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneRequiredWithoutCompetitorsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitorsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitorInput>;
   results?: Maybe<ResultUpdateManyWithoutCompetitorInput>;
   scoresBoulder?: Maybe<ScoreBoulderUpdateManyWithoutCompetitorInput>;
@@ -4303,9 +4689,15 @@ export type CompetitorUpsertWithWhereUniqueWithoutClubInput = {
   where: CompetitorWhereUniqueInput;
 };
 
-export type CompetitorUpsertWithWhereUniqueWithoutLocationInput = {
-  create: CompetitorCreateWithoutLocationInput;
-  update: CompetitorUpdateWithoutLocationInput;
+export type CompetitorUpsertWithWhereUniqueWithoutCountryInput = {
+  create: CompetitorCreateWithoutCountryInput;
+  update: CompetitorUpdateWithoutCountryInput;
+  where: CompetitorWhereUniqueInput;
+};
+
+export type CompetitorUpsertWithWhereUniqueWithoutRegionInput = {
+  create: CompetitorCreateWithoutRegionInput;
+  update: CompetitorUpdateWithoutRegionInput;
   where: CompetitorWhereUniqueInput;
 };
 
@@ -4349,14 +4741,16 @@ export type CompetitorWhereInput = {
   categoryId?: Maybe<IntFilter>;
   club?: Maybe<ClubRelationFilter>;
   clubId?: Maybe<IntFilter>;
+  country?: Maybe<CountryRelationFilter>;
+  countryId?: Maybe<IntNullableFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   firstName?: Maybe<StringFilter>;
   gender?: Maybe<EnumGenderFilter>;
   id?: Maybe<IntFilter>;
   lastName?: Maybe<StringFilter>;
-  location?: Maybe<LocationRelationFilter>;
-  locationId?: Maybe<IntFilter>;
   publicId?: Maybe<StringFilter>;
+  region?: Maybe<RegionRelationFilter>;
+  regionId?: Maybe<IntNullableFilter>;
   registrations?: Maybe<RegistrationListRelationFilter>;
   results?: Maybe<ResultListRelationFilter>;
   scoresBoulder?: Maybe<ScoreBoulderListRelationFilter>;
@@ -4373,18 +4767,48 @@ export type CompetitorWhereUniqueInput = {
 
 export type Country = {
   __typename?: 'Country';
+  clubs: Array<Club>;
+  competitions: Array<Competition>;
+  competitors: Array<Competitor>;
   id: Scalars['Int'];
-  locations: Array<Location>;
   name: Scalars['String'];
+  users: Array<User>;
 };
 
-export type CountryLocationsArgs = {
-  cursor?: Maybe<LocationWhereUniqueInput>;
-  distinct?: Maybe<Array<LocationScalarFieldEnum>>;
-  orderBy?: Maybe<Array<LocationOrderByInput>>;
+export type CountryClubsArgs = {
+  cursor?: Maybe<ClubWhereUniqueInput>;
+  distinct?: Maybe<Array<ClubScalarFieldEnum>>;
+  orderBy?: Maybe<Array<ClubOrderByInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
-  where?: Maybe<LocationWhereInput>;
+  where?: Maybe<ClubWhereInput>;
+};
+
+export type CountryCompetitionsArgs = {
+  cursor?: Maybe<CompetitionWhereUniqueInput>;
+  distinct?: Maybe<Array<CompetitionScalarFieldEnum>>;
+  orderBy?: Maybe<Array<CompetitionOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<CompetitionWhereInput>;
+};
+
+export type CountryCompetitorsArgs = {
+  cursor?: Maybe<CompetitorWhereUniqueInput>;
+  distinct?: Maybe<Array<CompetitorScalarFieldEnum>>;
+  orderBy?: Maybe<Array<CompetitorOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<CompetitorWhereInput>;
+};
+
+export type CountryUsersArgs = {
+  cursor?: Maybe<UserWhereUniqueInput>;
+  distinct?: Maybe<Array<UserScalarFieldEnum>>;
+  orderBy?: Maybe<Array<UserOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<UserWhereInput>;
 };
 
 export type CountryAvgAggregate = {
@@ -4409,8 +4833,11 @@ export type CountryCountOrderByAggregateInput = {
 };
 
 export type CountryCreateInput = {
-  locations?: Maybe<LocationCreateNestedManyWithoutCountryInput>;
+  clubs?: Maybe<ClubCreateNestedManyWithoutCountryInput>;
+  competitions?: Maybe<CompetitionCreateNestedManyWithoutCountryInput>;
+  competitors?: Maybe<CompetitorCreateNestedManyWithoutCountryInput>;
   name: Scalars['String'];
+  users?: Maybe<UserCreateNestedManyWithoutCountryInput>;
 };
 
 export type CountryCreateManyInput = {
@@ -4418,18 +4845,75 @@ export type CountryCreateManyInput = {
   name: Scalars['String'];
 };
 
-export type CountryCreateNestedOneWithoutLocationsInput = {
+export type CountryCreateNestedOneWithoutClubsInput = {
   connect?: Maybe<CountryWhereUniqueInput>;
-  connectOrCreate?: Maybe<CountryCreateOrConnectWithoutLocationsInput>;
-  create?: Maybe<CountryCreateWithoutLocationsInput>;
+  connectOrCreate?: Maybe<CountryCreateOrConnectWithoutClubsInput>;
+  create?: Maybe<CountryCreateWithoutClubsInput>;
 };
 
-export type CountryCreateOrConnectWithoutLocationsInput = {
-  create: CountryCreateWithoutLocationsInput;
+export type CountryCreateNestedOneWithoutCompetitionsInput = {
+  connect?: Maybe<CountryWhereUniqueInput>;
+  connectOrCreate?: Maybe<CountryCreateOrConnectWithoutCompetitionsInput>;
+  create?: Maybe<CountryCreateWithoutCompetitionsInput>;
+};
+
+export type CountryCreateNestedOneWithoutCompetitorsInput = {
+  connect?: Maybe<CountryWhereUniqueInput>;
+  connectOrCreate?: Maybe<CountryCreateOrConnectWithoutCompetitorsInput>;
+  create?: Maybe<CountryCreateWithoutCompetitorsInput>;
+};
+
+export type CountryCreateNestedOneWithoutUsersInput = {
+  connect?: Maybe<CountryWhereUniqueInput>;
+  connectOrCreate?: Maybe<CountryCreateOrConnectWithoutUsersInput>;
+  create?: Maybe<CountryCreateWithoutUsersInput>;
+};
+
+export type CountryCreateOrConnectWithoutClubsInput = {
+  create: CountryCreateWithoutClubsInput;
   where: CountryWhereUniqueInput;
 };
 
-export type CountryCreateWithoutLocationsInput = {
+export type CountryCreateOrConnectWithoutCompetitionsInput = {
+  create: CountryCreateWithoutCompetitionsInput;
+  where: CountryWhereUniqueInput;
+};
+
+export type CountryCreateOrConnectWithoutCompetitorsInput = {
+  create: CountryCreateWithoutCompetitorsInput;
+  where: CountryWhereUniqueInput;
+};
+
+export type CountryCreateOrConnectWithoutUsersInput = {
+  create: CountryCreateWithoutUsersInput;
+  where: CountryWhereUniqueInput;
+};
+
+export type CountryCreateWithoutClubsInput = {
+  competitions?: Maybe<CompetitionCreateNestedManyWithoutCountryInput>;
+  competitors?: Maybe<CompetitorCreateNestedManyWithoutCountryInput>;
+  name: Scalars['String'];
+  users?: Maybe<UserCreateNestedManyWithoutCountryInput>;
+};
+
+export type CountryCreateWithoutCompetitionsInput = {
+  clubs?: Maybe<ClubCreateNestedManyWithoutCountryInput>;
+  competitors?: Maybe<CompetitorCreateNestedManyWithoutCountryInput>;
+  name: Scalars['String'];
+  users?: Maybe<UserCreateNestedManyWithoutCountryInput>;
+};
+
+export type CountryCreateWithoutCompetitorsInput = {
+  clubs?: Maybe<ClubCreateNestedManyWithoutCountryInput>;
+  competitions?: Maybe<CompetitionCreateNestedManyWithoutCountryInput>;
+  name: Scalars['String'];
+  users?: Maybe<UserCreateNestedManyWithoutCountryInput>;
+};
+
+export type CountryCreateWithoutUsersInput = {
+  clubs?: Maybe<ClubCreateNestedManyWithoutCountryInput>;
+  competitions?: Maybe<CompetitionCreateNestedManyWithoutCountryInput>;
+  competitors?: Maybe<CompetitorCreateNestedManyWithoutCountryInput>;
   name: Scalars['String'];
 };
 
@@ -4509,38 +4993,115 @@ export type CountrySumOrderByAggregateInput = {
 };
 
 export type CountryUpdateInput = {
-  locations?: Maybe<LocationUpdateManyWithoutCountryInput>;
+  clubs?: Maybe<ClubUpdateManyWithoutCountryInput>;
+  competitions?: Maybe<CompetitionUpdateManyWithoutCountryInput>;
+  competitors?: Maybe<CompetitorUpdateManyWithoutCountryInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  users?: Maybe<UserUpdateManyWithoutCountryInput>;
 };
 
 export type CountryUpdateManyMutationInput = {
   name?: Maybe<StringFieldUpdateOperationsInput>;
 };
 
-export type CountryUpdateOneRequiredWithoutLocationsInput = {
+export type CountryUpdateOneWithoutClubsInput = {
   connect?: Maybe<CountryWhereUniqueInput>;
-  connectOrCreate?: Maybe<CountryCreateOrConnectWithoutLocationsInput>;
-  create?: Maybe<CountryCreateWithoutLocationsInput>;
-  update?: Maybe<CountryUpdateWithoutLocationsInput>;
-  upsert?: Maybe<CountryUpsertWithoutLocationsInput>;
+  connectOrCreate?: Maybe<CountryCreateOrConnectWithoutClubsInput>;
+  create?: Maybe<CountryCreateWithoutClubsInput>;
+  delete?: Maybe<Scalars['Boolean']>;
+  disconnect?: Maybe<Scalars['Boolean']>;
+  update?: Maybe<CountryUpdateWithoutClubsInput>;
+  upsert?: Maybe<CountryUpsertWithoutClubsInput>;
 };
 
-export type CountryUpdateWithoutLocationsInput = {
+export type CountryUpdateOneWithoutCompetitionsInput = {
+  connect?: Maybe<CountryWhereUniqueInput>;
+  connectOrCreate?: Maybe<CountryCreateOrConnectWithoutCompetitionsInput>;
+  create?: Maybe<CountryCreateWithoutCompetitionsInput>;
+  delete?: Maybe<Scalars['Boolean']>;
+  disconnect?: Maybe<Scalars['Boolean']>;
+  update?: Maybe<CountryUpdateWithoutCompetitionsInput>;
+  upsert?: Maybe<CountryUpsertWithoutCompetitionsInput>;
+};
+
+export type CountryUpdateOneWithoutCompetitorsInput = {
+  connect?: Maybe<CountryWhereUniqueInput>;
+  connectOrCreate?: Maybe<CountryCreateOrConnectWithoutCompetitorsInput>;
+  create?: Maybe<CountryCreateWithoutCompetitorsInput>;
+  delete?: Maybe<Scalars['Boolean']>;
+  disconnect?: Maybe<Scalars['Boolean']>;
+  update?: Maybe<CountryUpdateWithoutCompetitorsInput>;
+  upsert?: Maybe<CountryUpsertWithoutCompetitorsInput>;
+};
+
+export type CountryUpdateOneWithoutUsersInput = {
+  connect?: Maybe<CountryWhereUniqueInput>;
+  connectOrCreate?: Maybe<CountryCreateOrConnectWithoutUsersInput>;
+  create?: Maybe<CountryCreateWithoutUsersInput>;
+  delete?: Maybe<Scalars['Boolean']>;
+  disconnect?: Maybe<Scalars['Boolean']>;
+  update?: Maybe<CountryUpdateWithoutUsersInput>;
+  upsert?: Maybe<CountryUpsertWithoutUsersInput>;
+};
+
+export type CountryUpdateWithoutClubsInput = {
+  competitions?: Maybe<CompetitionUpdateManyWithoutCountryInput>;
+  competitors?: Maybe<CompetitorUpdateManyWithoutCountryInput>;
+  name?: Maybe<StringFieldUpdateOperationsInput>;
+  users?: Maybe<UserUpdateManyWithoutCountryInput>;
+};
+
+export type CountryUpdateWithoutCompetitionsInput = {
+  clubs?: Maybe<ClubUpdateManyWithoutCountryInput>;
+  competitors?: Maybe<CompetitorUpdateManyWithoutCountryInput>;
+  name?: Maybe<StringFieldUpdateOperationsInput>;
+  users?: Maybe<UserUpdateManyWithoutCountryInput>;
+};
+
+export type CountryUpdateWithoutCompetitorsInput = {
+  clubs?: Maybe<ClubUpdateManyWithoutCountryInput>;
+  competitions?: Maybe<CompetitionUpdateManyWithoutCountryInput>;
+  name?: Maybe<StringFieldUpdateOperationsInput>;
+  users?: Maybe<UserUpdateManyWithoutCountryInput>;
+};
+
+export type CountryUpdateWithoutUsersInput = {
+  clubs?: Maybe<ClubUpdateManyWithoutCountryInput>;
+  competitions?: Maybe<CompetitionUpdateManyWithoutCountryInput>;
+  competitors?: Maybe<CompetitorUpdateManyWithoutCountryInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
 };
 
-export type CountryUpsertWithoutLocationsInput = {
-  create: CountryCreateWithoutLocationsInput;
-  update: CountryUpdateWithoutLocationsInput;
+export type CountryUpsertWithoutClubsInput = {
+  create: CountryCreateWithoutClubsInput;
+  update: CountryUpdateWithoutClubsInput;
+};
+
+export type CountryUpsertWithoutCompetitionsInput = {
+  create: CountryCreateWithoutCompetitionsInput;
+  update: CountryUpdateWithoutCompetitionsInput;
+};
+
+export type CountryUpsertWithoutCompetitorsInput = {
+  create: CountryCreateWithoutCompetitorsInput;
+  update: CountryUpdateWithoutCompetitorsInput;
+};
+
+export type CountryUpsertWithoutUsersInput = {
+  create: CountryCreateWithoutUsersInput;
+  update: CountryUpdateWithoutUsersInput;
 };
 
 export type CountryWhereInput = {
   AND?: Maybe<Array<CountryWhereInput>>;
   NOT?: Maybe<Array<CountryWhereInput>>;
   OR?: Maybe<Array<CountryWhereInput>>;
+  clubs?: Maybe<ClubListRelationFilter>;
+  competitions?: Maybe<CompetitionListRelationFilter>;
+  competitors?: Maybe<CompetitorListRelationFilter>;
   id?: Maybe<IntFilter>;
-  locations?: Maybe<LocationListRelationFilter>;
   name?: Maybe<StringFilter>;
+  users?: Maybe<UserListRelationFilter>;
 };
 
 export type CountryWhereUniqueInput = {
@@ -4940,561 +5501,6 @@ export type LiveResultOutput = {
   results: Array<ResultField>;
 };
 
-export type Location = {
-  __typename?: 'Location';
-  clubs: Array<Club>;
-  competitions: Array<Competition>;
-  competitors: Array<Competitor>;
-  country: Country;
-  countryId: Scalars['Int'];
-  id: Scalars['Int'];
-  name?: Maybe<Scalars['String']>;
-  region: Region;
-  regionId: Scalars['Int'];
-  users: Array<User>;
-};
-
-export type LocationClubsArgs = {
-  cursor?: Maybe<ClubWhereUniqueInput>;
-  distinct?: Maybe<Array<ClubScalarFieldEnum>>;
-  orderBy?: Maybe<Array<ClubOrderByInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<ClubWhereInput>;
-};
-
-export type LocationCompetitionsArgs = {
-  cursor?: Maybe<CompetitionWhereUniqueInput>;
-  distinct?: Maybe<Array<CompetitionScalarFieldEnum>>;
-  orderBy?: Maybe<Array<CompetitionOrderByInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<CompetitionWhereInput>;
-};
-
-export type LocationCompetitorsArgs = {
-  cursor?: Maybe<CompetitorWhereUniqueInput>;
-  distinct?: Maybe<Array<CompetitorScalarFieldEnum>>;
-  orderBy?: Maybe<Array<CompetitorOrderByInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<CompetitorWhereInput>;
-};
-
-export type LocationUsersArgs = {
-  cursor?: Maybe<UserWhereUniqueInput>;
-  distinct?: Maybe<Array<UserScalarFieldEnum>>;
-  orderBy?: Maybe<Array<UserOrderByInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<UserWhereInput>;
-};
-
-export type LocationAvgAggregate = {
-  __typename?: 'LocationAvgAggregate';
-  countryId?: Maybe<Scalars['Float']>;
-  id?: Maybe<Scalars['Float']>;
-  regionId?: Maybe<Scalars['Float']>;
-};
-
-export type LocationAvgOrderByAggregateInput = {
-  countryId?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  regionId?: Maybe<SortOrder>;
-};
-
-export type LocationCountAggregate = {
-  __typename?: 'LocationCountAggregate';
-  _all: Scalars['Int'];
-  countryId: Scalars['Int'];
-  id: Scalars['Int'];
-  name: Scalars['Int'];
-  regionId: Scalars['Int'];
-};
-
-export type LocationCountOrderByAggregateInput = {
-  countryId?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  name?: Maybe<SortOrder>;
-  regionId?: Maybe<SortOrder>;
-};
-
-export type LocationCreateInput = {
-  clubs?: Maybe<ClubCreateNestedManyWithoutLocationInput>;
-  competitions?: Maybe<CompetitionCreateNestedManyWithoutLocationInput>;
-  competitors?: Maybe<CompetitorCreateNestedManyWithoutLocationInput>;
-  country: CountryCreateNestedOneWithoutLocationsInput;
-  name?: Maybe<Scalars['String']>;
-  region: RegionCreateNestedOneWithoutLocationsInput;
-  users?: Maybe<UserCreateNestedManyWithoutLocationInput>;
-};
-
-export type LocationCreateManyCountryInput = {
-  id?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  regionId: Scalars['Int'];
-};
-
-export type LocationCreateManyCountryInputEnvelope = {
-  data: Array<LocationCreateManyCountryInput>;
-  skipDuplicates?: Maybe<Scalars['Boolean']>;
-};
-
-export type LocationCreateManyInput = {
-  countryId: Scalars['Int'];
-  id?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  regionId: Scalars['Int'];
-};
-
-export type LocationCreateManyRegionInput = {
-  countryId: Scalars['Int'];
-  id?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-};
-
-export type LocationCreateManyRegionInputEnvelope = {
-  data: Array<LocationCreateManyRegionInput>;
-  skipDuplicates?: Maybe<Scalars['Boolean']>;
-};
-
-export type LocationCreateNestedManyWithoutCountryInput = {
-  connect?: Maybe<Array<LocationWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<LocationCreateOrConnectWithoutCountryInput>>;
-  create?: Maybe<Array<LocationCreateWithoutCountryInput>>;
-  createMany?: Maybe<LocationCreateManyCountryInputEnvelope>;
-};
-
-export type LocationCreateNestedManyWithoutRegionInput = {
-  connect?: Maybe<Array<LocationWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<LocationCreateOrConnectWithoutRegionInput>>;
-  create?: Maybe<Array<LocationCreateWithoutRegionInput>>;
-  createMany?: Maybe<LocationCreateManyRegionInputEnvelope>;
-};
-
-export type LocationCreateNestedOneWithoutClubsInput = {
-  connect?: Maybe<LocationWhereUniqueInput>;
-  connectOrCreate?: Maybe<LocationCreateOrConnectWithoutClubsInput>;
-  create?: Maybe<LocationCreateWithoutClubsInput>;
-};
-
-export type LocationCreateNestedOneWithoutCompetitionsInput = {
-  connect?: Maybe<LocationWhereUniqueInput>;
-  connectOrCreate?: Maybe<LocationCreateOrConnectWithoutCompetitionsInput>;
-  create?: Maybe<LocationCreateWithoutCompetitionsInput>;
-};
-
-export type LocationCreateNestedOneWithoutCompetitorsInput = {
-  connect?: Maybe<LocationWhereUniqueInput>;
-  connectOrCreate?: Maybe<LocationCreateOrConnectWithoutCompetitorsInput>;
-  create?: Maybe<LocationCreateWithoutCompetitorsInput>;
-};
-
-export type LocationCreateNestedOneWithoutUsersInput = {
-  connect?: Maybe<LocationWhereUniqueInput>;
-  connectOrCreate?: Maybe<LocationCreateOrConnectWithoutUsersInput>;
-  create?: Maybe<LocationCreateWithoutUsersInput>;
-};
-
-export type LocationCreateOrConnectWithoutClubsInput = {
-  create: LocationCreateWithoutClubsInput;
-  where: LocationWhereUniqueInput;
-};
-
-export type LocationCreateOrConnectWithoutCompetitionsInput = {
-  create: LocationCreateWithoutCompetitionsInput;
-  where: LocationWhereUniqueInput;
-};
-
-export type LocationCreateOrConnectWithoutCompetitorsInput = {
-  create: LocationCreateWithoutCompetitorsInput;
-  where: LocationWhereUniqueInput;
-};
-
-export type LocationCreateOrConnectWithoutCountryInput = {
-  create: LocationCreateWithoutCountryInput;
-  where: LocationWhereUniqueInput;
-};
-
-export type LocationCreateOrConnectWithoutRegionInput = {
-  create: LocationCreateWithoutRegionInput;
-  where: LocationWhereUniqueInput;
-};
-
-export type LocationCreateOrConnectWithoutUsersInput = {
-  create: LocationCreateWithoutUsersInput;
-  where: LocationWhereUniqueInput;
-};
-
-export type LocationCreateWithoutClubsInput = {
-  competitions?: Maybe<CompetitionCreateNestedManyWithoutLocationInput>;
-  competitors?: Maybe<CompetitorCreateNestedManyWithoutLocationInput>;
-  country: CountryCreateNestedOneWithoutLocationsInput;
-  name?: Maybe<Scalars['String']>;
-  region: RegionCreateNestedOneWithoutLocationsInput;
-  users?: Maybe<UserCreateNestedManyWithoutLocationInput>;
-};
-
-export type LocationCreateWithoutCompetitionsInput = {
-  clubs?: Maybe<ClubCreateNestedManyWithoutLocationInput>;
-  competitors?: Maybe<CompetitorCreateNestedManyWithoutLocationInput>;
-  country: CountryCreateNestedOneWithoutLocationsInput;
-  name?: Maybe<Scalars['String']>;
-  region: RegionCreateNestedOneWithoutLocationsInput;
-  users?: Maybe<UserCreateNestedManyWithoutLocationInput>;
-};
-
-export type LocationCreateWithoutCompetitorsInput = {
-  clubs?: Maybe<ClubCreateNestedManyWithoutLocationInput>;
-  competitions?: Maybe<CompetitionCreateNestedManyWithoutLocationInput>;
-  country: CountryCreateNestedOneWithoutLocationsInput;
-  name?: Maybe<Scalars['String']>;
-  region: RegionCreateNestedOneWithoutLocationsInput;
-  users?: Maybe<UserCreateNestedManyWithoutLocationInput>;
-};
-
-export type LocationCreateWithoutCountryInput = {
-  clubs?: Maybe<ClubCreateNestedManyWithoutLocationInput>;
-  competitions?: Maybe<CompetitionCreateNestedManyWithoutLocationInput>;
-  competitors?: Maybe<CompetitorCreateNestedManyWithoutLocationInput>;
-  name?: Maybe<Scalars['String']>;
-  region: RegionCreateNestedOneWithoutLocationsInput;
-  users?: Maybe<UserCreateNestedManyWithoutLocationInput>;
-};
-
-export type LocationCreateWithoutRegionInput = {
-  clubs?: Maybe<ClubCreateNestedManyWithoutLocationInput>;
-  competitions?: Maybe<CompetitionCreateNestedManyWithoutLocationInput>;
-  competitors?: Maybe<CompetitorCreateNestedManyWithoutLocationInput>;
-  country: CountryCreateNestedOneWithoutLocationsInput;
-  name?: Maybe<Scalars['String']>;
-  users?: Maybe<UserCreateNestedManyWithoutLocationInput>;
-};
-
-export type LocationCreateWithoutUsersInput = {
-  clubs?: Maybe<ClubCreateNestedManyWithoutLocationInput>;
-  competitions?: Maybe<CompetitionCreateNestedManyWithoutLocationInput>;
-  competitors?: Maybe<CompetitorCreateNestedManyWithoutLocationInput>;
-  country: CountryCreateNestedOneWithoutLocationsInput;
-  name?: Maybe<Scalars['String']>;
-  region: RegionCreateNestedOneWithoutLocationsInput;
-};
-
-export type LocationGroupBy = {
-  __typename?: 'LocationGroupBy';
-  _avg?: Maybe<LocationAvgAggregate>;
-  _count?: Maybe<LocationCountAggregate>;
-  _max?: Maybe<LocationMaxAggregate>;
-  _min?: Maybe<LocationMinAggregate>;
-  _sum?: Maybe<LocationSumAggregate>;
-  countryId: Scalars['Int'];
-  id: Scalars['Int'];
-  name?: Maybe<Scalars['String']>;
-  regionId: Scalars['Int'];
-};
-
-export type LocationListRelationFilter = {
-  every?: Maybe<LocationWhereInput>;
-  none?: Maybe<LocationWhereInput>;
-  some?: Maybe<LocationWhereInput>;
-};
-
-export type LocationMaxAggregate = {
-  __typename?: 'LocationMaxAggregate';
-  countryId?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  regionId?: Maybe<Scalars['Int']>;
-};
-
-export type LocationMaxOrderByAggregateInput = {
-  countryId?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  name?: Maybe<SortOrder>;
-  regionId?: Maybe<SortOrder>;
-};
-
-export type LocationMinAggregate = {
-  __typename?: 'LocationMinAggregate';
-  countryId?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  regionId?: Maybe<Scalars['Int']>;
-};
-
-export type LocationMinOrderByAggregateInput = {
-  countryId?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  name?: Maybe<SortOrder>;
-  regionId?: Maybe<SortOrder>;
-};
-
-export type LocationOrderByInput = {
-  countryId?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  name?: Maybe<SortOrder>;
-  regionId?: Maybe<SortOrder>;
-};
-
-export type LocationOrderByWithAggregationInput = {
-  _avg?: Maybe<LocationAvgOrderByAggregateInput>;
-  _count?: Maybe<LocationCountOrderByAggregateInput>;
-  _max?: Maybe<LocationMaxOrderByAggregateInput>;
-  _min?: Maybe<LocationMinOrderByAggregateInput>;
-  _sum?: Maybe<LocationSumOrderByAggregateInput>;
-  countryId?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  name?: Maybe<SortOrder>;
-  regionId?: Maybe<SortOrder>;
-};
-
-export type LocationRelationFilter = {
-  is?: Maybe<LocationWhereInput>;
-  isNot?: Maybe<LocationWhereInput>;
-};
-
-export enum LocationScalarFieldEnum {
-  CountryId = 'countryId',
-  Id = 'id',
-  Name = 'name',
-  RegionId = 'regionId',
-}
-
-export type LocationScalarWhereInput = {
-  AND?: Maybe<Array<LocationScalarWhereInput>>;
-  NOT?: Maybe<Array<LocationScalarWhereInput>>;
-  OR?: Maybe<Array<LocationScalarWhereInput>>;
-  countryId?: Maybe<IntFilter>;
-  id?: Maybe<IntFilter>;
-  name?: Maybe<StringNullableFilter>;
-  regionId?: Maybe<IntFilter>;
-};
-
-export type LocationScalarWhereWithAggregatesInput = {
-  AND?: Maybe<Array<LocationScalarWhereWithAggregatesInput>>;
-  NOT?: Maybe<Array<LocationScalarWhereWithAggregatesInput>>;
-  OR?: Maybe<Array<LocationScalarWhereWithAggregatesInput>>;
-  countryId?: Maybe<IntWithAggregatesFilter>;
-  id?: Maybe<IntWithAggregatesFilter>;
-  name?: Maybe<StringNullableWithAggregatesFilter>;
-  regionId?: Maybe<IntWithAggregatesFilter>;
-};
-
-export type LocationSumAggregate = {
-  __typename?: 'LocationSumAggregate';
-  countryId?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['Int']>;
-  regionId?: Maybe<Scalars['Int']>;
-};
-
-export type LocationSumOrderByAggregateInput = {
-  countryId?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  regionId?: Maybe<SortOrder>;
-};
-
-export type LocationUpdateInput = {
-  clubs?: Maybe<ClubUpdateManyWithoutLocationInput>;
-  competitions?: Maybe<CompetitionUpdateManyWithoutLocationInput>;
-  competitors?: Maybe<CompetitorUpdateManyWithoutLocationInput>;
-  country?: Maybe<CountryUpdateOneRequiredWithoutLocationsInput>;
-  name?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  region?: Maybe<RegionUpdateOneRequiredWithoutLocationsInput>;
-  users?: Maybe<UserUpdateManyWithoutLocationInput>;
-};
-
-export type LocationUpdateManyMutationInput = {
-  name?: Maybe<NullableStringFieldUpdateOperationsInput>;
-};
-
-export type LocationUpdateManyWithWhereWithoutCountryInput = {
-  data: LocationUpdateManyMutationInput;
-  where: LocationScalarWhereInput;
-};
-
-export type LocationUpdateManyWithWhereWithoutRegionInput = {
-  data: LocationUpdateManyMutationInput;
-  where: LocationScalarWhereInput;
-};
-
-export type LocationUpdateManyWithoutCountryInput = {
-  connect?: Maybe<Array<LocationWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<LocationCreateOrConnectWithoutCountryInput>>;
-  create?: Maybe<Array<LocationCreateWithoutCountryInput>>;
-  createMany?: Maybe<LocationCreateManyCountryInputEnvelope>;
-  delete?: Maybe<Array<LocationWhereUniqueInput>>;
-  deleteMany?: Maybe<Array<LocationScalarWhereInput>>;
-  disconnect?: Maybe<Array<LocationWhereUniqueInput>>;
-  set?: Maybe<Array<LocationWhereUniqueInput>>;
-  update?: Maybe<Array<LocationUpdateWithWhereUniqueWithoutCountryInput>>;
-  updateMany?: Maybe<Array<LocationUpdateManyWithWhereWithoutCountryInput>>;
-  upsert?: Maybe<Array<LocationUpsertWithWhereUniqueWithoutCountryInput>>;
-};
-
-export type LocationUpdateManyWithoutRegionInput = {
-  connect?: Maybe<Array<LocationWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<LocationCreateOrConnectWithoutRegionInput>>;
-  create?: Maybe<Array<LocationCreateWithoutRegionInput>>;
-  createMany?: Maybe<LocationCreateManyRegionInputEnvelope>;
-  delete?: Maybe<Array<LocationWhereUniqueInput>>;
-  deleteMany?: Maybe<Array<LocationScalarWhereInput>>;
-  disconnect?: Maybe<Array<LocationWhereUniqueInput>>;
-  set?: Maybe<Array<LocationWhereUniqueInput>>;
-  update?: Maybe<Array<LocationUpdateWithWhereUniqueWithoutRegionInput>>;
-  updateMany?: Maybe<Array<LocationUpdateManyWithWhereWithoutRegionInput>>;
-  upsert?: Maybe<Array<LocationUpsertWithWhereUniqueWithoutRegionInput>>;
-};
-
-export type LocationUpdateOneRequiredWithoutClubsInput = {
-  connect?: Maybe<LocationWhereUniqueInput>;
-  connectOrCreate?: Maybe<LocationCreateOrConnectWithoutClubsInput>;
-  create?: Maybe<LocationCreateWithoutClubsInput>;
-  update?: Maybe<LocationUpdateWithoutClubsInput>;
-  upsert?: Maybe<LocationUpsertWithoutClubsInput>;
-};
-
-export type LocationUpdateOneRequiredWithoutCompetitionsInput = {
-  connect?: Maybe<LocationWhereUniqueInput>;
-  connectOrCreate?: Maybe<LocationCreateOrConnectWithoutCompetitionsInput>;
-  create?: Maybe<LocationCreateWithoutCompetitionsInput>;
-  update?: Maybe<LocationUpdateWithoutCompetitionsInput>;
-  upsert?: Maybe<LocationUpsertWithoutCompetitionsInput>;
-};
-
-export type LocationUpdateOneRequiredWithoutCompetitorsInput = {
-  connect?: Maybe<LocationWhereUniqueInput>;
-  connectOrCreate?: Maybe<LocationCreateOrConnectWithoutCompetitorsInput>;
-  create?: Maybe<LocationCreateWithoutCompetitorsInput>;
-  update?: Maybe<LocationUpdateWithoutCompetitorsInput>;
-  upsert?: Maybe<LocationUpsertWithoutCompetitorsInput>;
-};
-
-export type LocationUpdateOneWithoutUsersInput = {
-  connect?: Maybe<LocationWhereUniqueInput>;
-  connectOrCreate?: Maybe<LocationCreateOrConnectWithoutUsersInput>;
-  create?: Maybe<LocationCreateWithoutUsersInput>;
-  delete?: Maybe<Scalars['Boolean']>;
-  disconnect?: Maybe<Scalars['Boolean']>;
-  update?: Maybe<LocationUpdateWithoutUsersInput>;
-  upsert?: Maybe<LocationUpsertWithoutUsersInput>;
-};
-
-export type LocationUpdateWithWhereUniqueWithoutCountryInput = {
-  data: LocationUpdateWithoutCountryInput;
-  where: LocationWhereUniqueInput;
-};
-
-export type LocationUpdateWithWhereUniqueWithoutRegionInput = {
-  data: LocationUpdateWithoutRegionInput;
-  where: LocationWhereUniqueInput;
-};
-
-export type LocationUpdateWithoutClubsInput = {
-  competitions?: Maybe<CompetitionUpdateManyWithoutLocationInput>;
-  competitors?: Maybe<CompetitorUpdateManyWithoutLocationInput>;
-  country?: Maybe<CountryUpdateOneRequiredWithoutLocationsInput>;
-  name?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  region?: Maybe<RegionUpdateOneRequiredWithoutLocationsInput>;
-  users?: Maybe<UserUpdateManyWithoutLocationInput>;
-};
-
-export type LocationUpdateWithoutCompetitionsInput = {
-  clubs?: Maybe<ClubUpdateManyWithoutLocationInput>;
-  competitors?: Maybe<CompetitorUpdateManyWithoutLocationInput>;
-  country?: Maybe<CountryUpdateOneRequiredWithoutLocationsInput>;
-  name?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  region?: Maybe<RegionUpdateOneRequiredWithoutLocationsInput>;
-  users?: Maybe<UserUpdateManyWithoutLocationInput>;
-};
-
-export type LocationUpdateWithoutCompetitorsInput = {
-  clubs?: Maybe<ClubUpdateManyWithoutLocationInput>;
-  competitions?: Maybe<CompetitionUpdateManyWithoutLocationInput>;
-  country?: Maybe<CountryUpdateOneRequiredWithoutLocationsInput>;
-  name?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  region?: Maybe<RegionUpdateOneRequiredWithoutLocationsInput>;
-  users?: Maybe<UserUpdateManyWithoutLocationInput>;
-};
-
-export type LocationUpdateWithoutCountryInput = {
-  clubs?: Maybe<ClubUpdateManyWithoutLocationInput>;
-  competitions?: Maybe<CompetitionUpdateManyWithoutLocationInput>;
-  competitors?: Maybe<CompetitorUpdateManyWithoutLocationInput>;
-  name?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  region?: Maybe<RegionUpdateOneRequiredWithoutLocationsInput>;
-  users?: Maybe<UserUpdateManyWithoutLocationInput>;
-};
-
-export type LocationUpdateWithoutRegionInput = {
-  clubs?: Maybe<ClubUpdateManyWithoutLocationInput>;
-  competitions?: Maybe<CompetitionUpdateManyWithoutLocationInput>;
-  competitors?: Maybe<CompetitorUpdateManyWithoutLocationInput>;
-  country?: Maybe<CountryUpdateOneRequiredWithoutLocationsInput>;
-  name?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  users?: Maybe<UserUpdateManyWithoutLocationInput>;
-};
-
-export type LocationUpdateWithoutUsersInput = {
-  clubs?: Maybe<ClubUpdateManyWithoutLocationInput>;
-  competitions?: Maybe<CompetitionUpdateManyWithoutLocationInput>;
-  competitors?: Maybe<CompetitorUpdateManyWithoutLocationInput>;
-  country?: Maybe<CountryUpdateOneRequiredWithoutLocationsInput>;
-  name?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  region?: Maybe<RegionUpdateOneRequiredWithoutLocationsInput>;
-};
-
-export type LocationUpsertWithWhereUniqueWithoutCountryInput = {
-  create: LocationCreateWithoutCountryInput;
-  update: LocationUpdateWithoutCountryInput;
-  where: LocationWhereUniqueInput;
-};
-
-export type LocationUpsertWithWhereUniqueWithoutRegionInput = {
-  create: LocationCreateWithoutRegionInput;
-  update: LocationUpdateWithoutRegionInput;
-  where: LocationWhereUniqueInput;
-};
-
-export type LocationUpsertWithoutClubsInput = {
-  create: LocationCreateWithoutClubsInput;
-  update: LocationUpdateWithoutClubsInput;
-};
-
-export type LocationUpsertWithoutCompetitionsInput = {
-  create: LocationCreateWithoutCompetitionsInput;
-  update: LocationUpdateWithoutCompetitionsInput;
-};
-
-export type LocationUpsertWithoutCompetitorsInput = {
-  create: LocationCreateWithoutCompetitorsInput;
-  update: LocationUpdateWithoutCompetitorsInput;
-};
-
-export type LocationUpsertWithoutUsersInput = {
-  create: LocationCreateWithoutUsersInput;
-  update: LocationUpdateWithoutUsersInput;
-};
-
-export type LocationWhereInput = {
-  AND?: Maybe<Array<LocationWhereInput>>;
-  NOT?: Maybe<Array<LocationWhereInput>>;
-  OR?: Maybe<Array<LocationWhereInput>>;
-  clubs?: Maybe<ClubListRelationFilter>;
-  competitions?: Maybe<CompetitionListRelationFilter>;
-  competitors?: Maybe<CompetitorListRelationFilter>;
-  country?: Maybe<CountryRelationFilter>;
-  countryId?: Maybe<IntFilter>;
-  id?: Maybe<IntFilter>;
-  name?: Maybe<StringNullableFilter>;
-  region?: Maybe<RegionRelationFilter>;
-  regionId?: Maybe<IntFilter>;
-  users?: Maybe<UserListRelationFilter>;
-};
-
-export type LocationWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
-};
-
 export type LoginInput = {
   email: Scalars['String'];
   password: Scalars['String'];
@@ -5517,7 +5523,6 @@ export type Mutation = {
   createCompetitor: Competitor;
   createCountry: Country;
   createGrade: Grade;
-  createLocation: Location;
   createManyCategory: AffectedRowsOutput;
   createManyCategoryRound: AffectedRowsOutput;
   createManyClub: AffectedRowsOutput;
@@ -5527,7 +5532,6 @@ export type Mutation = {
   createManyCompetitor: AffectedRowsOutput;
   createManyCountry: AffectedRowsOutput;
   createManyGrade: AffectedRowsOutput;
-  createManyLocation: AffectedRowsOutput;
   createManyRegion: AffectedRowsOutput;
   createManyRegistration: AffectedRowsOutput;
   createManyResult: AffectedRowsOutput;
@@ -5557,7 +5561,6 @@ export type Mutation = {
   deleteCompetitor?: Maybe<Competitor>;
   deleteCountry?: Maybe<Country>;
   deleteGrade?: Maybe<Grade>;
-  deleteLocation?: Maybe<Location>;
   deleteManyCategory: AffectedRowsOutput;
   deleteManyCategoryRound: AffectedRowsOutput;
   deleteManyClub: AffectedRowsOutput;
@@ -5567,7 +5570,6 @@ export type Mutation = {
   deleteManyCompetitor: AffectedRowsOutput;
   deleteManyCountry: AffectedRowsOutput;
   deleteManyGrade: AffectedRowsOutput;
-  deleteManyLocation: AffectedRowsOutput;
   deleteManyRegion: AffectedRowsOutput;
   deleteManyRegistration: AffectedRowsOutput;
   deleteManyResult: AffectedRowsOutput;
@@ -5602,7 +5604,6 @@ export type Mutation = {
   updateCompetitor?: Maybe<Competitor>;
   updateCountry?: Maybe<Country>;
   updateGrade?: Maybe<Grade>;
-  updateLocation?: Maybe<Location>;
   updateManyCategory: AffectedRowsOutput;
   updateManyCategoryRound: AffectedRowsOutput;
   updateManyClub: AffectedRowsOutput;
@@ -5612,7 +5613,6 @@ export type Mutation = {
   updateManyCompetitor: AffectedRowsOutput;
   updateManyCountry: AffectedRowsOutput;
   updateManyGrade: AffectedRowsOutput;
-  updateManyLocation: AffectedRowsOutput;
   updateManyRegion: AffectedRowsOutput;
   updateManyRegistration: AffectedRowsOutput;
   updateManyResult: AffectedRowsOutput;
@@ -5642,7 +5642,6 @@ export type Mutation = {
   upsertCompetitor: Competitor;
   upsertCountry: Country;
   upsertGrade: Grade;
-  upsertLocation: Location;
   upsertRegion: Region;
   upsertRegistration: Registration;
   upsertResult: Result;
@@ -5691,10 +5690,6 @@ export type MutationCreateGradeArgs = {
   data: GradeCreateInput;
 };
 
-export type MutationCreateLocationArgs = {
-  data: LocationCreateInput;
-};
-
 export type MutationCreateManyCategoryArgs = {
   data: Array<CategoryCreateManyInput>;
   skipDuplicates?: Maybe<Scalars['Boolean']>;
@@ -5737,11 +5732,6 @@ export type MutationCreateManyCountryArgs = {
 
 export type MutationCreateManyGradeArgs = {
   data: Array<GradeCreateManyInput>;
-  skipDuplicates?: Maybe<Scalars['Boolean']>;
-};
-
-export type MutationCreateManyLocationArgs = {
-  data: Array<LocationCreateManyInput>;
   skipDuplicates?: Maybe<Scalars['Boolean']>;
 };
 
@@ -5871,10 +5861,6 @@ export type MutationDeleteGradeArgs = {
   where: GradeWhereUniqueInput;
 };
 
-export type MutationDeleteLocationArgs = {
-  where: LocationWhereUniqueInput;
-};
-
 export type MutationDeleteManyCategoryArgs = {
   where?: Maybe<CategoryWhereInput>;
 };
@@ -5909,10 +5895,6 @@ export type MutationDeleteManyCountryArgs = {
 
 export type MutationDeleteManyGradeArgs = {
   where?: Maybe<GradeWhereInput>;
-};
-
-export type MutationDeleteManyLocationArgs = {
-  where?: Maybe<LocationWhereInput>;
 };
 
 export type MutationDeleteManyRegionArgs = {
@@ -6060,11 +6042,6 @@ export type MutationUpdateGradeArgs = {
   where: GradeWhereUniqueInput;
 };
 
-export type MutationUpdateLocationArgs = {
-  data: LocationUpdateInput;
-  where: LocationWhereUniqueInput;
-};
-
 export type MutationUpdateManyCategoryArgs = {
   data: CategoryUpdateManyMutationInput;
   where?: Maybe<CategoryWhereInput>;
@@ -6108,11 +6085,6 @@ export type MutationUpdateManyCountryArgs = {
 export type MutationUpdateManyGradeArgs = {
   data: GradeUpdateManyMutationInput;
   where?: Maybe<GradeWhereInput>;
-};
-
-export type MutationUpdateManyLocationArgs = {
-  data: LocationUpdateManyMutationInput;
-  where?: Maybe<LocationWhereInput>;
 };
 
 export type MutationUpdateManyRegionArgs = {
@@ -6267,12 +6239,6 @@ export type MutationUpsertGradeArgs = {
   create: GradeCreateInput;
   update: GradeUpdateInput;
   where: GradeWhereUniqueInput;
-};
-
-export type MutationUpsertLocationArgs = {
-  create: LocationCreateInput;
-  update: LocationUpdateInput;
-  where: LocationWhereUniqueInput;
 };
 
 export type MutationUpsertRegionArgs = {
@@ -6631,7 +6597,6 @@ export type Query = {
   aggregateCompetitor: AggregateCompetitor;
   aggregateCountry: AggregateCountry;
   aggregateGrade: AggregateGrade;
-  aggregateLocation: AggregateLocation;
   aggregateRegion: AggregateRegion;
   aggregateRegistration: AggregateRegistration;
   aggregateResult: AggregateResult;
@@ -6668,7 +6633,6 @@ export type Query = {
   findFirstCompetitor?: Maybe<Competitor>;
   findFirstCountry?: Maybe<Country>;
   findFirstGrade?: Maybe<Grade>;
-  findFirstLocation?: Maybe<Location>;
   findFirstRegion?: Maybe<Region>;
   findFirstRegistration?: Maybe<Registration>;
   findFirstResult?: Maybe<Result>;
@@ -6696,7 +6660,6 @@ export type Query = {
   groupByCompetitor: Array<CompetitorGroupBy>;
   groupByCountry: Array<CountryGroupBy>;
   groupByGrade: Array<GradeGroupBy>;
-  groupByLocation: Array<LocationGroupBy>;
   groupByRegion: Array<RegionGroupBy>;
   groupByRegistration: Array<RegistrationGroupBy>;
   groupByResult: Array<ResultGroupBy>;
@@ -6707,8 +6670,6 @@ export type Query = {
   groupBySeason: Array<SeasonGroupBy>;
   groupByStartList: Array<StartListGroupBy>;
   groupByUser: Array<UserGroupBy>;
-  location?: Maybe<Location>;
-  locations: Array<Location>;
   region?: Maybe<Region>;
   regions: Array<Region>;
   registration?: Maybe<Registration>;
@@ -6801,14 +6762,6 @@ export type QueryAggregateGradeArgs = {
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<GradeWhereInput>;
-};
-
-export type QueryAggregateLocationArgs = {
-  cursor?: Maybe<LocationWhereUniqueInput>;
-  orderBy?: Maybe<Array<LocationOrderByInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<LocationWhereInput>;
 };
 
 export type QueryAggregateRegionArgs = {
@@ -7076,15 +7029,6 @@ export type QueryFindFirstGradeArgs = {
   where?: Maybe<GradeWhereInput>;
 };
 
-export type QueryFindFirstLocationArgs = {
-  cursor?: Maybe<LocationWhereUniqueInput>;
-  distinct?: Maybe<Array<LocationScalarFieldEnum>>;
-  orderBy?: Maybe<Array<LocationOrderByInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<LocationWhereInput>;
-};
-
 export type QueryFindFirstRegionArgs = {
   cursor?: Maybe<RegionWhereUniqueInput>;
   distinct?: Maybe<Array<RegionScalarFieldEnum>>;
@@ -7289,15 +7233,6 @@ export type QueryGroupByGradeArgs = {
   where?: Maybe<GradeWhereInput>;
 };
 
-export type QueryGroupByLocationArgs = {
-  by: Array<LocationScalarFieldEnum>;
-  having?: Maybe<LocationScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<LocationOrderByWithAggregationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<LocationWhereInput>;
-};
-
 export type QueryGroupByRegionArgs = {
   by: Array<RegionScalarFieldEnum>;
   having?: Maybe<RegionScalarWhereWithAggregatesInput>;
@@ -7386,19 +7321,6 @@ export type QueryGroupByUserArgs = {
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<UserWhereInput>;
-};
-
-export type QueryLocationArgs = {
-  where: LocationWhereUniqueInput;
-};
-
-export type QueryLocationsArgs = {
-  cursor?: Maybe<LocationWhereUniqueInput>;
-  distinct?: Maybe<Array<LocationScalarFieldEnum>>;
-  orderBy?: Maybe<Array<LocationOrderByInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<LocationWhereInput>;
 };
 
 export type QueryRegionArgs = {
@@ -7538,18 +7460,48 @@ export enum QueryMode {
 
 export type Region = {
   __typename?: 'Region';
+  clubs: Array<Club>;
+  competitions: Array<Competition>;
+  competitors: Array<Competitor>;
   id: Scalars['Int'];
-  locations: Array<Location>;
   name: Scalars['String'];
+  users: Array<User>;
 };
 
-export type RegionLocationsArgs = {
-  cursor?: Maybe<LocationWhereUniqueInput>;
-  distinct?: Maybe<Array<LocationScalarFieldEnum>>;
-  orderBy?: Maybe<Array<LocationOrderByInput>>;
+export type RegionClubsArgs = {
+  cursor?: Maybe<ClubWhereUniqueInput>;
+  distinct?: Maybe<Array<ClubScalarFieldEnum>>;
+  orderBy?: Maybe<Array<ClubOrderByInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
-  where?: Maybe<LocationWhereInput>;
+  where?: Maybe<ClubWhereInput>;
+};
+
+export type RegionCompetitionsArgs = {
+  cursor?: Maybe<CompetitionWhereUniqueInput>;
+  distinct?: Maybe<Array<CompetitionScalarFieldEnum>>;
+  orderBy?: Maybe<Array<CompetitionOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<CompetitionWhereInput>;
+};
+
+export type RegionCompetitorsArgs = {
+  cursor?: Maybe<CompetitorWhereUniqueInput>;
+  distinct?: Maybe<Array<CompetitorScalarFieldEnum>>;
+  orderBy?: Maybe<Array<CompetitorOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<CompetitorWhereInput>;
+};
+
+export type RegionUsersArgs = {
+  cursor?: Maybe<UserWhereUniqueInput>;
+  distinct?: Maybe<Array<UserScalarFieldEnum>>;
+  orderBy?: Maybe<Array<UserOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<UserWhereInput>;
 };
 
 export type RegionAvgAggregate = {
@@ -7574,8 +7526,11 @@ export type RegionCountOrderByAggregateInput = {
 };
 
 export type RegionCreateInput = {
-  locations?: Maybe<LocationCreateNestedManyWithoutRegionInput>;
+  clubs?: Maybe<ClubCreateNestedManyWithoutRegionInput>;
+  competitions?: Maybe<CompetitionCreateNestedManyWithoutRegionInput>;
+  competitors?: Maybe<CompetitorCreateNestedManyWithoutRegionInput>;
   name: Scalars['String'];
+  users?: Maybe<UserCreateNestedManyWithoutRegionInput>;
 };
 
 export type RegionCreateManyInput = {
@@ -7583,18 +7538,75 @@ export type RegionCreateManyInput = {
   name: Scalars['String'];
 };
 
-export type RegionCreateNestedOneWithoutLocationsInput = {
+export type RegionCreateNestedOneWithoutClubsInput = {
   connect?: Maybe<RegionWhereUniqueInput>;
-  connectOrCreate?: Maybe<RegionCreateOrConnectWithoutLocationsInput>;
-  create?: Maybe<RegionCreateWithoutLocationsInput>;
+  connectOrCreate?: Maybe<RegionCreateOrConnectWithoutClubsInput>;
+  create?: Maybe<RegionCreateWithoutClubsInput>;
 };
 
-export type RegionCreateOrConnectWithoutLocationsInput = {
-  create: RegionCreateWithoutLocationsInput;
+export type RegionCreateNestedOneWithoutCompetitionsInput = {
+  connect?: Maybe<RegionWhereUniqueInput>;
+  connectOrCreate?: Maybe<RegionCreateOrConnectWithoutCompetitionsInput>;
+  create?: Maybe<RegionCreateWithoutCompetitionsInput>;
+};
+
+export type RegionCreateNestedOneWithoutCompetitorsInput = {
+  connect?: Maybe<RegionWhereUniqueInput>;
+  connectOrCreate?: Maybe<RegionCreateOrConnectWithoutCompetitorsInput>;
+  create?: Maybe<RegionCreateWithoutCompetitorsInput>;
+};
+
+export type RegionCreateNestedOneWithoutUsersInput = {
+  connect?: Maybe<RegionWhereUniqueInput>;
+  connectOrCreate?: Maybe<RegionCreateOrConnectWithoutUsersInput>;
+  create?: Maybe<RegionCreateWithoutUsersInput>;
+};
+
+export type RegionCreateOrConnectWithoutClubsInput = {
+  create: RegionCreateWithoutClubsInput;
   where: RegionWhereUniqueInput;
 };
 
-export type RegionCreateWithoutLocationsInput = {
+export type RegionCreateOrConnectWithoutCompetitionsInput = {
+  create: RegionCreateWithoutCompetitionsInput;
+  where: RegionWhereUniqueInput;
+};
+
+export type RegionCreateOrConnectWithoutCompetitorsInput = {
+  create: RegionCreateWithoutCompetitorsInput;
+  where: RegionWhereUniqueInput;
+};
+
+export type RegionCreateOrConnectWithoutUsersInput = {
+  create: RegionCreateWithoutUsersInput;
+  where: RegionWhereUniqueInput;
+};
+
+export type RegionCreateWithoutClubsInput = {
+  competitions?: Maybe<CompetitionCreateNestedManyWithoutRegionInput>;
+  competitors?: Maybe<CompetitorCreateNestedManyWithoutRegionInput>;
+  name: Scalars['String'];
+  users?: Maybe<UserCreateNestedManyWithoutRegionInput>;
+};
+
+export type RegionCreateWithoutCompetitionsInput = {
+  clubs?: Maybe<ClubCreateNestedManyWithoutRegionInput>;
+  competitors?: Maybe<CompetitorCreateNestedManyWithoutRegionInput>;
+  name: Scalars['String'];
+  users?: Maybe<UserCreateNestedManyWithoutRegionInput>;
+};
+
+export type RegionCreateWithoutCompetitorsInput = {
+  clubs?: Maybe<ClubCreateNestedManyWithoutRegionInput>;
+  competitions?: Maybe<CompetitionCreateNestedManyWithoutRegionInput>;
+  name: Scalars['String'];
+  users?: Maybe<UserCreateNestedManyWithoutRegionInput>;
+};
+
+export type RegionCreateWithoutUsersInput = {
+  clubs?: Maybe<ClubCreateNestedManyWithoutRegionInput>;
+  competitions?: Maybe<CompetitionCreateNestedManyWithoutRegionInput>;
+  competitors?: Maybe<CompetitorCreateNestedManyWithoutRegionInput>;
   name: Scalars['String'];
 };
 
@@ -7674,38 +7686,115 @@ export type RegionSumOrderByAggregateInput = {
 };
 
 export type RegionUpdateInput = {
-  locations?: Maybe<LocationUpdateManyWithoutRegionInput>;
+  clubs?: Maybe<ClubUpdateManyWithoutRegionInput>;
+  competitions?: Maybe<CompetitionUpdateManyWithoutRegionInput>;
+  competitors?: Maybe<CompetitorUpdateManyWithoutRegionInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  users?: Maybe<UserUpdateManyWithoutRegionInput>;
 };
 
 export type RegionUpdateManyMutationInput = {
   name?: Maybe<StringFieldUpdateOperationsInput>;
 };
 
-export type RegionUpdateOneRequiredWithoutLocationsInput = {
+export type RegionUpdateOneWithoutClubsInput = {
   connect?: Maybe<RegionWhereUniqueInput>;
-  connectOrCreate?: Maybe<RegionCreateOrConnectWithoutLocationsInput>;
-  create?: Maybe<RegionCreateWithoutLocationsInput>;
-  update?: Maybe<RegionUpdateWithoutLocationsInput>;
-  upsert?: Maybe<RegionUpsertWithoutLocationsInput>;
+  connectOrCreate?: Maybe<RegionCreateOrConnectWithoutClubsInput>;
+  create?: Maybe<RegionCreateWithoutClubsInput>;
+  delete?: Maybe<Scalars['Boolean']>;
+  disconnect?: Maybe<Scalars['Boolean']>;
+  update?: Maybe<RegionUpdateWithoutClubsInput>;
+  upsert?: Maybe<RegionUpsertWithoutClubsInput>;
 };
 
-export type RegionUpdateWithoutLocationsInput = {
+export type RegionUpdateOneWithoutCompetitionsInput = {
+  connect?: Maybe<RegionWhereUniqueInput>;
+  connectOrCreate?: Maybe<RegionCreateOrConnectWithoutCompetitionsInput>;
+  create?: Maybe<RegionCreateWithoutCompetitionsInput>;
+  delete?: Maybe<Scalars['Boolean']>;
+  disconnect?: Maybe<Scalars['Boolean']>;
+  update?: Maybe<RegionUpdateWithoutCompetitionsInput>;
+  upsert?: Maybe<RegionUpsertWithoutCompetitionsInput>;
+};
+
+export type RegionUpdateOneWithoutCompetitorsInput = {
+  connect?: Maybe<RegionWhereUniqueInput>;
+  connectOrCreate?: Maybe<RegionCreateOrConnectWithoutCompetitorsInput>;
+  create?: Maybe<RegionCreateWithoutCompetitorsInput>;
+  delete?: Maybe<Scalars['Boolean']>;
+  disconnect?: Maybe<Scalars['Boolean']>;
+  update?: Maybe<RegionUpdateWithoutCompetitorsInput>;
+  upsert?: Maybe<RegionUpsertWithoutCompetitorsInput>;
+};
+
+export type RegionUpdateOneWithoutUsersInput = {
+  connect?: Maybe<RegionWhereUniqueInput>;
+  connectOrCreate?: Maybe<RegionCreateOrConnectWithoutUsersInput>;
+  create?: Maybe<RegionCreateWithoutUsersInput>;
+  delete?: Maybe<Scalars['Boolean']>;
+  disconnect?: Maybe<Scalars['Boolean']>;
+  update?: Maybe<RegionUpdateWithoutUsersInput>;
+  upsert?: Maybe<RegionUpsertWithoutUsersInput>;
+};
+
+export type RegionUpdateWithoutClubsInput = {
+  competitions?: Maybe<CompetitionUpdateManyWithoutRegionInput>;
+  competitors?: Maybe<CompetitorUpdateManyWithoutRegionInput>;
+  name?: Maybe<StringFieldUpdateOperationsInput>;
+  users?: Maybe<UserUpdateManyWithoutRegionInput>;
+};
+
+export type RegionUpdateWithoutCompetitionsInput = {
+  clubs?: Maybe<ClubUpdateManyWithoutRegionInput>;
+  competitors?: Maybe<CompetitorUpdateManyWithoutRegionInput>;
+  name?: Maybe<StringFieldUpdateOperationsInput>;
+  users?: Maybe<UserUpdateManyWithoutRegionInput>;
+};
+
+export type RegionUpdateWithoutCompetitorsInput = {
+  clubs?: Maybe<ClubUpdateManyWithoutRegionInput>;
+  competitions?: Maybe<CompetitionUpdateManyWithoutRegionInput>;
+  name?: Maybe<StringFieldUpdateOperationsInput>;
+  users?: Maybe<UserUpdateManyWithoutRegionInput>;
+};
+
+export type RegionUpdateWithoutUsersInput = {
+  clubs?: Maybe<ClubUpdateManyWithoutRegionInput>;
+  competitions?: Maybe<CompetitionUpdateManyWithoutRegionInput>;
+  competitors?: Maybe<CompetitorUpdateManyWithoutRegionInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
 };
 
-export type RegionUpsertWithoutLocationsInput = {
-  create: RegionCreateWithoutLocationsInput;
-  update: RegionUpdateWithoutLocationsInput;
+export type RegionUpsertWithoutClubsInput = {
+  create: RegionCreateWithoutClubsInput;
+  update: RegionUpdateWithoutClubsInput;
+};
+
+export type RegionUpsertWithoutCompetitionsInput = {
+  create: RegionCreateWithoutCompetitionsInput;
+  update: RegionUpdateWithoutCompetitionsInput;
+};
+
+export type RegionUpsertWithoutCompetitorsInput = {
+  create: RegionCreateWithoutCompetitorsInput;
+  update: RegionUpdateWithoutCompetitorsInput;
+};
+
+export type RegionUpsertWithoutUsersInput = {
+  create: RegionCreateWithoutUsersInput;
+  update: RegionUpdateWithoutUsersInput;
 };
 
 export type RegionWhereInput = {
   AND?: Maybe<Array<RegionWhereInput>>;
   NOT?: Maybe<Array<RegionWhereInput>>;
   OR?: Maybe<Array<RegionWhereInput>>;
+  clubs?: Maybe<ClubListRelationFilter>;
+  competitions?: Maybe<CompetitionListRelationFilter>;
+  competitors?: Maybe<CompetitorListRelationFilter>;
   id?: Maybe<IntFilter>;
-  locations?: Maybe<LocationListRelationFilter>;
   name?: Maybe<StringFilter>;
+  users?: Maybe<UserListRelationFilter>;
 };
 
 export type RegionWhereUniqueInput = {
@@ -12264,15 +12353,17 @@ export type User = {
   club?: Maybe<Club>;
   clubId?: Maybe<Scalars['Int']>;
   comments: Array<Comment>;
+  country?: Maybe<Country>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt: Scalars['DateTime'];
   email: Scalars['String'];
   firstName: Scalars['String'];
   id: Scalars['Int'];
   lastName: Scalars['String'];
-  location?: Maybe<Location>;
-  locationId?: Maybe<Scalars['Int']>;
   password: Scalars['String'];
   publicId: Scalars['String'];
+  region?: Maybe<Region>;
+  regionId?: Maybe<Scalars['Int']>;
   registrations: Array<Registration>;
   results: Array<Result>;
   role: UserRole;
@@ -12338,42 +12429,46 @@ export type UserRoutesSetArgs = {
 export type UserAvgAggregate = {
   __typename?: 'UserAvgAggregate';
   clubId?: Maybe<Scalars['Float']>;
+  countryId?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
-  locationId?: Maybe<Scalars['Float']>;
+  regionId?: Maybe<Scalars['Float']>;
 };
 
 export type UserAvgOrderByAggregateInput = {
   clubId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
 };
 
 export type UserCountAggregate = {
   __typename?: 'UserCountAggregate';
   _all: Scalars['Int'];
   clubId: Scalars['Int'];
+  countryId: Scalars['Int'];
   createdAt: Scalars['Int'];
   email: Scalars['Int'];
   firstName: Scalars['Int'];
   id: Scalars['Int'];
   lastName: Scalars['Int'];
-  locationId: Scalars['Int'];
   password: Scalars['Int'];
   publicId: Scalars['Int'];
+  regionId: Scalars['Int'];
   role: Scalars['Int'];
   updatedAt: Scalars['Int'];
 };
 
 export type UserCountOrderByAggregateInput = {
   clubId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   email?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   lastName?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   password?: Maybe<SortOrder>;
   publicId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   role?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
@@ -12382,13 +12477,14 @@ export type UserCreateInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
   club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutUsersInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
   lastName: Scalars['String'];
-  location?: Maybe<LocationCreateNestedOneWithoutUsersInput>;
   password: Scalars['String'];
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
   results?: Maybe<ResultCreateNestedManyWithoutApprovedByInput>;
   role?: Maybe<UserRole>;
@@ -12398,14 +12494,15 @@ export type UserCreateInput = {
 };
 
 export type UserCreateManyClubInput = {
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
   id?: Maybe<Scalars['Int']>;
   lastName: Scalars['String'];
-  locationId?: Maybe<Scalars['Int']>;
   password: Scalars['String'];
   publicId?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
   role?: Maybe<UserRole>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
@@ -12415,22 +12512,43 @@ export type UserCreateManyClubInputEnvelope = {
   skipDuplicates?: Maybe<Scalars['Boolean']>;
 };
 
+export type UserCreateManyCountryInput = {
+  clubId?: Maybe<Scalars['Int']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  email: Scalars['String'];
+  firstName: Scalars['String'];
+  id?: Maybe<Scalars['Int']>;
+  lastName: Scalars['String'];
+  password: Scalars['String'];
+  publicId?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
+  role?: Maybe<UserRole>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type UserCreateManyCountryInputEnvelope = {
+  data: Array<UserCreateManyCountryInput>;
+  skipDuplicates?: Maybe<Scalars['Boolean']>;
+};
+
 export type UserCreateManyInput = {
   clubId?: Maybe<Scalars['Int']>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
   id?: Maybe<Scalars['Int']>;
   lastName: Scalars['String'];
-  locationId?: Maybe<Scalars['Int']>;
   password: Scalars['String'];
   publicId?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
   role?: Maybe<UserRole>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type UserCreateManyLocationInput = {
+export type UserCreateManyRegionInput = {
   clubId?: Maybe<Scalars['Int']>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
@@ -12442,8 +12560,8 @@ export type UserCreateManyLocationInput = {
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type UserCreateManyLocationInputEnvelope = {
-  data: Array<UserCreateManyLocationInput>;
+export type UserCreateManyRegionInputEnvelope = {
+  data: Array<UserCreateManyRegionInput>;
   skipDuplicates?: Maybe<Scalars['Boolean']>;
 };
 
@@ -12454,11 +12572,18 @@ export type UserCreateNestedManyWithoutClubInput = {
   createMany?: Maybe<UserCreateManyClubInputEnvelope>;
 };
 
-export type UserCreateNestedManyWithoutLocationInput = {
+export type UserCreateNestedManyWithoutCountryInput = {
   connect?: Maybe<Array<UserWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<UserCreateOrConnectWithoutLocationInput>>;
-  create?: Maybe<Array<UserCreateWithoutLocationInput>>;
-  createMany?: Maybe<UserCreateManyLocationInputEnvelope>;
+  connectOrCreate?: Maybe<Array<UserCreateOrConnectWithoutCountryInput>>;
+  create?: Maybe<Array<UserCreateWithoutCountryInput>>;
+  createMany?: Maybe<UserCreateManyCountryInputEnvelope>;
+};
+
+export type UserCreateNestedManyWithoutRegionInput = {
+  connect?: Maybe<Array<UserWhereUniqueInput>>;
+  connectOrCreate?: Maybe<Array<UserCreateOrConnectWithoutRegionInput>>;
+  create?: Maybe<Array<UserCreateWithoutRegionInput>>;
+  createMany?: Maybe<UserCreateManyRegionInputEnvelope>;
 };
 
 export type UserCreateNestedOneWithoutAcceptancesInput = {
@@ -12512,8 +12637,13 @@ export type UserCreateOrConnectWithoutCommentsInput = {
   where: UserWhereUniqueInput;
 };
 
-export type UserCreateOrConnectWithoutLocationInput = {
-  create: UserCreateWithoutLocationInput;
+export type UserCreateOrConnectWithoutCountryInput = {
+  create: UserCreateWithoutCountryInput;
+  where: UserWhereUniqueInput;
+};
+
+export type UserCreateOrConnectWithoutRegionInput = {
+  create: UserCreateWithoutRegionInput;
   where: UserWhereUniqueInput;
 };
 
@@ -12540,13 +12670,14 @@ export type UserCreateOrConnectWithoutRoutesSetInput = {
 export type UserCreateWithoutAcceptancesInput = {
   club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutUsersInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
   lastName: Scalars['String'];
-  location?: Maybe<LocationCreateNestedOneWithoutUsersInput>;
   password: Scalars['String'];
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
   results?: Maybe<ResultCreateNestedManyWithoutApprovedByInput>;
   role?: Maybe<UserRole>;
@@ -12558,13 +12689,14 @@ export type UserCreateWithoutAcceptancesInput = {
 export type UserCreateWithoutClubInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutUsersInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
   lastName: Scalars['String'];
-  location?: Maybe<LocationCreateNestedOneWithoutUsersInput>;
   password: Scalars['String'];
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
   results?: Maybe<ResultCreateNestedManyWithoutApprovedByInput>;
   role?: Maybe<UserRole>;
@@ -12576,13 +12708,14 @@ export type UserCreateWithoutClubInput = {
 export type UserCreateWithoutCommentsInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
   club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutUsersInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
   lastName: Scalars['String'];
-  location?: Maybe<LocationCreateNestedOneWithoutUsersInput>;
   password: Scalars['String'];
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
   results?: Maybe<ResultCreateNestedManyWithoutApprovedByInput>;
   role?: Maybe<UserRole>;
@@ -12591,10 +12724,30 @@ export type UserCreateWithoutCommentsInput = {
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type UserCreateWithoutLocationInput = {
+export type UserCreateWithoutCountryInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
   club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  email: Scalars['String'];
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  password: Scalars['String'];
+  publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
+  registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
+  results?: Maybe<ResultCreateNestedManyWithoutApprovedByInput>;
+  role?: Maybe<UserRole>;
+  routesJudged?: Maybe<RouteCreateNestedManyWithoutJudgeInput>;
+  routesSet?: Maybe<RouteCreateNestedManyWithoutSetterInput>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type UserCreateWithoutRegionInput = {
+  acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
+  club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
+  comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutUsersInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
@@ -12613,13 +12766,14 @@ export type UserCreateWithoutRegistrationsInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
   club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutUsersInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
   lastName: Scalars['String'];
-  location?: Maybe<LocationCreateNestedOneWithoutUsersInput>;
   password: Scalars['String'];
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   results?: Maybe<ResultCreateNestedManyWithoutApprovedByInput>;
   role?: Maybe<UserRole>;
   routesJudged?: Maybe<RouteCreateNestedManyWithoutJudgeInput>;
@@ -12631,13 +12785,14 @@ export type UserCreateWithoutResultsInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
   club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutUsersInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
   lastName: Scalars['String'];
-  location?: Maybe<LocationCreateNestedOneWithoutUsersInput>;
   password: Scalars['String'];
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
   role?: Maybe<UserRole>;
   routesJudged?: Maybe<RouteCreateNestedManyWithoutJudgeInput>;
@@ -12649,13 +12804,14 @@ export type UserCreateWithoutRoutesJudgedInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
   club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutUsersInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
   lastName: Scalars['String'];
-  location?: Maybe<LocationCreateNestedOneWithoutUsersInput>;
   password: Scalars['String'];
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
   results?: Maybe<ResultCreateNestedManyWithoutApprovedByInput>;
   role?: Maybe<UserRole>;
@@ -12667,13 +12823,14 @@ export type UserCreateWithoutRoutesSetInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
   club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutUsersInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
   lastName: Scalars['String'];
-  location?: Maybe<LocationCreateNestedOneWithoutUsersInput>;
   password: Scalars['String'];
   publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
   results?: Maybe<ResultCreateNestedManyWithoutApprovedByInput>;
   role?: Maybe<UserRole>;
@@ -12689,14 +12846,15 @@ export type UserGroupBy = {
   _min?: Maybe<UserMinAggregate>;
   _sum?: Maybe<UserSumAggregate>;
   clubId?: Maybe<Scalars['Int']>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt: Scalars['DateTime'];
   email: Scalars['String'];
   firstName: Scalars['String'];
   id: Scalars['Int'];
   lastName: Scalars['String'];
-  locationId?: Maybe<Scalars['Int']>;
   password: Scalars['String'];
   publicId: Scalars['String'];
+  regionId?: Maybe<Scalars['Int']>;
   role: UserRole;
   updatedAt: Scalars['DateTime'];
 };
@@ -12716,28 +12874,30 @@ export type UserListRelationFilter = {
 export type UserMaxAggregate = {
   __typename?: 'UserMaxAggregate';
   clubId?: Maybe<Scalars['Int']>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email?: Maybe<Scalars['String']>;
   firstName?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
   lastName?: Maybe<Scalars['String']>;
-  locationId?: Maybe<Scalars['Int']>;
   password?: Maybe<Scalars['String']>;
   publicId?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
   role?: Maybe<UserRole>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type UserMaxOrderByAggregateInput = {
   clubId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   email?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   lastName?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   password?: Maybe<SortOrder>;
   publicId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   role?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
@@ -12745,42 +12905,45 @@ export type UserMaxOrderByAggregateInput = {
 export type UserMinAggregate = {
   __typename?: 'UserMinAggregate';
   clubId?: Maybe<Scalars['Int']>;
+  countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email?: Maybe<Scalars['String']>;
   firstName?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
   lastName?: Maybe<Scalars['String']>;
-  locationId?: Maybe<Scalars['Int']>;
   password?: Maybe<Scalars['String']>;
   publicId?: Maybe<Scalars['String']>;
+  regionId?: Maybe<Scalars['Int']>;
   role?: Maybe<UserRole>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type UserMinOrderByAggregateInput = {
   clubId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   email?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   lastName?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   password?: Maybe<SortOrder>;
   publicId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   role?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
 
 export type UserOrderByInput = {
   clubId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   email?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   lastName?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   password?: Maybe<SortOrder>;
   publicId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   role?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
@@ -12792,14 +12955,15 @@ export type UserOrderByWithAggregationInput = {
   _min?: Maybe<UserMinOrderByAggregateInput>;
   _sum?: Maybe<UserSumOrderByAggregateInput>;
   clubId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   email?: Maybe<SortOrder>;
   firstName?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   lastName?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
   password?: Maybe<SortOrder>;
   publicId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
   role?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
@@ -12818,14 +12982,15 @@ export enum UserRole {
 
 export enum UserScalarFieldEnum {
   ClubId = 'clubId',
+  CountryId = 'countryId',
   CreatedAt = 'createdAt',
   Email = 'email',
   FirstName = 'firstName',
   Id = 'id',
   LastName = 'lastName',
-  LocationId = 'locationId',
   Password = 'password',
   PublicId = 'publicId',
+  RegionId = 'regionId',
   Role = 'role',
   UpdatedAt = 'updatedAt',
 }
@@ -12835,14 +13000,15 @@ export type UserScalarWhereInput = {
   NOT?: Maybe<Array<UserScalarWhereInput>>;
   OR?: Maybe<Array<UserScalarWhereInput>>;
   clubId?: Maybe<IntNullableFilter>;
+  countryId?: Maybe<IntNullableFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   email?: Maybe<StringFilter>;
   firstName?: Maybe<StringFilter>;
   id?: Maybe<IntFilter>;
   lastName?: Maybe<StringFilter>;
-  locationId?: Maybe<IntNullableFilter>;
   password?: Maybe<StringFilter>;
   publicId?: Maybe<StringFilter>;
+  regionId?: Maybe<IntNullableFilter>;
   role?: Maybe<EnumUserRoleFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
 };
@@ -12852,14 +13018,15 @@ export type UserScalarWhereWithAggregatesInput = {
   NOT?: Maybe<Array<UserScalarWhereWithAggregatesInput>>;
   OR?: Maybe<Array<UserScalarWhereWithAggregatesInput>>;
   clubId?: Maybe<IntNullableWithAggregatesFilter>;
+  countryId?: Maybe<IntNullableWithAggregatesFilter>;
   createdAt?: Maybe<DateTimeWithAggregatesFilter>;
   email?: Maybe<StringWithAggregatesFilter>;
   firstName?: Maybe<StringWithAggregatesFilter>;
   id?: Maybe<IntWithAggregatesFilter>;
   lastName?: Maybe<StringWithAggregatesFilter>;
-  locationId?: Maybe<IntNullableWithAggregatesFilter>;
   password?: Maybe<StringWithAggregatesFilter>;
   publicId?: Maybe<StringWithAggregatesFilter>;
+  regionId?: Maybe<IntNullableWithAggregatesFilter>;
   role?: Maybe<EnumUserRoleWithAggregatesFilter>;
   updatedAt?: Maybe<DateTimeWithAggregatesFilter>;
 };
@@ -12867,27 +13034,30 @@ export type UserScalarWhereWithAggregatesInput = {
 export type UserSumAggregate = {
   __typename?: 'UserSumAggregate';
   clubId?: Maybe<Scalars['Int']>;
+  countryId?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['Int']>;
-  locationId?: Maybe<Scalars['Int']>;
+  regionId?: Maybe<Scalars['Int']>;
 };
 
 export type UserSumOrderByAggregateInput = {
   clubId?: Maybe<SortOrder>;
+  countryId?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  locationId?: Maybe<SortOrder>;
+  regionId?: Maybe<SortOrder>;
 };
 
 export type UserUpdateInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
   club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
+  country?: Maybe<CountryUpdateOneWithoutUsersInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneWithoutUsersInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
   results?: Maybe<ResultUpdateManyWithoutApprovedByInput>;
   role?: Maybe<EnumUserRoleFieldUpdateOperationsInput>;
@@ -12912,7 +13082,12 @@ export type UserUpdateManyWithWhereWithoutClubInput = {
   where: UserScalarWhereInput;
 };
 
-export type UserUpdateManyWithWhereWithoutLocationInput = {
+export type UserUpdateManyWithWhereWithoutCountryInput = {
+  data: UserUpdateManyMutationInput;
+  where: UserScalarWhereInput;
+};
+
+export type UserUpdateManyWithWhereWithoutRegionInput = {
   data: UserUpdateManyMutationInput;
   where: UserScalarWhereInput;
 };
@@ -12931,18 +13106,32 @@ export type UserUpdateManyWithoutClubInput = {
   upsert?: Maybe<Array<UserUpsertWithWhereUniqueWithoutClubInput>>;
 };
 
-export type UserUpdateManyWithoutLocationInput = {
+export type UserUpdateManyWithoutCountryInput = {
   connect?: Maybe<Array<UserWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<UserCreateOrConnectWithoutLocationInput>>;
-  create?: Maybe<Array<UserCreateWithoutLocationInput>>;
-  createMany?: Maybe<UserCreateManyLocationInputEnvelope>;
+  connectOrCreate?: Maybe<Array<UserCreateOrConnectWithoutCountryInput>>;
+  create?: Maybe<Array<UserCreateWithoutCountryInput>>;
+  createMany?: Maybe<UserCreateManyCountryInputEnvelope>;
   delete?: Maybe<Array<UserWhereUniqueInput>>;
   deleteMany?: Maybe<Array<UserScalarWhereInput>>;
   disconnect?: Maybe<Array<UserWhereUniqueInput>>;
   set?: Maybe<Array<UserWhereUniqueInput>>;
-  update?: Maybe<Array<UserUpdateWithWhereUniqueWithoutLocationInput>>;
-  updateMany?: Maybe<Array<UserUpdateManyWithWhereWithoutLocationInput>>;
-  upsert?: Maybe<Array<UserUpsertWithWhereUniqueWithoutLocationInput>>;
+  update?: Maybe<Array<UserUpdateWithWhereUniqueWithoutCountryInput>>;
+  updateMany?: Maybe<Array<UserUpdateManyWithWhereWithoutCountryInput>>;
+  upsert?: Maybe<Array<UserUpsertWithWhereUniqueWithoutCountryInput>>;
+};
+
+export type UserUpdateManyWithoutRegionInput = {
+  connect?: Maybe<Array<UserWhereUniqueInput>>;
+  connectOrCreate?: Maybe<Array<UserCreateOrConnectWithoutRegionInput>>;
+  create?: Maybe<Array<UserCreateWithoutRegionInput>>;
+  createMany?: Maybe<UserCreateManyRegionInputEnvelope>;
+  delete?: Maybe<Array<UserWhereUniqueInput>>;
+  deleteMany?: Maybe<Array<UserScalarWhereInput>>;
+  disconnect?: Maybe<Array<UserWhereUniqueInput>>;
+  set?: Maybe<Array<UserWhereUniqueInput>>;
+  update?: Maybe<Array<UserUpdateWithWhereUniqueWithoutRegionInput>>;
+  updateMany?: Maybe<Array<UserUpdateManyWithWhereWithoutRegionInput>>;
+  upsert?: Maybe<Array<UserUpsertWithWhereUniqueWithoutRegionInput>>;
 };
 
 export type UserUpdateOneRequiredWithoutAcceptancesInput = {
@@ -13000,21 +13189,27 @@ export type UserUpdateWithWhereUniqueWithoutClubInput = {
   where: UserWhereUniqueInput;
 };
 
-export type UserUpdateWithWhereUniqueWithoutLocationInput = {
-  data: UserUpdateWithoutLocationInput;
+export type UserUpdateWithWhereUniqueWithoutCountryInput = {
+  data: UserUpdateWithoutCountryInput;
+  where: UserWhereUniqueInput;
+};
+
+export type UserUpdateWithWhereUniqueWithoutRegionInput = {
+  data: UserUpdateWithoutRegionInput;
   where: UserWhereUniqueInput;
 };
 
 export type UserUpdateWithoutAcceptancesInput = {
   club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
+  country?: Maybe<CountryUpdateOneWithoutUsersInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneWithoutUsersInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
   results?: Maybe<ResultUpdateManyWithoutApprovedByInput>;
   role?: Maybe<EnumUserRoleFieldUpdateOperationsInput>;
@@ -13026,13 +13221,14 @@ export type UserUpdateWithoutAcceptancesInput = {
 export type UserUpdateWithoutClubInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
+  country?: Maybe<CountryUpdateOneWithoutUsersInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneWithoutUsersInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
   results?: Maybe<ResultUpdateManyWithoutApprovedByInput>;
   role?: Maybe<EnumUserRoleFieldUpdateOperationsInput>;
@@ -13044,13 +13240,14 @@ export type UserUpdateWithoutClubInput = {
 export type UserUpdateWithoutCommentsInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
   club?: Maybe<ClubUpdateOneWithoutUsersInput>;
+  country?: Maybe<CountryUpdateOneWithoutUsersInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneWithoutUsersInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
   results?: Maybe<ResultUpdateManyWithoutApprovedByInput>;
   role?: Maybe<EnumUserRoleFieldUpdateOperationsInput>;
@@ -13059,10 +13256,30 @@ export type UserUpdateWithoutCommentsInput = {
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type UserUpdateWithoutLocationInput = {
+export type UserUpdateWithoutCountryInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
   club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  email?: Maybe<StringFieldUpdateOperationsInput>;
+  firstName?: Maybe<StringFieldUpdateOperationsInput>;
+  lastName?: Maybe<StringFieldUpdateOperationsInput>;
+  password?: Maybe<StringFieldUpdateOperationsInput>;
+  publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutUsersInput>;
+  registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
+  results?: Maybe<ResultUpdateManyWithoutApprovedByInput>;
+  role?: Maybe<EnumUserRoleFieldUpdateOperationsInput>;
+  routesJudged?: Maybe<RouteUpdateManyWithoutJudgeInput>;
+  routesSet?: Maybe<RouteUpdateManyWithoutSetterInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type UserUpdateWithoutRegionInput = {
+  acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
+  club?: Maybe<ClubUpdateOneWithoutUsersInput>;
+  comments?: Maybe<CommentUpdateManyWithoutUserInput>;
+  country?: Maybe<CountryUpdateOneWithoutUsersInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
@@ -13081,13 +13298,14 @@ export type UserUpdateWithoutRegistrationsInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
   club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
+  country?: Maybe<CountryUpdateOneWithoutUsersInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneWithoutUsersInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   results?: Maybe<ResultUpdateManyWithoutApprovedByInput>;
   role?: Maybe<EnumUserRoleFieldUpdateOperationsInput>;
   routesJudged?: Maybe<RouteUpdateManyWithoutJudgeInput>;
@@ -13099,13 +13317,14 @@ export type UserUpdateWithoutResultsInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
   club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
+  country?: Maybe<CountryUpdateOneWithoutUsersInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneWithoutUsersInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
   role?: Maybe<EnumUserRoleFieldUpdateOperationsInput>;
   routesJudged?: Maybe<RouteUpdateManyWithoutJudgeInput>;
@@ -13117,13 +13336,14 @@ export type UserUpdateWithoutRoutesJudgedInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
   club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
+  country?: Maybe<CountryUpdateOneWithoutUsersInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneWithoutUsersInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
   results?: Maybe<ResultUpdateManyWithoutApprovedByInput>;
   role?: Maybe<EnumUserRoleFieldUpdateOperationsInput>;
@@ -13135,13 +13355,14 @@ export type UserUpdateWithoutRoutesSetInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
   club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
+  country?: Maybe<CountryUpdateOneWithoutUsersInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
-  location?: Maybe<LocationUpdateOneWithoutUsersInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
   results?: Maybe<ResultUpdateManyWithoutApprovedByInput>;
   role?: Maybe<EnumUserRoleFieldUpdateOperationsInput>;
@@ -13155,9 +13376,15 @@ export type UserUpsertWithWhereUniqueWithoutClubInput = {
   where: UserWhereUniqueInput;
 };
 
-export type UserUpsertWithWhereUniqueWithoutLocationInput = {
-  create: UserCreateWithoutLocationInput;
-  update: UserUpdateWithoutLocationInput;
+export type UserUpsertWithWhereUniqueWithoutCountryInput = {
+  create: UserCreateWithoutCountryInput;
+  update: UserUpdateWithoutCountryInput;
+  where: UserWhereUniqueInput;
+};
+
+export type UserUpsertWithWhereUniqueWithoutRegionInput = {
+  create: UserCreateWithoutRegionInput;
+  update: UserUpdateWithoutRegionInput;
   where: UserWhereUniqueInput;
 };
 
@@ -13199,15 +13426,17 @@ export type UserWhereInput = {
   club?: Maybe<ClubRelationFilter>;
   clubId?: Maybe<IntNullableFilter>;
   comments?: Maybe<CommentListRelationFilter>;
+  country?: Maybe<CountryRelationFilter>;
+  countryId?: Maybe<IntNullableFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   email?: Maybe<StringFilter>;
   firstName?: Maybe<StringFilter>;
   id?: Maybe<IntFilter>;
   lastName?: Maybe<StringFilter>;
-  location?: Maybe<LocationRelationFilter>;
-  locationId?: Maybe<IntNullableFilter>;
   password?: Maybe<StringFilter>;
   publicId?: Maybe<StringFilter>;
+  region?: Maybe<RegionRelationFilter>;
+  regionId?: Maybe<IntNullableFilter>;
   registrations?: Maybe<RegistrationListRelationFilter>;
   results?: Maybe<ResultListRelationFilter>;
   role?: Maybe<EnumUserRoleFilter>;

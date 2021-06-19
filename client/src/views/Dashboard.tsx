@@ -1,32 +1,35 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Layout } from 'antd';
 import styled from '@emotion/styled';
 
-import { DashboardContext } from '../context';
 import { BreadCrumbs, Sidebar } from '../components';
 import { COLOR, HEADER_HEIGHT } from '../constants';
 import { DashboardRoutes } from '../routes';
 import { useCurrentUser } from '../hooks';
+import { loggedUserInfo } from '../apollo/cache';
 
 const Dashboard: FC = () => {
   const { userInfo } = useCurrentUser();
   const location = useLocation();
 
+  useEffect(() => {
+    // Update reactive variable on user info change
+    loggedUserInfo(userInfo);
+  }, [userInfo]);
+
   return (
-    <DashboardContext.Provider value={{ userInfo }}>
-      <Layout>
-        <Sidebar />
-        <StyledLayout>
-          <Content>
-            <BreadCrumbs pathName={location.pathname} />
-            <Container>
-              <DashboardRoutes />
-            </Container>
-          </Content>
-        </StyledLayout>
-      </Layout>
-    </DashboardContext.Provider>
+    <Layout>
+      <Sidebar />
+      <StyledLayout>
+        <Content>
+          <BreadCrumbs pathName={location.pathname} />
+          <Container>
+            <DashboardRoutes />
+          </Container>
+        </Content>
+      </StyledLayout>
+    </Layout>
   );
 };
 

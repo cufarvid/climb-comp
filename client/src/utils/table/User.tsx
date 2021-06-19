@@ -3,6 +3,7 @@ import { Space, Tag, TagProps } from 'antd';
 import { ColumnsType } from 'antd/lib/table/interface';
 
 import { User, UserRole } from '../../types/__generated__';
+import { MESSAGE } from '../../constants';
 
 export interface UserRow {
   id: number;
@@ -101,6 +102,6 @@ export const parseUsers = (users: User[] | undefined): UserRow[] => {
     lastName: user.lastName,
     email: user.email,
     role: user.role,
-    country: user.location?.country.name ?? '',
+    country: user.country?.name || MESSAGE.NO_DATA,
   }));
 };
