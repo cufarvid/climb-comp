@@ -50,6 +50,12 @@ export class UserResolver {
           email: registerInput.email,
           role: registerInput.role,
           password: await bcrypt.hash(registerInput.password, 10),
+          region: registerInput.regionId
+            ? { connect: { id: registerInput.regionId } }
+            : undefined,
+          country: registerInput.countryId
+            ? { connect: { id: registerInput.countryId } }
+            : undefined,
         },
       });
     } catch (e) {

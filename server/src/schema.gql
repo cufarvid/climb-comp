@@ -6001,11 +6001,12 @@ input RegionWhereUniqueInput {
 }
 
 input RegisterInput {
+  countryId: Float
   email: String!
   firstName: String!
   lastName: String!
-  locationId: Float
   password: String!
+  regionId: Float
   role: UserRole!
 }
 
