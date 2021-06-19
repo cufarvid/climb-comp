@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client/core';
 
-export const LIST_COUNTRIES = gql`
+export const LIST_REGIONS = gql`
   query {
-    countries(orderBy: [{ id: asc }]) {
+    regions(orderBy: [{ id: asc }]) {
       id
       name
     }

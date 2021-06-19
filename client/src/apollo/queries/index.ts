@@ -6,3 +6,4 @@ export * from './Competitor';
 export * from './Club';
 export * from './Route';
 export * from './Country';
+export * from './Region';
