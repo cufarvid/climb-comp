@@ -6,7 +6,11 @@ import { gql } from '@apollo/client/core';
  */
 export const LIST_COMPETITIONS = gql`
   query ListCompetitions($date: DateTime, $take: Int = 4) {
-    competitions(where: { startDate: { gte: $date } }, take: $take) {
+    competitions(
+      where: { startDate: { gte: $date } }
+      take: $take
+      orderBy: [{ startDate: asc }]
+    ) {
       id
       name
       startDate

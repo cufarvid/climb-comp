@@ -2,7 +2,7 @@ import { gql } from '@apollo/client/core';
 
 export const LIST_COMPETITORS = gql`
   query {
-    competitors {
+    competitors(orderBy: [{ id: desc }]) {
       id
       firstName
       lastName

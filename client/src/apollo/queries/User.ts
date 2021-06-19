@@ -36,7 +36,7 @@ export const USER_INFO = gql`
 
 export const LIST_USERS = gql`
   query {
-    users {
+    users(orderBy: [{ id: desc }]) {
       id
       firstName
       lastName
