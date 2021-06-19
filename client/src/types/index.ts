@@ -1,3 +1,5 @@
+import { ApolloError } from '@apollo/client';
+
 export type DictionaryOf<T> = {
   [key in string | number]: T;
 };
@@ -34,4 +36,9 @@ export enum CompetitionType {
   LEAD = 'Lead',
   BOULDER = 'Boulder',
   SPEED = 'Speed',
+}
+
+export interface QueryHookBase {
+  error: ApolloError | undefined;
+  loading: boolean;
 }
