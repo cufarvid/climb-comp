@@ -5851,6 +5851,7 @@ input RegisterInput {
   lastName: String!
   locationId: Float
   password: String!
+  role: UserRole!
 }
 
 type Registration {

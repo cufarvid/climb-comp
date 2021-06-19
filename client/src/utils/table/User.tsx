@@ -15,8 +15,12 @@ export interface UserRow {
 
 /**
  * Users table column definition
+ * Takes a callback for current row setter
+ * @param editCallback Current row edit callback
  */
-export const USER_COLUMNS: ColumnsType<UserRow> = [
+export const getUserColumns = (
+  editCallback: (row: UserRow) => void,
+): ColumnsType<UserRow> => [
   {
     title: 'ID',
     dataIndex: 'id',
@@ -57,11 +61,10 @@ export const USER_COLUMNS: ColumnsType<UserRow> = [
   {
     title: 'Action',
     key: 'action',
-    render: function SpaceRender(): JSX.Element {
+    render: function SpaceRender(row: UserRow): JSX.Element {
       return (
         <Space size="middle">
-          <a>Edit</a>
-          <a>Delete</a>
+          <a onClick={() => editCallback(row)}>Edit</a>
         </Space>
       );
     },

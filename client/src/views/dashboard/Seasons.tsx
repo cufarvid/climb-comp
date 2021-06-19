@@ -15,6 +15,7 @@ const Seasons: FC = () => {
         Add new
       </Button>
       <Table
+        rowKey="id"
         columns={SEASON_COLUMNS}
         dataSource={parseSeasons(data?.seasons)}
         loading={loading}
