@@ -198,6 +198,8 @@ model Competition {
   compTypeId     Int
   season         Season          @relation(fields: [seasonId], references: [id])
   seasonId       Int
+  displayImage   Image?          @relation(fields: [displayImageId], references: [id])
+  displayImageId Int?
   startLists     StartList[]
   results        Result[]
   registrations  Registration[]
@@ -324,4 +326,13 @@ model CategoryRound {
   competitionId Int
   category      Category    @relation(fields: [categoryId], references: [id])
   categoryId    Int
+}
+
+model Image {
+  id           Int           @id @default(autoincrement())
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  url          String
+  description  String?
+  competitions Competition[]
 }
