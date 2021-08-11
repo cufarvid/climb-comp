@@ -103,6 +103,15 @@ export type AggregateGrade = {
   _sum?: Maybe<GradeSumAggregate>;
 };
 
+export type AggregateImage = {
+  __typename?: 'AggregateImage';
+  _avg?: Maybe<ImageAvgAggregate>;
+  _count?: Maybe<ImageCountAggregate>;
+  _max?: Maybe<ImageMaxAggregate>;
+  _min?: Maybe<ImageMinAggregate>;
+  _sum?: Maybe<ImageSumAggregate>;
+};
+
 export type AggregateRegion = {
   __typename?: 'AggregateRegion';
   _avg?: Maybe<RegionAvgAggregate>;
@@ -2059,6 +2068,8 @@ export type Competition = {
   countryId?: Maybe<Scalars['Int']>;
   createdAt: Scalars['DateTime'];
   description: Scalars['String'];
+  displayImage?: Maybe<Image>;
+  displayImageId?: Maybe<Scalars['Int']>;
   endDate: Scalars['DateTime'];
   id: Scalars['Int'];
   name: Scalars['String'];
@@ -2124,6 +2135,7 @@ export type CompetitionAvgAggregate = {
   clubId?: Maybe<Scalars['Float']>;
   compTypeId?: Maybe<Scalars['Float']>;
   countryId?: Maybe<Scalars['Float']>;
+  displayImageId?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
   regionId?: Maybe<Scalars['Float']>;
   seasonId?: Maybe<Scalars['Float']>;
@@ -2133,6 +2145,7 @@ export type CompetitionAvgOrderByAggregateInput = {
   clubId?: Maybe<SortOrder>;
   compTypeId?: Maybe<SortOrder>;
   countryId?: Maybe<SortOrder>;
+  displayImageId?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   regionId?: Maybe<SortOrder>;
   seasonId?: Maybe<SortOrder>;
@@ -2148,6 +2161,7 @@ export type CompetitionCountAggregate = {
   countryId: Scalars['Int'];
   createdAt: Scalars['Int'];
   description: Scalars['Int'];
+  displayImageId: Scalars['Int'];
   endDate: Scalars['Int'];
   id: Scalars['Int'];
   name: Scalars['Int'];
@@ -2165,6 +2179,7 @@ export type CompetitionCountOrderByAggregateInput = {
   countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
+  displayImageId?: Maybe<SortOrder>;
   endDate?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
@@ -2183,6 +2198,7 @@ export type CompetitionCreateInput = {
   country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImage?: Maybe<ImageCreateNestedOneWithoutCompetitionsInput>;
   endDate: Scalars['DateTime'];
   name: Scalars['String'];
   region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
@@ -2202,6 +2218,7 @@ export type CompetitionCreateManyClubInput = {
   countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImageId?: Maybe<Scalars['Int']>;
   endDate: Scalars['DateTime'];
   id?: Maybe<Scalars['Int']>;
   name: Scalars['String'];
@@ -2223,6 +2240,7 @@ export type CompetitionCreateManyCompTypeInput = {
   countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImageId?: Maybe<Scalars['Int']>;
   endDate: Scalars['DateTime'];
   id?: Maybe<Scalars['Int']>;
   name: Scalars['String'];
@@ -2244,6 +2262,7 @@ export type CompetitionCreateManyCountryInput = {
   compTypeId: Scalars['Int'];
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImageId?: Maybe<Scalars['Int']>;
   endDate: Scalars['DateTime'];
   id?: Maybe<Scalars['Int']>;
   name: Scalars['String'];
@@ -2258,6 +2277,28 @@ export type CompetitionCreateManyCountryInputEnvelope = {
   skipDuplicates?: Maybe<Scalars['Boolean']>;
 };
 
+export type CompetitionCreateManyDisplayImageInput = {
+  active?: Maybe<Scalars['Boolean']>;
+  address: Scalars['String'];
+  clubId: Scalars['Int'];
+  compTypeId: Scalars['Int'];
+  countryId?: Maybe<Scalars['Int']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description: Scalars['String'];
+  endDate: Scalars['DateTime'];
+  id?: Maybe<Scalars['Int']>;
+  name: Scalars['String'];
+  regionId?: Maybe<Scalars['Int']>;
+  seasonId: Scalars['Int'];
+  startDate: Scalars['DateTime'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type CompetitionCreateManyDisplayImageInputEnvelope = {
+  data: Array<CompetitionCreateManyDisplayImageInput>;
+  skipDuplicates?: Maybe<Scalars['Boolean']>;
+};
+
 export type CompetitionCreateManyInput = {
   active?: Maybe<Scalars['Boolean']>;
   address: Scalars['String'];
@@ -2266,6 +2307,7 @@ export type CompetitionCreateManyInput = {
   countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImageId?: Maybe<Scalars['Int']>;
   endDate: Scalars['DateTime'];
   id?: Maybe<Scalars['Int']>;
   name: Scalars['String'];
@@ -2283,6 +2325,7 @@ export type CompetitionCreateManyRegionInput = {
   countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImageId?: Maybe<Scalars['Int']>;
   endDate: Scalars['DateTime'];
   id?: Maybe<Scalars['Int']>;
   name: Scalars['String'];
@@ -2304,6 +2347,7 @@ export type CompetitionCreateManySeasonInput = {
   countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImageId?: Maybe<Scalars['Int']>;
   endDate: Scalars['DateTime'];
   id?: Maybe<Scalars['Int']>;
   name: Scalars['String'];
@@ -2338,6 +2382,15 @@ export type CompetitionCreateNestedManyWithoutCountryInput = {
   connectOrCreate?: Maybe<Array<CompetitionCreateOrConnectWithoutCountryInput>>;
   create?: Maybe<Array<CompetitionCreateWithoutCountryInput>>;
   createMany?: Maybe<CompetitionCreateManyCountryInputEnvelope>;
+};
+
+export type CompetitionCreateNestedManyWithoutDisplayImageInput = {
+  connect?: Maybe<Array<CompetitionWhereUniqueInput>>;
+  connectOrCreate?: Maybe<
+    Array<CompetitionCreateOrConnectWithoutDisplayImageInput>
+  >;
+  create?: Maybe<Array<CompetitionCreateWithoutDisplayImageInput>>;
+  createMany?: Maybe<CompetitionCreateManyDisplayImageInputEnvelope>;
 };
 
 export type CompetitionCreateNestedManyWithoutRegionInput = {
@@ -2404,6 +2457,11 @@ export type CompetitionCreateOrConnectWithoutCountryInput = {
   where: CompetitionWhereUniqueInput;
 };
 
+export type CompetitionCreateOrConnectWithoutDisplayImageInput = {
+  create: CompetitionCreateWithoutDisplayImageInput;
+  where: CompetitionWhereUniqueInput;
+};
+
 export type CompetitionCreateOrConnectWithoutRegionInput = {
   create: CompetitionCreateWithoutRegionInput;
   where: CompetitionWhereUniqueInput;
@@ -2442,6 +2500,7 @@ export type CompetitionCreateWithoutCategoryRoundsInput = {
   country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImage?: Maybe<ImageCreateNestedOneWithoutCompetitionsInput>;
   endDate: Scalars['DateTime'];
   name: Scalars['String'];
   region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
@@ -2462,6 +2521,7 @@ export type CompetitionCreateWithoutClubInput = {
   country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImage?: Maybe<ImageCreateNestedOneWithoutCompetitionsInput>;
   endDate: Scalars['DateTime'];
   name: Scalars['String'];
   region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
@@ -2482,6 +2542,7 @@ export type CompetitionCreateWithoutCompTypeInput = {
   country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImage?: Maybe<ImageCreateNestedOneWithoutCompetitionsInput>;
   endDate: Scalars['DateTime'];
   name: Scalars['String'];
   region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
@@ -2500,6 +2561,28 @@ export type CompetitionCreateWithoutCountryInput = {
   categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCompetitionInput>;
   club: ClubCreateNestedOneWithoutCompetitionsInput;
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description: Scalars['String'];
+  displayImage?: Maybe<ImageCreateNestedOneWithoutCompetitionsInput>;
+  endDate: Scalars['DateTime'];
+  name: Scalars['String'];
+  region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
+  registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitionInput>;
+  results?: Maybe<ResultCreateNestedManyWithoutCompetitionInput>;
+  routes?: Maybe<RouteCreateNestedManyWithoutCompetitionInput>;
+  season: SeasonCreateNestedOneWithoutCompetitionsInput;
+  startDate: Scalars['DateTime'];
+  startLists?: Maybe<StartListCreateNestedManyWithoutCompetitionInput>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type CompetitionCreateWithoutDisplayImageInput = {
+  active?: Maybe<Scalars['Boolean']>;
+  address: Scalars['String'];
+  categoryRounds?: Maybe<CategoryRoundCreateNestedManyWithoutCompetitionInput>;
+  club: ClubCreateNestedOneWithoutCompetitionsInput;
+  compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput;
+  country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   endDate: Scalars['DateTime'];
@@ -2523,6 +2606,7 @@ export type CompetitionCreateWithoutRegionInput = {
   country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImage?: Maybe<ImageCreateNestedOneWithoutCompetitionsInput>;
   endDate: Scalars['DateTime'];
   name: Scalars['String'];
   registrations?: Maybe<RegistrationCreateNestedManyWithoutCompetitionInput>;
@@ -2543,6 +2627,7 @@ export type CompetitionCreateWithoutRegistrationsInput = {
   country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImage?: Maybe<ImageCreateNestedOneWithoutCompetitionsInput>;
   endDate: Scalars['DateTime'];
   name: Scalars['String'];
   region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
@@ -2563,6 +2648,7 @@ export type CompetitionCreateWithoutResultsInput = {
   country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImage?: Maybe<ImageCreateNestedOneWithoutCompetitionsInput>;
   endDate: Scalars['DateTime'];
   name: Scalars['String'];
   region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
@@ -2583,6 +2669,7 @@ export type CompetitionCreateWithoutRoutesInput = {
   country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImage?: Maybe<ImageCreateNestedOneWithoutCompetitionsInput>;
   endDate: Scalars['DateTime'];
   name: Scalars['String'];
   region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
@@ -2603,6 +2690,7 @@ export type CompetitionCreateWithoutSeasonInput = {
   country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImage?: Maybe<ImageCreateNestedOneWithoutCompetitionsInput>;
   endDate: Scalars['DateTime'];
   name: Scalars['String'];
   region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
@@ -2623,6 +2711,7 @@ export type CompetitionCreateWithoutStartListsInput = {
   country?: Maybe<CountryCreateNestedOneWithoutCompetitionsInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  displayImage?: Maybe<ImageCreateNestedOneWithoutCompetitionsInput>;
   endDate: Scalars['DateTime'];
   name: Scalars['String'];
   region?: Maybe<RegionCreateNestedOneWithoutCompetitionsInput>;
@@ -2648,6 +2737,7 @@ export type CompetitionGroupBy = {
   countryId?: Maybe<Scalars['Int']>;
   createdAt: Scalars['DateTime'];
   description: Scalars['String'];
+  displayImageId?: Maybe<Scalars['Int']>;
   endDate: Scalars['DateTime'];
   id: Scalars['Int'];
   name: Scalars['String'];
@@ -2672,6 +2762,7 @@ export type CompetitionMaxAggregate = {
   countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
+  displayImageId?: Maybe<Scalars['Int']>;
   endDate?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
@@ -2689,6 +2780,7 @@ export type CompetitionMaxOrderByAggregateInput = {
   countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
+  displayImageId?: Maybe<SortOrder>;
   endDate?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
@@ -2707,6 +2799,7 @@ export type CompetitionMinAggregate = {
   countryId?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
+  displayImageId?: Maybe<Scalars['Int']>;
   endDate?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
@@ -2724,6 +2817,7 @@ export type CompetitionMinOrderByAggregateInput = {
   countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
+  displayImageId?: Maybe<SortOrder>;
   endDate?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
@@ -2741,6 +2835,7 @@ export type CompetitionOrderByInput = {
   countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
+  displayImageId?: Maybe<SortOrder>;
   endDate?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
@@ -2763,6 +2858,7 @@ export type CompetitionOrderByWithAggregationInput = {
   countryId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   description?: Maybe<SortOrder>;
+  displayImageId?: Maybe<SortOrder>;
   endDate?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
@@ -2785,6 +2881,7 @@ export enum CompetitionScalarFieldEnum {
   CountryId = 'countryId',
   CreatedAt = 'createdAt',
   Description = 'description',
+  DisplayImageId = 'displayImageId',
   EndDate = 'endDate',
   Id = 'id',
   Name = 'name',
@@ -2805,6 +2902,7 @@ export type CompetitionScalarWhereInput = {
   countryId?: Maybe<IntNullableFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   description?: Maybe<StringFilter>;
+  displayImageId?: Maybe<IntNullableFilter>;
   endDate?: Maybe<DateTimeFilter>;
   id?: Maybe<IntFilter>;
   name?: Maybe<StringFilter>;
@@ -2825,6 +2923,7 @@ export type CompetitionScalarWhereWithAggregatesInput = {
   countryId?: Maybe<IntNullableWithAggregatesFilter>;
   createdAt?: Maybe<DateTimeWithAggregatesFilter>;
   description?: Maybe<StringWithAggregatesFilter>;
+  displayImageId?: Maybe<IntNullableWithAggregatesFilter>;
   endDate?: Maybe<DateTimeWithAggregatesFilter>;
   id?: Maybe<IntWithAggregatesFilter>;
   name?: Maybe<StringWithAggregatesFilter>;
@@ -2839,6 +2938,7 @@ export type CompetitionSumAggregate = {
   clubId?: Maybe<Scalars['Int']>;
   compTypeId?: Maybe<Scalars['Int']>;
   countryId?: Maybe<Scalars['Int']>;
+  displayImageId?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['Int']>;
   regionId?: Maybe<Scalars['Int']>;
   seasonId?: Maybe<Scalars['Int']>;
@@ -2848,6 +2948,7 @@ export type CompetitionSumOrderByAggregateInput = {
   clubId?: Maybe<SortOrder>;
   compTypeId?: Maybe<SortOrder>;
   countryId?: Maybe<SortOrder>;
+  displayImageId?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   regionId?: Maybe<SortOrder>;
   seasonId?: Maybe<SortOrder>;
@@ -3057,6 +3158,7 @@ export type CompetitionUpdateInput = {
   country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
+  displayImage?: Maybe<ImageUpdateOneWithoutCompetitionsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
@@ -3091,6 +3193,11 @@ export type CompetitionUpdateManyWithWhereWithoutCompTypeInput = {
 };
 
 export type CompetitionUpdateManyWithWhereWithoutCountryInput = {
+  data: CompetitionUpdateManyMutationInput;
+  where: CompetitionScalarWhereInput;
+};
+
+export type CompetitionUpdateManyWithWhereWithoutDisplayImageInput = {
   data: CompetitionUpdateManyMutationInput;
   where: CompetitionScalarWhereInput;
 };
@@ -3147,6 +3254,28 @@ export type CompetitionUpdateManyWithoutCountryInput = {
   update?: Maybe<Array<CompetitionUpdateWithWhereUniqueWithoutCountryInput>>;
   updateMany?: Maybe<Array<CompetitionUpdateManyWithWhereWithoutCountryInput>>;
   upsert?: Maybe<Array<CompetitionUpsertWithWhereUniqueWithoutCountryInput>>;
+};
+
+export type CompetitionUpdateManyWithoutDisplayImageInput = {
+  connect?: Maybe<Array<CompetitionWhereUniqueInput>>;
+  connectOrCreate?: Maybe<
+    Array<CompetitionCreateOrConnectWithoutDisplayImageInput>
+  >;
+  create?: Maybe<Array<CompetitionCreateWithoutDisplayImageInput>>;
+  createMany?: Maybe<CompetitionCreateManyDisplayImageInputEnvelope>;
+  delete?: Maybe<Array<CompetitionWhereUniqueInput>>;
+  deleteMany?: Maybe<Array<CompetitionScalarWhereInput>>;
+  disconnect?: Maybe<Array<CompetitionWhereUniqueInput>>;
+  set?: Maybe<Array<CompetitionWhereUniqueInput>>;
+  update?: Maybe<
+    Array<CompetitionUpdateWithWhereUniqueWithoutDisplayImageInput>
+  >;
+  updateMany?: Maybe<
+    Array<CompetitionUpdateManyWithWhereWithoutDisplayImageInput>
+  >;
+  upsert?: Maybe<
+    Array<CompetitionUpsertWithWhereUniqueWithoutDisplayImageInput>
+  >;
 };
 
 export type CompetitionUpdateManyWithoutRegionInput = {
@@ -3232,6 +3361,11 @@ export type CompetitionUpdateWithWhereUniqueWithoutCountryInput = {
   where: CompetitionWhereUniqueInput;
 };
 
+export type CompetitionUpdateWithWhereUniqueWithoutDisplayImageInput = {
+  data: CompetitionUpdateWithoutDisplayImageInput;
+  where: CompetitionWhereUniqueInput;
+};
+
 export type CompetitionUpdateWithWhereUniqueWithoutRegionInput = {
   data: CompetitionUpdateWithoutRegionInput;
   where: CompetitionWhereUniqueInput;
@@ -3250,6 +3384,7 @@ export type CompetitionUpdateWithoutCategoryRoundsInput = {
   country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
+  displayImage?: Maybe<ImageUpdateOneWithoutCompetitionsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
@@ -3270,6 +3405,7 @@ export type CompetitionUpdateWithoutClubInput = {
   country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
+  displayImage?: Maybe<ImageUpdateOneWithoutCompetitionsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
@@ -3290,6 +3426,7 @@ export type CompetitionUpdateWithoutCompTypeInput = {
   country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
+  displayImage?: Maybe<ImageUpdateOneWithoutCompetitionsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
@@ -3308,6 +3445,28 @@ export type CompetitionUpdateWithoutCountryInput = {
   categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCompetitionInput>;
   club?: Maybe<ClubUpdateOneRequiredWithoutCompetitionsInput>;
   compType?: Maybe<CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput>;
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  description?: Maybe<StringFieldUpdateOperationsInput>;
+  displayImage?: Maybe<ImageUpdateOneWithoutCompetitionsInput>;
+  endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  name?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
+  registrations?: Maybe<RegistrationUpdateManyWithoutCompetitionInput>;
+  results?: Maybe<ResultUpdateManyWithoutCompetitionInput>;
+  routes?: Maybe<RouteUpdateManyWithoutCompetitionInput>;
+  season?: Maybe<SeasonUpdateOneRequiredWithoutCompetitionsInput>;
+  startDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  startLists?: Maybe<StartListUpdateManyWithoutCompetitionInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type CompetitionUpdateWithoutDisplayImageInput = {
+  active?: Maybe<BoolFieldUpdateOperationsInput>;
+  address?: Maybe<StringFieldUpdateOperationsInput>;
+  categoryRounds?: Maybe<CategoryRoundUpdateManyWithoutCompetitionInput>;
+  club?: Maybe<ClubUpdateOneRequiredWithoutCompetitionsInput>;
+  compType?: Maybe<CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput>;
+  country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -3331,6 +3490,7 @@ export type CompetitionUpdateWithoutRegionInput = {
   country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
+  displayImage?: Maybe<ImageUpdateOneWithoutCompetitionsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutCompetitionInput>;
@@ -3351,6 +3511,7 @@ export type CompetitionUpdateWithoutRegistrationsInput = {
   country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
+  displayImage?: Maybe<ImageUpdateOneWithoutCompetitionsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
@@ -3371,6 +3532,7 @@ export type CompetitionUpdateWithoutResultsInput = {
   country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
+  displayImage?: Maybe<ImageUpdateOneWithoutCompetitionsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
@@ -3391,6 +3553,7 @@ export type CompetitionUpdateWithoutRoutesInput = {
   country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
+  displayImage?: Maybe<ImageUpdateOneWithoutCompetitionsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
@@ -3411,6 +3574,7 @@ export type CompetitionUpdateWithoutSeasonInput = {
   country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
+  displayImage?: Maybe<ImageUpdateOneWithoutCompetitionsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
@@ -3431,6 +3595,7 @@ export type CompetitionUpdateWithoutStartListsInput = {
   country?: Maybe<CountryUpdateOneWithoutCompetitionsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<StringFieldUpdateOperationsInput>;
+  displayImage?: Maybe<ImageUpdateOneWithoutCompetitionsInput>;
   endDate?: Maybe<DateTimeFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutCompetitionsInput>;
@@ -3457,6 +3622,12 @@ export type CompetitionUpsertWithWhereUniqueWithoutCompTypeInput = {
 export type CompetitionUpsertWithWhereUniqueWithoutCountryInput = {
   create: CompetitionCreateWithoutCountryInput;
   update: CompetitionUpdateWithoutCountryInput;
+  where: CompetitionWhereUniqueInput;
+};
+
+export type CompetitionUpsertWithWhereUniqueWithoutDisplayImageInput = {
+  create: CompetitionCreateWithoutDisplayImageInput;
+  update: CompetitionUpdateWithoutDisplayImageInput;
   where: CompetitionWhereUniqueInput;
 };
 
@@ -3512,6 +3683,8 @@ export type CompetitionWhereInput = {
   countryId?: Maybe<IntNullableFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   description?: Maybe<StringFilter>;
+  displayImage?: Maybe<ImageRelationFilter>;
+  displayImageId?: Maybe<IntNullableFilter>;
   endDate?: Maybe<DateTimeFilter>;
   id?: Maybe<IntFilter>;
   name?: Maybe<StringFilter>;
@@ -5432,6 +5605,241 @@ export type GradeWhereUniqueInput = {
   id?: Maybe<Scalars['Int']>;
 };
 
+export type Image = {
+  __typename?: 'Image';
+  competitions: Array<Competition>;
+  createdAt: Scalars['DateTime'];
+  description?: Maybe<Scalars['String']>;
+  id: Scalars['Int'];
+  updatedAt: Scalars['DateTime'];
+  url: Scalars['String'];
+};
+
+export type ImageCompetitionsArgs = {
+  cursor?: Maybe<CompetitionWhereUniqueInput>;
+  distinct?: Maybe<Array<CompetitionScalarFieldEnum>>;
+  orderBy?: Maybe<Array<CompetitionOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<CompetitionWhereInput>;
+};
+
+export type ImageAvgAggregate = {
+  __typename?: 'ImageAvgAggregate';
+  id?: Maybe<Scalars['Float']>;
+};
+
+export type ImageAvgOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+};
+
+export type ImageCountAggregate = {
+  __typename?: 'ImageCountAggregate';
+  _all: Scalars['Int'];
+  createdAt: Scalars['Int'];
+  description: Scalars['Int'];
+  id: Scalars['Int'];
+  updatedAt: Scalars['Int'];
+  url: Scalars['Int'];
+};
+
+export type ImageCountOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  url?: Maybe<SortOrder>;
+};
+
+export type ImageCreateInput = {
+  competitions?: Maybe<CompetitionCreateNestedManyWithoutDisplayImageInput>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  url: Scalars['String'];
+};
+
+export type ImageCreateManyInput = {
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  url: Scalars['String'];
+};
+
+export type ImageCreateNestedOneWithoutCompetitionsInput = {
+  connect?: Maybe<ImageWhereUniqueInput>;
+  connectOrCreate?: Maybe<ImageCreateOrConnectWithoutCompetitionsInput>;
+  create?: Maybe<ImageCreateWithoutCompetitionsInput>;
+};
+
+export type ImageCreateOrConnectWithoutCompetitionsInput = {
+  create: ImageCreateWithoutCompetitionsInput;
+  where: ImageWhereUniqueInput;
+};
+
+export type ImageCreateWithoutCompetitionsInput = {
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  url: Scalars['String'];
+};
+
+export type ImageGroupBy = {
+  __typename?: 'ImageGroupBy';
+  _avg?: Maybe<ImageAvgAggregate>;
+  _count?: Maybe<ImageCountAggregate>;
+  _max?: Maybe<ImageMaxAggregate>;
+  _min?: Maybe<ImageMinAggregate>;
+  _sum?: Maybe<ImageSumAggregate>;
+  createdAt: Scalars['DateTime'];
+  description?: Maybe<Scalars['String']>;
+  id: Scalars['Int'];
+  updatedAt: Scalars['DateTime'];
+  url: Scalars['String'];
+};
+
+export type ImageMaxAggregate = {
+  __typename?: 'ImageMaxAggregate';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  url?: Maybe<Scalars['String']>;
+};
+
+export type ImageMaxOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  url?: Maybe<SortOrder>;
+};
+
+export type ImageMinAggregate = {
+  __typename?: 'ImageMinAggregate';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  url?: Maybe<Scalars['String']>;
+};
+
+export type ImageMinOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  url?: Maybe<SortOrder>;
+};
+
+export type ImageOrderByInput = {
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  url?: Maybe<SortOrder>;
+};
+
+export type ImageOrderByWithAggregationInput = {
+  _avg?: Maybe<ImageAvgOrderByAggregateInput>;
+  _count?: Maybe<ImageCountOrderByAggregateInput>;
+  _max?: Maybe<ImageMaxOrderByAggregateInput>;
+  _min?: Maybe<ImageMinOrderByAggregateInput>;
+  _sum?: Maybe<ImageSumOrderByAggregateInput>;
+  createdAt?: Maybe<SortOrder>;
+  description?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+  url?: Maybe<SortOrder>;
+};
+
+export type ImageRelationFilter = {
+  is?: Maybe<ImageWhereInput>;
+  isNot?: Maybe<ImageWhereInput>;
+};
+
+export enum ImageScalarFieldEnum {
+  CreatedAt = 'createdAt',
+  Description = 'description',
+  Id = 'id',
+  UpdatedAt = 'updatedAt',
+  Url = 'url',
+}
+
+export type ImageScalarWhereWithAggregatesInput = {
+  AND?: Maybe<Array<ImageScalarWhereWithAggregatesInput>>;
+  NOT?: Maybe<Array<ImageScalarWhereWithAggregatesInput>>;
+  OR?: Maybe<Array<ImageScalarWhereWithAggregatesInput>>;
+  createdAt?: Maybe<DateTimeWithAggregatesFilter>;
+  description?: Maybe<StringNullableWithAggregatesFilter>;
+  id?: Maybe<IntWithAggregatesFilter>;
+  updatedAt?: Maybe<DateTimeWithAggregatesFilter>;
+  url?: Maybe<StringWithAggregatesFilter>;
+};
+
+export type ImageSumAggregate = {
+  __typename?: 'ImageSumAggregate';
+  id?: Maybe<Scalars['Int']>;
+};
+
+export type ImageSumOrderByAggregateInput = {
+  id?: Maybe<SortOrder>;
+};
+
+export type ImageUpdateInput = {
+  competitions?: Maybe<CompetitionUpdateManyWithoutDisplayImageInput>;
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  description?: Maybe<NullableStringFieldUpdateOperationsInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  url?: Maybe<StringFieldUpdateOperationsInput>;
+};
+
+export type ImageUpdateManyMutationInput = {
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  description?: Maybe<NullableStringFieldUpdateOperationsInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  url?: Maybe<StringFieldUpdateOperationsInput>;
+};
+
+export type ImageUpdateOneWithoutCompetitionsInput = {
+  connect?: Maybe<ImageWhereUniqueInput>;
+  connectOrCreate?: Maybe<ImageCreateOrConnectWithoutCompetitionsInput>;
+  create?: Maybe<ImageCreateWithoutCompetitionsInput>;
+  delete?: Maybe<Scalars['Boolean']>;
+  disconnect?: Maybe<Scalars['Boolean']>;
+  update?: Maybe<ImageUpdateWithoutCompetitionsInput>;
+  upsert?: Maybe<ImageUpsertWithoutCompetitionsInput>;
+};
+
+export type ImageUpdateWithoutCompetitionsInput = {
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  description?: Maybe<NullableStringFieldUpdateOperationsInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  url?: Maybe<StringFieldUpdateOperationsInput>;
+};
+
+export type ImageUpsertWithoutCompetitionsInput = {
+  create: ImageCreateWithoutCompetitionsInput;
+  update: ImageUpdateWithoutCompetitionsInput;
+};
+
+export type ImageWhereInput = {
+  AND?: Maybe<Array<ImageWhereInput>>;
+  NOT?: Maybe<Array<ImageWhereInput>>;
+  OR?: Maybe<Array<ImageWhereInput>>;
+  competitions?: Maybe<CompetitionListRelationFilter>;
+  createdAt?: Maybe<DateTimeFilter>;
+  description?: Maybe<StringNullableFilter>;
+  id?: Maybe<IntFilter>;
+  updatedAt?: Maybe<DateTimeFilter>;
+  url?: Maybe<StringFilter>;
+};
+
+export type ImageWhereUniqueInput = {
+  id?: Maybe<Scalars['Int']>;
+};
+
 export type IntFieldUpdateOperationsInput = {
   decrement?: Maybe<Scalars['Int']>;
   divide?: Maybe<Scalars['Int']>;
@@ -5523,6 +5931,7 @@ export type Mutation = {
   createCompetitor: Competitor;
   createCountry: Country;
   createGrade: Grade;
+  createImage: Image;
   createManyCategory: AffectedRowsOutput;
   createManyCategoryRound: AffectedRowsOutput;
   createManyClub: AffectedRowsOutput;
@@ -5532,6 +5941,7 @@ export type Mutation = {
   createManyCompetitor: AffectedRowsOutput;
   createManyCountry: AffectedRowsOutput;
   createManyGrade: AffectedRowsOutput;
+  createManyImage: AffectedRowsOutput;
   createManyRegion: AffectedRowsOutput;
   createManyRegistration: AffectedRowsOutput;
   createManyResult: AffectedRowsOutput;
@@ -5561,6 +5971,7 @@ export type Mutation = {
   deleteCompetitor?: Maybe<Competitor>;
   deleteCountry?: Maybe<Country>;
   deleteGrade?: Maybe<Grade>;
+  deleteImage?: Maybe<Image>;
   deleteManyCategory: AffectedRowsOutput;
   deleteManyCategoryRound: AffectedRowsOutput;
   deleteManyClub: AffectedRowsOutput;
@@ -5570,6 +5981,7 @@ export type Mutation = {
   deleteManyCompetitor: AffectedRowsOutput;
   deleteManyCountry: AffectedRowsOutput;
   deleteManyGrade: AffectedRowsOutput;
+  deleteManyImage: AffectedRowsOutput;
   deleteManyRegion: AffectedRowsOutput;
   deleteManyRegistration: AffectedRowsOutput;
   deleteManyResult: AffectedRowsOutput;
@@ -5604,6 +6016,7 @@ export type Mutation = {
   updateCompetitor?: Maybe<Competitor>;
   updateCountry?: Maybe<Country>;
   updateGrade?: Maybe<Grade>;
+  updateImage?: Maybe<Image>;
   updateManyCategory: AffectedRowsOutput;
   updateManyCategoryRound: AffectedRowsOutput;
   updateManyClub: AffectedRowsOutput;
@@ -5613,6 +6026,7 @@ export type Mutation = {
   updateManyCompetitor: AffectedRowsOutput;
   updateManyCountry: AffectedRowsOutput;
   updateManyGrade: AffectedRowsOutput;
+  updateManyImage: AffectedRowsOutput;
   updateManyRegion: AffectedRowsOutput;
   updateManyRegistration: AffectedRowsOutput;
   updateManyResult: AffectedRowsOutput;
@@ -5642,6 +6056,7 @@ export type Mutation = {
   upsertCompetitor: Competitor;
   upsertCountry: Country;
   upsertGrade: Grade;
+  upsertImage: Image;
   upsertRegion: Region;
   upsertRegistration: Registration;
   upsertResult: Result;
@@ -5690,6 +6105,10 @@ export type MutationCreateGradeArgs = {
   data: GradeCreateInput;
 };
 
+export type MutationCreateImageArgs = {
+  data: ImageCreateInput;
+};
+
 export type MutationCreateManyCategoryArgs = {
   data: Array<CategoryCreateManyInput>;
   skipDuplicates?: Maybe<Scalars['Boolean']>;
@@ -5732,6 +6151,11 @@ export type MutationCreateManyCountryArgs = {
 
 export type MutationCreateManyGradeArgs = {
   data: Array<GradeCreateManyInput>;
+  skipDuplicates?: Maybe<Scalars['Boolean']>;
+};
+
+export type MutationCreateManyImageArgs = {
+  data: Array<ImageCreateManyInput>;
   skipDuplicates?: Maybe<Scalars['Boolean']>;
 };
 
@@ -5861,6 +6285,10 @@ export type MutationDeleteGradeArgs = {
   where: GradeWhereUniqueInput;
 };
 
+export type MutationDeleteImageArgs = {
+  where: ImageWhereUniqueInput;
+};
+
 export type MutationDeleteManyCategoryArgs = {
   where?: Maybe<CategoryWhereInput>;
 };
@@ -5895,6 +6323,10 @@ export type MutationDeleteManyCountryArgs = {
 
 export type MutationDeleteManyGradeArgs = {
   where?: Maybe<GradeWhereInput>;
+};
+
+export type MutationDeleteManyImageArgs = {
+  where?: Maybe<ImageWhereInput>;
 };
 
 export type MutationDeleteManyRegionArgs = {
@@ -6042,6 +6474,11 @@ export type MutationUpdateGradeArgs = {
   where: GradeWhereUniqueInput;
 };
 
+export type MutationUpdateImageArgs = {
+  data: ImageUpdateInput;
+  where: ImageWhereUniqueInput;
+};
+
 export type MutationUpdateManyCategoryArgs = {
   data: CategoryUpdateManyMutationInput;
   where?: Maybe<CategoryWhereInput>;
@@ -6085,6 +6522,11 @@ export type MutationUpdateManyCountryArgs = {
 export type MutationUpdateManyGradeArgs = {
   data: GradeUpdateManyMutationInput;
   where?: Maybe<GradeWhereInput>;
+};
+
+export type MutationUpdateManyImageArgs = {
+  data: ImageUpdateManyMutationInput;
+  where?: Maybe<ImageWhereInput>;
 };
 
 export type MutationUpdateManyRegionArgs = {
@@ -6239,6 +6681,12 @@ export type MutationUpsertGradeArgs = {
   create: GradeCreateInput;
   update: GradeUpdateInput;
   where: GradeWhereUniqueInput;
+};
+
+export type MutationUpsertImageArgs = {
+  create: ImageCreateInput;
+  update: ImageUpdateInput;
+  where: ImageWhereUniqueInput;
 };
 
 export type MutationUpsertRegionArgs = {
@@ -6597,6 +7045,7 @@ export type Query = {
   aggregateCompetitor: AggregateCompetitor;
   aggregateCountry: AggregateCountry;
   aggregateGrade: AggregateGrade;
+  aggregateImage: AggregateImage;
   aggregateRegion: AggregateRegion;
   aggregateRegistration: AggregateRegistration;
   aggregateResult: AggregateResult;
@@ -6633,6 +7082,7 @@ export type Query = {
   findFirstCompetitor?: Maybe<Competitor>;
   findFirstCountry?: Maybe<Country>;
   findFirstGrade?: Maybe<Grade>;
+  findFirstImage?: Maybe<Image>;
   findFirstRegion?: Maybe<Region>;
   findFirstRegistration?: Maybe<Registration>;
   findFirstResult?: Maybe<Result>;
@@ -6660,6 +7110,7 @@ export type Query = {
   groupByCompetitor: Array<CompetitorGroupBy>;
   groupByCountry: Array<CountryGroupBy>;
   groupByGrade: Array<GradeGroupBy>;
+  groupByImage: Array<ImageGroupBy>;
   groupByRegion: Array<RegionGroupBy>;
   groupByRegistration: Array<RegistrationGroupBy>;
   groupByResult: Array<ResultGroupBy>;
@@ -6670,6 +7121,8 @@ export type Query = {
   groupBySeason: Array<SeasonGroupBy>;
   groupByStartList: Array<StartListGroupBy>;
   groupByUser: Array<UserGroupBy>;
+  image?: Maybe<Image>;
+  images: Array<Image>;
   region?: Maybe<Region>;
   regions: Array<Region>;
   registration?: Maybe<Registration>;
@@ -6762,6 +7215,14 @@ export type QueryAggregateGradeArgs = {
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<GradeWhereInput>;
+};
+
+export type QueryAggregateImageArgs = {
+  cursor?: Maybe<ImageWhereUniqueInput>;
+  orderBy?: Maybe<Array<ImageOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<ImageWhereInput>;
 };
 
 export type QueryAggregateRegionArgs = {
@@ -7029,6 +7490,15 @@ export type QueryFindFirstGradeArgs = {
   where?: Maybe<GradeWhereInput>;
 };
 
+export type QueryFindFirstImageArgs = {
+  cursor?: Maybe<ImageWhereUniqueInput>;
+  distinct?: Maybe<Array<ImageScalarFieldEnum>>;
+  orderBy?: Maybe<Array<ImageOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<ImageWhereInput>;
+};
+
 export type QueryFindFirstRegionArgs = {
   cursor?: Maybe<RegionWhereUniqueInput>;
   distinct?: Maybe<Array<RegionScalarFieldEnum>>;
@@ -7233,6 +7703,15 @@ export type QueryGroupByGradeArgs = {
   where?: Maybe<GradeWhereInput>;
 };
 
+export type QueryGroupByImageArgs = {
+  by: Array<ImageScalarFieldEnum>;
+  having?: Maybe<ImageScalarWhereWithAggregatesInput>;
+  orderBy?: Maybe<Array<ImageOrderByWithAggregationInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<ImageWhereInput>;
+};
+
 export type QueryGroupByRegionArgs = {
   by: Array<RegionScalarFieldEnum>;
   having?: Maybe<RegionScalarWhereWithAggregatesInput>;
@@ -7321,6 +7800,19 @@ export type QueryGroupByUserArgs = {
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<UserWhereInput>;
+};
+
+export type QueryImageArgs = {
+  where: ImageWhereUniqueInput;
+};
+
+export type QueryImagesArgs = {
+  cursor?: Maybe<ImageWhereUniqueInput>;
+  distinct?: Maybe<Array<ImageScalarFieldEnum>>;
+  orderBy?: Maybe<Array<ImageOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<ImageWhereInput>;
 };
 
 export type QueryRegionArgs = {
