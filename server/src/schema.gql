@@ -79,6 +79,14 @@ type AggregateGrade {
   _sum: GradeSumAggregate
 }
 
+type AggregateImage {
+  _avg: ImageAvgAggregate
+  _count: ImageCountAggregate
+  _max: ImageMaxAggregate
+  _min: ImageMinAggregate
+  _sum: ImageSumAggregate
+}
+
 type AggregateRegion {
   _avg: RegionAvgAggregate
   _count: RegionCountAggregate
@@ -1899,6 +1907,8 @@ type Competition {
   countryId: Int
   createdAt: DateTime!
   description: String!
+  displayImage: Image
+  displayImageId: Int
   endDate: DateTime!
   id: Int!
   name: String!
@@ -1918,6 +1928,7 @@ type CompetitionAvgAggregate {
   clubId: Float
   compTypeId: Float
   countryId: Float
+  displayImageId: Float
   id: Float
   regionId: Float
   seasonId: Float
@@ -1927,6 +1938,7 @@ input CompetitionAvgOrderByAggregateInput {
   clubId: SortOrder
   compTypeId: SortOrder
   countryId: SortOrder
+  displayImageId: SortOrder
   id: SortOrder
   regionId: SortOrder
   seasonId: SortOrder
@@ -1941,6 +1953,7 @@ type CompetitionCountAggregate {
   countryId: Int!
   createdAt: Int!
   description: Int!
+  displayImageId: Int!
   endDate: Int!
   id: Int!
   name: Int!
@@ -1958,6 +1971,7 @@ input CompetitionCountOrderByAggregateInput {
   countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
+  displayImageId: SortOrder
   endDate: SortOrder
   id: SortOrder
   name: SortOrder
@@ -1976,6 +1990,7 @@ input CompetitionCreateInput {
   country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
+  displayImage: ImageCreateNestedOneWithoutCompetitionsInput
   endDate: DateTime!
   name: String!
   region: RegionCreateNestedOneWithoutCompetitionsInput
@@ -1995,6 +2010,7 @@ input CompetitionCreateManyClubInput {
   countryId: Int
   createdAt: DateTime
   description: String!
+  displayImageId: Int
   endDate: DateTime!
   id: Int
   name: String!
@@ -2016,6 +2032,7 @@ input CompetitionCreateManyCompTypeInput {
   countryId: Int
   createdAt: DateTime
   description: String!
+  displayImageId: Int
   endDate: DateTime!
   id: Int
   name: String!
@@ -2037,6 +2054,7 @@ input CompetitionCreateManyCountryInput {
   compTypeId: Int!
   createdAt: DateTime
   description: String!
+  displayImageId: Int
   endDate: DateTime!
   id: Int
   name: String!
@@ -2051,6 +2069,28 @@ input CompetitionCreateManyCountryInputEnvelope {
   skipDuplicates: Boolean
 }
 
+input CompetitionCreateManyDisplayImageInput {
+  active: Boolean
+  address: String!
+  clubId: Int!
+  compTypeId: Int!
+  countryId: Int
+  createdAt: DateTime
+  description: String!
+  endDate: DateTime!
+  id: Int
+  name: String!
+  regionId: Int
+  seasonId: Int!
+  startDate: DateTime!
+  updatedAt: DateTime
+}
+
+input CompetitionCreateManyDisplayImageInputEnvelope {
+  data: [CompetitionCreateManyDisplayImageInput!]!
+  skipDuplicates: Boolean
+}
+
 input CompetitionCreateManyInput {
   active: Boolean
   address: String!
@@ -2059,6 +2099,7 @@ input CompetitionCreateManyInput {
   countryId: Int
   createdAt: DateTime
   description: String!
+  displayImageId: Int
   endDate: DateTime!
   id: Int
   name: String!
@@ -2076,6 +2117,7 @@ input CompetitionCreateManyRegionInput {
   countryId: Int
   createdAt: DateTime
   description: String!
+  displayImageId: Int
   endDate: DateTime!
   id: Int
   name: String!
@@ -2097,6 +2139,7 @@ input CompetitionCreateManySeasonInput {
   countryId: Int
   createdAt: DateTime
   description: String!
+  displayImageId: Int
   endDate: DateTime!
   id: Int
   name: String!
@@ -2129,6 +2172,13 @@ input CompetitionCreateNestedManyWithoutCountryInput {
   connectOrCreate: [CompetitionCreateOrConnectWithoutCountryInput!]
   create: [CompetitionCreateWithoutCountryInput!]
   createMany: CompetitionCreateManyCountryInputEnvelope
+}
+
+input CompetitionCreateNestedManyWithoutDisplayImageInput {
+  connect: [CompetitionWhereUniqueInput!]
+  connectOrCreate: [CompetitionCreateOrConnectWithoutDisplayImageInput!]
+  create: [CompetitionCreateWithoutDisplayImageInput!]
+  createMany: CompetitionCreateManyDisplayImageInputEnvelope
 }
 
 input CompetitionCreateNestedManyWithoutRegionInput {
@@ -2195,6 +2245,11 @@ input CompetitionCreateOrConnectWithoutCountryInput {
   where: CompetitionWhereUniqueInput!
 }
 
+input CompetitionCreateOrConnectWithoutDisplayImageInput {
+  create: CompetitionCreateWithoutDisplayImageInput!
+  where: CompetitionWhereUniqueInput!
+}
+
 input CompetitionCreateOrConnectWithoutRegionInput {
   create: CompetitionCreateWithoutRegionInput!
   where: CompetitionWhereUniqueInput!
@@ -2233,6 +2288,7 @@ input CompetitionCreateWithoutCategoryRoundsInput {
   country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
+  displayImage: ImageCreateNestedOneWithoutCompetitionsInput
   endDate: DateTime!
   name: String!
   region: RegionCreateNestedOneWithoutCompetitionsInput
@@ -2253,6 +2309,7 @@ input CompetitionCreateWithoutClubInput {
   country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
+  displayImage: ImageCreateNestedOneWithoutCompetitionsInput
   endDate: DateTime!
   name: String!
   region: RegionCreateNestedOneWithoutCompetitionsInput
@@ -2273,6 +2330,7 @@ input CompetitionCreateWithoutCompTypeInput {
   country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
+  displayImage: ImageCreateNestedOneWithoutCompetitionsInput
   endDate: DateTime!
   name: String!
   region: RegionCreateNestedOneWithoutCompetitionsInput
@@ -2291,6 +2349,28 @@ input CompetitionCreateWithoutCountryInput {
   categoryRounds: CategoryRoundCreateNestedManyWithoutCompetitionInput
   club: ClubCreateNestedOneWithoutCompetitionsInput!
   compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
+  createdAt: DateTime
+  description: String!
+  displayImage: ImageCreateNestedOneWithoutCompetitionsInput
+  endDate: DateTime!
+  name: String!
+  region: RegionCreateNestedOneWithoutCompetitionsInput
+  registrations: RegistrationCreateNestedManyWithoutCompetitionInput
+  results: ResultCreateNestedManyWithoutCompetitionInput
+  routes: RouteCreateNestedManyWithoutCompetitionInput
+  season: SeasonCreateNestedOneWithoutCompetitionsInput!
+  startDate: DateTime!
+  startLists: StartListCreateNestedManyWithoutCompetitionInput
+  updatedAt: DateTime
+}
+
+input CompetitionCreateWithoutDisplayImageInput {
+  active: Boolean
+  address: String!
+  categoryRounds: CategoryRoundCreateNestedManyWithoutCompetitionInput
+  club: ClubCreateNestedOneWithoutCompetitionsInput!
+  compType: CompetitionTypeCreateNestedOneWithoutCompetitionsInput!
+  country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
   endDate: DateTime!
@@ -2314,6 +2394,7 @@ input CompetitionCreateWithoutRegionInput {
   country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
+  displayImage: ImageCreateNestedOneWithoutCompetitionsInput
   endDate: DateTime!
   name: String!
   registrations: RegistrationCreateNestedManyWithoutCompetitionInput
@@ -2334,6 +2415,7 @@ input CompetitionCreateWithoutRegistrationsInput {
   country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
+  displayImage: ImageCreateNestedOneWithoutCompetitionsInput
   endDate: DateTime!
   name: String!
   region: RegionCreateNestedOneWithoutCompetitionsInput
@@ -2354,6 +2436,7 @@ input CompetitionCreateWithoutResultsInput {
   country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
+  displayImage: ImageCreateNestedOneWithoutCompetitionsInput
   endDate: DateTime!
   name: String!
   region: RegionCreateNestedOneWithoutCompetitionsInput
@@ -2374,6 +2457,7 @@ input CompetitionCreateWithoutRoutesInput {
   country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
+  displayImage: ImageCreateNestedOneWithoutCompetitionsInput
   endDate: DateTime!
   name: String!
   region: RegionCreateNestedOneWithoutCompetitionsInput
@@ -2394,6 +2478,7 @@ input CompetitionCreateWithoutSeasonInput {
   country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
+  displayImage: ImageCreateNestedOneWithoutCompetitionsInput
   endDate: DateTime!
   name: String!
   region: RegionCreateNestedOneWithoutCompetitionsInput
@@ -2414,6 +2499,7 @@ input CompetitionCreateWithoutStartListsInput {
   country: CountryCreateNestedOneWithoutCompetitionsInput
   createdAt: DateTime
   description: String!
+  displayImage: ImageCreateNestedOneWithoutCompetitionsInput
   endDate: DateTime!
   name: String!
   region: RegionCreateNestedOneWithoutCompetitionsInput
@@ -2438,6 +2524,7 @@ type CompetitionGroupBy {
   countryId: Int
   createdAt: DateTime!
   description: String!
+  displayImageId: Int
   endDate: DateTime!
   id: Int!
   name: String!
@@ -2461,6 +2548,7 @@ type CompetitionMaxAggregate {
   countryId: Int
   createdAt: DateTime
   description: String
+  displayImageId: Int
   endDate: DateTime
   id: Int
   name: String
@@ -2478,6 +2566,7 @@ input CompetitionMaxOrderByAggregateInput {
   countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
+  displayImageId: SortOrder
   endDate: SortOrder
   id: SortOrder
   name: SortOrder
@@ -2495,6 +2584,7 @@ type CompetitionMinAggregate {
   countryId: Int
   createdAt: DateTime
   description: String
+  displayImageId: Int
   endDate: DateTime
   id: Int
   name: String
@@ -2512,6 +2602,7 @@ input CompetitionMinOrderByAggregateInput {
   countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
+  displayImageId: SortOrder
   endDate: SortOrder
   id: SortOrder
   name: SortOrder
@@ -2529,6 +2620,7 @@ input CompetitionOrderByInput {
   countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
+  displayImageId: SortOrder
   endDate: SortOrder
   id: SortOrder
   name: SortOrder
@@ -2551,6 +2643,7 @@ input CompetitionOrderByWithAggregationInput {
   countryId: SortOrder
   createdAt: SortOrder
   description: SortOrder
+  displayImageId: SortOrder
   endDate: SortOrder
   id: SortOrder
   name: SortOrder
@@ -2573,6 +2666,7 @@ enum CompetitionScalarFieldEnum {
   countryId
   createdAt
   description
+  displayImageId
   endDate
   id
   name
@@ -2593,6 +2687,7 @@ input CompetitionScalarWhereInput {
   countryId: IntNullableFilter
   createdAt: DateTimeFilter
   description: StringFilter
+  displayImageId: IntNullableFilter
   endDate: DateTimeFilter
   id: IntFilter
   name: StringFilter
@@ -2613,6 +2708,7 @@ input CompetitionScalarWhereWithAggregatesInput {
   countryId: IntNullableWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
   description: StringWithAggregatesFilter
+  displayImageId: IntNullableWithAggregatesFilter
   endDate: DateTimeWithAggregatesFilter
   id: IntWithAggregatesFilter
   name: StringWithAggregatesFilter
@@ -2626,6 +2722,7 @@ type CompetitionSumAggregate {
   clubId: Int
   compTypeId: Int
   countryId: Int
+  displayImageId: Int
   id: Int
   regionId: Int
   seasonId: Int
@@ -2635,6 +2732,7 @@ input CompetitionSumOrderByAggregateInput {
   clubId: SortOrder
   compTypeId: SortOrder
   countryId: SortOrder
+  displayImageId: SortOrder
   id: SortOrder
   regionId: SortOrder
   seasonId: SortOrder
@@ -2828,6 +2926,7 @@ input CompetitionUpdateInput {
   country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
+  displayImage: ImageUpdateOneWithoutCompetitionsInput
   endDate: DateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutCompetitionsInput
@@ -2862,6 +2961,11 @@ input CompetitionUpdateManyWithWhereWithoutCompTypeInput {
 }
 
 input CompetitionUpdateManyWithWhereWithoutCountryInput {
+  data: CompetitionUpdateManyMutationInput!
+  where: CompetitionScalarWhereInput!
+}
+
+input CompetitionUpdateManyWithWhereWithoutDisplayImageInput {
   data: CompetitionUpdateManyMutationInput!
   where: CompetitionScalarWhereInput!
 }
@@ -2916,6 +3020,20 @@ input CompetitionUpdateManyWithoutCountryInput {
   update: [CompetitionUpdateWithWhereUniqueWithoutCountryInput!]
   updateMany: [CompetitionUpdateManyWithWhereWithoutCountryInput!]
   upsert: [CompetitionUpsertWithWhereUniqueWithoutCountryInput!]
+}
+
+input CompetitionUpdateManyWithoutDisplayImageInput {
+  connect: [CompetitionWhereUniqueInput!]
+  connectOrCreate: [CompetitionCreateOrConnectWithoutDisplayImageInput!]
+  create: [CompetitionCreateWithoutDisplayImageInput!]
+  createMany: CompetitionCreateManyDisplayImageInputEnvelope
+  delete: [CompetitionWhereUniqueInput!]
+  deleteMany: [CompetitionScalarWhereInput!]
+  disconnect: [CompetitionWhereUniqueInput!]
+  set: [CompetitionWhereUniqueInput!]
+  update: [CompetitionUpdateWithWhereUniqueWithoutDisplayImageInput!]
+  updateMany: [CompetitionUpdateManyWithWhereWithoutDisplayImageInput!]
+  upsert: [CompetitionUpsertWithWhereUniqueWithoutDisplayImageInput!]
 }
 
 input CompetitionUpdateManyWithoutRegionInput {
@@ -3001,6 +3119,11 @@ input CompetitionUpdateWithWhereUniqueWithoutCountryInput {
   where: CompetitionWhereUniqueInput!
 }
 
+input CompetitionUpdateWithWhereUniqueWithoutDisplayImageInput {
+  data: CompetitionUpdateWithoutDisplayImageInput!
+  where: CompetitionWhereUniqueInput!
+}
+
 input CompetitionUpdateWithWhereUniqueWithoutRegionInput {
   data: CompetitionUpdateWithoutRegionInput!
   where: CompetitionWhereUniqueInput!
@@ -3019,6 +3142,7 @@ input CompetitionUpdateWithoutCategoryRoundsInput {
   country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
+  displayImage: ImageUpdateOneWithoutCompetitionsInput
   endDate: DateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutCompetitionsInput
@@ -3039,6 +3163,7 @@ input CompetitionUpdateWithoutClubInput {
   country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
+  displayImage: ImageUpdateOneWithoutCompetitionsInput
   endDate: DateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutCompetitionsInput
@@ -3059,6 +3184,7 @@ input CompetitionUpdateWithoutCompTypeInput {
   country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
+  displayImage: ImageUpdateOneWithoutCompetitionsInput
   endDate: DateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutCompetitionsInput
@@ -3077,6 +3203,28 @@ input CompetitionUpdateWithoutCountryInput {
   categoryRounds: CategoryRoundUpdateManyWithoutCompetitionInput
   club: ClubUpdateOneRequiredWithoutCompetitionsInput
   compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: StringFieldUpdateOperationsInput
+  displayImage: ImageUpdateOneWithoutCompetitionsInput
+  endDate: DateTimeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutCompetitionsInput
+  registrations: RegistrationUpdateManyWithoutCompetitionInput
+  results: ResultUpdateManyWithoutCompetitionInput
+  routes: RouteUpdateManyWithoutCompetitionInput
+  season: SeasonUpdateOneRequiredWithoutCompetitionsInput
+  startDate: DateTimeFieldUpdateOperationsInput
+  startLists: StartListUpdateManyWithoutCompetitionInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CompetitionUpdateWithoutDisplayImageInput {
+  active: BoolFieldUpdateOperationsInput
+  address: StringFieldUpdateOperationsInput
+  categoryRounds: CategoryRoundUpdateManyWithoutCompetitionInput
+  club: ClubUpdateOneRequiredWithoutCompetitionsInput
+  compType: CompetitionTypeUpdateOneRequiredWithoutCompetitionsInput
+  country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
   endDate: DateTimeFieldUpdateOperationsInput
@@ -3100,6 +3248,7 @@ input CompetitionUpdateWithoutRegionInput {
   country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
+  displayImage: ImageUpdateOneWithoutCompetitionsInput
   endDate: DateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   registrations: RegistrationUpdateManyWithoutCompetitionInput
@@ -3120,6 +3269,7 @@ input CompetitionUpdateWithoutRegistrationsInput {
   country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
+  displayImage: ImageUpdateOneWithoutCompetitionsInput
   endDate: DateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutCompetitionsInput
@@ -3140,6 +3290,7 @@ input CompetitionUpdateWithoutResultsInput {
   country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
+  displayImage: ImageUpdateOneWithoutCompetitionsInput
   endDate: DateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutCompetitionsInput
@@ -3160,6 +3311,7 @@ input CompetitionUpdateWithoutRoutesInput {
   country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
+  displayImage: ImageUpdateOneWithoutCompetitionsInput
   endDate: DateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutCompetitionsInput
@@ -3180,6 +3332,7 @@ input CompetitionUpdateWithoutSeasonInput {
   country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
+  displayImage: ImageUpdateOneWithoutCompetitionsInput
   endDate: DateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutCompetitionsInput
@@ -3200,6 +3353,7 @@ input CompetitionUpdateWithoutStartListsInput {
   country: CountryUpdateOneWithoutCompetitionsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
+  displayImage: ImageUpdateOneWithoutCompetitionsInput
   endDate: DateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutCompetitionsInput
@@ -3226,6 +3380,12 @@ input CompetitionUpsertWithWhereUniqueWithoutCompTypeInput {
 input CompetitionUpsertWithWhereUniqueWithoutCountryInput {
   create: CompetitionCreateWithoutCountryInput!
   update: CompetitionUpdateWithoutCountryInput!
+  where: CompetitionWhereUniqueInput!
+}
+
+input CompetitionUpsertWithWhereUniqueWithoutDisplayImageInput {
+  create: CompetitionCreateWithoutDisplayImageInput!
+  update: CompetitionUpdateWithoutDisplayImageInput!
   where: CompetitionWhereUniqueInput!
 }
 
@@ -3281,6 +3441,8 @@ input CompetitionWhereInput {
   countryId: IntNullableFilter
   createdAt: DateTimeFilter
   description: StringFilter
+  displayImage: ImageRelationFilter
+  displayImageId: IntNullableFilter
   endDate: DateTimeFilter
   id: IntFilter
   name: StringFilter
@@ -5086,6 +5248,225 @@ input GradeWhereUniqueInput {
   id: Int
 }
 
+type Image {
+  competitions(cursor: CompetitionWhereUniqueInput, distinct: [CompetitionScalarFieldEnum!], orderBy: [CompetitionOrderByInput!], skip: Int, take: Int, where: CompetitionWhereInput): [Competition!]!
+  createdAt: DateTime!
+  description: String
+  id: Int!
+  updatedAt: DateTime!
+  url: String!
+}
+
+type ImageAvgAggregate {
+  id: Float
+}
+
+input ImageAvgOrderByAggregateInput {
+  id: SortOrder
+}
+
+type ImageCountAggregate {
+  _all: Int!
+  createdAt: Int!
+  description: Int!
+  id: Int!
+  updatedAt: Int!
+  url: Int!
+}
+
+input ImageCountOrderByAggregateInput {
+  createdAt: SortOrder
+  description: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+}
+
+input ImageCreateInput {
+  competitions: CompetitionCreateNestedManyWithoutDisplayImageInput
+  createdAt: DateTime
+  description: String
+  updatedAt: DateTime
+  url: String!
+}
+
+input ImageCreateManyInput {
+  createdAt: DateTime
+  description: String
+  id: Int
+  updatedAt: DateTime
+  url: String!
+}
+
+input ImageCreateNestedOneWithoutCompetitionsInput {
+  connect: ImageWhereUniqueInput
+  connectOrCreate: ImageCreateOrConnectWithoutCompetitionsInput
+  create: ImageCreateWithoutCompetitionsInput
+}
+
+input ImageCreateOrConnectWithoutCompetitionsInput {
+  create: ImageCreateWithoutCompetitionsInput!
+  where: ImageWhereUniqueInput!
+}
+
+input ImageCreateWithoutCompetitionsInput {
+  createdAt: DateTime
+  description: String
+  updatedAt: DateTime
+  url: String!
+}
+
+type ImageGroupBy {
+  _avg: ImageAvgAggregate
+  _count: ImageCountAggregate
+  _max: ImageMaxAggregate
+  _min: ImageMinAggregate
+  _sum: ImageSumAggregate
+  createdAt: DateTime!
+  description: String
+  id: Int!
+  updatedAt: DateTime!
+  url: String!
+}
+
+type ImageMaxAggregate {
+  createdAt: DateTime
+  description: String
+  id: Int
+  updatedAt: DateTime
+  url: String
+}
+
+input ImageMaxOrderByAggregateInput {
+  createdAt: SortOrder
+  description: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+}
+
+type ImageMinAggregate {
+  createdAt: DateTime
+  description: String
+  id: Int
+  updatedAt: DateTime
+  url: String
+}
+
+input ImageMinOrderByAggregateInput {
+  createdAt: SortOrder
+  description: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+}
+
+input ImageOrderByInput {
+  createdAt: SortOrder
+  description: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+}
+
+input ImageOrderByWithAggregationInput {
+  _avg: ImageAvgOrderByAggregateInput
+  _count: ImageCountOrderByAggregateInput
+  _max: ImageMaxOrderByAggregateInput
+  _min: ImageMinOrderByAggregateInput
+  _sum: ImageSumOrderByAggregateInput
+  createdAt: SortOrder
+  description: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+}
+
+input ImageRelationFilter {
+  is: ImageWhereInput
+  isNot: ImageWhereInput
+}
+
+enum ImageScalarFieldEnum {
+  createdAt
+  description
+  id
+  updatedAt
+  url
+}
+
+input ImageScalarWhereWithAggregatesInput {
+  AND: [ImageScalarWhereWithAggregatesInput!]
+  NOT: [ImageScalarWhereWithAggregatesInput!]
+  OR: [ImageScalarWhereWithAggregatesInput!]
+  createdAt: DateTimeWithAggregatesFilter
+  description: StringNullableWithAggregatesFilter
+  id: IntWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+  url: StringWithAggregatesFilter
+}
+
+type ImageSumAggregate {
+  id: Int
+}
+
+input ImageSumOrderByAggregateInput {
+  id: SortOrder
+}
+
+input ImageUpdateInput {
+  competitions: CompetitionUpdateManyWithoutDisplayImageInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: StringFieldUpdateOperationsInput
+}
+
+input ImageUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: StringFieldUpdateOperationsInput
+}
+
+input ImageUpdateOneWithoutCompetitionsInput {
+  connect: ImageWhereUniqueInput
+  connectOrCreate: ImageCreateOrConnectWithoutCompetitionsInput
+  create: ImageCreateWithoutCompetitionsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: ImageUpdateWithoutCompetitionsInput
+  upsert: ImageUpsertWithoutCompetitionsInput
+}
+
+input ImageUpdateWithoutCompetitionsInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: StringFieldUpdateOperationsInput
+}
+
+input ImageUpsertWithoutCompetitionsInput {
+  create: ImageCreateWithoutCompetitionsInput!
+  update: ImageUpdateWithoutCompetitionsInput!
+}
+
+input ImageWhereInput {
+  AND: [ImageWhereInput!]
+  NOT: [ImageWhereInput!]
+  OR: [ImageWhereInput!]
+  competitions: CompetitionListRelationFilter
+  createdAt: DateTimeFilter
+  description: StringNullableFilter
+  id: IntFilter
+  updatedAt: DateTimeFilter
+  url: StringFilter
+}
+
+input ImageWhereUniqueInput {
+  id: Int
+}
+
 input IntFieldUpdateOperationsInput {
   decrement: Int
   divide: Int
@@ -5174,6 +5555,7 @@ type Mutation {
   createCompetitor(data: CompetitorCreateInput!): Competitor!
   createCountry(data: CountryCreateInput!): Country!
   createGrade(data: GradeCreateInput!): Grade!
+  createImage(data: ImageCreateInput!): Image!
   createManyCategory(data: [CategoryCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyCategoryRound(data: [CategoryRoundCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyClub(data: [ClubCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
@@ -5183,6 +5565,7 @@ type Mutation {
   createManyCompetitor(data: [CompetitorCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyCountry(data: [CountryCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyGrade(data: [GradeCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+  createManyImage(data: [ImageCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyRegion(data: [RegionCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyRegistration(data: [RegistrationCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyResult(data: [ResultCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
@@ -5212,6 +5595,7 @@ type Mutation {
   deleteCompetitor(where: CompetitorWhereUniqueInput!): Competitor
   deleteCountry(where: CountryWhereUniqueInput!): Country
   deleteGrade(where: GradeWhereUniqueInput!): Grade
+  deleteImage(where: ImageWhereUniqueInput!): Image
   deleteManyCategory(where: CategoryWhereInput): AffectedRowsOutput!
   deleteManyCategoryRound(where: CategoryRoundWhereInput): AffectedRowsOutput!
   deleteManyClub(where: ClubWhereInput): AffectedRowsOutput!
@@ -5221,6 +5605,7 @@ type Mutation {
   deleteManyCompetitor(where: CompetitorWhereInput): AffectedRowsOutput!
   deleteManyCountry(where: CountryWhereInput): AffectedRowsOutput!
   deleteManyGrade(where: GradeWhereInput): AffectedRowsOutput!
+  deleteManyImage(where: ImageWhereInput): AffectedRowsOutput!
   deleteManyRegion(where: RegionWhereInput): AffectedRowsOutput!
   deleteManyRegistration(where: RegistrationWhereInput): AffectedRowsOutput!
   deleteManyResult(where: ResultWhereInput): AffectedRowsOutput!
@@ -5255,6 +5640,7 @@ type Mutation {
   updateCompetitor(data: CompetitorUpdateInput!, where: CompetitorWhereUniqueInput!): Competitor
   updateCountry(data: CountryUpdateInput!, where: CountryWhereUniqueInput!): Country
   updateGrade(data: GradeUpdateInput!, where: GradeWhereUniqueInput!): Grade
+  updateImage(data: ImageUpdateInput!, where: ImageWhereUniqueInput!): Image
   updateManyCategory(data: CategoryUpdateManyMutationInput!, where: CategoryWhereInput): AffectedRowsOutput!
   updateManyCategoryRound(data: CategoryRoundUpdateManyMutationInput!, where: CategoryRoundWhereInput): AffectedRowsOutput!
   updateManyClub(data: ClubUpdateManyMutationInput!, where: ClubWhereInput): AffectedRowsOutput!
@@ -5264,6 +5650,7 @@ type Mutation {
   updateManyCompetitor(data: CompetitorUpdateManyMutationInput!, where: CompetitorWhereInput): AffectedRowsOutput!
   updateManyCountry(data: CountryUpdateManyMutationInput!, where: CountryWhereInput): AffectedRowsOutput!
   updateManyGrade(data: GradeUpdateManyMutationInput!, where: GradeWhereInput): AffectedRowsOutput!
+  updateManyImage(data: ImageUpdateManyMutationInput!, where: ImageWhereInput): AffectedRowsOutput!
   updateManyRegion(data: RegionUpdateManyMutationInput!, where: RegionWhereInput): AffectedRowsOutput!
   updateManyRegistration(data: RegistrationUpdateManyMutationInput!, where: RegistrationWhereInput): AffectedRowsOutput!
   updateManyResult(data: ResultUpdateManyMutationInput!, where: ResultWhereInput): AffectedRowsOutput!
@@ -5293,6 +5680,7 @@ type Mutation {
   upsertCompetitor(create: CompetitorCreateInput!, update: CompetitorUpdateInput!, where: CompetitorWhereUniqueInput!): Competitor!
   upsertCountry(create: CountryCreateInput!, update: CountryUpdateInput!, where: CountryWhereUniqueInput!): Country!
   upsertGrade(create: GradeCreateInput!, update: GradeUpdateInput!, where: GradeWhereUniqueInput!): Grade!
+  upsertImage(create: ImageCreateInput!, update: ImageUpdateInput!, where: ImageWhereUniqueInput!): Image!
   upsertRegion(create: RegionCreateInput!, update: RegionUpdateInput!, where: RegionWhereUniqueInput!): Region!
   upsertRegistration(create: RegistrationCreateInput!, update: RegistrationUpdateInput!, where: RegistrationWhereUniqueInput!): Registration!
   upsertResult(create: ResultCreateInput!, update: ResultUpdateInput!, where: ResultWhereUniqueInput!): Result!
@@ -5600,6 +5988,7 @@ type Query {
   aggregateCompetitor(cursor: CompetitorWhereUniqueInput, orderBy: [CompetitorOrderByInput!], skip: Int, take: Int, where: CompetitorWhereInput): AggregateCompetitor!
   aggregateCountry(cursor: CountryWhereUniqueInput, orderBy: [CountryOrderByInput!], skip: Int, take: Int, where: CountryWhereInput): AggregateCountry!
   aggregateGrade(cursor: GradeWhereUniqueInput, orderBy: [GradeOrderByInput!], skip: Int, take: Int, where: GradeWhereInput): AggregateGrade!
+  aggregateImage(cursor: ImageWhereUniqueInput, orderBy: [ImageOrderByInput!], skip: Int, take: Int, where: ImageWhereInput): AggregateImage!
   aggregateRegion(cursor: RegionWhereUniqueInput, orderBy: [RegionOrderByInput!], skip: Int, take: Int, where: RegionWhereInput): AggregateRegion!
   aggregateRegistration(cursor: RegistrationWhereUniqueInput, orderBy: [RegistrationOrderByInput!], skip: Int, take: Int, where: RegistrationWhereInput): AggregateRegistration!
   aggregateResult(cursor: ResultWhereUniqueInput, orderBy: [ResultOrderByInput!], skip: Int, take: Int, where: ResultWhereInput): AggregateResult!
@@ -5636,6 +6025,7 @@ type Query {
   findFirstCompetitor(cursor: CompetitorWhereUniqueInput, distinct: [CompetitorScalarFieldEnum!], orderBy: [CompetitorOrderByInput!], skip: Int, take: Int, where: CompetitorWhereInput): Competitor
   findFirstCountry(cursor: CountryWhereUniqueInput, distinct: [CountryScalarFieldEnum!], orderBy: [CountryOrderByInput!], skip: Int, take: Int, where: CountryWhereInput): Country
   findFirstGrade(cursor: GradeWhereUniqueInput, distinct: [GradeScalarFieldEnum!], orderBy: [GradeOrderByInput!], skip: Int, take: Int, where: GradeWhereInput): Grade
+  findFirstImage(cursor: ImageWhereUniqueInput, distinct: [ImageScalarFieldEnum!], orderBy: [ImageOrderByInput!], skip: Int, take: Int, where: ImageWhereInput): Image
   findFirstRegion(cursor: RegionWhereUniqueInput, distinct: [RegionScalarFieldEnum!], orderBy: [RegionOrderByInput!], skip: Int, take: Int, where: RegionWhereInput): Region
   findFirstRegistration(cursor: RegistrationWhereUniqueInput, distinct: [RegistrationScalarFieldEnum!], orderBy: [RegistrationOrderByInput!], skip: Int, take: Int, where: RegistrationWhereInput): Registration
   findFirstResult(cursor: ResultWhereUniqueInput, distinct: [ResultScalarFieldEnum!], orderBy: [ResultOrderByInput!], skip: Int, take: Int, where: ResultWhereInput): Result
@@ -5663,6 +6053,7 @@ type Query {
   groupByCompetitor(by: [CompetitorScalarFieldEnum!]!, having: CompetitorScalarWhereWithAggregatesInput, orderBy: [CompetitorOrderByWithAggregationInput!], skip: Int, take: Int, where: CompetitorWhereInput): [CompetitorGroupBy!]!
   groupByCountry(by: [CountryScalarFieldEnum!]!, having: CountryScalarWhereWithAggregatesInput, orderBy: [CountryOrderByWithAggregationInput!], skip: Int, take: Int, where: CountryWhereInput): [CountryGroupBy!]!
   groupByGrade(by: [GradeScalarFieldEnum!]!, having: GradeScalarWhereWithAggregatesInput, orderBy: [GradeOrderByWithAggregationInput!], skip: Int, take: Int, where: GradeWhereInput): [GradeGroupBy!]!
+  groupByImage(by: [ImageScalarFieldEnum!]!, having: ImageScalarWhereWithAggregatesInput, orderBy: [ImageOrderByWithAggregationInput!], skip: Int, take: Int, where: ImageWhereInput): [ImageGroupBy!]!
   groupByRegion(by: [RegionScalarFieldEnum!]!, having: RegionScalarWhereWithAggregatesInput, orderBy: [RegionOrderByWithAggregationInput!], skip: Int, take: Int, where: RegionWhereInput): [RegionGroupBy!]!
   groupByRegistration(by: [RegistrationScalarFieldEnum!]!, having: RegistrationScalarWhereWithAggregatesInput, orderBy: [RegistrationOrderByWithAggregationInput!], skip: Int, take: Int, where: RegistrationWhereInput): [RegistrationGroupBy!]!
   groupByResult(by: [ResultScalarFieldEnum!]!, having: ResultScalarWhereWithAggregatesInput, orderBy: [ResultOrderByWithAggregationInput!], skip: Int, take: Int, where: ResultWhereInput): [ResultGroupBy!]!
@@ -5673,6 +6064,8 @@ type Query {
   groupBySeason(by: [SeasonScalarFieldEnum!]!, having: SeasonScalarWhereWithAggregatesInput, orderBy: [SeasonOrderByWithAggregationInput!], skip: Int, take: Int, where: SeasonWhereInput): [SeasonGroupBy!]!
   groupByStartList(by: [StartListScalarFieldEnum!]!, having: StartListScalarWhereWithAggregatesInput, orderBy: [StartListOrderByWithAggregationInput!], skip: Int, take: Int, where: StartListWhereInput): [StartListGroupBy!]!
   groupByUser(by: [UserScalarFieldEnum!]!, having: UserScalarWhereWithAggregatesInput, orderBy: [UserOrderByWithAggregationInput!], skip: Int, take: Int, where: UserWhereInput): [UserGroupBy!]!
+  image(where: ImageWhereUniqueInput!): Image
+  images(cursor: ImageWhereUniqueInput, distinct: [ImageScalarFieldEnum!], orderBy: [ImageOrderByInput!], skip: Int, take: Int, where: ImageWhereInput): [Image!]!
   region(where: RegionWhereUniqueInput!): Region
   regions(cursor: RegionWhereUniqueInput, distinct: [RegionScalarFieldEnum!], orderBy: [RegionOrderByInput!], skip: Int, take: Int, where: RegionWhereInput): [Region!]!
   registration(where: RegistrationWhereUniqueInput!): Registration
