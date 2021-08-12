@@ -5,6 +5,7 @@ import LogoutButton from './LogoutButton';
 import Sidebar from './Sidebar';
 import BreadCrumbs from './BreadCrumbs';
 import DescriptionItem from './DescriptionItem';
+import ImageBox from './ImageBox';
 
 import LiveResult from './result/LiveResult';
 import Unauthorized from './auth/Unauthorized';
@@ -21,4 +22,5 @@ export {
   DescriptionItem,
   LiveResult,
   Unauthorized,
+  ImageBox,
 };
