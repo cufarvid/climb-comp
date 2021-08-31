@@ -29,7 +29,7 @@ const prisma = new PrismaClient();
     emitSchemaFile: path.resolve(__dirname, 'schema.gql'),
   });
 
-  const sever = new ApolloServer({
+  const server = new ApolloServer({
     schema,
     playground: true,
     context: async ({ req }): Promise<Context> => {
@@ -53,7 +53,7 @@ const prisma = new PrismaClient();
       }
     },
   });
-  const { url } = await sever.listen({ port: 4000 });
+  const { url } = await server.listen({ port: 4000 });
 
   console.log(`🚀 Server ready at: ${url}`);
 })();
