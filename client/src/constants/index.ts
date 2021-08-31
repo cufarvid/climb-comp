@@ -10,5 +10,5 @@ export { RESULT_COLUMNS } from './Result';
  */
 export const FORMAT = {
   DATE: 'DD.MM.YYYY',
-  DATE_TIME: 'DD.MM.YYYY, HH:MM',
+  DATE_TIME: 'DD.MM.YYYY, HH:mm',
 };
