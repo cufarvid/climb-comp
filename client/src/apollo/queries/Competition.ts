@@ -14,14 +14,19 @@ export const LIST_COMPETITIONS = gql`
       id
       name
       startDate
+      endDate
+      description
       address
       compType {
+        id
         name
       }
       country {
+        id
         name
       }
       region {
+        id
         name
       }
     }
