@@ -5,6 +5,7 @@ import { Button, Table } from 'antd';
 import { Query } from '../../types/__generated__';
 import { LIST_SEASONS } from '../../apollo/queries';
 import { parseSeasons, SEASON_COLUMNS } from '../../utils';
+import { TABLE_PAGINATION_CONFIG } from '../../constants';
 
 const Seasons: FC = () => {
   const { data, loading } = useQuery<Query>(LIST_SEASONS);
@@ -19,6 +20,7 @@ const Seasons: FC = () => {
         columns={SEASON_COLUMNS}
         dataSource={parseSeasons(data?.seasons)}
         loading={loading}
+        pagination={TABLE_PAGINATION_CONFIG}
       />
     </>
   );

@@ -5,6 +5,7 @@ import { Button, Table } from 'antd';
 import { Query } from '../../types/__generated__';
 import { LIST_COMPETITIONS } from '../../apollo/queries';
 import { COMPETITION_COLUMNS, parseCompetitions } from '../../utils';
+import { TABLE_PAGINATION_CONFIG } from '../../constants';
 
 const ListCompetitions: FC = () => {
   const { data, loading } = useQuery<Query>(LIST_COMPETITIONS);
@@ -19,6 +20,7 @@ const ListCompetitions: FC = () => {
         columns={COMPETITION_COLUMNS}
         dataSource={parseCompetitions(data?.competitions)}
         loading={loading}
+        pagination={TABLE_PAGINATION_CONFIG}
       />
     </>
   );

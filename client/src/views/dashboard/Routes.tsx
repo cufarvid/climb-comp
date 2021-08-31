@@ -5,6 +5,7 @@ import { Button, Table } from 'antd';
 import { Query } from '../../types/__generated__';
 import { LIST_ROUTES } from '../../apollo/queries';
 import { parseRoutes, ROUTE_COLUMNS } from '../../utils';
+import { TABLE_PAGINATION_CONFIG } from '../../constants';
 
 const Routes: FC = () => {
   const { data, loading } = useQuery<Query>(LIST_ROUTES);
@@ -19,6 +20,7 @@ const Routes: FC = () => {
         columns={ROUTE_COLUMNS}
         dataSource={parseRoutes(data?.routes)}
         loading={loading}
+        pagination={TABLE_PAGINATION_CONFIG}
       />
     </>
   );
