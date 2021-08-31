@@ -12,7 +12,7 @@ import { ResultsCompLive } from './index';
 
 const Home: FC = () => {
   const { data: comps } = useQuery<Query>(LIST_COMPETITIONS, {
-    variables: { date: dayjs(new Date()).format() },
+    variables: { date: dayjs(new Date()).format(), take: 4 },
   });
 
   const { data: posts } = useQuery<Query>(LIST_POSTS);
