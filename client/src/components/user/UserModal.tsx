@@ -68,7 +68,7 @@ const UserModal: FC<Props> = ({ visible, setVisible, type, user }: Props) => {
       regionId,
       countryId,
     }: RegisterInput = await form.validateFields();
-    console.log(await form.validateFields());
+
     form.resetFields();
 
     switch (type) {
