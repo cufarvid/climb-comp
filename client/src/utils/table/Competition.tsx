@@ -1,25 +1,26 @@
 import React from 'react';
 import { Space, Tag, TagProps } from 'antd';
-
+import dayjs, { Dayjs } from 'dayjs';
 import { ColumnsType } from 'antd/lib/table/interface';
+
 import { Competition } from '../../types/__generated__';
-import { CompetitionType } from '../../types';
 import { formatDateTime } from '../index';
-import { MESSAGE } from '../../constants';
 
 export interface CompetitionRow {
   id: number;
   name: string;
-  startDate: string;
+  description: string;
+  startDate: Dayjs;
+  endDate: Dayjs;
   address: string;
-  compType: string;
-  country: string;
+  compType: Competition['compType'];
+  country: Competition['country'];
+  region: Competition['region'];
 }
 
-/**
- * Competitions table column definition
- */
-export const COMPETITION_COLUMNS: ColumnsType<CompetitionRow> = [
+export const getCompetitionColumns = (
+  editCallback: (row: CompetitionRow) => void,
+): ColumnsType<CompetitionRow> => [
   {
     title: 'ID',
     dataIndex: 'id',
@@ -34,6 +35,7 @@ export const COMPETITION_COLUMNS: ColumnsType<CompetitionRow> = [
     title: 'Start date',
     dataIndex: 'startDate',
     key: 'startDate',
+    render: (value) => formatDateTime(value),
   },
   {
     title: 'Address',
@@ -44,15 +46,18 @@ export const COMPETITION_COLUMNS: ColumnsType<CompetitionRow> = [
     title: 'Country',
     dataIndex: 'country',
     key: 'country',
+    render: (value) => value.name,
   },
   {
     title: 'Type',
     dataIndex: 'compType',
     key: 'compType',
-    render: function RenderCompType(compType: CompetitionType): JSX.Element {
+    render: function RenderCompType(
+      compType: Competition['compType'],
+    ): JSX.Element {
       return (
-        <Tag color={compTypeTagColor(compType)} key={compType}>
-          {compType.toUpperCase()}
+        <Tag color={compTypeTagColor(compType)} key={compType.name}>
+          {compType.name.toUpperCase()}
         </Tag>
       );
     },
@@ -60,10 +65,10 @@ export const COMPETITION_COLUMNS: ColumnsType<CompetitionRow> = [
   {
     title: 'Action',
     key: 'action',
-    render: function SpaceRender(): JSX.Element {
+    render: function SpaceRender(row: CompetitionRow): JSX.Element {
       return (
         <Space size="middle">
-          <a>Edit</a>
+          <a onClick={() => editCallback(row)}>Edit</a>
         </Space>
       );
     },
@@ -75,14 +80,14 @@ export const COMPETITION_COLUMNS: ColumnsType<CompetitionRow> = [
  * @param compType Competition type
  */
 export const compTypeTagColor = (
-  compType: CompetitionType,
+  compType: Competition['compType'],
 ): TagProps['color'] => {
-  switch (compType) {
-    case CompetitionType.BOULDER:
+  switch (compType.name) {
+    case 'Boulder':
       return 'green';
-    case CompetitionType.LEAD:
+    case 'Lead':
       return 'blue';
-    case CompetitionType.SPEED:
+    case 'Speed':
       return 'red';
   }
 };
@@ -99,9 +104,12 @@ export const parseCompetitions = (
   return competitions.map((competition) => ({
     id: competition.id,
     name: competition.name,
-    startDate: formatDateTime(competition.startDate),
+    description: competition.description,
+    startDate: dayjs(competition.startDate),
+    endDate: dayjs(competition.endDate),
     address: competition.address,
-    compType: competition.compType.name,
-    country: competition.country?.name || MESSAGE.NO_DATA,
+    compType: competition.compType,
+    country: competition.country,
+    region: competition.region,
   }));
 };

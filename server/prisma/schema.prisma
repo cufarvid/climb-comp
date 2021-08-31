@@ -134,6 +134,7 @@ model User {
   routesJudged  Route[]        @relation("judge")
   routesSet     Route[]        @relation("setter")
   comments      Comment[]
+  posts         Post[]
 }
 
 model Club {
@@ -335,4 +336,17 @@ model Image {
   url          String
   description  String?
   competitions Competition[]
+  posts        Post[]
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String
+  content   String
+  image     Image?   @relation(fields: [imageId], references: [id])
+  imageId   Int?
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  Int?
 }

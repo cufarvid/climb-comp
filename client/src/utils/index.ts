@@ -99,7 +99,7 @@ export const padNumberStart = (
  * @param format Date format
  */
 export const formatDate = (
-  value: Date | string,
+  value: Date | string | undefined,
   format = FORMAT.DATE,
 ): string => dayjs(value).format(format);
 
