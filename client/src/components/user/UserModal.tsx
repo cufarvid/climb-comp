@@ -12,6 +12,7 @@ import {
 import { USER_ADD, USER_UPDATE } from '../../apollo/mutations';
 import { ModalType } from '../../types';
 import { UserRow } from '../../utils';
+import { useCountries, useRegions } from '../../hooks';
 
 interface Props {
   visible: boolean;
@@ -50,14 +51,24 @@ const UserModal: FC<Props> = ({ visible, setVisible, type, user }: Props) => {
     },
   );
 
+  const { countries } = useCountries();
+  const { regions } = useRegions();
+
   /**
    * Form object
    */
   const [form] = Form.useForm();
 
   const onOk = async () => {
-    const { email, firstName, lastName, role }: RegisterInput =
-      await form.validateFields();
+    const {
+      email,
+      firstName,
+      lastName,
+      role,
+      regionId,
+      countryId,
+    }: RegisterInput = await form.validateFields();
+    console.log(await form.validateFields());
     form.resetFields();
 
     switch (type) {
@@ -69,6 +80,8 @@ const UserModal: FC<Props> = ({ visible, setVisible, type, user }: Props) => {
               firstName,
               lastName,
               role,
+              regionId,
+              countryId,
               password: email,
             },
           },
@@ -157,6 +170,40 @@ const UserModal: FC<Props> = ({ visible, setVisible, type, user }: Props) => {
             {Object.values(UserRole).map((role) => (
               <Select.Option key={role} value={role}>
                 {role}
+              </Select.Option>
+            ))}
+          </Select>
+        </Form.Item>
+        <Form.Item
+          label="Region"
+          name="regionId"
+          rules={[
+            {
+              required: false,
+            },
+          ]}
+        >
+          <Select>
+            {regions?.map(({ id, name }) => (
+              <Select.Option key={id} value={id}>
+                {name}
+              </Select.Option>
+            ))}
+          </Select>
+        </Form.Item>
+        <Form.Item
+          label="Country"
+          name="countryId"
+          rules={[
+            {
+              required: false,
+            },
+          ]}
+        >
+          <Select>
+            {countries?.map(({ id, name }) => (
+              <Select.Option key={id} value={id}>
+                {name}
               </Select.Option>
             ))}
           </Select>

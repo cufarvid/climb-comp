@@ -8,3 +8,4 @@ export * from './Route';
 export * from './Country';
 export * from './Region';
 export * from './Image';
+export * from './Post';

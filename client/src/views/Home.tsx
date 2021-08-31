@@ -5,9 +5,9 @@ import { Carousel, Empty } from 'antd';
 import dayjs from 'dayjs';
 
 import { Query } from '../types/__generated__';
-import { LIST_COMPETITIONS, LIST_IMAGES } from '../apollo/queries';
+import { LIST_COMPETITIONS, LIST_POSTS } from '../apollo/queries';
 import { ROUTE } from '../constants';
-import { PageSection, CompetitionCard, ImageBox } from '../components';
+import { PageSection, CompetitionCard, PostImageBox } from '../components';
 import { ResultsCompLive } from './index';
 
 const Home: FC = () => {
@@ -15,16 +15,14 @@ const Home: FC = () => {
     variables: { date: dayjs(new Date()).format() },
   });
 
-  const { data: images } = useQuery<Query>(LIST_IMAGES);
+  const { data: posts } = useQuery<Query>(LIST_POSTS);
 
   return (
     <>
       <Carousel draggable>
-        {images?.images ? (
-          images.images.map((img) => (
-            <ImageBox url={img.url} key={img.url}>
-              {img.description}
-            </ImageBox>
+        {posts?.posts ? (
+          posts.posts.map((post) => (
+            <PostImageBox post={post} key={post.title} />
           ))
         ) : (
           <Empty />
