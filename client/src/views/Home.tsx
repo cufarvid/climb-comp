@@ -2,26 +2,31 @@ import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { Carousel, Empty } from 'antd';
-import styled from '@emotion/styled';
 import dayjs from 'dayjs';
 
 import { Query } from '../types/__generated__';
-import { LIST_COMPETITIONS } from '../apollo/queries';
+import { LIST_COMPETITIONS, LIST_POSTS } from '../apollo/queries';
 import { ROUTE } from '../constants';
-import { PageSection, CompetitionCard } from '../components';
+import { PageSection, CompetitionCard, PostImageBox } from '../components';
 import { ResultsCompLive } from './index';
 
 const Home: FC = () => {
-  const { data } = useQuery<Query>(LIST_COMPETITIONS, {
-    variables: { date: dayjs(new Date()).format() },
+  const { data: comps } = useQuery<Query>(LIST_COMPETITIONS, {
+    variables: { date: dayjs(new Date()).format(), take: 4 },
   });
+
+  const { data: posts } = useQuery<Query>(LIST_POSTS);
 
   return (
     <>
       <Carousel draggable>
-        <CarouselPage>Page 1</CarouselPage>
-        <CarouselPage>Page 2</CarouselPage>
-        <CarouselPage>Page 3</CarouselPage>
+        {posts?.posts ? (
+          posts.posts.map((post) => (
+            <PostImageBox post={post} key={post.title} />
+          ))
+        ) : (
+          <Empty />
+        )}
       </Carousel>
 
       {/* Upcoming competitions */}
@@ -29,8 +34,8 @@ const Home: FC = () => {
         title="Upcoming competitions"
         extra={<Link to={ROUTE.COMPETITIONS}>Show all</Link>}
       >
-        {data?.competitions ? (
-          data.competitions.map((comp, index) => (
+        {comps?.competitions ? (
+          comps.competitions.map((comp, index) => (
             <CompetitionCard key={index} competition={comp} />
           ))
         ) : (
@@ -56,14 +61,3 @@ const Home: FC = () => {
 };
 
 export default Home;
-
-/*
- * Styled components
- */
-const CarouselPage = styled('div')`
-  height: 500px;
-  line-height: 500px;
-  text-align: center;
-  color: #fff;
-  background: #364d79;
-`;

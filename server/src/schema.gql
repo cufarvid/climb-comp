@@ -87,6 +87,14 @@ type AggregateImage {
   _sum: ImageSumAggregate
 }
 
+type AggregatePost {
+  _avg: PostAvgAggregate
+  _count: PostCountAggregate
+  _max: PostMaxAggregate
+  _min: PostMinAggregate
+  _sum: PostSumAggregate
+}
+
 type AggregateRegion {
   _avg: RegionAvgAggregate
   _count: RegionCountAggregate
@@ -5253,6 +5261,7 @@ type Image {
   createdAt: DateTime!
   description: String
   id: Int!
+  posts(cursor: PostWhereUniqueInput, distinct: [PostScalarFieldEnum!], orderBy: [PostOrderByInput!], skip: Int, take: Int, where: PostWhereInput): [Post!]!
   updatedAt: DateTime!
   url: String!
 }
@@ -5286,6 +5295,7 @@ input ImageCreateInput {
   competitions: CompetitionCreateNestedManyWithoutDisplayImageInput
   createdAt: DateTime
   description: String
+  posts: PostCreateNestedManyWithoutImageInput
   updatedAt: DateTime
   url: String!
 }
@@ -5304,12 +5314,32 @@ input ImageCreateNestedOneWithoutCompetitionsInput {
   create: ImageCreateWithoutCompetitionsInput
 }
 
+input ImageCreateNestedOneWithoutPostsInput {
+  connect: ImageWhereUniqueInput
+  connectOrCreate: ImageCreateOrConnectWithoutPostsInput
+  create: ImageCreateWithoutPostsInput
+}
+
 input ImageCreateOrConnectWithoutCompetitionsInput {
   create: ImageCreateWithoutCompetitionsInput!
   where: ImageWhereUniqueInput!
 }
 
+input ImageCreateOrConnectWithoutPostsInput {
+  create: ImageCreateWithoutPostsInput!
+  where: ImageWhereUniqueInput!
+}
+
 input ImageCreateWithoutCompetitionsInput {
+  createdAt: DateTime
+  description: String
+  posts: PostCreateNestedManyWithoutImageInput
+  updatedAt: DateTime
+  url: String!
+}
+
+input ImageCreateWithoutPostsInput {
+  competitions: CompetitionCreateNestedManyWithoutDisplayImageInput
   createdAt: DateTime
   description: String
   updatedAt: DateTime
@@ -5418,6 +5448,7 @@ input ImageUpdateInput {
   competitions: CompetitionUpdateManyWithoutDisplayImageInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutImageInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: StringFieldUpdateOperationsInput
 }
@@ -5439,7 +5470,26 @@ input ImageUpdateOneWithoutCompetitionsInput {
   upsert: ImageUpsertWithoutCompetitionsInput
 }
 
+input ImageUpdateOneWithoutPostsInput {
+  connect: ImageWhereUniqueInput
+  connectOrCreate: ImageCreateOrConnectWithoutPostsInput
+  create: ImageCreateWithoutPostsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: ImageUpdateWithoutPostsInput
+  upsert: ImageUpsertWithoutPostsInput
+}
+
 input ImageUpdateWithoutCompetitionsInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutImageInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: StringFieldUpdateOperationsInput
+}
+
+input ImageUpdateWithoutPostsInput {
+  competitions: CompetitionUpdateManyWithoutDisplayImageInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -5451,6 +5501,11 @@ input ImageUpsertWithoutCompetitionsInput {
   update: ImageUpdateWithoutCompetitionsInput!
 }
 
+input ImageUpsertWithoutPostsInput {
+  create: ImageCreateWithoutPostsInput!
+  update: ImageUpdateWithoutPostsInput!
+}
+
 input ImageWhereInput {
   AND: [ImageWhereInput!]
   NOT: [ImageWhereInput!]
@@ -5459,6 +5514,7 @@ input ImageWhereInput {
   createdAt: DateTimeFilter
   description: StringNullableFilter
   id: IntFilter
+  posts: PostListRelationFilter
   updatedAt: DateTimeFilter
   url: StringFilter
 }
@@ -5566,6 +5622,7 @@ type Mutation {
   createManyCountry(data: [CountryCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyGrade(data: [GradeCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyImage(data: [ImageCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+  createManyPost(data: [PostCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyRegion(data: [RegionCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyRegistration(data: [RegistrationCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyResult(data: [ResultCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
@@ -5576,6 +5633,7 @@ type Mutation {
   createManySeason(data: [SeasonCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyStartList(data: [StartListCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyUser(data: [UserCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+  createPost(data: PostCreateInput!): Post!
   createRegion(data: RegionCreateInput!): Region!
   createRegistration(data: RegistrationCreateInput!): Registration!
   createResult(data: ResultCreateInput!): Result!
@@ -5606,6 +5664,7 @@ type Mutation {
   deleteManyCountry(where: CountryWhereInput): AffectedRowsOutput!
   deleteManyGrade(where: GradeWhereInput): AffectedRowsOutput!
   deleteManyImage(where: ImageWhereInput): AffectedRowsOutput!
+  deleteManyPost(where: PostWhereInput): AffectedRowsOutput!
   deleteManyRegion(where: RegionWhereInput): AffectedRowsOutput!
   deleteManyRegistration(where: RegistrationWhereInput): AffectedRowsOutput!
   deleteManyResult(where: ResultWhereInput): AffectedRowsOutput!
@@ -5616,6 +5675,7 @@ type Mutation {
   deleteManySeason(where: SeasonWhereInput): AffectedRowsOutput!
   deleteManyStartList(where: StartListWhereInput): AffectedRowsOutput!
   deleteManyUser(where: UserWhereInput): AffectedRowsOutput!
+  deletePost(where: PostWhereUniqueInput!): Post
   deleteRegion(where: RegionWhereUniqueInput!): Region
   deleteRegistration(where: RegistrationWhereUniqueInput!): Registration
   deleteResult(where: ResultWhereUniqueInput!): Result
@@ -5651,6 +5711,7 @@ type Mutation {
   updateManyCountry(data: CountryUpdateManyMutationInput!, where: CountryWhereInput): AffectedRowsOutput!
   updateManyGrade(data: GradeUpdateManyMutationInput!, where: GradeWhereInput): AffectedRowsOutput!
   updateManyImage(data: ImageUpdateManyMutationInput!, where: ImageWhereInput): AffectedRowsOutput!
+  updateManyPost(data: PostUpdateManyMutationInput!, where: PostWhereInput): AffectedRowsOutput!
   updateManyRegion(data: RegionUpdateManyMutationInput!, where: RegionWhereInput): AffectedRowsOutput!
   updateManyRegistration(data: RegistrationUpdateManyMutationInput!, where: RegistrationWhereInput): AffectedRowsOutput!
   updateManyResult(data: ResultUpdateManyMutationInput!, where: ResultWhereInput): AffectedRowsOutput!
@@ -5661,6 +5722,7 @@ type Mutation {
   updateManySeason(data: SeasonUpdateManyMutationInput!, where: SeasonWhereInput): AffectedRowsOutput!
   updateManyStartList(data: StartListUpdateManyMutationInput!, where: StartListWhereInput): AffectedRowsOutput!
   updateManyUser(data: UserUpdateManyMutationInput!, where: UserWhereInput): AffectedRowsOutput!
+  updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
   updateRegion(data: RegionUpdateInput!, where: RegionWhereUniqueInput!): Region
   updateRegistration(data: RegistrationUpdateInput!, where: RegistrationWhereUniqueInput!): Registration
   updateResult(data: ResultUpdateInput!, where: ResultWhereUniqueInput!): Result
@@ -5681,6 +5743,7 @@ type Mutation {
   upsertCountry(create: CountryCreateInput!, update: CountryUpdateInput!, where: CountryWhereUniqueInput!): Country!
   upsertGrade(create: GradeCreateInput!, update: GradeUpdateInput!, where: GradeWhereUniqueInput!): Grade!
   upsertImage(create: ImageCreateInput!, update: ImageUpdateInput!, where: ImageWhereUniqueInput!): Image!
+  upsertPost(create: PostCreateInput!, update: PostUpdateInput!, where: PostWhereUniqueInput!): Post!
   upsertRegion(create: RegionCreateInput!, update: RegionUpdateInput!, where: RegionWhereUniqueInput!): Region!
   upsertRegistration(create: RegistrationCreateInput!, update: RegistrationUpdateInput!, where: RegistrationWhereUniqueInput!): Registration!
   upsertResult(create: ResultCreateInput!, update: ResultUpdateInput!, where: ResultWhereUniqueInput!): Result!
@@ -5978,6 +6041,383 @@ input NullableStringFieldUpdateOperationsInput {
   set: String
 }
 
+type Post {
+  author: User
+  authorId: Int
+  content: String!
+  createdAt: DateTime!
+  id: Int!
+  image: Image
+  imageId: Int
+  title: String!
+  updatedAt: DateTime!
+}
+
+type PostAvgAggregate {
+  authorId: Float
+  id: Float
+  imageId: Float
+}
+
+input PostAvgOrderByAggregateInput {
+  authorId: SortOrder
+  id: SortOrder
+  imageId: SortOrder
+}
+
+type PostCountAggregate {
+  _all: Int!
+  authorId: Int!
+  content: Int!
+  createdAt: Int!
+  id: Int!
+  imageId: Int!
+  title: Int!
+  updatedAt: Int!
+}
+
+input PostCountOrderByAggregateInput {
+  authorId: SortOrder
+  content: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  imageId: SortOrder
+  title: SortOrder
+  updatedAt: SortOrder
+}
+
+input PostCreateInput {
+  author: UserCreateNestedOneWithoutPostsInput
+  content: String!
+  createdAt: DateTime
+  image: ImageCreateNestedOneWithoutPostsInput
+  title: String!
+  updatedAt: DateTime
+}
+
+input PostCreateManyAuthorInput {
+  content: String!
+  createdAt: DateTime
+  id: Int
+  imageId: Int
+  title: String!
+  updatedAt: DateTime
+}
+
+input PostCreateManyAuthorInputEnvelope {
+  data: [PostCreateManyAuthorInput!]!
+  skipDuplicates: Boolean
+}
+
+input PostCreateManyImageInput {
+  authorId: Int
+  content: String!
+  createdAt: DateTime
+  id: Int
+  title: String!
+  updatedAt: DateTime
+}
+
+input PostCreateManyImageInputEnvelope {
+  data: [PostCreateManyImageInput!]!
+  skipDuplicates: Boolean
+}
+
+input PostCreateManyInput {
+  authorId: Int
+  content: String!
+  createdAt: DateTime
+  id: Int
+  imageId: Int
+  title: String!
+  updatedAt: DateTime
+}
+
+input PostCreateNestedManyWithoutAuthorInput {
+  connect: [PostWhereUniqueInput!]
+  connectOrCreate: [PostCreateOrConnectWithoutAuthorInput!]
+  create: [PostCreateWithoutAuthorInput!]
+  createMany: PostCreateManyAuthorInputEnvelope
+}
+
+input PostCreateNestedManyWithoutImageInput {
+  connect: [PostWhereUniqueInput!]
+  connectOrCreate: [PostCreateOrConnectWithoutImageInput!]
+  create: [PostCreateWithoutImageInput!]
+  createMany: PostCreateManyImageInputEnvelope
+}
+
+input PostCreateOrConnectWithoutAuthorInput {
+  create: PostCreateWithoutAuthorInput!
+  where: PostWhereUniqueInput!
+}
+
+input PostCreateOrConnectWithoutImageInput {
+  create: PostCreateWithoutImageInput!
+  where: PostWhereUniqueInput!
+}
+
+input PostCreateWithoutAuthorInput {
+  content: String!
+  createdAt: DateTime
+  image: ImageCreateNestedOneWithoutPostsInput
+  title: String!
+  updatedAt: DateTime
+}
+
+input PostCreateWithoutImageInput {
+  author: UserCreateNestedOneWithoutPostsInput
+  content: String!
+  createdAt: DateTime
+  title: String!
+  updatedAt: DateTime
+}
+
+type PostGroupBy {
+  _avg: PostAvgAggregate
+  _count: PostCountAggregate
+  _max: PostMaxAggregate
+  _min: PostMinAggregate
+  _sum: PostSumAggregate
+  authorId: Int
+  content: String!
+  createdAt: DateTime!
+  id: Int!
+  imageId: Int
+  title: String!
+  updatedAt: DateTime!
+}
+
+input PostListRelationFilter {
+  every: PostWhereInput
+  none: PostWhereInput
+  some: PostWhereInput
+}
+
+type PostMaxAggregate {
+  authorId: Int
+  content: String
+  createdAt: DateTime
+  id: Int
+  imageId: Int
+  title: String
+  updatedAt: DateTime
+}
+
+input PostMaxOrderByAggregateInput {
+  authorId: SortOrder
+  content: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  imageId: SortOrder
+  title: SortOrder
+  updatedAt: SortOrder
+}
+
+type PostMinAggregate {
+  authorId: Int
+  content: String
+  createdAt: DateTime
+  id: Int
+  imageId: Int
+  title: String
+  updatedAt: DateTime
+}
+
+input PostMinOrderByAggregateInput {
+  authorId: SortOrder
+  content: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  imageId: SortOrder
+  title: SortOrder
+  updatedAt: SortOrder
+}
+
+input PostOrderByInput {
+  authorId: SortOrder
+  content: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  imageId: SortOrder
+  title: SortOrder
+  updatedAt: SortOrder
+}
+
+input PostOrderByWithAggregationInput {
+  _avg: PostAvgOrderByAggregateInput
+  _count: PostCountOrderByAggregateInput
+  _max: PostMaxOrderByAggregateInput
+  _min: PostMinOrderByAggregateInput
+  _sum: PostSumOrderByAggregateInput
+  authorId: SortOrder
+  content: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  imageId: SortOrder
+  title: SortOrder
+  updatedAt: SortOrder
+}
+
+enum PostScalarFieldEnum {
+  authorId
+  content
+  createdAt
+  id
+  imageId
+  title
+  updatedAt
+}
+
+input PostScalarWhereInput {
+  AND: [PostScalarWhereInput!]
+  NOT: [PostScalarWhereInput!]
+  OR: [PostScalarWhereInput!]
+  authorId: IntNullableFilter
+  content: StringFilter
+  createdAt: DateTimeFilter
+  id: IntFilter
+  imageId: IntNullableFilter
+  title: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input PostScalarWhereWithAggregatesInput {
+  AND: [PostScalarWhereWithAggregatesInput!]
+  NOT: [PostScalarWhereWithAggregatesInput!]
+  OR: [PostScalarWhereWithAggregatesInput!]
+  authorId: IntNullableWithAggregatesFilter
+  content: StringWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
+  id: IntWithAggregatesFilter
+  imageId: IntNullableWithAggregatesFilter
+  title: StringWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+}
+
+type PostSumAggregate {
+  authorId: Int
+  id: Int
+  imageId: Int
+}
+
+input PostSumOrderByAggregateInput {
+  authorId: SortOrder
+  id: SortOrder
+  imageId: SortOrder
+}
+
+input PostUpdateInput {
+  author: UserUpdateOneWithoutPostsInput
+  content: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  image: ImageUpdateOneWithoutPostsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PostUpdateManyMutationInput {
+  content: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PostUpdateManyWithWhereWithoutAuthorInput {
+  data: PostUpdateManyMutationInput!
+  where: PostScalarWhereInput!
+}
+
+input PostUpdateManyWithWhereWithoutImageInput {
+  data: PostUpdateManyMutationInput!
+  where: PostScalarWhereInput!
+}
+
+input PostUpdateManyWithoutAuthorInput {
+  connect: [PostWhereUniqueInput!]
+  connectOrCreate: [PostCreateOrConnectWithoutAuthorInput!]
+  create: [PostCreateWithoutAuthorInput!]
+  createMany: PostCreateManyAuthorInputEnvelope
+  delete: [PostWhereUniqueInput!]
+  deleteMany: [PostScalarWhereInput!]
+  disconnect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
+  updateMany: [PostUpdateManyWithWhereWithoutAuthorInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
+}
+
+input PostUpdateManyWithoutImageInput {
+  connect: [PostWhereUniqueInput!]
+  connectOrCreate: [PostCreateOrConnectWithoutImageInput!]
+  create: [PostCreateWithoutImageInput!]
+  createMany: PostCreateManyImageInputEnvelope
+  delete: [PostWhereUniqueInput!]
+  deleteMany: [PostScalarWhereInput!]
+  disconnect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutImageInput!]
+  updateMany: [PostUpdateManyWithWhereWithoutImageInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutImageInput!]
+}
+
+input PostUpdateWithWhereUniqueWithoutAuthorInput {
+  data: PostUpdateWithoutAuthorInput!
+  where: PostWhereUniqueInput!
+}
+
+input PostUpdateWithWhereUniqueWithoutImageInput {
+  data: PostUpdateWithoutImageInput!
+  where: PostWhereUniqueInput!
+}
+
+input PostUpdateWithoutAuthorInput {
+  content: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  image: ImageUpdateOneWithoutPostsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PostUpdateWithoutImageInput {
+  author: UserUpdateOneWithoutPostsInput
+  content: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PostUpsertWithWhereUniqueWithoutAuthorInput {
+  create: PostCreateWithoutAuthorInput!
+  update: PostUpdateWithoutAuthorInput!
+  where: PostWhereUniqueInput!
+}
+
+input PostUpsertWithWhereUniqueWithoutImageInput {
+  create: PostCreateWithoutImageInput!
+  update: PostUpdateWithoutImageInput!
+  where: PostWhereUniqueInput!
+}
+
+input PostWhereInput {
+  AND: [PostWhereInput!]
+  NOT: [PostWhereInput!]
+  OR: [PostWhereInput!]
+  author: UserRelationFilter
+  authorId: IntNullableFilter
+  content: StringFilter
+  createdAt: DateTimeFilter
+  id: IntFilter
+  image: ImageRelationFilter
+  imageId: IntNullableFilter
+  title: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input PostWhereUniqueInput {
+  id: Int
+}
+
 type Query {
   aggregateCategory(cursor: CategoryWhereUniqueInput, orderBy: [CategoryOrderByInput!], skip: Int, take: Int, where: CategoryWhereInput): AggregateCategory!
   aggregateCategoryRound(cursor: CategoryRoundWhereUniqueInput, orderBy: [CategoryRoundOrderByInput!], skip: Int, take: Int, where: CategoryRoundWhereInput): AggregateCategoryRound!
@@ -5989,6 +6429,7 @@ type Query {
   aggregateCountry(cursor: CountryWhereUniqueInput, orderBy: [CountryOrderByInput!], skip: Int, take: Int, where: CountryWhereInput): AggregateCountry!
   aggregateGrade(cursor: GradeWhereUniqueInput, orderBy: [GradeOrderByInput!], skip: Int, take: Int, where: GradeWhereInput): AggregateGrade!
   aggregateImage(cursor: ImageWhereUniqueInput, orderBy: [ImageOrderByInput!], skip: Int, take: Int, where: ImageWhereInput): AggregateImage!
+  aggregatePost(cursor: PostWhereUniqueInput, orderBy: [PostOrderByInput!], skip: Int, take: Int, where: PostWhereInput): AggregatePost!
   aggregateRegion(cursor: RegionWhereUniqueInput, orderBy: [RegionOrderByInput!], skip: Int, take: Int, where: RegionWhereInput): AggregateRegion!
   aggregateRegistration(cursor: RegistrationWhereUniqueInput, orderBy: [RegistrationOrderByInput!], skip: Int, take: Int, where: RegistrationWhereInput): AggregateRegistration!
   aggregateResult(cursor: ResultWhereUniqueInput, orderBy: [ResultOrderByInput!], skip: Int, take: Int, where: ResultWhereInput): AggregateResult!
@@ -6026,6 +6467,7 @@ type Query {
   findFirstCountry(cursor: CountryWhereUniqueInput, distinct: [CountryScalarFieldEnum!], orderBy: [CountryOrderByInput!], skip: Int, take: Int, where: CountryWhereInput): Country
   findFirstGrade(cursor: GradeWhereUniqueInput, distinct: [GradeScalarFieldEnum!], orderBy: [GradeOrderByInput!], skip: Int, take: Int, where: GradeWhereInput): Grade
   findFirstImage(cursor: ImageWhereUniqueInput, distinct: [ImageScalarFieldEnum!], orderBy: [ImageOrderByInput!], skip: Int, take: Int, where: ImageWhereInput): Image
+  findFirstPost(cursor: PostWhereUniqueInput, distinct: [PostScalarFieldEnum!], orderBy: [PostOrderByInput!], skip: Int, take: Int, where: PostWhereInput): Post
   findFirstRegion(cursor: RegionWhereUniqueInput, distinct: [RegionScalarFieldEnum!], orderBy: [RegionOrderByInput!], skip: Int, take: Int, where: RegionWhereInput): Region
   findFirstRegistration(cursor: RegistrationWhereUniqueInput, distinct: [RegistrationScalarFieldEnum!], orderBy: [RegistrationOrderByInput!], skip: Int, take: Int, where: RegistrationWhereInput): Registration
   findFirstResult(cursor: ResultWhereUniqueInput, distinct: [ResultScalarFieldEnum!], orderBy: [ResultOrderByInput!], skip: Int, take: Int, where: ResultWhereInput): Result
@@ -6054,6 +6496,7 @@ type Query {
   groupByCountry(by: [CountryScalarFieldEnum!]!, having: CountryScalarWhereWithAggregatesInput, orderBy: [CountryOrderByWithAggregationInput!], skip: Int, take: Int, where: CountryWhereInput): [CountryGroupBy!]!
   groupByGrade(by: [GradeScalarFieldEnum!]!, having: GradeScalarWhereWithAggregatesInput, orderBy: [GradeOrderByWithAggregationInput!], skip: Int, take: Int, where: GradeWhereInput): [GradeGroupBy!]!
   groupByImage(by: [ImageScalarFieldEnum!]!, having: ImageScalarWhereWithAggregatesInput, orderBy: [ImageOrderByWithAggregationInput!], skip: Int, take: Int, where: ImageWhereInput): [ImageGroupBy!]!
+  groupByPost(by: [PostScalarFieldEnum!]!, having: PostScalarWhereWithAggregatesInput, orderBy: [PostOrderByWithAggregationInput!], skip: Int, take: Int, where: PostWhereInput): [PostGroupBy!]!
   groupByRegion(by: [RegionScalarFieldEnum!]!, having: RegionScalarWhereWithAggregatesInput, orderBy: [RegionOrderByWithAggregationInput!], skip: Int, take: Int, where: RegionWhereInput): [RegionGroupBy!]!
   groupByRegistration(by: [RegistrationScalarFieldEnum!]!, having: RegistrationScalarWhereWithAggregatesInput, orderBy: [RegistrationOrderByWithAggregationInput!], skip: Int, take: Int, where: RegistrationWhereInput): [RegistrationGroupBy!]!
   groupByResult(by: [ResultScalarFieldEnum!]!, having: ResultScalarWhereWithAggregatesInput, orderBy: [ResultOrderByWithAggregationInput!], skip: Int, take: Int, where: ResultWhereInput): [ResultGroupBy!]!
@@ -6066,6 +6509,8 @@ type Query {
   groupByUser(by: [UserScalarFieldEnum!]!, having: UserScalarWhereWithAggregatesInput, orderBy: [UserOrderByWithAggregationInput!], skip: Int, take: Int, where: UserWhereInput): [UserGroupBy!]!
   image(where: ImageWhereUniqueInput!): Image
   images(cursor: ImageWhereUniqueInput, distinct: [ImageScalarFieldEnum!], orderBy: [ImageOrderByInput!], skip: Int, take: Int, where: ImageWhereInput): [Image!]!
+  post(where: PostWhereUniqueInput!): Post
+  posts(cursor: PostWhereUniqueInput, distinct: [PostScalarFieldEnum!], orderBy: [PostOrderByInput!], skip: Int, take: Int, where: PostWhereInput): [Post!]!
   region(where: RegionWhereUniqueInput!): Region
   regions(cursor: RegionWhereUniqueInput, distinct: [RegionScalarFieldEnum!], orderBy: [RegionOrderByInput!], skip: Int, take: Int, where: RegionWhereInput): [Region!]!
   registration(where: RegistrationWhereUniqueInput!): Registration
@@ -10787,6 +11232,7 @@ type User {
   id: Int!
   lastName: String!
   password: String!
+  posts(cursor: PostWhereUniqueInput, distinct: [PostScalarFieldEnum!], orderBy: [PostOrderByInput!], skip: Int, take: Int, where: PostWhereInput): [Post!]!
   publicId: String!
   region: Region
   regionId: Int
@@ -10853,6 +11299,7 @@ input UserCreateInput {
   firstName: String!
   lastName: String!
   password: String!
+  posts: PostCreateNestedManyWithoutAuthorInput
   publicId: String
   region: RegionCreateNestedOneWithoutUsersInput
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
@@ -10968,6 +11415,12 @@ input UserCreateNestedOneWithoutCommentsInput {
   create: UserCreateWithoutCommentsInput
 }
 
+input UserCreateNestedOneWithoutPostsInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutPostsInput
+  create: UserCreateWithoutPostsInput
+}
+
 input UserCreateNestedOneWithoutRegistrationsInput {
   connect: UserWhereUniqueInput
   connectOrCreate: UserCreateOrConnectWithoutRegistrationsInput
@@ -11012,6 +11465,11 @@ input UserCreateOrConnectWithoutCountryInput {
   where: UserWhereUniqueInput!
 }
 
+input UserCreateOrConnectWithoutPostsInput {
+  create: UserCreateWithoutPostsInput!
+  where: UserWhereUniqueInput!
+}
+
 input UserCreateOrConnectWithoutRegionInput {
   create: UserCreateWithoutRegionInput!
   where: UserWhereUniqueInput!
@@ -11046,6 +11504,7 @@ input UserCreateWithoutAcceptancesInput {
   firstName: String!
   lastName: String!
   password: String!
+  posts: PostCreateNestedManyWithoutAuthorInput
   publicId: String
   region: RegionCreateNestedOneWithoutUsersInput
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
@@ -11065,6 +11524,7 @@ input UserCreateWithoutClubInput {
   firstName: String!
   lastName: String!
   password: String!
+  posts: PostCreateNestedManyWithoutAuthorInput
   publicId: String
   region: RegionCreateNestedOneWithoutUsersInput
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
@@ -11084,6 +11544,7 @@ input UserCreateWithoutCommentsInput {
   firstName: String!
   lastName: String!
   password: String!
+  posts: PostCreateNestedManyWithoutAuthorInput
   publicId: String
   region: RegionCreateNestedOneWithoutUsersInput
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
@@ -11098,6 +11559,27 @@ input UserCreateWithoutCountryInput {
   acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
   club: ClubCreateNestedOneWithoutUsersInput
   comments: CommentCreateNestedManyWithoutUserInput
+  createdAt: DateTime
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  posts: PostCreateNestedManyWithoutAuthorInput
+  publicId: String
+  region: RegionCreateNestedOneWithoutUsersInput
+  registrations: RegistrationCreateNestedManyWithoutRegistrantInput
+  results: ResultCreateNestedManyWithoutApprovedByInput
+  role: UserRole
+  routesJudged: RouteCreateNestedManyWithoutJudgeInput
+  routesSet: RouteCreateNestedManyWithoutSetterInput
+  updatedAt: DateTime
+}
+
+input UserCreateWithoutPostsInput {
+  acceptances: RegistrationCreateNestedManyWithoutAcceptorInput
+  club: ClubCreateNestedOneWithoutUsersInput
+  comments: CommentCreateNestedManyWithoutUserInput
+  country: CountryCreateNestedOneWithoutUsersInput
   createdAt: DateTime
   email: String!
   firstName: String!
@@ -11123,6 +11605,7 @@ input UserCreateWithoutRegionInput {
   firstName: String!
   lastName: String!
   password: String!
+  posts: PostCreateNestedManyWithoutAuthorInput
   publicId: String
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
   results: ResultCreateNestedManyWithoutApprovedByInput
@@ -11142,6 +11625,7 @@ input UserCreateWithoutRegistrationsInput {
   firstName: String!
   lastName: String!
   password: String!
+  posts: PostCreateNestedManyWithoutAuthorInput
   publicId: String
   region: RegionCreateNestedOneWithoutUsersInput
   results: ResultCreateNestedManyWithoutApprovedByInput
@@ -11161,6 +11645,7 @@ input UserCreateWithoutResultsInput {
   firstName: String!
   lastName: String!
   password: String!
+  posts: PostCreateNestedManyWithoutAuthorInput
   publicId: String
   region: RegionCreateNestedOneWithoutUsersInput
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
@@ -11180,6 +11665,7 @@ input UserCreateWithoutRoutesJudgedInput {
   firstName: String!
   lastName: String!
   password: String!
+  posts: PostCreateNestedManyWithoutAuthorInput
   publicId: String
   region: RegionCreateNestedOneWithoutUsersInput
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
@@ -11199,6 +11685,7 @@ input UserCreateWithoutRoutesSetInput {
   firstName: String!
   lastName: String!
   password: String!
+  posts: PostCreateNestedManyWithoutAuthorInput
   publicId: String
   region: RegionCreateNestedOneWithoutUsersInput
   registrations: RegistrationCreateNestedManyWithoutRegistrantInput
@@ -11421,6 +11908,7 @@ input UserUpdateInput {
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutAuthorInput
   publicId: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutUsersInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
@@ -11549,6 +12037,16 @@ input UserUpdateOneWithoutCommentsInput {
   upsert: UserUpsertWithoutCommentsInput
 }
 
+input UserUpdateOneWithoutPostsInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutPostsInput
+  create: UserCreateWithoutPostsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: UserUpdateWithoutPostsInput
+  upsert: UserUpsertWithoutPostsInput
+}
+
 input UserUpdateWithWhereUniqueWithoutClubInput {
   data: UserUpdateWithoutClubInput!
   where: UserWhereUniqueInput!
@@ -11573,6 +12071,7 @@ input UserUpdateWithoutAcceptancesInput {
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutAuthorInput
   publicId: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutUsersInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
@@ -11592,6 +12091,7 @@ input UserUpdateWithoutClubInput {
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutAuthorInput
   publicId: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutUsersInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
@@ -11611,6 +12111,7 @@ input UserUpdateWithoutCommentsInput {
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutAuthorInput
   publicId: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutUsersInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
@@ -11625,6 +12126,27 @@ input UserUpdateWithoutCountryInput {
   acceptances: RegistrationUpdateManyWithoutAcceptorInput
   club: ClubUpdateOneWithoutUsersInput
   comments: CommentUpdateManyWithoutUserInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutAuthorInput
+  publicId: StringFieldUpdateOperationsInput
+  region: RegionUpdateOneWithoutUsersInput
+  registrations: RegistrationUpdateManyWithoutRegistrantInput
+  results: ResultUpdateManyWithoutApprovedByInput
+  role: EnumUserRoleFieldUpdateOperationsInput
+  routesJudged: RouteUpdateManyWithoutJudgeInput
+  routesSet: RouteUpdateManyWithoutSetterInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input UserUpdateWithoutPostsInput {
+  acceptances: RegistrationUpdateManyWithoutAcceptorInput
+  club: ClubUpdateOneWithoutUsersInput
+  comments: CommentUpdateManyWithoutUserInput
+  country: CountryUpdateOneWithoutUsersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
   firstName: StringFieldUpdateOperationsInput
@@ -11650,6 +12172,7 @@ input UserUpdateWithoutRegionInput {
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutAuthorInput
   publicId: StringFieldUpdateOperationsInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
   results: ResultUpdateManyWithoutApprovedByInput
@@ -11669,6 +12192,7 @@ input UserUpdateWithoutRegistrationsInput {
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutAuthorInput
   publicId: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutUsersInput
   results: ResultUpdateManyWithoutApprovedByInput
@@ -11688,6 +12212,7 @@ input UserUpdateWithoutResultsInput {
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutAuthorInput
   publicId: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutUsersInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
@@ -11707,6 +12232,7 @@ input UserUpdateWithoutRoutesJudgedInput {
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutAuthorInput
   publicId: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutUsersInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
@@ -11726,6 +12252,7 @@ input UserUpdateWithoutRoutesSetInput {
   firstName: StringFieldUpdateOperationsInput
   lastName: StringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutAuthorInput
   publicId: StringFieldUpdateOperationsInput
   region: RegionUpdateOneWithoutUsersInput
   registrations: RegistrationUpdateManyWithoutRegistrantInput
@@ -11761,6 +12288,11 @@ input UserUpsertWithoutAcceptancesInput {
 input UserUpsertWithoutCommentsInput {
   create: UserCreateWithoutCommentsInput!
   update: UserUpdateWithoutCommentsInput!
+}
+
+input UserUpsertWithoutPostsInput {
+  create: UserCreateWithoutPostsInput!
+  update: UserUpdateWithoutPostsInput!
 }
 
 input UserUpsertWithoutRegistrationsInput {
@@ -11799,6 +12331,7 @@ input UserWhereInput {
   id: IntFilter
   lastName: StringFilter
   password: StringFilter
+  posts: PostListRelationFilter
   publicId: StringFilter
   region: RegionRelationFilter
   regionId: IntNullableFilter

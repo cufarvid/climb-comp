@@ -11,6 +11,7 @@ import {
 } from '../types/__generated__';
 import { LiveResult, PageSection } from '../components';
 import { useCategories, useCompsYearly } from '../hooks';
+import { formatDate } from '../utils';
 import { COMP_RESULTS } from '../apollo/queries';
 
 const YEAR_DATA = [2021, 2020];
@@ -69,7 +70,9 @@ const Results: FC = () => {
     fetchResults();
   }, [competition, category]);
 
-  const title = `Results - (${year}) ${competition?.name ?? ''}`.trim();
+  const title = `Results - (${year}) ${competition?.name ?? ''} - ${formatDate(
+    competition?.startDate,
+  )}`.trim();
 
   return (
     <div>
@@ -97,10 +100,11 @@ const Results: FC = () => {
               value={competition?.name}
               onChange={(value) => handleCompChange(+value)}
               placeholder="Competition"
+              style={{ minWidth: 200 }}
             >
               {compsYearly[year]?.map((comp, index) => (
                 <Select.Option key={comp.id} value={index}>
-                  {comp.name}
+                  {comp.name} - {formatDate(comp.startDate)}
                 </Select.Option>
               ))}
             </Select>
@@ -110,6 +114,7 @@ const Results: FC = () => {
               value={category?.name}
               onChange={(value) => setCategory(categories[+value])}
               placeholder="Category"
+              style={{ minWidth: 150 }}
             >
               {categories?.map((cat, index) => (
                 <Select.Option key={cat.id} value={index}>

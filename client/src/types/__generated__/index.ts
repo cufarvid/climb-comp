@@ -112,6 +112,15 @@ export type AggregateImage = {
   _sum?: Maybe<ImageSumAggregate>;
 };
 
+export type AggregatePost = {
+  __typename?: 'AggregatePost';
+  _avg?: Maybe<PostAvgAggregate>;
+  _count?: Maybe<PostCountAggregate>;
+  _max?: Maybe<PostMaxAggregate>;
+  _min?: Maybe<PostMinAggregate>;
+  _sum?: Maybe<PostSumAggregate>;
+};
+
 export type AggregateRegion = {
   __typename?: 'AggregateRegion';
   _avg?: Maybe<RegionAvgAggregate>;
@@ -5611,6 +5620,7 @@ export type Image = {
   createdAt: Scalars['DateTime'];
   description?: Maybe<Scalars['String']>;
   id: Scalars['Int'];
+  posts: Array<Post>;
   updatedAt: Scalars['DateTime'];
   url: Scalars['String'];
 };
@@ -5622,6 +5632,15 @@ export type ImageCompetitionsArgs = {
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<CompetitionWhereInput>;
+};
+
+export type ImagePostsArgs = {
+  cursor?: Maybe<PostWhereUniqueInput>;
+  distinct?: Maybe<Array<PostScalarFieldEnum>>;
+  orderBy?: Maybe<Array<PostOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<PostWhereInput>;
 };
 
 export type ImageAvgAggregate = {
@@ -5655,6 +5674,7 @@ export type ImageCreateInput = {
   competitions?: Maybe<CompetitionCreateNestedManyWithoutDisplayImageInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
+  posts?: Maybe<PostCreateNestedManyWithoutImageInput>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   url: Scalars['String'];
 };
@@ -5673,12 +5693,32 @@ export type ImageCreateNestedOneWithoutCompetitionsInput = {
   create?: Maybe<ImageCreateWithoutCompetitionsInput>;
 };
 
+export type ImageCreateNestedOneWithoutPostsInput = {
+  connect?: Maybe<ImageWhereUniqueInput>;
+  connectOrCreate?: Maybe<ImageCreateOrConnectWithoutPostsInput>;
+  create?: Maybe<ImageCreateWithoutPostsInput>;
+};
+
 export type ImageCreateOrConnectWithoutCompetitionsInput = {
   create: ImageCreateWithoutCompetitionsInput;
   where: ImageWhereUniqueInput;
 };
 
+export type ImageCreateOrConnectWithoutPostsInput = {
+  create: ImageCreateWithoutPostsInput;
+  where: ImageWhereUniqueInput;
+};
+
 export type ImageCreateWithoutCompetitionsInput = {
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description?: Maybe<Scalars['String']>;
+  posts?: Maybe<PostCreateNestedManyWithoutImageInput>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  url: Scalars['String'];
+};
+
+export type ImageCreateWithoutPostsInput = {
+  competitions?: Maybe<CompetitionCreateNestedManyWithoutDisplayImageInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -5791,6 +5831,7 @@ export type ImageUpdateInput = {
   competitions?: Maybe<CompetitionUpdateManyWithoutDisplayImageInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<NullableStringFieldUpdateOperationsInput>;
+  posts?: Maybe<PostUpdateManyWithoutImageInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   url?: Maybe<StringFieldUpdateOperationsInput>;
 };
@@ -5812,7 +5853,26 @@ export type ImageUpdateOneWithoutCompetitionsInput = {
   upsert?: Maybe<ImageUpsertWithoutCompetitionsInput>;
 };
 
+export type ImageUpdateOneWithoutPostsInput = {
+  connect?: Maybe<ImageWhereUniqueInput>;
+  connectOrCreate?: Maybe<ImageCreateOrConnectWithoutPostsInput>;
+  create?: Maybe<ImageCreateWithoutPostsInput>;
+  delete?: Maybe<Scalars['Boolean']>;
+  disconnect?: Maybe<Scalars['Boolean']>;
+  update?: Maybe<ImageUpdateWithoutPostsInput>;
+  upsert?: Maybe<ImageUpsertWithoutPostsInput>;
+};
+
 export type ImageUpdateWithoutCompetitionsInput = {
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  description?: Maybe<NullableStringFieldUpdateOperationsInput>;
+  posts?: Maybe<PostUpdateManyWithoutImageInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  url?: Maybe<StringFieldUpdateOperationsInput>;
+};
+
+export type ImageUpdateWithoutPostsInput = {
+  competitions?: Maybe<CompetitionUpdateManyWithoutDisplayImageInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   description?: Maybe<NullableStringFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
@@ -5824,6 +5884,11 @@ export type ImageUpsertWithoutCompetitionsInput = {
   update: ImageUpdateWithoutCompetitionsInput;
 };
 
+export type ImageUpsertWithoutPostsInput = {
+  create: ImageCreateWithoutPostsInput;
+  update: ImageUpdateWithoutPostsInput;
+};
+
 export type ImageWhereInput = {
   AND?: Maybe<Array<ImageWhereInput>>;
   NOT?: Maybe<Array<ImageWhereInput>>;
@@ -5832,6 +5897,7 @@ export type ImageWhereInput = {
   createdAt?: Maybe<DateTimeFilter>;
   description?: Maybe<StringNullableFilter>;
   id?: Maybe<IntFilter>;
+  posts?: Maybe<PostListRelationFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
   url?: Maybe<StringFilter>;
 };
@@ -5942,6 +6008,7 @@ export type Mutation = {
   createManyCountry: AffectedRowsOutput;
   createManyGrade: AffectedRowsOutput;
   createManyImage: AffectedRowsOutput;
+  createManyPost: AffectedRowsOutput;
   createManyRegion: AffectedRowsOutput;
   createManyRegistration: AffectedRowsOutput;
   createManyResult: AffectedRowsOutput;
@@ -5952,6 +6019,7 @@ export type Mutation = {
   createManySeason: AffectedRowsOutput;
   createManyStartList: AffectedRowsOutput;
   createManyUser: AffectedRowsOutput;
+  createPost: Post;
   createRegion: Region;
   createRegistration: Registration;
   createResult: Result;
@@ -5982,6 +6050,7 @@ export type Mutation = {
   deleteManyCountry: AffectedRowsOutput;
   deleteManyGrade: AffectedRowsOutput;
   deleteManyImage: AffectedRowsOutput;
+  deleteManyPost: AffectedRowsOutput;
   deleteManyRegion: AffectedRowsOutput;
   deleteManyRegistration: AffectedRowsOutput;
   deleteManyResult: AffectedRowsOutput;
@@ -5992,6 +6061,7 @@ export type Mutation = {
   deleteManySeason: AffectedRowsOutput;
   deleteManyStartList: AffectedRowsOutput;
   deleteManyUser: AffectedRowsOutput;
+  deletePost?: Maybe<Post>;
   deleteRegion?: Maybe<Region>;
   deleteRegistration?: Maybe<Registration>;
   deleteResult?: Maybe<Result>;
@@ -6027,6 +6097,7 @@ export type Mutation = {
   updateManyCountry: AffectedRowsOutput;
   updateManyGrade: AffectedRowsOutput;
   updateManyImage: AffectedRowsOutput;
+  updateManyPost: AffectedRowsOutput;
   updateManyRegion: AffectedRowsOutput;
   updateManyRegistration: AffectedRowsOutput;
   updateManyResult: AffectedRowsOutput;
@@ -6037,6 +6108,7 @@ export type Mutation = {
   updateManySeason: AffectedRowsOutput;
   updateManyStartList: AffectedRowsOutput;
   updateManyUser: AffectedRowsOutput;
+  updatePost?: Maybe<Post>;
   updateRegion?: Maybe<Region>;
   updateRegistration?: Maybe<Registration>;
   updateResult?: Maybe<Result>;
@@ -6057,6 +6129,7 @@ export type Mutation = {
   upsertCountry: Country;
   upsertGrade: Grade;
   upsertImage: Image;
+  upsertPost: Post;
   upsertRegion: Region;
   upsertRegistration: Registration;
   upsertResult: Result;
@@ -6159,6 +6232,11 @@ export type MutationCreateManyImageArgs = {
   skipDuplicates?: Maybe<Scalars['Boolean']>;
 };
 
+export type MutationCreateManyPostArgs = {
+  data: Array<PostCreateManyInput>;
+  skipDuplicates?: Maybe<Scalars['Boolean']>;
+};
+
 export type MutationCreateManyRegionArgs = {
   data: Array<RegionCreateManyInput>;
   skipDuplicates?: Maybe<Scalars['Boolean']>;
@@ -6207,6 +6285,10 @@ export type MutationCreateManyStartListArgs = {
 export type MutationCreateManyUserArgs = {
   data: Array<UserCreateManyInput>;
   skipDuplicates?: Maybe<Scalars['Boolean']>;
+};
+
+export type MutationCreatePostArgs = {
+  data: PostCreateInput;
 };
 
 export type MutationCreateRegionArgs = {
@@ -6329,6 +6411,10 @@ export type MutationDeleteManyImageArgs = {
   where?: Maybe<ImageWhereInput>;
 };
 
+export type MutationDeleteManyPostArgs = {
+  where?: Maybe<PostWhereInput>;
+};
+
 export type MutationDeleteManyRegionArgs = {
   where?: Maybe<RegionWhereInput>;
 };
@@ -6367,6 +6453,10 @@ export type MutationDeleteManyStartListArgs = {
 
 export type MutationDeleteManyUserArgs = {
   where?: Maybe<UserWhereInput>;
+};
+
+export type MutationDeletePostArgs = {
+  where: PostWhereUniqueInput;
 };
 
 export type MutationDeleteRegionArgs = {
@@ -6529,6 +6619,11 @@ export type MutationUpdateManyImageArgs = {
   where?: Maybe<ImageWhereInput>;
 };
 
+export type MutationUpdateManyPostArgs = {
+  data: PostUpdateManyMutationInput;
+  where?: Maybe<PostWhereInput>;
+};
+
 export type MutationUpdateManyRegionArgs = {
   data: RegionUpdateManyMutationInput;
   where?: Maybe<RegionWhereInput>;
@@ -6577,6 +6672,11 @@ export type MutationUpdateManyStartListArgs = {
 export type MutationUpdateManyUserArgs = {
   data: UserUpdateManyMutationInput;
   where?: Maybe<UserWhereInput>;
+};
+
+export type MutationUpdatePostArgs = {
+  data: PostUpdateInput;
+  where: PostWhereUniqueInput;
 };
 
 export type MutationUpdateRegionArgs = {
@@ -6687,6 +6787,12 @@ export type MutationUpsertImageArgs = {
   create: ImageCreateInput;
   update: ImageUpdateInput;
   where: ImageWhereUniqueInput;
+};
+
+export type MutationUpsertPostArgs = {
+  create: PostCreateInput;
+  update: PostUpdateInput;
+  where: PostWhereUniqueInput;
 };
 
 export type MutationUpsertRegionArgs = {
@@ -7034,6 +7140,390 @@ export type NullableStringFieldUpdateOperationsInput = {
   set?: Maybe<Scalars['String']>;
 };
 
+export type Post = {
+  __typename?: 'Post';
+  author?: Maybe<User>;
+  authorId?: Maybe<Scalars['Int']>;
+  content: Scalars['String'];
+  createdAt: Scalars['DateTime'];
+  id: Scalars['Int'];
+  image?: Maybe<Image>;
+  imageId?: Maybe<Scalars['Int']>;
+  title: Scalars['String'];
+  updatedAt: Scalars['DateTime'];
+};
+
+export type PostAvgAggregate = {
+  __typename?: 'PostAvgAggregate';
+  authorId?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  imageId?: Maybe<Scalars['Float']>;
+};
+
+export type PostAvgOrderByAggregateInput = {
+  authorId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  imageId?: Maybe<SortOrder>;
+};
+
+export type PostCountAggregate = {
+  __typename?: 'PostCountAggregate';
+  _all: Scalars['Int'];
+  authorId: Scalars['Int'];
+  content: Scalars['Int'];
+  createdAt: Scalars['Int'];
+  id: Scalars['Int'];
+  imageId: Scalars['Int'];
+  title: Scalars['Int'];
+  updatedAt: Scalars['Int'];
+};
+
+export type PostCountOrderByAggregateInput = {
+  authorId?: Maybe<SortOrder>;
+  content?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  imageId?: Maybe<SortOrder>;
+  title?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export type PostCreateInput = {
+  author?: Maybe<UserCreateNestedOneWithoutPostsInput>;
+  content: Scalars['String'];
+  createdAt?: Maybe<Scalars['DateTime']>;
+  image?: Maybe<ImageCreateNestedOneWithoutPostsInput>;
+  title: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type PostCreateManyAuthorInput = {
+  content: Scalars['String'];
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['Int']>;
+  imageId?: Maybe<Scalars['Int']>;
+  title: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type PostCreateManyAuthorInputEnvelope = {
+  data: Array<PostCreateManyAuthorInput>;
+  skipDuplicates?: Maybe<Scalars['Boolean']>;
+};
+
+export type PostCreateManyImageInput = {
+  authorId?: Maybe<Scalars['Int']>;
+  content: Scalars['String'];
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['Int']>;
+  title: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type PostCreateManyImageInputEnvelope = {
+  data: Array<PostCreateManyImageInput>;
+  skipDuplicates?: Maybe<Scalars['Boolean']>;
+};
+
+export type PostCreateManyInput = {
+  authorId?: Maybe<Scalars['Int']>;
+  content: Scalars['String'];
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['Int']>;
+  imageId?: Maybe<Scalars['Int']>;
+  title: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type PostCreateNestedManyWithoutAuthorInput = {
+  connect?: Maybe<Array<PostWhereUniqueInput>>;
+  connectOrCreate?: Maybe<Array<PostCreateOrConnectWithoutAuthorInput>>;
+  create?: Maybe<Array<PostCreateWithoutAuthorInput>>;
+  createMany?: Maybe<PostCreateManyAuthorInputEnvelope>;
+};
+
+export type PostCreateNestedManyWithoutImageInput = {
+  connect?: Maybe<Array<PostWhereUniqueInput>>;
+  connectOrCreate?: Maybe<Array<PostCreateOrConnectWithoutImageInput>>;
+  create?: Maybe<Array<PostCreateWithoutImageInput>>;
+  createMany?: Maybe<PostCreateManyImageInputEnvelope>;
+};
+
+export type PostCreateOrConnectWithoutAuthorInput = {
+  create: PostCreateWithoutAuthorInput;
+  where: PostWhereUniqueInput;
+};
+
+export type PostCreateOrConnectWithoutImageInput = {
+  create: PostCreateWithoutImageInput;
+  where: PostWhereUniqueInput;
+};
+
+export type PostCreateWithoutAuthorInput = {
+  content: Scalars['String'];
+  createdAt?: Maybe<Scalars['DateTime']>;
+  image?: Maybe<ImageCreateNestedOneWithoutPostsInput>;
+  title: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type PostCreateWithoutImageInput = {
+  author?: Maybe<UserCreateNestedOneWithoutPostsInput>;
+  content: Scalars['String'];
+  createdAt?: Maybe<Scalars['DateTime']>;
+  title: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type PostGroupBy = {
+  __typename?: 'PostGroupBy';
+  _avg?: Maybe<PostAvgAggregate>;
+  _count?: Maybe<PostCountAggregate>;
+  _max?: Maybe<PostMaxAggregate>;
+  _min?: Maybe<PostMinAggregate>;
+  _sum?: Maybe<PostSumAggregate>;
+  authorId?: Maybe<Scalars['Int']>;
+  content: Scalars['String'];
+  createdAt: Scalars['DateTime'];
+  id: Scalars['Int'];
+  imageId?: Maybe<Scalars['Int']>;
+  title: Scalars['String'];
+  updatedAt: Scalars['DateTime'];
+};
+
+export type PostListRelationFilter = {
+  every?: Maybe<PostWhereInput>;
+  none?: Maybe<PostWhereInput>;
+  some?: Maybe<PostWhereInput>;
+};
+
+export type PostMaxAggregate = {
+  __typename?: 'PostMaxAggregate';
+  authorId?: Maybe<Scalars['Int']>;
+  content?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['Int']>;
+  imageId?: Maybe<Scalars['Int']>;
+  title?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type PostMaxOrderByAggregateInput = {
+  authorId?: Maybe<SortOrder>;
+  content?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  imageId?: Maybe<SortOrder>;
+  title?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export type PostMinAggregate = {
+  __typename?: 'PostMinAggregate';
+  authorId?: Maybe<Scalars['Int']>;
+  content?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['Int']>;
+  imageId?: Maybe<Scalars['Int']>;
+  title?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type PostMinOrderByAggregateInput = {
+  authorId?: Maybe<SortOrder>;
+  content?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  imageId?: Maybe<SortOrder>;
+  title?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export type PostOrderByInput = {
+  authorId?: Maybe<SortOrder>;
+  content?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  imageId?: Maybe<SortOrder>;
+  title?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export type PostOrderByWithAggregationInput = {
+  _avg?: Maybe<PostAvgOrderByAggregateInput>;
+  _count?: Maybe<PostCountOrderByAggregateInput>;
+  _max?: Maybe<PostMaxOrderByAggregateInput>;
+  _min?: Maybe<PostMinOrderByAggregateInput>;
+  _sum?: Maybe<PostSumOrderByAggregateInput>;
+  authorId?: Maybe<SortOrder>;
+  content?: Maybe<SortOrder>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  imageId?: Maybe<SortOrder>;
+  title?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+};
+
+export enum PostScalarFieldEnum {
+  AuthorId = 'authorId',
+  Content = 'content',
+  CreatedAt = 'createdAt',
+  Id = 'id',
+  ImageId = 'imageId',
+  Title = 'title',
+  UpdatedAt = 'updatedAt',
+}
+
+export type PostScalarWhereInput = {
+  AND?: Maybe<Array<PostScalarWhereInput>>;
+  NOT?: Maybe<Array<PostScalarWhereInput>>;
+  OR?: Maybe<Array<PostScalarWhereInput>>;
+  authorId?: Maybe<IntNullableFilter>;
+  content?: Maybe<StringFilter>;
+  createdAt?: Maybe<DateTimeFilter>;
+  id?: Maybe<IntFilter>;
+  imageId?: Maybe<IntNullableFilter>;
+  title?: Maybe<StringFilter>;
+  updatedAt?: Maybe<DateTimeFilter>;
+};
+
+export type PostScalarWhereWithAggregatesInput = {
+  AND?: Maybe<Array<PostScalarWhereWithAggregatesInput>>;
+  NOT?: Maybe<Array<PostScalarWhereWithAggregatesInput>>;
+  OR?: Maybe<Array<PostScalarWhereWithAggregatesInput>>;
+  authorId?: Maybe<IntNullableWithAggregatesFilter>;
+  content?: Maybe<StringWithAggregatesFilter>;
+  createdAt?: Maybe<DateTimeWithAggregatesFilter>;
+  id?: Maybe<IntWithAggregatesFilter>;
+  imageId?: Maybe<IntNullableWithAggregatesFilter>;
+  title?: Maybe<StringWithAggregatesFilter>;
+  updatedAt?: Maybe<DateTimeWithAggregatesFilter>;
+};
+
+export type PostSumAggregate = {
+  __typename?: 'PostSumAggregate';
+  authorId?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  imageId?: Maybe<Scalars['Int']>;
+};
+
+export type PostSumOrderByAggregateInput = {
+  authorId?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  imageId?: Maybe<SortOrder>;
+};
+
+export type PostUpdateInput = {
+  author?: Maybe<UserUpdateOneWithoutPostsInput>;
+  content?: Maybe<StringFieldUpdateOperationsInput>;
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  image?: Maybe<ImageUpdateOneWithoutPostsInput>;
+  title?: Maybe<StringFieldUpdateOperationsInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type PostUpdateManyMutationInput = {
+  content?: Maybe<StringFieldUpdateOperationsInput>;
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  title?: Maybe<StringFieldUpdateOperationsInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type PostUpdateManyWithWhereWithoutAuthorInput = {
+  data: PostUpdateManyMutationInput;
+  where: PostScalarWhereInput;
+};
+
+export type PostUpdateManyWithWhereWithoutImageInput = {
+  data: PostUpdateManyMutationInput;
+  where: PostScalarWhereInput;
+};
+
+export type PostUpdateManyWithoutAuthorInput = {
+  connect?: Maybe<Array<PostWhereUniqueInput>>;
+  connectOrCreate?: Maybe<Array<PostCreateOrConnectWithoutAuthorInput>>;
+  create?: Maybe<Array<PostCreateWithoutAuthorInput>>;
+  createMany?: Maybe<PostCreateManyAuthorInputEnvelope>;
+  delete?: Maybe<Array<PostWhereUniqueInput>>;
+  deleteMany?: Maybe<Array<PostScalarWhereInput>>;
+  disconnect?: Maybe<Array<PostWhereUniqueInput>>;
+  set?: Maybe<Array<PostWhereUniqueInput>>;
+  update?: Maybe<Array<PostUpdateWithWhereUniqueWithoutAuthorInput>>;
+  updateMany?: Maybe<Array<PostUpdateManyWithWhereWithoutAuthorInput>>;
+  upsert?: Maybe<Array<PostUpsertWithWhereUniqueWithoutAuthorInput>>;
+};
+
+export type PostUpdateManyWithoutImageInput = {
+  connect?: Maybe<Array<PostWhereUniqueInput>>;
+  connectOrCreate?: Maybe<Array<PostCreateOrConnectWithoutImageInput>>;
+  create?: Maybe<Array<PostCreateWithoutImageInput>>;
+  createMany?: Maybe<PostCreateManyImageInputEnvelope>;
+  delete?: Maybe<Array<PostWhereUniqueInput>>;
+  deleteMany?: Maybe<Array<PostScalarWhereInput>>;
+  disconnect?: Maybe<Array<PostWhereUniqueInput>>;
+  set?: Maybe<Array<PostWhereUniqueInput>>;
+  update?: Maybe<Array<PostUpdateWithWhereUniqueWithoutImageInput>>;
+  updateMany?: Maybe<Array<PostUpdateManyWithWhereWithoutImageInput>>;
+  upsert?: Maybe<Array<PostUpsertWithWhereUniqueWithoutImageInput>>;
+};
+
+export type PostUpdateWithWhereUniqueWithoutAuthorInput = {
+  data: PostUpdateWithoutAuthorInput;
+  where: PostWhereUniqueInput;
+};
+
+export type PostUpdateWithWhereUniqueWithoutImageInput = {
+  data: PostUpdateWithoutImageInput;
+  where: PostWhereUniqueInput;
+};
+
+export type PostUpdateWithoutAuthorInput = {
+  content?: Maybe<StringFieldUpdateOperationsInput>;
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  image?: Maybe<ImageUpdateOneWithoutPostsInput>;
+  title?: Maybe<StringFieldUpdateOperationsInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type PostUpdateWithoutImageInput = {
+  author?: Maybe<UserUpdateOneWithoutPostsInput>;
+  content?: Maybe<StringFieldUpdateOperationsInput>;
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  title?: Maybe<StringFieldUpdateOperationsInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type PostUpsertWithWhereUniqueWithoutAuthorInput = {
+  create: PostCreateWithoutAuthorInput;
+  update: PostUpdateWithoutAuthorInput;
+  where: PostWhereUniqueInput;
+};
+
+export type PostUpsertWithWhereUniqueWithoutImageInput = {
+  create: PostCreateWithoutImageInput;
+  update: PostUpdateWithoutImageInput;
+  where: PostWhereUniqueInput;
+};
+
+export type PostWhereInput = {
+  AND?: Maybe<Array<PostWhereInput>>;
+  NOT?: Maybe<Array<PostWhereInput>>;
+  OR?: Maybe<Array<PostWhereInput>>;
+  author?: Maybe<UserRelationFilter>;
+  authorId?: Maybe<IntNullableFilter>;
+  content?: Maybe<StringFilter>;
+  createdAt?: Maybe<DateTimeFilter>;
+  id?: Maybe<IntFilter>;
+  image?: Maybe<ImageRelationFilter>;
+  imageId?: Maybe<IntNullableFilter>;
+  title?: Maybe<StringFilter>;
+  updatedAt?: Maybe<DateTimeFilter>;
+};
+
+export type PostWhereUniqueInput = {
+  id?: Maybe<Scalars['Int']>;
+};
+
 export type Query = {
   __typename?: 'Query';
   aggregateCategory: AggregateCategory;
@@ -7046,6 +7536,7 @@ export type Query = {
   aggregateCountry: AggregateCountry;
   aggregateGrade: AggregateGrade;
   aggregateImage: AggregateImage;
+  aggregatePost: AggregatePost;
   aggregateRegion: AggregateRegion;
   aggregateRegistration: AggregateRegistration;
   aggregateResult: AggregateResult;
@@ -7083,6 +7574,7 @@ export type Query = {
   findFirstCountry?: Maybe<Country>;
   findFirstGrade?: Maybe<Grade>;
   findFirstImage?: Maybe<Image>;
+  findFirstPost?: Maybe<Post>;
   findFirstRegion?: Maybe<Region>;
   findFirstRegistration?: Maybe<Registration>;
   findFirstResult?: Maybe<Result>;
@@ -7111,6 +7603,7 @@ export type Query = {
   groupByCountry: Array<CountryGroupBy>;
   groupByGrade: Array<GradeGroupBy>;
   groupByImage: Array<ImageGroupBy>;
+  groupByPost: Array<PostGroupBy>;
   groupByRegion: Array<RegionGroupBy>;
   groupByRegistration: Array<RegistrationGroupBy>;
   groupByResult: Array<ResultGroupBy>;
@@ -7123,6 +7616,8 @@ export type Query = {
   groupByUser: Array<UserGroupBy>;
   image?: Maybe<Image>;
   images: Array<Image>;
+  post?: Maybe<Post>;
+  posts: Array<Post>;
   region?: Maybe<Region>;
   regions: Array<Region>;
   registration?: Maybe<Registration>;
@@ -7223,6 +7718,14 @@ export type QueryAggregateImageArgs = {
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<ImageWhereInput>;
+};
+
+export type QueryAggregatePostArgs = {
+  cursor?: Maybe<PostWhereUniqueInput>;
+  orderBy?: Maybe<Array<PostOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<PostWhereInput>;
 };
 
 export type QueryAggregateRegionArgs = {
@@ -7499,6 +8002,15 @@ export type QueryFindFirstImageArgs = {
   where?: Maybe<ImageWhereInput>;
 };
 
+export type QueryFindFirstPostArgs = {
+  cursor?: Maybe<PostWhereUniqueInput>;
+  distinct?: Maybe<Array<PostScalarFieldEnum>>;
+  orderBy?: Maybe<Array<PostOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<PostWhereInput>;
+};
+
 export type QueryFindFirstRegionArgs = {
   cursor?: Maybe<RegionWhereUniqueInput>;
   distinct?: Maybe<Array<RegionScalarFieldEnum>>;
@@ -7712,6 +8224,15 @@ export type QueryGroupByImageArgs = {
   where?: Maybe<ImageWhereInput>;
 };
 
+export type QueryGroupByPostArgs = {
+  by: Array<PostScalarFieldEnum>;
+  having?: Maybe<PostScalarWhereWithAggregatesInput>;
+  orderBy?: Maybe<Array<PostOrderByWithAggregationInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<PostWhereInput>;
+};
+
 export type QueryGroupByRegionArgs = {
   by: Array<RegionScalarFieldEnum>;
   having?: Maybe<RegionScalarWhereWithAggregatesInput>;
@@ -7813,6 +8334,19 @@ export type QueryImagesArgs = {
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<ImageWhereInput>;
+};
+
+export type QueryPostArgs = {
+  where: PostWhereUniqueInput;
+};
+
+export type QueryPostsArgs = {
+  cursor?: Maybe<PostWhereUniqueInput>;
+  distinct?: Maybe<Array<PostScalarFieldEnum>>;
+  orderBy?: Maybe<Array<PostOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<PostWhereInput>;
 };
 
 export type QueryRegionArgs = {
@@ -12854,6 +13388,7 @@ export type User = {
   id: Scalars['Int'];
   lastName: Scalars['String'];
   password: Scalars['String'];
+  posts: Array<Post>;
   publicId: Scalars['String'];
   region?: Maybe<Region>;
   regionId?: Maybe<Scalars['Int']>;
@@ -12881,6 +13416,15 @@ export type UserCommentsArgs = {
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<CommentWhereInput>;
+};
+
+export type UserPostsArgs = {
+  cursor?: Maybe<PostWhereUniqueInput>;
+  distinct?: Maybe<Array<PostScalarFieldEnum>>;
+  orderBy?: Maybe<Array<PostOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<PostWhereInput>;
 };
 
 export type UserRegistrationsArgs = {
@@ -12976,6 +13520,7 @@ export type UserCreateInput = {
   firstName: Scalars['String'];
   lastName: Scalars['String'];
   password: Scalars['String'];
+  posts?: Maybe<PostCreateNestedManyWithoutAuthorInput>;
   publicId?: Maybe<Scalars['String']>;
   region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
@@ -13091,6 +13636,12 @@ export type UserCreateNestedOneWithoutCommentsInput = {
   create?: Maybe<UserCreateWithoutCommentsInput>;
 };
 
+export type UserCreateNestedOneWithoutPostsInput = {
+  connect?: Maybe<UserWhereUniqueInput>;
+  connectOrCreate?: Maybe<UserCreateOrConnectWithoutPostsInput>;
+  create?: Maybe<UserCreateWithoutPostsInput>;
+};
+
 export type UserCreateNestedOneWithoutRegistrationsInput = {
   connect?: Maybe<UserWhereUniqueInput>;
   connectOrCreate?: Maybe<UserCreateOrConnectWithoutRegistrationsInput>;
@@ -13135,6 +13686,11 @@ export type UserCreateOrConnectWithoutCountryInput = {
   where: UserWhereUniqueInput;
 };
 
+export type UserCreateOrConnectWithoutPostsInput = {
+  create: UserCreateWithoutPostsInput;
+  where: UserWhereUniqueInput;
+};
+
 export type UserCreateOrConnectWithoutRegionInput = {
   create: UserCreateWithoutRegionInput;
   where: UserWhereUniqueInput;
@@ -13169,6 +13725,7 @@ export type UserCreateWithoutAcceptancesInput = {
   firstName: Scalars['String'];
   lastName: Scalars['String'];
   password: Scalars['String'];
+  posts?: Maybe<PostCreateNestedManyWithoutAuthorInput>;
   publicId?: Maybe<Scalars['String']>;
   region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
@@ -13188,6 +13745,7 @@ export type UserCreateWithoutClubInput = {
   firstName: Scalars['String'];
   lastName: Scalars['String'];
   password: Scalars['String'];
+  posts?: Maybe<PostCreateNestedManyWithoutAuthorInput>;
   publicId?: Maybe<Scalars['String']>;
   region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
@@ -13207,6 +13765,7 @@ export type UserCreateWithoutCommentsInput = {
   firstName: Scalars['String'];
   lastName: Scalars['String'];
   password: Scalars['String'];
+  posts?: Maybe<PostCreateNestedManyWithoutAuthorInput>;
   publicId?: Maybe<Scalars['String']>;
   region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
@@ -13221,6 +13780,27 @@ export type UserCreateWithoutCountryInput = {
   acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
   club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
   comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  email: Scalars['String'];
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  password: Scalars['String'];
+  posts?: Maybe<PostCreateNestedManyWithoutAuthorInput>;
+  publicId?: Maybe<Scalars['String']>;
+  region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
+  registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
+  results?: Maybe<ResultCreateNestedManyWithoutApprovedByInput>;
+  role?: Maybe<UserRole>;
+  routesJudged?: Maybe<RouteCreateNestedManyWithoutJudgeInput>;
+  routesSet?: Maybe<RouteCreateNestedManyWithoutSetterInput>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type UserCreateWithoutPostsInput = {
+  acceptances?: Maybe<RegistrationCreateNestedManyWithoutAcceptorInput>;
+  club?: Maybe<ClubCreateNestedOneWithoutUsersInput>;
+  comments?: Maybe<CommentCreateNestedManyWithoutUserInput>;
+  country?: Maybe<CountryCreateNestedOneWithoutUsersInput>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   firstName: Scalars['String'];
@@ -13246,6 +13826,7 @@ export type UserCreateWithoutRegionInput = {
   firstName: Scalars['String'];
   lastName: Scalars['String'];
   password: Scalars['String'];
+  posts?: Maybe<PostCreateNestedManyWithoutAuthorInput>;
   publicId?: Maybe<Scalars['String']>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
   results?: Maybe<ResultCreateNestedManyWithoutApprovedByInput>;
@@ -13265,6 +13846,7 @@ export type UserCreateWithoutRegistrationsInput = {
   firstName: Scalars['String'];
   lastName: Scalars['String'];
   password: Scalars['String'];
+  posts?: Maybe<PostCreateNestedManyWithoutAuthorInput>;
   publicId?: Maybe<Scalars['String']>;
   region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   results?: Maybe<ResultCreateNestedManyWithoutApprovedByInput>;
@@ -13284,6 +13866,7 @@ export type UserCreateWithoutResultsInput = {
   firstName: Scalars['String'];
   lastName: Scalars['String'];
   password: Scalars['String'];
+  posts?: Maybe<PostCreateNestedManyWithoutAuthorInput>;
   publicId?: Maybe<Scalars['String']>;
   region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
@@ -13303,6 +13886,7 @@ export type UserCreateWithoutRoutesJudgedInput = {
   firstName: Scalars['String'];
   lastName: Scalars['String'];
   password: Scalars['String'];
+  posts?: Maybe<PostCreateNestedManyWithoutAuthorInput>;
   publicId?: Maybe<Scalars['String']>;
   region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
@@ -13322,6 +13906,7 @@ export type UserCreateWithoutRoutesSetInput = {
   firstName: Scalars['String'];
   lastName: Scalars['String'];
   password: Scalars['String'];
+  posts?: Maybe<PostCreateNestedManyWithoutAuthorInput>;
   publicId?: Maybe<Scalars['String']>;
   region?: Maybe<RegionCreateNestedOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationCreateNestedManyWithoutRegistrantInput>;
@@ -13549,6 +14134,7 @@ export type UserUpdateInput = {
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
+  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
@@ -13677,6 +14263,16 @@ export type UserUpdateOneWithoutCommentsInput = {
   upsert?: Maybe<UserUpsertWithoutCommentsInput>;
 };
 
+export type UserUpdateOneWithoutPostsInput = {
+  connect?: Maybe<UserWhereUniqueInput>;
+  connectOrCreate?: Maybe<UserCreateOrConnectWithoutPostsInput>;
+  create?: Maybe<UserCreateWithoutPostsInput>;
+  delete?: Maybe<Scalars['Boolean']>;
+  disconnect?: Maybe<Scalars['Boolean']>;
+  update?: Maybe<UserUpdateWithoutPostsInput>;
+  upsert?: Maybe<UserUpsertWithoutPostsInput>;
+};
+
 export type UserUpdateWithWhereUniqueWithoutClubInput = {
   data: UserUpdateWithoutClubInput;
   where: UserWhereUniqueInput;
@@ -13701,6 +14297,7 @@ export type UserUpdateWithoutAcceptancesInput = {
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
+  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
@@ -13720,6 +14317,7 @@ export type UserUpdateWithoutClubInput = {
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
+  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
@@ -13739,6 +14337,7 @@ export type UserUpdateWithoutCommentsInput = {
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
+  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
@@ -13753,6 +14352,27 @@ export type UserUpdateWithoutCountryInput = {
   acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
   club?: Maybe<ClubUpdateOneWithoutUsersInput>;
   comments?: Maybe<CommentUpdateManyWithoutUserInput>;
+  createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  email?: Maybe<StringFieldUpdateOperationsInput>;
+  firstName?: Maybe<StringFieldUpdateOperationsInput>;
+  lastName?: Maybe<StringFieldUpdateOperationsInput>;
+  password?: Maybe<StringFieldUpdateOperationsInput>;
+  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
+  publicId?: Maybe<StringFieldUpdateOperationsInput>;
+  region?: Maybe<RegionUpdateOneWithoutUsersInput>;
+  registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
+  results?: Maybe<ResultUpdateManyWithoutApprovedByInput>;
+  role?: Maybe<EnumUserRoleFieldUpdateOperationsInput>;
+  routesJudged?: Maybe<RouteUpdateManyWithoutJudgeInput>;
+  routesSet?: Maybe<RouteUpdateManyWithoutSetterInput>;
+  updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type UserUpdateWithoutPostsInput = {
+  acceptances?: Maybe<RegistrationUpdateManyWithoutAcceptorInput>;
+  club?: Maybe<ClubUpdateOneWithoutUsersInput>;
+  comments?: Maybe<CommentUpdateManyWithoutUserInput>;
+  country?: Maybe<CountryUpdateOneWithoutUsersInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   email?: Maybe<StringFieldUpdateOperationsInput>;
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
@@ -13778,6 +14398,7 @@ export type UserUpdateWithoutRegionInput = {
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
+  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
   results?: Maybe<ResultUpdateManyWithoutApprovedByInput>;
@@ -13797,6 +14418,7 @@ export type UserUpdateWithoutRegistrationsInput = {
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
+  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   results?: Maybe<ResultUpdateManyWithoutApprovedByInput>;
@@ -13816,6 +14438,7 @@ export type UserUpdateWithoutResultsInput = {
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
+  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
@@ -13835,6 +14458,7 @@ export type UserUpdateWithoutRoutesJudgedInput = {
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
+  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
@@ -13854,6 +14478,7 @@ export type UserUpdateWithoutRoutesSetInput = {
   firstName?: Maybe<StringFieldUpdateOperationsInput>;
   lastName?: Maybe<StringFieldUpdateOperationsInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
+  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
   publicId?: Maybe<StringFieldUpdateOperationsInput>;
   region?: Maybe<RegionUpdateOneWithoutUsersInput>;
   registrations?: Maybe<RegistrationUpdateManyWithoutRegistrantInput>;
@@ -13889,6 +14514,11 @@ export type UserUpsertWithoutAcceptancesInput = {
 export type UserUpsertWithoutCommentsInput = {
   create: UserCreateWithoutCommentsInput;
   update: UserUpdateWithoutCommentsInput;
+};
+
+export type UserUpsertWithoutPostsInput = {
+  create: UserCreateWithoutPostsInput;
+  update: UserUpdateWithoutPostsInput;
 };
 
 export type UserUpsertWithoutRegistrationsInput = {
@@ -13927,6 +14557,7 @@ export type UserWhereInput = {
   id?: Maybe<IntFilter>;
   lastName?: Maybe<StringFilter>;
   password?: Maybe<StringFilter>;
+  posts?: Maybe<PostListRelationFilter>;
   publicId?: Maybe<StringFilter>;
   region?: Maybe<RegionRelationFilter>;
   regionId?: Maybe<IntNullableFilter>;

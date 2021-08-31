@@ -7,6 +7,7 @@ import { LIST_USERS } from '../../apollo/queries';
 import { getUserColumns, parseUsers, UserRow } from '../../utils';
 import { UserModal } from '../../components';
 import { ModalType } from '../../types';
+import { TABLE_PAGINATION_CONFIG } from '../../constants';
 
 const Users: FC = () => {
   const [user, setUser] = useState<UserRow>();
@@ -42,6 +43,7 @@ const Users: FC = () => {
         columns={getUserColumns(setEditMode)}
         dataSource={parseUsers(data?.users)}
         loading={loading}
+        pagination={TABLE_PAGINATION_CONFIG}
       />
 
       {/* User modal */}
