@@ -1,26 +1,32 @@
 # database
 
-### setup database
+## Setup
+
+Set environment variables:
+
+```bash
+touch .env
 ```
-psql postgres
+
+Start docker container:
+
+```bash
+docker-compose up -d
 ```
-### create database
-```
-CREATE DATABASE climbcompdb;
-```
-### create test user
-```
-CREATE USER climbcomp WITH PASSWORD 'password';
-```
-### grant user connect permission
-```
-GRANT CONNECT ON DATABASE climbcompdb TO climbcomp;
-```
-### grant user all permissions
-```
-GRANT ALL PRIVILEGES ON DATABASE climbcompdb to climbcomp;
-```
-### grant CREATEDB (needed for prisma shadow database)
-```
-ALTER USER climbcomp CREATEDB;
+
+### Optional
+
+Populate database with test data.
+
+Map `imports` folder to docker container by adding the following to `docker-compose.yml`:
+
+```yaml
+volumes:
+  - ./imports:/imports
+````
+
+Run the populate script:
+
+```bash
+docker compose exec postgres /imports/populate.sh
 ```
