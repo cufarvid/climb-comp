@@ -1,13 +1,12 @@
 #!/bin/bash
-host="localhost"
-username="climbcomp"
-database="climbcompdb"
+username="user"
 password="password"
+database="climbcompdb"
 
 # Truncating tables
 echo "Truncating tables"
 
-PGPASSWORD=$password psql -h $host -U $username -d $database -f truncate.sql
+PGPASSWORD=$password psql -U $username -d $database -f truncate.sql
 
 echo "Truncating completed"
 
@@ -41,7 +40,7 @@ echo "Populating tables"
 
 for path in ${importPaths[@]}; do
   echo $path
-  PGPASSWORD=$password psql -h $host -U $username -d $database -f $path
+  PGPASSWORD=$password psql -U $username -d $database -f $path
 done
 
 echo "Populating completed"
