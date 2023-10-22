@@ -1,0 +1,10 @@
+INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (1, '2023-10-20 00:00:00.000', '2023-10-20 00:00:00.000', 1001, 100, 1);
+INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (3, '2023-10-20 00:00:00.000', '2023-10-20 00:00:00.000', 1003, 100, 3);
+INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (7, '2023-10-20 00:00:00.000', '2023-10-20 00:00:00.000', 1007, 100, 7);
+INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (9, '2023-10-20 00:00:00.000', '2023-10-20 00:00:00.000', 1009, 100, 9);
+INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (5, '2023-10-20 00:00:00.000', '2023-10-20 00:00:00.000', 1005, 100, 5);
+INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (4, '2023-10-20 00:00:00.000', '2023-10-20 00:00:00.000', 1004, 100, 4);
+INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (2, '2023-10-20 00:00:00.000', '2023-10-20 00:00:00.000', 1002, 100, 2);
+INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (8, '2023-10-20 00:00:00.000', '2023-10-20 00:00:00.000', 1008, 100, 8);
+INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (10, '2023-10-20 00:00:00.000', '2023-10-20 00:00:00.000', 1010, 100, 10);
+INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (6, '2023-10-20 00:00:00.000', '2023-10-20 00:00:00.000', 1006, 100, 6);

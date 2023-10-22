@@ -1,9 +1,0 @@
-INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (4, '2021-04-18 13:25:42.127', '2021-04-18 13:25:42.128', 1001, 2, 1);
-INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (3, '2021-04-18 13:25:28.615', '2021-04-18 13:25:28.616', 1002, 2, 2);
-INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (2, '2021-04-18 13:20:16.144', '2021-04-18 13:20:16.145', 1001, 1, 2);
-INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (1, '2021-04-18 13:19:31.768', '2021-04-18 13:19:31.769', 1002, 1, 1);
-INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (5, '2021-04-18 13:29:38.292', '2021-04-18 13:29:38.293', 1001, 2, 1);
-INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (6, '2021-06-07 16:56:35.463', '2021-06-07 18:56:03.000', 1001, 3, 1);
-INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (7, '2021-06-07 16:56:35.463', '2021-06-07 18:56:17.000', 1002, 3, 2);
-INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (8, '2021-06-07 16:56:35.463', '2021-06-07 18:56:27.000', 1003, 3, 3);
-INSERT INTO public."StartList" (id, "createdAt", "updatedAt", "startNumber", "competitionId", "competitorId") VALUES (9, '2021-06-10 15:02:28.171', '2021-06-10 17:02:15.000', 1003, 1, 3);

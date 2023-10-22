@@ -14,6 +14,7 @@ Add environment variables to `.env` file:
 
 ```bash
 DATABASE_URL=postgres://user:password@localhost:5432/climbcompdb?schema=public
+JWT_SECRET=your-secret
 ```
 
 Apply database migrations:
