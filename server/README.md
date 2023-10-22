@@ -34,5 +34,5 @@ yarn typegen
 Start server:
 
 ```bash
-yarn dev
+yarn start
 ```

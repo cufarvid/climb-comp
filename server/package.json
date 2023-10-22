@@ -4,7 +4,8 @@
   "description": "",
   "main": "",
   "scripts": {
-    "dev": "ts-node-dev --no-notify --respawn --transpile-only src/index.ts",
+    "start": "ts-node-dev --no-notify --respawn --transpile-only src/index.ts",
+    "debug": "ts-node-dev --no-notify --respawn --transpile-only --inspect=4001 src/index.ts",
     "typegen": "graphql-codegen --config codegen.yml && npx prisma generate && prettier --write ./../client/src/types/__generated__/index.ts"
   },
   "keywords": [],
