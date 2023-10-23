@@ -11,20 +11,22 @@ import {
 } from '../types/__generated__';
 import { LiveResult, PageSection } from '../components';
 import { useCategories, useCompsYearly } from '../hooks';
-import { formatDate } from '../utils';
+import { formatDate, getCompetitionYears } from '../utils';
 import { COMP_RESULTS } from '../apollo/queries';
 
-const YEAR_DATA = [2021, 2020];
+const CURRENT_YEAR = new Date().getFullYear();
 
 const Results: FC = () => {
   const [competition, setCompetition] = useState<Competition>();
-  const [year, setYear] = useState(YEAR_DATA[0]);
+  const [year, setYear] = useState(CURRENT_YEAR);
   const [category, setCategory] = useState<Category>();
   const [results, setResults] = useState<ResultField[]>([]);
 
   // Get competition & category data from custom hooks
   const { categories } = useCategories();
   const { compsYearly } = useCompsYearly();
+
+  const yearData = getCompetitionYears(compsYearly);
 
   const [getResults, { loading }] = useLazyQuery<
     Query,
@@ -85,7 +87,7 @@ const Results: FC = () => {
               onChange={handleYearChange}
               placeholder="Year"
             >
-              {YEAR_DATA.map((year) => (
+              {yearData.map((year) => (
                 <Select.Option key={year} value={year}>
                   {year}
                 </Select.Option>

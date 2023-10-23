@@ -1,9 +1,9 @@
+import { ApolloClient } from '@apollo/client';
+import dayjs from 'dayjs';
 import { History } from 'history';
 import { COLOR, FORMAT, REGEXP } from '../constants';
-import { ColorVariant } from '../types';
-import { ApolloClient } from '@apollo/client';
+import { ColorVariant, DictionaryOf } from '../types';
 import { isLoggedInVar, loggedUserInfo } from '../apollo/cache';
-import dayjs from 'dayjs';
 import { User } from '../types/__generated__';
 
 /**
@@ -112,6 +112,15 @@ export const formatDateTime = (
   value: Date | string,
   format = FORMAT.DATE_TIME,
 ): string => dayjs(value).format(format);
+
+/**
+ * Returns competition years from dictionary of competitions
+ * @param dict Dictionary of competitions
+ */
+export const getCompetitionYears = (dict: DictionaryOf<unknown>) =>
+  Object.keys(dict)
+    .map((key) => +key)
+    .reverse();
 
 /**
  * Return jwt token stored in local storage
