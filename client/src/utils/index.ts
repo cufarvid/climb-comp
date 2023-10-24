@@ -117,7 +117,7 @@ export const formatDateTime = (
  * Returns competition years from dictionary of competitions
  * @param dict Dictionary of competitions
  */
-export const getCompetitionYears = (dict: DictionaryOf<unknown>) =>
+export const getCompetitionYears = (dict: DictionaryOf<unknown>): number[] =>
   Object.keys(dict)
     .map((key) => +key)
     .reverse();
